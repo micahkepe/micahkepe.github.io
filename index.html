@@ -9,58 +9,60 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="nav-toggle">&#9776;</div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">Your Name</a>
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <section id="home">
+  <section id="home" class="hero">
     <div class="container">
-      <h1>Welcome to My Personal Website</h1>
-      <p>I am a software developer passionate about creating awesome applications.</p>
+      <h1 class="hero__title">Hi, I'm Your Name</h1>
+      <p class="hero__subtitle">A Software Developer</p>
+      <a href="#contact" class="btn">Get In Touch</a>
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="about">
     <div class="container">
-      <h2>About Me</h2>
-      <p>I have a strong background in programming and love to solve complex problems. With years of experience, I have
-        developed expertise in various programming languages and frameworks.</p>
+      <h2 class="section__title">About Me</h2>
+      <p class="section__text">I have a strong passion for coding and creating amazing software solutions.</p>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="projects">
     <div class="container">
-      <h2>Projects</h2>
+      <h2 class="section__title">Projects</h2>
       <div class="project">
-        <h3>Project 1</h3>
-        <p>Description of project 1.</p>
+        <h3 class="project__title">Project 1</h3>
+        <p class="project__description">Description of project 1.</p>
       </div>
       <div class="project">
-        <h3>Project 2</h3>
-        <p>Description of project 2.</p>
+        <h3 class="project__title">Project 2</h3>
+        <p class="project__description">Description of project 2.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="contact">
     <div class="container">
-      <h2>Contact Me</h2>
-      <p>If you would like to get in touch, feel free to send me an email at <a
-          href="mailto:yourname@example.com">yourname@example.com</a>.</p>
+      <h2 class="section__title">Contact Me</h2>
+      <p class="section__text">Feel free to reach out to me for any inquiries or collaboration opportunities.</p>
+      <a href="mailto:yourname@example.com" class="btn">Email Me</a>
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p>&copy; 2023 My Personal Website. All rights reserved.</p>
+      <p class="footer__text">&copy; 2023 Your Name. All rights reserved.</p>
     </div>
   </footer>
 
