@@ -1,0 +1,21 @@
+name: Proselint Action
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  proselint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install proselint
+        run: pip install proselint
+
+      - name: Run proselint
+        run: proselint **/*.md
+
