@@ -1,24 +1,43 @@
+body {
+    background-color: rgb(16, 23, 42);
+    color: white;
+  }
+
 .layout {
     display: flex;
   }
   
   .left-column {
-    flex: 0 0 25%;
+    width: 25%;
     padding: 20px;
-    background-color: #f0f0f0;
-    /* Add other styles for the left column */
+    margin-right: 20px; /* Add a margin to the right side */
   }
   
   .right-column {
     flex-grow: 1;
     padding: 20px;
-    /* Add other styles for the right column */
+    margin-left: 20px; /* Add a margin to the left side */
   }
   
   .right-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* Add other styles for the right content */
   }
   
+  .right-section {
+    /* Add styles for each right section */
+  }
+  
+  /* Media query for window width less than or equal to a certain value */
+@media (max-width: 768px) {
+    .layout {
+      flex-direction: column; /* Display components in a single column */
+    }
+  
+    .left-column,
+    .right-column {
+      width: 100%;
+      margin: 0; /* Remove margins */
+    }
+  }
