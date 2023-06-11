@@ -1,0 +1,16 @@
+.toggle-section {
+  /* CSS rules for toggle-section */
+}
+
+.section-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+.section-name {
+  color: white;
+  font-style: italic;
+}

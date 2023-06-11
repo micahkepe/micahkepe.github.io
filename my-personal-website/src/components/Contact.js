@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section id="contact">
       <h2>Contact</h2>
-      Add the content for the Contact section
+      <div className="section-placeholder"></div>
     </section>
   );
 };

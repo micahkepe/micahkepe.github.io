@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section id="about">
       <h2>About</h2>
-      Add the content for the About section
+      <div className="section-placeholder"></div>
     </section>
   );
 };

@@ -1,35 +1,43 @@
 body {
     background-color: rgb(16, 23, 42);
     color: white;
+    font-family: 'Inter', sans-serif;
   }
 
 .layout {
     display: flex;
   }
   
-  .left-column {
+.left-column {
     width: 25%;
     padding: 20px;
     margin-right: 20px; /* Add a margin to the right side */
-  }
+}
   
-  .right-column {
+.right-column {
     flex-grow: 1;
     padding: 20px;
     margin-left: 20px; /* Add a margin to the left side */
-  }
+    overflow-y: auto; /* Add scrollbars to the right column */
+    height: calc(100vh - 40px); /* Set the height of the right column */
+}
   
-  .right-content {
+.right-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
+}
   
-  .right-section {
+.right-section {
     /* Add styles for each right section */
-  }
+}
   
-  /* Media query for window width less than or equal to a certain value */
+.section-placeholder {
+    height: 400px; /* Adjust the height as desired */
+    background-color: white;
+}
+  
+/* Media query for window width less than or equal to a certain value */
 @media (max-width: 768px) {
     .layout {
       flex-direction: column; /* Display components in a single column */
