@@ -1,0 +1,17 @@
+.socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    fill: white;
+    background-color: transparent;
+  }
+  
+  
+  
