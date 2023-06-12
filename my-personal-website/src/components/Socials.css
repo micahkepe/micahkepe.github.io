@@ -1,17 +1,15 @@
 .socials {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 20px;
   }
   
   .social-icon {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
-    fill: white;
-    background-color: transparent;
+    fill: "#8392a7";
   }
-  
-  
   
