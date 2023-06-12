@@ -5,11 +5,13 @@ body {
     margin: 0; /* Remove default body margin */
     overflow: hidden; /* Hide default body scrollbar */
   }
+
+    /* Add more CSS rules as needed */
   
   .layout {
     display: flex;
     overflow: hidden;
-    /* margin: 40px; */
+    margin: 40px;
   }
   
 .left-column {
