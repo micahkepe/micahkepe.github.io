@@ -1,7 +1,9 @@
+/* Styles for the toggle section container */
 .toggle-section {
   /* CSS rules for toggle-section */
 }
 
+/* Styles for each section item */
 .section-item {
   display: flex;
   align-items: center;
@@ -9,7 +11,7 @@
   cursor: pointer;
 }
 
-
+/* Styles for section names */
 .section-name {
   color: white;
   font-style: italic;

@@ -1,15 +1,16 @@
+/* Styles for the socials container */
 .socials {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .social-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
-    cursor: pointer;
-    fill: "#8392a7";
-  }
-  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Styles for social icons */
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  fill: "#8392a7";
+}

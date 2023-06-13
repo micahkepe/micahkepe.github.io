@@ -2,34 +2,41 @@ import React from 'react';
 import GithubLogo from '../icons/GithubLogo';
 import LinkedinLogo from '../icons/LinkedinLogo';
 import InstagramLogo from '../icons/InstagramLogo';
-import './Socials.css'
+import './Socials.css';
+
+const socialLinks = [
+  {
+    href: 'https://github.com/micahkepe',
+    logo: <GithubLogo className="social-icon" />,
+  },
+  {
+    href: 'https://www.linkedin.com/in/micah-kepe/',
+    logo: <LinkedinLogo className="social-icon" />,
+  },
+  {
+    href: 'https://www.instagram.com/micahkepe/',
+    logo: <InstagramLogo className="social-icon" />,
+  },
+];
 
 const Socials = () => {
   return (
     <div className="socials">
-      <a
-        href="https://github.com/micahkepe"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <GithubLogo className="social-icon" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/micah-kepe/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <LinkedinLogo className="social-icon" />
-      </a>
-      <a
-        href="https://www.instagram.com/micahkepe/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <InstagramLogo className="social-icon" />
-      </a>
+      {/* Render social links */}
+      {socialLinks.map((link, index) => (
+        <a
+          key={index}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link.logo}
+        </a>
+      ))}
     </div>
   );
 };
 
 export default Socials;
+
+
