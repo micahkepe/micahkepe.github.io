@@ -1,0 +1,15 @@
+/* Footer.css */
+
+.footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 150px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-text {
+    font-size: 16px;
+  }
+  
