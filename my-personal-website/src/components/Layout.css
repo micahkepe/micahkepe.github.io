@@ -1,39 +1,38 @@
 /* Global styles */
-body {
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
   background-color: rgb(16, 23, 42);
   color: white;
   font-family: 'Inter', sans-serif;
-  margin: 0; /* Remove default body margin */
-  overflow: hidden; /* Hide default body scrollbar */
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 /* Container for the layout */
 .layout {
   display: flex;
-  overflow: hidden;
-  margin: 40px;
+  flex-grow: 1;
 }
 
-/* Styles for the left column */
 .left-column {
   width: 25%;
   padding: 20px;
-  position: sticky;
-  top: 0;
-  height: 100%; /* Set the height of the left column to 100% */
-  overflow: auto; /* Add scrollbars to the left column */
+  height: 100%;
 }
 
-/* Styles for the right column */
 .right-column {
   flex-grow: 1;
   padding: 20px;
   margin-left: 20px;
-  overflow-y: auto;
-  height: calc(100vh - 40px); /* Adjusted the height calculation to account for the margins */
 }
 
-/* Styles for the content within the right column */
 .right-content {
   display: flex;
   flex-direction: column;
@@ -51,15 +50,22 @@ body {
   background-color: white;
 }
 
-/* Media query for window width less than or equal to a certain value */
+/* When the screen is at least 769px wide */
+@media (min-width: 769px) {
+  .left-column {
+    position: sticky; /* Makes the left column sticky */
+    top: 0; /* Aligns the left column with the top of the layout */
+  }
+}
+
+/* When the screen is 768px wide or less */
 @media (max-width: 768px) {
   .layout {
-    flex-direction: column; /* Display components in a single column */
+    flex-direction: column; /* Switch the layout to a single column */
   }
-
   .left-column,
   .right-column {
-    width: 100%;
+    width: 100%; /* Make columns full-width */
     margin: 0; /* Remove margins */
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Element } from 'react-scroll';
 import QuickAbout from './QuickAbout';
 import Socials from './Socials';
 import ToggleSection from './ToggleSection';
@@ -7,6 +8,7 @@ import sectionConfig from './sectionConfig';
 import './Layout.css';
 
 const Layout = () => {
+  const sections = ['About', 'Experience', 'Projects', 'Contact'];
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleResize = useCallback(() => {
@@ -21,12 +23,15 @@ const Layout = () => {
     };
   }, [handleResize]);
 
-  const renderSections = () =>
-    Object.entries(sectionConfig).map(([section, Component], index) => (
+  const renderSections = () => {
+    return sectionConfig.map((Component, index) => (
       <div key={index} className="right-section">
-        <Component />
+        <Element name={sections[index]}>
+          <Component />
+        </Element>
       </div>
     ));
+  };
 
   return (
     <div className="layout">
@@ -44,3 +49,4 @@ const Layout = () => {
 };
 
 export default Layout;
+
