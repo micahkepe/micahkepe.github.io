@@ -45,7 +45,9 @@ const Layout = () => {
         <QuickAbout id="quick-about" />
         {/* Render ToggleSection component only if window width is greater than 768px */}
         {windowWidth > 768 && <ToggleSection sections={sections} />}
-        <Socials />
+        <div>
+          <Socials />
+        </div>
       </div>
       <div className="right-column">
         <div className="right-content">{renderSections()}</div>

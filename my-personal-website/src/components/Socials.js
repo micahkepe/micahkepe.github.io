@@ -21,7 +21,7 @@ const socialLinks = [
 
 const Socials = () => {
   return (
-    <div className="socials">
+    <div className="socials border-solid">
       {/* Render social links */}
       {socialLinks.map((link, index) => (
         <a
