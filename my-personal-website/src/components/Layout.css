@@ -50,6 +50,7 @@ body, html {
   background-color: white;
 }
 
+
 /* When the screen is at least 769px wide */
 @media (min-width: 769px) {
   .left-column {

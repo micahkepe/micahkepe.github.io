@@ -1,34 +1,40 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Element } from 'react-scroll';
+import React, { useState, useEffect } from 'react';
 import QuickAbout from './QuickAbout';
 import Socials from './Socials';
+import About from './About';
+import Experience from './Experience';
+import Projects from './Projects';
+import Contact from './Contact';
 import ToggleSection from './ToggleSection';
 import Footer from './Footer';
-import sectionConfig from './sectionConfig';
 import './Layout.css';
 
 const Layout = () => {
   const sections = ['About', 'Experience', 'Projects', 'Contact'];
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const handleResize = useCallback(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
   useEffect(() => {
+    // Event listener for window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     window.addEventListener('resize', handleResize);
 
     return () => {
+      // Clean up the event listener on component unmount
       window.removeEventListener('resize', handleResize);
     };
-  }, [handleResize]);
+  }, []);
 
   const renderSections = () => {
-    return sectionConfig.map((Component, index) => (
-      <div key={index} className="right-section">
-        <Element name={sections[index]}>
-          <Component />
-        </Element>
+    return sections.map((section) => (
+      <div key={section} className="right-section" id={section}>
+        {/* Render the corresponding section based on the section name */}
+        {section === 'About' && <About />}
+        {section === 'Experience' && <Experience />}
+        {section === 'Projects' && <Projects />}
+        {section === 'Contact' && <Contact />}
       </div>
     ));
   };
@@ -36,8 +42,9 @@ const Layout = () => {
   return (
     <div className="layout">
       <div className="left-column">
-        <QuickAbout />
-        {windowWidth > 768 && <ToggleSection sections={Object.keys(sectionConfig)} />}
+        <QuickAbout id="quick-about" />
+        {/* Render ToggleSection component only if window width is greater than 768px */}
+        {windowWidth > 768 && <ToggleSection sections={sections} />}
         <Socials />
       </div>
       <div className="right-column">
@@ -49,4 +56,3 @@ const Layout = () => {
 };
 
 export default Layout;
-

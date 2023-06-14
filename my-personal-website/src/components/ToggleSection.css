@@ -16,3 +16,7 @@
   color: white;
   font-style: italic;
 }
+
+.section-item:hover > .section-name {
+  font-weight: bold;
+}

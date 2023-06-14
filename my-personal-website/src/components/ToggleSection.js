@@ -1,30 +1,28 @@
 import React from 'react';
 import './ToggleSection.css';
-import { useCallback } from 'react';
 
 const ToggleSection = ({ sections }) => {
-  const handleSectionClick = useCallback((section) => {
-    const element = document.getElementById(section.toLowerCase());
-    const rightColumn = document.querySelector('.right-column');
-    const leftColumn = document.querySelector('.left-column');
-  
-    if (element && rightColumn && leftColumn) {
-      const leftColumnOffsetTop = leftColumn.offsetTop;
-      const scrollToPosition = element.offsetTop - leftColumnOffsetTop - 35;
-  
-      rightColumn.scrollTo({
-        top: scrollToPosition,
+  const handleSectionClick = (section) => {
+    const sectionElement = document.getElementById(section);
+    const quickAbout = document.getElementById('quick-about');
+
+    if (sectionElement && quickAbout) {
+      const quickAboutHeight = quickAbout.getBoundingClientRect().height;
+      const sectionPosition = sectionElement.getBoundingClientRect().top;
+
+      window.scrollTo({
+        top: sectionPosition - quickAboutHeight,
         behavior: 'smooth',
       });
     }
-  }, []);
+  };
 
   return (
     <div className="toggle-section">
       {/* Render toggleable sections */}
-      {sections.map((section, index) => (
+      {sections.map((section) => (
         <div
-          key={index}
+          key={section}
           className="section-item"
           onClick={() => handleSectionClick(section)}
         >
@@ -36,4 +34,3 @@ const ToggleSection = ({ sections }) => {
 };
 
 export default ToggleSection;
-
