@@ -7,7 +7,7 @@ const Footer = () => {
       <p>
         Website created by Micah Kepe
       <br></br> 
-      Inspired by <a href="https://brittanychiang.com" style={ {color: "white"}}>Brittany Chiang</a> 
+      Inspired by <a href="https://brittanychiang.com" target="_blank" style={ {color: "white"}} rel="noreferrer">Brittany Chiang</a> 
       </p>
     </div>
   );
