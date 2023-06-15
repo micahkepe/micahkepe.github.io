@@ -81,7 +81,7 @@ const ToggleSection = ({ sections }) => {
           ></div>
           <span
             className={`${
-              hoveredSection === section ? "font-bold italic" : "italic"
+              hoveredSection === section ? "font-bold" : ""
             }`}
           >
             ⸻ {section.toUpperCase()}
