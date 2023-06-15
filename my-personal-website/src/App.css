@@ -2,7 +2,6 @@ body,
 html {
   height: 100%;
   margin: 0;
-  overflow: hidden;
   background-color: rgb(16, 23, 42);
   color: white;
   font-family: "Inter", sans-serif;
@@ -10,7 +9,6 @@ html {
 
 .app {
   height: 100%;
-  overflow: auto;
 }
 
 .app-content {
