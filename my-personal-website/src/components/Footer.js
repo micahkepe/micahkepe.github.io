@@ -18,7 +18,33 @@ const Footer = () => {
           </a>
         </p>
         <p className="mt-2 italic text-sm">
-          Made with React, Node.js, and Tailwind CSS
+          Made with{" "}
+          <a
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noreferrer"
+            className="no-underline hover:text-green"
+          >
+            React
+          </a>
+          ,{" "}
+          <a
+            href="https://nodejs.org/en"
+            target="_blank"
+            rel="noreferrer"
+            className="no-underline hover:text-green"
+          >
+            Node.js
+          </a>
+          , and{" "}
+          <a
+            href="https://tailwindcss.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="no-underline hover:text-green"
+          >
+            Tailwind CSS
+          </a>
         </p>
       </div>
     </div>

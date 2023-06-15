@@ -28,7 +28,7 @@ const Layout = () => {
 
   const renderSections = () => {
     return sections.map((section) => (
-      <div key={section} className="flex flex-col gap-5" id={section}>
+      <div key={section} className="font-bold text-lg flex flex-col gap-5" id={section}>
         {section === "About" && <About />}
         {section === "Experience" && <Experience />}
         {section === "Projects" && <Projects />}

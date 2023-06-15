@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         'slate': "#8892b0",
+        'green': "#64ffda",
       },
     },
     plugins: [],
