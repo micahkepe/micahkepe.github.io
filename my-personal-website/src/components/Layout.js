@@ -40,8 +40,8 @@ const Layout = () => {
   };
 
   return (
-    <div className="h-full lg:flex overflow-x-hidden">
-      <div className="lg:w-1/4 lg:h-screen overflow-y-auto lg:sticky top-0 p-5">
+    <div className="h-full lg:flex lg:justify-between overflow-x-hidden">
+      <div className="lg:w-1/3 lg:h-screen overflow-y-auto lg:fixed top-0 p-5 mt-8 ml-2">
         <QuickAbout id="quick-about" />
         {/* Render ToggleSection component only if window width is greater than 768px */}
         {windowWidth > 768 && <ToggleSection sections={sections} />}
@@ -49,7 +49,7 @@ const Layout = () => {
           <Socials />
         </div>
       </div>
-      <div className="flex flex-col overflow-y-auto lg:w-3/4 p-5">
+      <div className="flex flex-col overflow-y-auto lg:w-2/3 p-5 lg:ml-auto">
         <div className="flex flex-col gap-5">{renderSections()}</div>
         <Footer />
       </div>
@@ -58,3 +58,5 @@ const Layout = () => {
 };
 
 export default Layout;
+
+
