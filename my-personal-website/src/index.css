@@ -7,18 +7,19 @@
   font-style: normal;
 }
 
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body {
+body, html {
+  @apply bg-[#10172A] text-white overflow-y-auto font-inter;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  @apply h-full flex flex-col overflow-y-auto;
 }
 
 code {

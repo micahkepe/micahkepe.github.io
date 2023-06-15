@@ -1,15 +1,25 @@
 import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer flex justify-end items-center h-20 m-7 text-white font-inter">
       <div>
-      <p>
-        Website created by Micah Kepe
-      <br></br> 
-      Inspired by <a href="https://brittanychiang.com" target="_blank" style={ {color: "white"}} rel="noreferrer" className='no-underline hover:underline'>Brittany Chiang</a> 
-      </p>
+        <p>
+          Website created by Micah Kepe
+          <br />
+          Inspired by{' '}
+          <a
+            href="https://brittanychiang.com"
+            target="_blank"
+            rel="noreferrer"
+            className="no-underline hover:underline"
+          >
+            Brittany Chiang
+          </a>
+        </p>
+        <p className="mt-2 italic text-sm">
+          Made with React, Node.js, and Tailwind CSS
+          </p>
       </div>
     </div>
   );

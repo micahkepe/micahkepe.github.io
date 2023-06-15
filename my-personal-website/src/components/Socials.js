@@ -2,7 +2,6 @@ import React from 'react';
 import GithubLogo from '../icons/GithubLogo';
 import LinkedinLogo from '../icons/LinkedinLogo';
 import InstagramLogo from '../icons/InstagramLogo';
-import './Socials.css';
 
 const socialLinks = [
   {
@@ -20,8 +19,16 @@ const socialLinks = [
 ];
 
 const Socials = () => {
+  const handleHover = (event) => {
+    event.target.style.fill = 'white';
+  };
+
+  const handleHoverExit = (event) => {
+    event.target.style.fill = '';
+  };
+
   return (
-    <div className="socials border-solid">
+    <div className="socials flex mt-5">
       {/* Render social links */}
       {socialLinks.map((link, index) => (
         <a
@@ -29,8 +36,13 @@ const Socials = () => {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center justify-center w-6 h-6 mr-6"
         >
-          {link.logo}
+          {React.cloneElement(link.logo, {
+            className: 'w-full h-full fill-current',
+            onMouseEnter: handleHover,
+            onMouseLeave: handleHoverExit,
+          })}
         </a>
       ))}
     </div>
@@ -38,5 +50,7 @@ const Socials = () => {
 };
 
 export default Socials;
+
+
 
 

@@ -6,7 +6,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
+    },
+    spacing: {
+      '1/4': '25%',
+      '3/4': '75%',
     },
   },
   plugins: [],
