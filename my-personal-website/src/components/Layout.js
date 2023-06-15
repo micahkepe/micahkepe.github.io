@@ -43,7 +43,7 @@ const Layout = () => {
       <div className="lg:w-1/4 lg:h-screen overflow-y-auto lg:sticky top-0 p-5">
         <QuickAbout id="quick-about" />
         {/* Render ToggleSection component only if window width is greater than 768px */}
-        {windowWidth > 768 && <ToggleSection sections={sections} />}
+        {windowWidth > 768 && <ToggleSection sections={sections}/>}
         <div>
           <Socials />
         </div>

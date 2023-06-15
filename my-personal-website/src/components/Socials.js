@@ -2,55 +2,35 @@ import React from 'react';
 import GithubLogo from '../icons/GithubLogo';
 import LinkedinLogo from '../icons/LinkedinLogo';
 import InstagramLogo from '../icons/InstagramLogo';
-
-const socialLinks = [
-  {
-    href: 'https://github.com/micahkepe',
-    logo: <GithubLogo className="social-icon" />,
-  },
-  {
-    href: 'https://www.linkedin.com/in/micah-kepe/',
-    logo: <LinkedinLogo className="social-icon" />,
-  },
-  {
-    href: 'https://www.instagram.com/micahkepe/',
-    logo: <InstagramLogo className="social-icon" />,
-  },
-];
+import './Socials.css';
 
 const Socials = () => {
-  const handleHover = (event) => {
-    event.target.style.fill = 'white';
-  };
-
-  const handleHoverExit = (event) => {
-    event.target.style.fill = '';
-  };
+  const socialsLinks = [
+    {
+      icon: <GithubLogo />,
+      link: 'https://github.com/micahkepe'
+    },
+    {
+      icon: <InstagramLogo />,
+      link: 'https://www.instagram.com/micahkepe'
+    },
+    {
+      icon: <LinkedinLogo />,
+      link: 'https://www.linkedin.com/in/micah-kepe/'
+    },
+  ];
 
   return (
-    <div className="socials flex mt-5">
-      {/* Render social links */}
-      {socialLinks.map((link, index) => (
-        <a
-          key={index}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-6 h-6 mr-6"
-        >
-          {React.cloneElement(link.logo, {
-            className: 'w-full h-full fill-current',
-            onMouseEnter: handleHover,
-            onMouseLeave: handleHoverExit,
-          })}
-        </a>
+    <div className="socials mt-4">
+      {socialsLinks.map((socialLink, index) => (
+        <div key={index} className="social-icon-container">
+          <a href={socialLink.link} target="_blank" rel="noreferrer">
+            {socialLink.icon}
+          </a>
+        </div>
       ))}
     </div>
   );
-};
+}
 
 export default Socials;
-
-
-
-
