@@ -3,7 +3,7 @@ import React from "react";
 const QuickAbout = () => {
   return (
     <section className="quick-about">
-      <h1 className="font-sans font-bold text-4xl mb-6 underline decoration-sky-500 flex items-center">
+      <h1 className="font-sans font-bold text-5xl mb-5 underline decoration-sky-500 flex items-center">
         <span className="mr-2">Micah Kepe</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ const QuickAbout = () => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-8 h-8"
         >
           <path
             strokeLinecap="round"
@@ -20,7 +20,7 @@ const QuickAbout = () => {
           />
         </svg>
       </h1>
-      <p className="font-bold text-lg">
+      <p className="font-bold text-lg mb-4">
         Computer Science Student at&nbsp;
         <a
           href="https://www.niche.com/colleges/rice-university/"
