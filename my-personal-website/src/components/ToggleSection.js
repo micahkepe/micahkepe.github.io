@@ -35,14 +35,14 @@
 
 // export default ToggleSection;
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ToggleSection = ({ sections }) => {
   const [hoveredSection, setHoveredSection] = useState(null);
 
   const handleSectionClick = (section) => {
     const sectionElement = document.getElementById(section);
-    const quickAbout = document.getElementById('quick-about');
+    const quickAbout = document.getElementById("quick-about");
 
     if (sectionElement && quickAbout) {
       const quickAboutHeight = quickAbout.getBoundingClientRect().height;
@@ -50,7 +50,7 @@ const ToggleSection = ({ sections }) => {
 
       window.scrollTo({
         top: sectionPosition - quickAboutHeight,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -76,11 +76,15 @@ const ToggleSection = ({ sections }) => {
         >
           <div
             className={`h-1 w-8 bg-skyblue mr-2 transition-all duration-300 ${
-              hoveredSection === section ? 'font-bold italic' : ''
+              hoveredSection === section ? "font-bold italic" : ""
             }`}
           ></div>
-          <span className={`${hoveredSection === section ? 'font-bold italic' : 'italic'}`}>
-          ⸻ {section.toUpperCase()}
+          <span
+            className={`${
+              hoveredSection === section ? "font-bold italic" : "italic"
+            }`}
+          >
+            ⸻ {section.toUpperCase()}
           </span>
         </div>
       ))}
@@ -89,8 +93,3 @@ const ToggleSection = ({ sections }) => {
 };
 
 export default ToggleSection;
-
-
-
-
-

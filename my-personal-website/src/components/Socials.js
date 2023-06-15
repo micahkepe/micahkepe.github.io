@@ -1,22 +1,22 @@
-import React from 'react';
-import GithubLogo from '../icons/GithubLogo';
-import LinkedinLogo from '../icons/LinkedinLogo';
-import InstagramLogo from '../icons/InstagramLogo';
-import './Socials.css';
+import React from "react";
+import GithubLogo from "../icons/GithubLogo";
+import LinkedinLogo from "../icons/LinkedinLogo";
+import InstagramLogo from "../icons/InstagramLogo";
+import "./Socials.css";
 
 const Socials = () => {
   const socialsLinks = [
     {
       icon: <GithubLogo />,
-      link: 'https://github.com/micahkepe'
+      link: "https://github.com/micahkepe",
     },
     {
       icon: <InstagramLogo />,
-      link: 'https://www.instagram.com/micahkepe'
+      link: "https://www.instagram.com/micahkepe",
     },
     {
       icon: <LinkedinLogo />,
-      link: 'https://www.linkedin.com/in/micah-kepe/'
+      link: "https://www.linkedin.com/in/micah-kepe/",
     },
   ];
 
@@ -31,6 +31,6 @@ const Socials = () => {
       ))}
     </div>
   );
-}
+};
 
 export default Socials;

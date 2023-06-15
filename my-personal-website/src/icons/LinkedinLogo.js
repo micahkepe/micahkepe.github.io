@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const LinkedinLogo = ({ fill }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill={fill} viewBox="0 0 455 455">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill={fill}
+    viewBox="0 0 455 455"
+  >
     <path
       fillRule="evenodd"
       d="M246.4 204.35v-.665c-.136.223-.324.446-.442.665h.442z"

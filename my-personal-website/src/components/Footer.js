@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <p>
           Website created by Micah Kepe
           <br />
-          Inspired by{' '}
+          Inspired by{" "}
           <a
             href="https://brittanychiang.com"
             target="_blank"
@@ -19,7 +19,7 @@ const Footer = () => {
         </p>
         <p className="mt-2 italic text-sm">
           Made with React, Node.js, and Tailwind CSS
-          </p>
+        </p>
       </div>
     </div>
   );
