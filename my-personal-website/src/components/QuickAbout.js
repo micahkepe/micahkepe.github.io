@@ -21,7 +21,7 @@ const QuickAbout = () => {
           />
         </svg>
       </h1>
-      <p className="font-bold text-lg mb-4">
+      <p className=" font-semibold text-lg mb-4">
         Computer Science Student at&nbsp;
         <a
           href="https://www.niche.com/colleges/rice-university/"
