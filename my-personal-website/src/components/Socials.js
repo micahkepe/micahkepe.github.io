@@ -12,7 +12,7 @@ const Socials = () => {
     },
     {
       icon: <InstagramLogo />,
-      link: "https://www.instagram.com/micahkepe",
+      link: "https://www.instagram.com/micahkepe/",
     },
     {
       icon: <LinkedinLogo />,
@@ -21,7 +21,7 @@ const Socials = () => {
   ];
 
   return (
-    <div className="socials mt-4">
+    <div className="socials mt-4 pl-3 pt-1">
       {socialsLinks.map((socialLink, index) => (
         <div key={index} className="social-icon-container">
           <a href={socialLink.link} target="_blank" rel="noreferrer">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer flex justify-end items-center h-20 m-7 text-white font-inter">
+    <div className="footer flex justify-end items-center h-20 m-7 text-slate font-inter">
       <div>
         <p>
           Website created by Micah Kepe
@@ -12,7 +12,7 @@ const Footer = () => {
             href="https://brittanychiang.com"
             target="_blank"
             rel="noreferrer"
-            className="no-underline hover:underline"
+            className="no-underline hover:underline hover:text-white"
           >
             Brittany Chiang
           </a>

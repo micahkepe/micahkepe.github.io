@@ -20,7 +20,7 @@ const Experience = () => {
           </svg>
         </div>
         </div>
-        
+
       </div>
     </section>
   );
