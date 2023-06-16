@@ -37,7 +37,7 @@ const Layout = () => {
         {section === "Experience" && <Experience />}
         {section === "Projects" && <Projects />}
         {section === "Contact" && <Contact />}
-        <div className="bg-white h-[400px] mt-5"></div>
+        {/* <div className="bg-white h-[400px] mt-5"></div> */}
       </div>
     ));
   };
