@@ -3,7 +3,7 @@ import React from "react";
 const QuickAbout = () => {
   return (
     <section className="quick-about">
-      <h1 className="font-sans font-bold text-5xl mb-5 underline decoration-sky-500 flex items-center">
+      <h1 className="font-sans font-bold text-5xl mb-5 flex items-center tracking-tighter">
         <span className="mr-2">Micah Kepe</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
