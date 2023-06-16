@@ -1,21 +1,10 @@
 import React, { useState } from "react";
 
-const ToggleSection = ({ sections }) => {
+const ToggleSection = ({ sections, sectionRefs }) => {
   const [hoveredSection, setHoveredSection] = useState(null);
 
   const handleSectionClick = (section) => {
-    const sectionElement = document.getElementById(section);
-    const quickAbout = document.getElementById("quick-about");
-
-    if (sectionElement && quickAbout) {
-      const quickAboutHeight = quickAbout.getBoundingClientRect().height;
-      const sectionPosition = sectionElement.getBoundingClientRect().top;
-
-      window.scrollTo({
-        top: sectionPosition - quickAboutHeight,
-        behavior: "smooth",
-      });
-    }
+    sectionRefs[section].current.scrollIntoView({ behavior: 'smooth'});
   };
 
   const handleSectionMouseEnter = (section) => {
@@ -28,7 +17,6 @@ const ToggleSection = ({ sections }) => {
 
   return (
     <div className="flex flex-col">
-      {/* Render toggleable sections */}
       {sections.map((section) => (
         <div
           key={section}
@@ -56,3 +44,5 @@ const ToggleSection = ({ sections }) => {
 };
 
 export default ToggleSection;
+
+
