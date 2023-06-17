@@ -1,17 +1,18 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('../public/fonts/Inter-Regular.otf') format('woff'),
-       url('../public/fonts/Inter-Bold.otf') format('woff');
+  font-family: "Inter";
+  src: url("../public/fonts/Inter-Regular.otf") format("woff"),
+    url("../public/fonts/Inter-Bold.otf") format("woff");
   /* Add additional font weights and styles here if needed */
   font-weight: normal;
   font-style: normal;
 }
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-body, html {
+body,
+html {
   @apply bg-[#10172A] text-white overflow-y-auto font-inter;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +23,12 @@ body, html {
   @apply h-full flex flex-col overflow-y-auto;
 }
 
+#rocket-portal {
+  @apply absolute;
+  position: relative;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
