@@ -1,12 +1,37 @@
 import React from "react";
+import ProjectComponent from "./ProjectComponent";
 
 const Projects = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
+
+  const projects = [
+    {
+      image: "/personal-website.png", // path to the image
+      title: "Personal Website",
+      description:
+        "Developed a personal website using React, Node,js, and Tailwind CSS to showcase my skills and projects.",
+      link: ["https://github.com/micahkepe/micahkepe.github.io"],
+      skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+    },
+    {
+      image: "/personal-assistant.png", // path to the image
+      title: "Custom Voice Assistant",
+      description:
+        "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
+      link: ["https://github.com/micahkepe/custom_assistant2.0"],
+      skills: ["Python", "OpenAI API", "ElevenLabs API"],
+    },
+    // Add more projects here
+  ];
+
   return (
     <section id="projects">
       <div className={`projects-content ${paddingClass}`}>
         <div className="section-placeholder"></div>
-        <div className="bg-white h-[400px] mt-5"></div>
+        {/* <div className="bg-white h-[400px] mt-5"></div> */}
+        {projects.map((project, index) => (
+          <ProjectComponent key={index} {...project} />
+        ))}
 
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">

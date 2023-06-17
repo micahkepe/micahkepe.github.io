@@ -34,7 +34,7 @@ const Layout = () => {
     return sections.map((section) => (
       <div
         key={section}
-        className="font-bold text-lg flex flex-col gap-5"
+        className="font-bold text-lg flex flex-col gap-5 mb-9"
         ref={sectionRefs[section]}
       >
         {/* Conditionally render section header */}
