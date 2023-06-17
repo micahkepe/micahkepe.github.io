@@ -21,7 +21,13 @@ const Projects = ({ windowWidth }) => {
       link: ["https://github.com/micahkepe/custom_assistant2.0"],
       skills: ["Python", "OpenAI API", "ElevenLabs API"],
     },
-    // Add more projects here
+    {
+      image: "/handwritten-digits.png", // path to the image
+      title: "Handwritten Digit Recognition",
+      description: "Developed a handwritten digit recognition model using Python and the MNIST dataset. The model was trained using a convolutional neural network (CNN) and achieved an accuracy of 99.2%.",
+      link: "https://github.com/micahkepe/handwritten_digits_recognition",
+      skills: ["Python", "TensorFlow", "Keras", "MNIST Dataset"],
+    },
   ];
 
   return (
