@@ -9,15 +9,40 @@ const About = ({ windowWidth }) => {
       >
         <br />
         <p className="indent-8">
-          I am a computer science student at Rice University, where I am
-          pursuing a Bachelor of Science in Computer Science with a Minor in
-          Data Science. Since I was a child, I have loved puzzles and solving
-          problems, and the world of computer science offers a vast amount of
-          novel solutions for the problems of today and the future. It is my
-          hope that with the technical skills I learn from Rice, alongside my
-          drive to constantly push myself outside my limits, that I can create
-          meaningful and impactful work that will help address issues in our
-          increasingly interconnected world.
+          I am a computer science student at{" "}
+          <a
+            href="https://www.niche.com/colleges/rice-university/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-white hover:text-green"
+          >
+            Rice University
+          </a>
+          , where I am pursuing a Bachelor of Science in{" "}
+          <a
+            href="https://csweb.rice.edu/"
+            target="_blank"
+            rel="noreferrer"
+            className=" text-white hover:text-green"
+          >
+            Computer Science{" "}
+          </a>
+          with a Minor in{" "}
+          <a
+            href="https://ga.rice.edu/programs-study/departments-programs/engineering/data-science/data-science-minor/"
+            target="_blank"
+            rel="noreferrer"
+            className=" text-white hover:text-green"
+          >
+            Data Science
+          </a>
+          . Since I was a child, I have loved puzzles and solving problems, and
+          the world of computer science offers a vast amount of novel solutions
+          for the problems of today and the future. It is my hope that with the
+          technical skills I learn from Rice, alongside my drive to constantly
+          push myself outside my limits, that I can create meaningful and
+          impactful work that will help address issues in our increasingly
+          interconnected world.
         </p>
         <br />
         <p className="indent-8">
