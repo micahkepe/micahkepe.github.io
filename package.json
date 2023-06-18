@@ -17,9 +17,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:css": "tailwind build src/styles.css -o dist/styles.css",
+    "build:css": "tailwind build -i src/index.css -o dist/styles.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build && npm run build:css",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +44,7 @@
   "devDependencies": {
     "@svgr/cli": "^8.0.1",
     "@tailwindcss/typography": "^0.5.9",
+    "gh-pages": "^5.0.0",
     "tailwindcss": "^3.3.2"
   }
 }
