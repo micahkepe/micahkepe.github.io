@@ -22,7 +22,6 @@ html {
   background-color: white;
   width: 20vmax;
   height: 20vmax;
-  /* aspect-ratio: 1; */
   position: absolute;
   left: 50%;
   top: 50%;
@@ -32,6 +31,7 @@ html {
   animation: rotate 20s infinite;
   opacity: 0.6;
   filter: blur(24vmax);
+  pointer-events: none;
 }
 
 @keyframes rotate {
