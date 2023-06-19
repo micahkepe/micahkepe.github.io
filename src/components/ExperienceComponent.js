@@ -48,9 +48,7 @@ const ExperienceComponent = ({
           </svg>
         </a>
       </h4>
-      <p className="mt-1 font-thin text-sm text-slate mt-4 mb-4">
-        {description}
-      </p>
+      <p className="font-thin text-sm text-slate mt-4 mb-4">{description}</p>
       <div>
         {skills.map((skill) => (
           <button

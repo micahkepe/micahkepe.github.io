@@ -7,7 +7,7 @@ const Experience = ({ windowWidth }) => {
   const experiences = [
     {
       date: "Jun 2023 - Present",
-      logo: "/king-energy-logo.png", // replace with logo 
+      logo: "/king-energy-logo.png", // replace with logo
       title: "Software Development Intern | King Energy",
       description:
         "Building internal admin tool with user friendly UI to allow for more efficient document classification and management. Additionally, use of machine learning to automate document classification.",
