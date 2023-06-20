@@ -12,9 +12,9 @@ module.exports = {
         "3/4": "75%",
       },
       colors: {
-        'slate': "#8892b0",
-        'green': "#64ffda",
-        'teal': {
+        slate: "#8892b0",
+        green: "#64ffda",
+        teal: {
           300: "#5eead4",
           400: "#2dd4bf",
           500: "#14b8a6",
@@ -24,6 +24,6 @@ module.exports = {
         },
       },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
   },
 };
