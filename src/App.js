@@ -1,21 +1,3 @@
-// import React from "react";
-// import Layout from "./components/Layout";
-// import "./App.css";
-
-// function App() {
-//   return (
-//     <div className="app">
-//       <div id="blob"></div>
-//       <div id="blur"></div>
-//       <div className="app-content">
-//         <Layout />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useEffect, useRef } from "react";
 import Layout from "./components/Layout";
 import "./App.css";
