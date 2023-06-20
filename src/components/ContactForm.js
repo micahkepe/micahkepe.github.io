@@ -24,7 +24,7 @@ export default function ContactForm() {
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Feel free to reach me via email or LinkedIn. You can also send me
-              a message using the contact form below.
+              a message using the contact form.
             </p>
             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
               <div className="flex gap-x-4">
