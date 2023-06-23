@@ -1,0 +1,21 @@
+name: Write-Good Action
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  write-good:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install write-good
+        run: npm install write-good -g
+
+      - name: Run write-good
+        run: write-good --no-passive **/*.md
+
