@@ -12,10 +12,9 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-	
+
       - name: Install shellcheck
         run: sudo apt-get update && sudo apt-get install -y shellcheck
 
       - name: Run Shellcheck
         run: shellcheck *.sh
-
