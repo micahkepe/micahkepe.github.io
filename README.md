@@ -1,5 +1,4 @@
 # micahkepe.github.io
-***Under construction!*** 👷
 
 This is the repository for my personal website built using React. The website is currently under construction and is being developed to showcase my portfolio and provide information about me.
 
