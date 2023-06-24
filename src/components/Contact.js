@@ -19,7 +19,7 @@ const Contact = ({ windowWidth }) => {
               />
             </dt>
             <dd>
-              <a className="hover:text-white" href="mailto:micahkepe@gmail.com">
+              <a className="hover:text-white hover:underline decoration-green" href="mailto:micahkepe@gmail.com">
                 micahkepe@gmail.com
               </a>
             </dd>
@@ -34,7 +34,7 @@ const Contact = ({ windowWidth }) => {
                 href="https://www.linkedin.com/in/micah-kepe/"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-white"
+                className="hover:text-white hover:underline decoration-green"
               >
                 Connect with me on LinkedIn!
               </a>
