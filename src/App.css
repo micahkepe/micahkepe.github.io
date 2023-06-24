@@ -34,6 +34,16 @@ html {
   pointer-events: none;
 }
 
+.rocket {
+  height: 30px;
+  width: 30px;
+  font-size: 30px; /* for emoji */
+}
+
+.quick-about {
+  overflow: hidden;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -41,4 +51,10 @@ html {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes path {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(15px, -15px); } /* adjust here for how far you want the rocket to go */
+  100% { transform: translate(0, 0); }
 }
