@@ -40,6 +40,15 @@ html {
   font-size: 30px; /* for emoji */
 }
 
+.smoke {
+  position: absolute;
+  background: rgba(255, 223, 0, 0.2);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: smokeFade 0.5s forwards;
+}
+
 .quick-about {
   overflow: hidden;
 }
@@ -54,7 +63,24 @@ html {
 }
 
 @keyframes path {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(15px, -15px); } /* adjust here for how far you want the rocket to go */
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  } /* adjust here for how far you want the rocket to go */
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes smokeFade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
 }

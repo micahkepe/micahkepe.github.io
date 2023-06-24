@@ -12,9 +12,26 @@ const QuickAbout = () => {
     void rocketRef.current.offsetWidth;
     rocketRef.current.style.animation = "path 2s";
 
+    const smokeInterval = setInterval(createSmoke, 100); // create smoke every 100ms
+
     setTimeout(() => {
       setIsAnimating(false); // set the flag to false when the animation ends
+      clearInterval(smokeInterval); // stop creating smoke when the animation ends
     }, 2000); // 2000ms = 5s (the duration of your animation)
+  };
+
+  const createSmoke = () => {
+    const smoke = document.createElement("div");
+    smoke.className = "smoke";
+    const rect = rocketRef.current.getBoundingClientRect();
+    smoke.style.left = `${rect.left - smoke.offsetWidth - 2}px`;
+    smoke.style.top = `${rect.top + rocketRef.current.offsetHeight - 7}px`;
+    document.body.appendChild(smoke);
+
+    // remove the smoke element after the animation ends
+    setTimeout(() => {
+      document.body.removeChild(smoke);
+    }, 500); // 500ms = 0.5s (the duration of the smokeFade animation)
   };
 
   return (
@@ -22,7 +39,7 @@ const QuickAbout = () => {
       <div className="quick-about-content">
         <h1 className="font-sans font-bold text-5xl mb-5 flex items-center tracking-tighter">
           <span className="mr-2">Micah Kepe</span>
-          <div 
+          <div
             ref={rocketRef}
             className="rocket w-8 h-8"
             onMouseMove={animateRocket}
