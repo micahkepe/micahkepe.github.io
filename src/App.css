@@ -1,3 +1,8 @@
+html {
+  font-size: calc(1vw + 1vh + .5vmin);
+  font-size: min(calc(1vw + 1vh + .5vmin), 16px);
+}
+
 body,
 html {
   height: 100%;
@@ -10,10 +15,11 @@ html {
 
 .app {
   height: 100%;
+  overflow-x: hidden;
 }
 
 .app-content {
-  padding: 40px;
+  padding: 2.5rem;
   z-index: 3;
   position: relative;
 }
@@ -35,16 +41,16 @@ html {
 }
 
 .rocket {
-  height: 30px;
-  width: 30px;
-  font-size: 30px; /* for emoji */
+  height: 1.875rem;
+  width: 1.875rem;
+  font-size: 1.875rem; /* for emoji */
 }
 
 .smoke {
   position: absolute;
   background: rgba(255, 223, 0, 0.2);
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
   animation: smokeFade 0.5s forwards;
 }
@@ -67,7 +73,7 @@ html {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(10px, -10px);
+    transform: translate(0.1875rem, -0.1875rem);
   } /* adjust here for how far you want the rocket to go */
   100% {
     transform: translate(0, 0);

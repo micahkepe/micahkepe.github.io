@@ -38,7 +38,7 @@ const QuickAbout = () => {
     <section className="quick-about pt-5">
       <div className="quick-about-content">
         <h1 className="font-sans font-bold text-5xl mb-5 flex items-center tracking-tighter">
-          <span className="mr-2">Micah Kepe</span>
+          <span className="mr-2 flex-shrink-0">Micah Kepe</span>
           <div
             ref={rocketRef}
             className="rocket w-8 h-8"
