@@ -90,3 +90,8 @@ html {
     transform: scale(2);
   }
 }
+
+/* New styles for the owl cursor */
+.owl-cursor:hover {
+  cursor: url('/public/owlSprite.gif') 20 40, auto;
+}
