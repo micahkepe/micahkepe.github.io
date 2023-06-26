@@ -15,7 +15,7 @@ const ProjectComponent = ({ image, title, description, link, skills }) => {
       }
     >
       <h4 className="text-base font-semibold hover:text-green">
-      <a
+        <a
           href={link}
           target="_blank"
           rel="noreferrer"

@@ -6,7 +6,7 @@ const Projects = ({ windowWidth }) => {
 
   const projects = [
     {
-      image: "/personal-website.png", // path to the image
+      image: "/personal-website.png",
       title: "Personal Website",
       description:
         "Developed a personal website using React, Node,js, and Tailwind CSS to showcase my skills and projects.",
@@ -14,7 +14,7 @@ const Projects = ({ windowWidth }) => {
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
     {
-      image: "/personal-assistant.png", // path to the image
+      image: "/personal-assistant.png",
       title: "Custom Voice Assistant",
       description:
         "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
@@ -22,9 +22,10 @@ const Projects = ({ windowWidth }) => {
       skills: ["Python", "OpenAI API", "ElevenLabs API"],
     },
     {
-      image: "/handwritten-digits.png", // path to the image
+      image: "/handwritten-digits.png",
       title: "Handwritten Digit Recognition",
-      description: "Developed a handwritten digit recognition model using Python and the MNIST dataset. The model was trained using a convolutional neural network (CNN) and achieved an accuracy of 97.2%.",
+      description:
+        "Developed a handwritten digit recognition model using Python and the MNIST dataset. The model was trained using a convolutional neural network (CNN) and achieved an accuracy of 97.2%.",
       link: "https://github.com/micahkepe/handwritten_digits_recognition",
       skills: ["Python", "TensorFlow", "Keras", "MNIST Dataset"],
     },
@@ -34,7 +35,6 @@ const Projects = ({ windowWidth }) => {
     <section id="projects">
       <div className={`projects-content ${paddingClass}`}>
         <div className="section-placeholder"></div>
-        {/* <div className="bg-white h-[400px] mt-5"></div> */}
         {projects.map((project, index) => (
           <ProjectComponent key={index} {...project} />
         ))}

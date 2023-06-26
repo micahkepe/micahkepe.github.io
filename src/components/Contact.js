@@ -19,7 +19,10 @@ const Contact = ({ windowWidth }) => {
               />
             </dt>
             <dd>
-              <a className="hover:text-white hover:underline decoration-green" href="mailto:micahkepe@gmail.com">
+              <a
+                className="hover:text-white hover:underline decoration-green"
+                href="mailto:micahkepe@gmail.com"
+              >
                 micahkepe@gmail.com
               </a>
             </dd>
@@ -27,7 +30,6 @@ const Contact = ({ windowWidth }) => {
           <div className="flex gap-x-4">
             <dt className="flex-none">
               <LinkedinLogo fill="#0e76a8" className="w-6 h-6" />{" "}
-              {/* LinkedIn's brand color is #0e76a8 */}
             </dt>
             <dd>
               <a

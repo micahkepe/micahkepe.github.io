@@ -4,7 +4,7 @@ const ToggleSection = ({ sections, sectionRefs }) => {
   const [hoveredSection, setHoveredSection] = useState(null);
 
   const handleSectionClick = (section) => {
-    sectionRefs[section].current.scrollIntoView({ behavior: 'smooth'});
+    sectionRefs[section].current.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleSectionMouseEnter = (section) => {
@@ -44,5 +44,3 @@ const ToggleSection = ({ sections, sectionRefs }) => {
 };
 
 export default ToggleSection;
-
-

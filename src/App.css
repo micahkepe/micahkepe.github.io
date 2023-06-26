@@ -1,6 +1,6 @@
 html {
-  font-size: calc(1vw + 1vh + .5vmin);
-  font-size: min(calc(1vw + 1vh + .5vmin), 16px);
+  font-size: calc(1vw + 1vh + 0.5vmin);
+  font-size: min(calc(1vw + 1vh + 0.5vmin), 16px);
 }
 
 body,
@@ -93,5 +93,5 @@ html {
 
 /* New styles for the owl cursor */
 .owl-cursor:hover {
-  cursor: url('/public/owlSprite.gif') 20 40, auto;
+  cursor: url("/public/owlSprite.gif") 20 40, auto;
 }
