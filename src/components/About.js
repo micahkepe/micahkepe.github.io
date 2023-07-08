@@ -18,7 +18,7 @@ const About = ({ windowWidth }) => {
           >
             Rice University
           </a>
-          , where I am pursuing a Bachelor of Science in{" "}
+          , where I am dedicated to obtaining a Bachelor of Science in{" "}
           <a
             href="https://csweb.rice.edu/"
             target="_blank"
@@ -27,32 +27,44 @@ const About = ({ windowWidth }) => {
           >
             Computer Science{" "}
           </a>
-          with a Minor in{" "}
+          . Additionally, I have chosen to pursue a Minor in{" "}
           <a
             href="https://ga.rice.edu/programs-study/departments-programs/engineering/data-science/data-science-minor/"
             target="_blank"
             rel="noreferrer"
             className=" text-white hover:text-green"
           >
-            Data Science
+            Data Science{" "}
           </a>
-          . Since I was a child, I have loved puzzles and solving problems, and
-          the world of computer science offers a vast amount of novel solutions
-          for the problems of today and the future. It is my hope that with the
-          technical skills I learn from Rice, alongside my drive to constantly
-          push myself outside my limits, that I can create meaningful and
-          impactful work that will help address issues in our increasingly
-          interconnected world.
+          to complement my studies. Since I was a child, I have been captivated
+          by puzzles and solving problems, and the world of computer science
+          offers a vast amount of novel solutions for the problems of today and
+          the future.
         </p>
         <br />
         <p className="indent-8">
-          As I continue my academic journey, I am eager to connect with industry
-          professionals, fellow students, and potential mentors to exchange
-          ideas and explore opportunities in computer science and data science
-          fields. I am open to internships, research collaborations, and
-          networking opportunities to further enhance my skills and contribute
-          to impactful projects. Please feel free to reach out to me via email
-          or LinkedIn!
+          I aspire to acquire the necessary technical skills from Rice
+          University to create significant and meaningful contributions that
+          address the ever-growing issues in our interconnected world. With a
+          relentless drive to continually push my boundaries, I am confident in
+          my ability to make a positive impact.
+        </p>
+        <p className="indent-8"></p>
+        <br />
+        <p className="indent-8">
+          Throughout my academic journey, I am excited about establishing
+          connections with industry professionals, fellow students, and
+          potential mentors. I believe that by engaging in thought-provoking
+          discussions and exchanging ideas, we can collectively explore
+          opportunities within the realms of computer science and data science.
+          I am eager to participate in internships, research collaborations, and
+          networking opportunities that will further enrich my skills and allow
+          me to contribute to impactful projects.
+        </p>
+        <br />
+        <p className="indent-8">
+          Please feel free to reach out to me via email or connect with me on
+          LinkedIn. I welcome any opportunity to connect and collaborate.
         </p>
       </div>
     </section>
