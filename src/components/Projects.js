@@ -6,6 +6,13 @@ const Projects = ({ windowWidth }) => {
 
   const projects = [
     {
+      image: "/artist-emulator-teaser.png",
+      title: "Artist Emulator",
+      description: "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LTSM model, and a dataset of MIDI files.",
+      link: ["https://github.com/micahkepe/artist-emulator"],
+      skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
+    },
+    {
       image: "/personal-website.png",
       title: "Personal Website",
       description:
