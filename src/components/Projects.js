@@ -9,7 +9,7 @@ const Projects = ({ windowWidth }) => {
       image: "/artist-emulator-teaser.png",
       title: "Artist Emulator",
       description:
-        "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LTSM model, and a dataset of MIDI files.",
+        "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
       link: ["https://github.com/micahkepe/artist-emulator"],
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
     },
@@ -43,9 +43,14 @@ const Projects = ({ windowWidth }) => {
     <section id="projects">
       <div className={`projects-content ${paddingClass}`}>
         <div className="section-placeholder"></div>
-        {projects.slice(0, 4).map((project, index) => ( // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
-          <ProjectComponent key={index} {...project} />
-        ))}
+        {projects.slice(0, 4).map(
+          (
+            project,
+            index // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+          ) => (
+            <ProjectComponent key={index} {...project} />
+          )
+        )}
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">

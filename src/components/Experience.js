@@ -37,9 +37,14 @@ const Experience = ({ windowWidth }) => {
     <section id="experience">
       <div className={`experience-content ${paddingClass}`}>
         <div className="section-placeholder"></div>
-        {experiences.slice(0,4).map((experience, index) => ( // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
-          <ExperienceComponent key={index} {...experience} />
-        ))}
+        {experiences.slice(0, 4).map(
+          (
+            experience,
+            index // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+          ) => (
+            <ExperienceComponent key={index} {...experience} />
+          )
+        )}
 
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
