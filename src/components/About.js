@@ -25,7 +25,7 @@ const About = ({ windowWidth }) => {
             rel="noreferrer"
             className=" text-white hover:text-green"
           >
-            Computer Science{" "}
+            Computer Science
           </a>
           . Additionally, I have chosen to pursue a Minor in{" "}
           <a
