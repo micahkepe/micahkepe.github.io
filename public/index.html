@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Basic Meta Tags -->
     <meta charset="utf-8" />
-    <link rel="icon" href="/rocket-logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#10172a" />
-    <meta
-      name="description"
-      content="Micah Kepe is a computer science student studying at Rice University in Houston, TX."
-    />
-    <link rel="apple-touch-icon" href="/rocket-apple-touch-icon.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Micah Kepe</title>
+    <!-- SEO Meta Tags -->
+    <title>Micah Kepe | Computer Science Student at Rice University</title>
+    <meta name="description" content="Micah Kepe is a computer science student studying at Rice University in Houston, TX. Discover more about Micah's academic journey, projects, and interests." />
+    <meta name="robots" content="index, follow">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Micah Kepe",
+        "url": "https://micahkepe.github.io/",
+        "image": "https://micahkepe.github.io/headshot.jpg",
+        "sameAs": [
+          "https://github.com/micahkepe",
+          "https://www.linkedin.com/in/micah-kepe/",
+          "https://www.instagram.com/micahkepe/"
+        ],
+        "jobTitle": "Computer Science Student",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Rice University"
+        },
+        "alumniOf": "Rice University"
+      }
+    </script>
+
+    <!-- Links and Icons -->
+    <link rel="icon" href="/rocket-logo.ico" />
+    <link rel="apple-touch-icon" href="/rocket-apple-touch-icon.png" />
+    <link rel="canonical" href="https://micahkepe.github.io/" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
+    <!-- Development Instructions -->
     <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
