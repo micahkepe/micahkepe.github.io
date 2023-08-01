@@ -53,7 +53,7 @@ const ExperienceComponent = ({
         {skills.map((skill) => (
           <button
             key={skill}
-            className="bg-teal-600 rounded px-2 py-1 text-sm font-semibold mr-2 mb-2 shadow-md shadow-black"
+            className="bg-teal-800 rounded px-2 py-1 text-sm font-semibold mr-2 mb-2 shadow-md shadow-black"
           >
             {skill}
           </button>
