@@ -24,7 +24,7 @@ const ExperienceComponent = ({
         </div>
       }
     >
-      <h4 className="text-base font-semibold hover:text-green">
+      <h3 className="text-base font-semibold hover:text-green">
         <a
           href={link}
           target="_blank"
@@ -47,7 +47,7 @@ const ExperienceComponent = ({
             />
           </svg>
         </a>
-      </h4>
+      </h3>
       <p className="font-thin text-sm text-slate mt-4 mb-4">{description}</p>
       <div>
         {skills.map((skill) => (
