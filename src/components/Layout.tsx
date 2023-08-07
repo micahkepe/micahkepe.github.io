@@ -8,13 +8,13 @@ import Contact from "./Contact";
 import ToggleSection from "./ToggleSection";
 import Footer from "./Footer";
 
-const Layout = () => {
-  const sections = ["About", "Experience", "Projects", "Contact"];
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const rightColumnRef = useRef(null);
+const Layout: React.FC = () => {
+  const sections: string[] = ["About", "Experience", "Projects", "Contact"];
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const rightColumnRef = useRef<HTMLDivElement>(null);
 
-  const sectionRefs = sections.reduce((acc, val) => {
-    acc[val] = React.createRef();
+  const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = sections.reduce((acc, val) => {
+    acc[val] = React.createRef<HTMLDivElement>();
     return acc;
   }, {});
 
@@ -52,7 +52,7 @@ const Layout = () => {
   return (
     <div className="h-full lg:flex lg:justify-between overflow-x-hidden">
       <div className="lg:w-1/3 lg:h-screen overflow-y-auto lg:fixed top-0 p-5 mt-8 ml-2">
-        <QuickAbout id="quick-about" />
+        <QuickAbout />
         {windowWidth > 768 && (
           <ToggleSection sections={sections} sectionRefs={sectionRefs} />
         )}

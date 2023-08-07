@@ -1,16 +1,28 @@
 import React from "react";
 import ProjectComponent from "./ProjectComponent";
 
-const Projects = ({ windowWidth }) => {
+interface Project {
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+  skills: string[];
+}
+
+interface ProjectsProps {
+  windowWidth: number;
+}
+
+const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
 
-  const projects = [
+  const projects: Project[] = [
     {
       image: "/artist-emulator-teaser.png",
       title: "Artist Emulator",
       description:
         "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
-      link: ["https://github.com/micahkepe/artist-emulator"],
+      link: "https://github.com/micahkepe/artist-emulator",
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
     },
     {
@@ -18,7 +30,7 @@ const Projects = ({ windowWidth }) => {
       title: "Personal Website",
       description:
         "Developed a personal website using React, Node,js, and Tailwind CSS to showcase my skills and projects.",
-      link: ["https://github.com/micahkepe/micahkepe.github.io"],
+      link: "https://github.com/micahkepe/micahkepe.github.io",
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
     {
@@ -26,7 +38,7 @@ const Projects = ({ windowWidth }) => {
       title: "Custom Voice Assistant",
       description:
         "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
-      link: ["https://github.com/micahkepe/custom_assistant2.0"],
+      link: "https://github.com/micahkepe/custom_assistant2.0",
       skills: ["Python", "OpenAI API", "ElevenLabs API"],
     },
     {
@@ -45,8 +57,8 @@ const Projects = ({ windowWidth }) => {
         <div className="section-placeholder"></div>
         {projects.slice(0, 4).map(
           (
-            project,
-            index // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+            project: Project,
+            index: number // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
           ) => (
             <ProjectComponent key={index} {...project} />
           )
@@ -66,13 +78,13 @@ const Projects = ({ windowWidth }) => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth={1.5}
               stroke="currentColor"
               className="w-6 h-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>

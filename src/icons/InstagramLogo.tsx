@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const InstagramLogo = ({ fill }) => (
+interface InstagramLogoProps {
+  fill: string;
+}
+
+const InstagramLogo: FC<InstagramLogoProps> = ({ fill }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"

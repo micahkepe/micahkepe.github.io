@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
-const LinkedinLogo = ({ fill, className }) => (
+interface Props {
+  fill: string;
+  className: string;
+}
+
+const LinkedinLogo: FC<Props> = ({ fill, className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"

@@ -2,7 +2,11 @@ import React from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import LinkedinLogo from "../icons/LinkedinLogo";
 
-const Contact = ({ windowWidth }) => {
+interface ContactProps {
+  windowWidth: number;
+}
+
+const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
   return (
     <section id="contact">
