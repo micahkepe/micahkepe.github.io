@@ -5,7 +5,7 @@ const GithubLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     width="1em"
     height="1em"
     viewBox="0 0 16 16"
-    className="octicon octicon-mark-github"
+    className="octicon octicon-mark-github fill-current w-6 h-6 text-customgray transition-colors duration-300 hover:text-white"
     aria-hidden="true"
     {...props}
   >

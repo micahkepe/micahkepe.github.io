@@ -1,18 +1,11 @@
-import React, { FC } from "react";
+import React from "react";
 
-interface Props {
-  fill: string;
-  className: string;
-}
-
-const LinkedinLogo: FC<Props> = ({ fill, className }) => (
+const LinkedinLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
-    fill={fill}
     viewBox="0 0 455 455"
-    className={className}
+    className="fill-current w-6 h-6 text-customgray transition-colors duration-300 hover:text-white"
+    {...props}
   >
     <path
       fillRule="evenodd"
