@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
-const ToggleSection = ({ sections, sectionRefs }) => {
-  const [hoveredSection, setHoveredSection] = useState(null);
+interface ToggleSectionProps {
+  sections: string[];
+  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+}
 
-  const handleSectionClick = (section) => {
-    sectionRefs[section].current.scrollIntoView({ behavior: "smooth" });
+const ToggleSection: React.FC<ToggleSectionProps> = ({ sections, sectionRefs }) => {
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+
+  const handleSectionClick = (section: string) => {
+    sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSectionMouseEnter = (section) => {
+  const handleSectionMouseEnter = (section: string) => {
     setHoveredSection(section);
   };
 

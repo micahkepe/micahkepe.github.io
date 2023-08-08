@@ -32,7 +32,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
       title: "Avionics Team Member | Rice Eclipse",
       description:
         "Working in various subteams to design and implement avionics solutions for rockets in competitions such as Spaceport America Cup.",
-      link: ["http://eclipse.rice.edu/"],
+      link: "http://eclipse.rice.edu/",
       skills: ["Python", "Git", "KiCAD"],
     },
   ];

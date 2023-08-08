@@ -1,16 +1,16 @@
 import React, { useState, useRef } from "react";
 
-const QuickAbout = () => {
-  const rocketRef = useRef(null);
-  const [isAnimating, setIsAnimating] = useState(false);
+const QuickAbout = (): JSX.Element => {
+  const rocketRef = useRef<HTMLDivElement>(null);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  const animateRocket = () => {
+  const animateRocket = (): void => {
     if (isAnimating) return; // if the animation is running, do nothing
     setIsAnimating(true); // set the flag to true when the animation starts
 
-    rocketRef.current.style.animation = "none";
-    void rocketRef.current.offsetWidth;
-    rocketRef.current.style.animation = "path 2s";
+    rocketRef.current!.style.animation = "none";
+    void rocketRef.current!.offsetWidth;
+    rocketRef.current!.style.animation = "path 2s";
 
     const smokeInterval = setInterval(createSmoke, 100); // create smoke every 100ms
 
@@ -20,12 +20,12 @@ const QuickAbout = () => {
     }, 2000); // 2000ms = 5s (the duration of your animation)
   };
 
-  const createSmoke = () => {
+  const createSmoke = (): void => {
     const smoke = document.createElement("div");
     smoke.className = "smoke";
-    const rect = rocketRef.current.getBoundingClientRect();
+    const rect = rocketRef.current!.getBoundingClientRect();
     smoke.style.left = `${rect.left - smoke.offsetWidth - 2}px`;
-    smoke.style.top = `${rect.top + rocketRef.current.offsetHeight - 7}px`;
+    smoke.style.top = `${rect.top + rocketRef.current!.offsetHeight - 7}px`;
     document.body.appendChild(smoke);
 
     // remove the smoke element after the animation ends
