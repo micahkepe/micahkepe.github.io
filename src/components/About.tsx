@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const About = ({ windowWidth }) => {
+interface AboutProps {
+  windowWidth: number;
+}
+
+const About: FC<AboutProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
   return (
     <section id="about">

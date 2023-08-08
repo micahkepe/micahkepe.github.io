@@ -12,6 +12,7 @@ module.exports = {
         "3/4": "75%",
       },
       colors: {
+        customgray: "#8392a7",
         slate: "#8892b0",
         green: "#64ffda",
         teal: {
