@@ -18,7 +18,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
 
   const projects: Project[] = [
     {
-      image: "/artist-emulator-teaser.png",
+      image: "/assets/artist-emulator-teaser.png",
       title: "Artist Emulator",
       description:
         "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
@@ -26,7 +26,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
     },
     {
-      image: "/personal-website.png",
+      image: "/assets/personal-website.png",
       title: "Personal Website",
       description:
         "Developed a personal website using React, Node,js, and Tailwind CSS to showcase my skills and projects.",
@@ -34,7 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
     {
-      image: "/personal-assistant.png",
+      image: "assets/personal-assistant.png",
       title: "Custom Voice Assistant",
       description:
         "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       skills: ["Python", "OpenAI API", "ElevenLabs API"],
     },
     {
-      image: "/handwritten-digits.png",
+      image: "assets/handwritten-digits.png",
       title: "Handwritten Digit Recognition",
       description:
         "Developed a handwritten digit recognition model using Python and the MNIST dataset. The model was trained using a convolutional neural network (CNN) and achieved an accuracy of 97.2%.",

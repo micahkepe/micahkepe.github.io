@@ -11,7 +11,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
   const experiences = [
     {
       date: "Jun 2023 - Present",
-      logo: "/king-energy-logo.png",
+      logo: "assets/king-energy-logo.png",
       title: "Software Development Intern | King Energy",
       description:
         "Building internal admin tool with user friendly UI to allow for more efficient document classification and management. Additionally, use of machine learning to automate document classification.",
@@ -28,7 +28,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     },
     {
       date: "Aug 2022 - Present",
-      logo: "/eclipse-logo.png",
+      logo: "assets/eclipse-logo.png",
       title: "Avionics Team Member | Rice Eclipse",
       description:
         "Working in various subteams to design and implement avionics solutions for rockets in competitions such as Spaceport America Cup.",
@@ -53,7 +53,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">
                 View Full Resume
               </a>
             </span>
