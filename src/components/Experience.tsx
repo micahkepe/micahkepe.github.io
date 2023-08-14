@@ -10,11 +10,11 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
 
   const experiences = [
     {
-      date: "Jun 2023 - Present",
+      date: "Jun 2023 - Aug 2023",
       logo: "assets/king-energy-logo.png",
       title: "Software Development Intern | King Energy",
       description:
-        "Building internal admin tool with user friendly UI to allow for more efficient document classification and management. Additionally, use of machine learning to automate document classification.",
+        "Helped build internal admin tool with user friendly UI to allow for more efficient document classification and management. Also worked on a web app to allow for easier access to documents and data.",
       link: "https://www.kingenergy.com/",
       skills: [
         "React",
