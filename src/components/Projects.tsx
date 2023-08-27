@@ -29,7 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       image: "/assets/personal-website.png",
       title: "Personal Website",
       description:
-        "Developed a personal website using React, Node,js, and Tailwind CSS to showcase my skills and projects.",
+        "Developed a personal website using React, Node.js, and Tailwind CSS to showcase my skills and projects.",
       link: "https://github.com/micahkepe/micahkepe.github.io",
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
