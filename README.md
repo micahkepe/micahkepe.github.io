@@ -57,6 +57,9 @@ npm run deploy
 
 4. Visit your GitHub Pages URL to view your deployed website.
 
+## Usage and Attribution
+If you decide to use my website code, please give me credit by linking back to this repository or mentioning my name. It's important to respect the effort and work of developers. Any use of this code without proper attribution is not endorsed.
+
 ## Contributing
 I welcome contributions to improve the website. If you find any bugs or have suggestions for new features, please open an issue or submit a pull request.
 
