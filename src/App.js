@@ -14,7 +14,7 @@ function App() {
           left: `${clientX}px`,
           top: `${clientY}px`,
         },
-        { duration: 3000, fill: "forwards" }
+        { duration: 3000, fill: "forwards" },
       );
     };
 

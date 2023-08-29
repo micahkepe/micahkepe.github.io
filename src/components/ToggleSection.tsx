@@ -5,7 +5,10 @@ interface ToggleSectionProps {
   sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
 }
 
-const ToggleSection: React.FC<ToggleSectionProps> = ({ sections, sectionRefs }) => {
+const ToggleSection: React.FC<ToggleSectionProps> = ({
+  sections,
+  sectionRefs,
+}) => {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
 
   const handleSectionClick = (section: string) => {

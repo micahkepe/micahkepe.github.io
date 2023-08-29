@@ -32,7 +32,12 @@ const Socials: React.FC = () => {
     <div className="flex justify-start items-center space-x-10 mt-4 pl-3 pt-1">
       {socialsLinks.map((socialLink, index) => (
         <div key={index} className="inline-block">
-          <a href={socialLink.link} target="_blank" rel="noreferrer" aria-label={socialLink.name}>
+          <a
+            href={socialLink.link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={socialLink.name}
+          >
             {socialLink.icon}
           </a>
         </div>
