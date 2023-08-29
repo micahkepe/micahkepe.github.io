@@ -29,6 +29,7 @@ const QuickAbout = (): JSX.Element => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const rect = rocketRef.current!.getBoundingClientRect();
     smoke.style.left = `${rect.left - smoke.offsetWidth - 2}px`;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     smoke.style.top = `${rect.top + rocketRef.current!.offsetHeight - 7}px`;
     document.body.appendChild(smoke);
 
