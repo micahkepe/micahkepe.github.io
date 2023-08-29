@@ -21,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       image: "/assets/artist-emulator-teaser.png",
       title: "Artist Emulator",
       description:
-        "Developing a deep model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
+        "Developing a deep learning model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
       link: "https://github.com/micahkepe/artist-emulator",
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
     },
