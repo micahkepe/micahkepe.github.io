@@ -13,10 +13,11 @@ const Layout: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const rightColumnRef = useRef<HTMLDivElement>(null);
 
-  const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = sections.reduce((acc, val) => {
-    acc[val] = React.createRef<HTMLDivElement>();
-    return acc;
-  }, {});
+  const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } =
+    sections.reduce((acc, val) => {
+      acc[val] = React.createRef<HTMLDivElement>();
+      return acc;
+    }, {});
 
   useEffect(() => {
     const handleResize = () => {

@@ -58,10 +58,10 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
         {projects.slice(0, 4).map(
           (
             project: Project,
-            index: number // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+            index: number, // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
           ) => (
             <ProjectComponent key={index} {...project} />
-          )
+          ),
         )}
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">

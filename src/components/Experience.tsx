@@ -44,16 +44,20 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
         {experiences.slice(0, 4).map(
           (
             experience,
-            index // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+            index, // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
           ) => (
             <ExperienceComponent key={index} {...experience} />
-          )
+          ),
         )}
 
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
-              <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a
+                href="assets/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Full Resume
               </a>
             </span>
