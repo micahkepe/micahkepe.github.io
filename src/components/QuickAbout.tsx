@@ -8,8 +8,11 @@ const QuickAbout = (): JSX.Element => {
     if (isAnimating) return; // if the animation is running, do nothing
     setIsAnimating(true); // set the flag to true when the animation starts
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     rocketRef.current!.style.animation = "none";
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     void rocketRef.current!.offsetWidth;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     rocketRef.current!.style.animation = "path 2s";
 
     const smokeInterval = setInterval(createSmoke, 100); // create smoke every 100ms
@@ -23,6 +26,7 @@ const QuickAbout = (): JSX.Element => {
   const createSmoke = (): void => {
     const smoke = document.createElement("div");
     smoke.className = "smoke";
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const rect = rocketRef.current!.getBoundingClientRect();
     smoke.style.left = `${rect.left - smoke.offsetWidth - 2}px`;
     smoke.style.top = `${rect.top + rocketRef.current!.offsetHeight - 7}px`;
