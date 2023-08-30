@@ -10,9 +10,9 @@ This is the repository for my personal website built using React. The website is
 
 ## Features
 
-- Portfolio: Showcasing my projects, including descriptions, images, and links.
+- Project Portfolio: Showcasing my projects, including descriptions, images, and links.
 - About Me: Providing information about my background, skills, and experiences.
-- Contact: Allowing visitors to get in touch with me via a contact form.
+- Experience: Showcase prior experiences and skills utilized for each role
 
 ## Installation
 
