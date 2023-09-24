@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const blobRef = useRef();
 
+  // This effect adds an animation to the blob element based on the mouse position
   useEffect(() => {
     const handlePointerMove = (event) => {
       const { clientX, clientY } = event;
