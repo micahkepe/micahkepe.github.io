@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectComponent from "./ProjectComponent";
+import ProjectComponent from "../generic/ProjectComponent";
 
 interface Project {
   image: string;

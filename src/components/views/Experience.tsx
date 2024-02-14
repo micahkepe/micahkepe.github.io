@@ -1,5 +1,5 @@
 import React from "react";
-import ExperienceComponent from "./ExperienceComponent";
+import ExperienceComponent from "../generic/ExperienceComponent";
 
 interface ExperienceProps {
   windowWidth: number;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Layout from "./components/Layout";
+import Layout from "./components/views/Layout";
 import "./App.css";
 
 function App() {
