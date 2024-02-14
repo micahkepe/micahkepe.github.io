@@ -1,6 +1,6 @@
 import React from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import LinkedinLogo from "../icons/LinkedinLogo";
+import LinkedinLogo from "../logos/LinkedinLogo";
 
 interface ContactProps {
   windowWidth: number;
