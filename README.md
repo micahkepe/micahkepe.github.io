@@ -2,7 +2,7 @@
 
 This is the repository for my personal website built using React. The website is constantly undergoing updates and is being developed to showcase my portfolio and provide information about me.
 
-![Website Screenshot](/public/assets/personal-website.png)
+![Website Screenshot](/public/assets/personal-website.webp)
 
 ## Table of Contents
 

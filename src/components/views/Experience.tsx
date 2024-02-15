@@ -11,7 +11,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
   const experiences = [
     {
       date: "Jun 2023 - Aug 2023",
-      logo: "assets/king-energy-logo.png",
+      logo: "assets/king-energy-logo.webp",
       title: "Software Development Intern | King Energy",
       description:
         "Helped build internal admin tool with user friendly UI to allow for more efficient document classification and management. Also worked on a web app to allow for easier access to documents and data.",
@@ -28,7 +28,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     },
     {
       date: "Aug 2022 - Present",
-      logo: "assets/eclipse-logo.png",
+      logo: "assets/eclipse-logo.webp",
       title: "Avionics Team Member | Rice Eclipse",
       description:
         "Working in various subteams to design and implement avionics solutions for rockets in competitions such as Spaceport America Cup.",
