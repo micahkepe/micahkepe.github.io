@@ -18,10 +18,18 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
 
   const projects: Project[] = [
     {
-      image: "/assets/artist-emulator-teaser.webp",
-      title: "Artist Emulator",
+      image: "/assets/new-york-map.webp",
+      title: "(Ongoing) NYC Car Crash Analysis Project",
       description:
-        "Developing a deep learning model that can generate music in the style of a given artist. The model is trained using a recurrent neural network (RNN), more specifically a LSTM model, and a dataset of MIDI files.",
+        "A collaborative project associated with STAT 405 (R for Data Science) at Rice University with the goal of analyzing car crash data in New York City. The projects aims to create meaningful visualizations and models to understand the factors that contribute to car crashes in NYC. The project is ongoing and will be updated as the semester progresses.",
+      link: "https://github.com/micahkepe/stat405project",
+      skills: ["R", "Data Analysis", "Data Visualization"],
+    },
+    {
+      image: "/assets/artist-emulator-teaser.webp",
+      title: "Artist Emulator LSTM",
+      description:
+        "A deep learning model that can generate music in the style of a given artist. The model is a Long Short-Term Memory (LSTM) neural network trained on MIDI files of Bach compositions as a proof-of-concept. The model is capable of generating music in the style of Bach, and the architecture can be extended to other artists.",
       link: "https://github.com/micahkepe/artist-emulator",
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
     },
@@ -29,7 +37,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       image: "/assets/personal-website.webp",
       title: "Personal Website",
       description:
-        "Developed a personal website using React, Node.js, and Tailwind CSS to showcase my skills and projects.",
+        "Designed and developed a personal website as a portfolio to showcase my projects and skills. The website is built using React and Tailwind CSS and is hosted on GitHub Pages. The website also serves as a reflection of my growth as a developer as I continue to add new projects and skills.",
       link: "https://github.com/micahkepe/micahkepe.github.io",
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
@@ -41,28 +49,15 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       link: "https://github.com/micahkepe/custom_assistant2.0",
       skills: ["Python", "OpenAI API", "ElevenLabs API"],
     },
-    {
-      image: "assets/handwritten-digits.webp",
-      title: "Handwritten Digit Recognition",
-      description:
-        "Developed a handwritten digit recognition model using Python and the MNIST dataset. The model was trained using a convolutional neural network (CNN) and achieved an accuracy of 97.2%.",
-      link: "https://github.com/micahkepe/handwritten_digits_recognition",
-      skills: ["Python", "TensorFlow", "Keras", "MNIST Dataset"],
-    },
   ];
 
   return (
     <section id="projects">
       <div className={`projects-content ${paddingClass}`}>
         <div className="section-placeholder"></div>
-        {projects.slice(0, 4).map(
-          (
-            project: Project,
-            index: number, // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
-          ) => (
-            <ProjectComponent key={index} {...project} />
-          ),
-        )}
+        {projects.map((project: Project, index: number) => (
+          <ProjectComponent key={index} {...project} />
+        ))}
         <div className="resume-link">
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
