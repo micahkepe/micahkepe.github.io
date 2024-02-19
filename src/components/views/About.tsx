@@ -22,7 +22,7 @@ const About: FC<AboutProps> = ({ windowWidth }) => {
           >
             Rice University
           </a>
-          , where I am dedicated to obtaining a Bachelor of Science in{" "}
+          , where I am dedicated to obtaining a Bachelor&apos;s in{" "}
           <a
             href="https://csweb.rice.edu/"
             target="_blank"
