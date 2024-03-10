@@ -9,9 +9,10 @@ const BaseComponent: React.FC<BaseComponentProps> = ({
   leftSideContent,
   children,
 }) => {
+  // Use `flex-col` for mobile and `flex-row` for larger screens
   return (
-    <div className="flex rounded-md p-3 mb-4 hover:bg-white/5">
-      <div className="mt-1 mr-4 flex-shrink-0 font-semibold text-slate text-xs text-transform: uppercase">
+    <div className="flex flex-col sm:flex-row rounded-md p-3 mb-4 hover:bg-white/5">
+      <div className="flex-shrink-0 font-semibold text-slate text-xs uppercase mb-4 sm:mb-0 sm:mr-4">
         {leftSideContent}
       </div>
       <div>{children}</div>

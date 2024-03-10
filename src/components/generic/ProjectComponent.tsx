@@ -19,7 +19,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
   return (
     <BaseComponent
       leftSideContent={
-        <div className="w-40 h-20 overflow-hidden relative mr-10 shadow-lg shadow-black">
+        <div className="w-40 h-20 overflow-hidden relative shadow-lg shadow-black sm:mr-10">
           <img
             src={image}
             alt={title}
