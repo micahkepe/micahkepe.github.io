@@ -38,7 +38,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://micahkepe.com/",
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "display": "standalone"
