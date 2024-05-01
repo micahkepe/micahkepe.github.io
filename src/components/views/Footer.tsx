@@ -5,7 +5,10 @@ const Footer: React.FC = () => {
     <div className="footer flex justify-end items-center h-20 m-7 text-slate font-inter">
       <div>
         <p>
-          Website created by Micah Kepe
+          Website created by{" "}
+          <a href="/blog" className="no-underline text-inherit">
+            Micah Kepe
+          </a>
           <br />
           Inspired by{" "}
           <a
