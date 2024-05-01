@@ -21,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       image: "/assets/new-york-map.webp",
       title: "NYC Car Crash Analysis Project",
       description:
-        "A collaborative project associated with STAT 405 (R for Data Science) at Rice University with the goal of analyzing car crash data in New York City. The projects aims to create meaningful visualizations and models to understand the factors that contribute to car crashes in NYC. The project also contains an interactive Shiny app that allows users to explore the data.",
+        "A collaborative project associated with STAT 405 (R for Data Science) at Rice University with the goal of analyzing car crash data in New York City. The project aims to create meaningful visualizations and models to understand the factors that contribute to car crashes in NYC. The project also contains an interactive Shiny app that allows users to explore the data.",
       link: "https://github.com/micahkepe/stat405project",
       skills: ["R", "Data Analysis", "Data Visualization"],
     },
