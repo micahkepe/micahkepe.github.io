@@ -13,6 +13,10 @@
 
 /dist/styles.css
 
+# Zola-generated files and themes
+/public/blog
+/blog/themes
+
 # misc
 .DS_Store
 .env.local
