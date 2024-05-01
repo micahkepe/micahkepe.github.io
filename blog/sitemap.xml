@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>/blog/</loc>
+    </url>
+    <url>
+        <loc>/blog/categories/</loc>
+    </url>
+    <url>
+        <loc>/blog/categories/welcome/</loc>
+    </url>
+    <url>
+        <loc>/blog/initial/</loc>
+        <lastmod>2024-05-01</lastmod>
+    </url>
+    <url>
+        <loc>/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>/blog/tags/</loc>
+    </url>
+    <url>
+        <loc>/blog/tags/scavenger-hunt/</loc>
+    </url>
+</urlset>

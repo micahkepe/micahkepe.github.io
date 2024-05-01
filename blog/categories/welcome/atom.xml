@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Micah&#x27;s Secret Blog - welcome</title>
+    <subtitle>An assortment of my ramblings and random adventures.</subtitle>
+    <link rel="self" type="application/atom+xml" href="/blog/categories/welcome/atom.xml"/>
+    <link rel="alternate" type="text/html" href="/blog"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-05-01T00:00:00+00:00</updated>
+    <id>/blog/categories/welcome/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Congrats! You&#x27;ve found my hidden blog! 🎉</title>
+        <published>2024-05-01T00:00:00+00:00</published>
+        <updated>2024-05-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="/blog/initial/"/>
+        <id>/blog/initial/</id>
+        
+        <summary type="html">&lt;pre&gt;&lt;code&gt;     __________
+    &amp;#x2F;\____;;___\
+   | &amp;#x2F;         &amp;#x2F;
+   `. ())oo() .
+    |\(%()*^^()^\
+   %| |-%-------|
+  % \ | %  ))   |
+  %  \|%________|
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Congratulations! You have found my hidden blog. This blog is not advertised or linked to from anywhere on my site so you must have been snooping around. It is a hidden gem that only the most curious and adventurous visitors will discover. &lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
