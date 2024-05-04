@@ -8,6 +8,9 @@ categories = ["welcome"]
 tags = ["scavenger hunt"]
 +++
 
+<div>
+      <body>
+            <pre>
          __________
         /\____;;___\
        | /         /
@@ -16,6 +19,9 @@ tags = ["scavenger hunt"]
        %| |-%-------|
       % \ | %  ))   |
       %  \|%________|
+                  </pre>
+      </body>
+</div>
 
 Congratulations! You have found my hidden blog. This blog is not advertised or linked to from anywhere on my site so you must have been snooping around. It is a hidden gem that only the most curious and adventurous visitors will discover.
 
