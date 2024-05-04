@@ -4,7 +4,6 @@
 [![GitHub Pages](https://img.shields.io/badge/deployed%20to-GitHub%20Pages-brightgreen)](https://micahkepe.github.io/)
 [![License](https://img.shields.io/github/license/micahkepe/micahkepe.github.io)](LICENSE)
 
-
 This is the repository for my personal website built using React. The website is constantly undergoing updates and is being developed to showcase my portfolio and provide information about me.
 
 ![Website Screenshot](/public/assets/personal-website.webp)
@@ -92,6 +91,7 @@ npm run build
 ```bash
 npm run deploy
 ```
+
 Part of the deployment script is building the Zola blog. If you don't want to build the blog, you can remove the ` && npm run build:blog` command from end of the `deploy` script in the `package.json` file.
 
 4. Visit your GitHub Pages URL to view your deployed website.
