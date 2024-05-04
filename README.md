@@ -1,5 +1,10 @@
 # micahkepe.github.io
 
+[![NPM Version](https://img.shields.io/npm/v/react)](https://www.npmjs.com/package/react)
+[![GitHub Pages](https://img.shields.io/badge/deployed%20to-GitHub%20Pages-brightgreen)](https://micahkepe.github.io/)
+[![License](https://img.shields.io/github/license/micahkepe/micahkepe.github.io)](LICENSE)
+
+
 This is the repository for my personal website built using React. The website is constantly undergoing updates and is being developed to showcase my portfolio and provide information about me.
 
 ![Website Screenshot](/public/assets/personal-website.webp)
@@ -19,12 +24,15 @@ This is the repository for my personal website built using React. The website is
 - React
 - NodeJS
 - Tailwind CSS
+- Zola (static site generator)
+- GitHub Pages (for deployment and hosting)
 
 ## Features
 
 - Project Portfolio: Showcasing my projects, including descriptions, images, and links.
 - About Me: Providing information about my background, skills, and experiences.
 - Experience: Showcase prior experiences and skills utilized for each role
+- Blog: Writing articles about various topics, including technology, programming, and personal development.
 
 ## Installation
 
@@ -42,19 +50,26 @@ git clone https://github.com/micahkepe/micahkepe.github.io.git
 cd micahkepe.github.io
 ```
 
-3. Install the dependencies:
+3. Initialize and update the submodules (for the Zola theme):
+
+```bash
+git submodule init
+git submodule update
+```
+
+4. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-4. Start the development server:
+5. Start the development server:
 
 ```bash
 npm start
 ```
 
-5. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to view the website.
+6. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to view the website.
 
 ## Deployment
 
@@ -77,6 +92,7 @@ npm run build
 ```bash
 npm run deploy
 ```
+Part of the deployment script is building the Zola blog. If you don't want to build the blog, you can remove the ` && npm run build:blog` command from end of the `deploy` script in the `package.json` file.
 
 4. Visit your GitHub Pages URL to view your deployed website.
 
