@@ -8,7 +8,7 @@ categories = ["programming"]
 tags = ["productivity"]
 +++
 
-Nearly a year ago, I took an online course called [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/). The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums [^1]. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.
+Nearly a year ago, I took an online course called [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/). The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.
 
 Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.
 
@@ -30,7 +30,7 @@ git switch -c new-branch
 git switch -
 ```
 
-`switch` is a newer command that was introduced in Git 2.23. It is meant to be a more user-friendly alternative to `checkout` for switching branches [^2].
+`switch` is a newer command that was introduced in Git 2.23. It is meant to be a more user-friendly alternative to `checkout` for switching branches. The `switch` command is more intuitive and easier to use than `checkout`, especially for beginners. It is also more consistent with other Git commands, such as `git branch` and `git merge`.
 
 ### 1.2 Learning to use rebase
 
@@ -55,8 +55,8 @@ feature-branch: D---E
 
 # After running `git rebase main` on the feature branch
 main: A---B---C
-                  \
-feature-branch:     D'---E'
+              \
+feature-branch: D'---E'
 
 # After running `git switch main` and `git merge feature-branch`
 main: A---B---C---D'---E'
@@ -80,7 +80,13 @@ git stash list
 git stash apply stash@{2}
 ```
 
-There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for either "**global information tracker**" when it works or "**goddamn idiotic truckload of sh\*t**" when it breaks.
+There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for:
+
+```plaintext
+- "global information tracker": you're in a good mood, and it actually
+   works for you. Angels sing, and a light suddenly fills the room.
+- "goddamn idiotic truckload of sh*t": when it breaks
+```
 
 ## 2. Hammerspoon
 
@@ -132,20 +138,20 @@ In my `.gitconfig` file, I have also set up aliases to enhance the `graph` and `
 
 To set up a dotfiles repository, you can follow these steps:
 
-1. Create a new directory for your dotfiles repository in your home directory:
+1\. Create a new directory for your dotfiles repository in your home directory:
 
 ```bash
 mkdir ~/.dotfiles # or any other name you prefer
 ```
 
-2. Initialize a new Git repository in the directory:
+2\. Initialize a new Git repository in the directory:
 
 ```bash
 cd ~/.dotfiles
 git init
 ```
 
-3. Move your dotfiles into the repository and create symbolic links to them in your home directory:
+3\. Move your dotfiles into the repository and create symbolic links to them in your home directory:
 
 ```bash
 mv ~/.bashrc ~/.dotfiles
@@ -164,7 +170,7 @@ If you have set up the symbolic links correctly, running the `ls -a ~` command s
 
 ![Dotfiles in home directory](symlinks.png)
 
-4. Add, commit, and push your dotfiles to your remote repository (e.g., GitHub):
+4\. Add, commit, and push your dotfiles to your remote repository (e.g., GitHub):
 
 ```bash
 git add .
@@ -180,8 +186,3 @@ The great thing about dotfiles repositories is that doing a simple search on Git
 ## Conclusion
 
 The Missing Semester of Your CS Education is a fantastic course that covers a wide range of topics that are essential for becoming a more productive and efficient programmer. The course has helped me improve my skills in version control, automation, and configuration management, and I continue to use many of the tools and techniques that I learned in my day-to-day work.
-
-## References
-
-[^1]: [Why we are teaching this class](https://missing.csail.mit.edu/about/)
-[^2]: [Git Switch vs. Checkout: What's the Difference?](https://phoenixnap.com/kb/git-switch-vs-checkout#:~:text=The%20two%20commands%20are%20somewhat,their%20purpose%20should%20be%20clarified.)
