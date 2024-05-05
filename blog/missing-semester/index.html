@@ -61,7 +61,7 @@
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-        <h1 itemprop="headline">Biggest Takeaways from The Missing Semester of Your CS Education</h1>
+        <h1 itemprop="headline">[2] Biggest Takeaways from The Missing Semester of Your CS Education</h1>
         <span class="muted">
     <svg class="icon i-clock" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
@@ -76,7 +76,7 @@
         <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
     </svg>
 
-    Published: 2024-05-04
+    Published: 2024-05-05
 </span>
     </header>
     <div itemprop="articleBody">
@@ -117,7 +117,7 @@
 </span><span># After running `git switch main` and `git merge feature-branch`
 </span><span>main: A---B---C---D&#39;---E&#39;
 </span></code></pre>
-<p>A key benefit of rebasing is that it keeps the commit history clean and linear, making it easier to understand and navigate. <strong>However</strong>, it is important to note that rebasing rewrites commit history, so it should be used with caution, especially when working on shared branches. If working with others, use the <code>--force-with-lease</code> flag when pushing rebased commits to a shared branch. This flag ensures that if your changes conflict with the remote branch, you will not overwrite someone else's work.</p>
+<p>A key benefit of rebasing is that it keeps the commit history clean and linear, making it easier to understand and navigate. <strong>However</strong>, it is important to note that rebasing rewrites commit history, so it should be used with caution, especially when working on shared branches with collaborators. If working with others, use the <code>--force-with-lease</code> flag when pushing rebased commits to a shared branch. This flag ensures that if your changes conflict with the remote branch, you will not overwrite someone else's work.</p>
 <h3 id="1-3-stashing-changes">1.3 Stashing changes</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Stashing changes before switching branches
 </span><span style="color:#bf616a;">git</span><span> stash
