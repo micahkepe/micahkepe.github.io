@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: /blog/sitemap.xml
+Sitemap: https://micahkepe.com/blog/sitemap.xml
