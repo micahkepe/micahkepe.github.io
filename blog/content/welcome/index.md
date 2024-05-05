@@ -1,7 +1,6 @@
 +++
-title = "Congrats! You've found my hidden blog! 🎉"
+title = "[1] Congrats! You've found my hidden blog! 🎉"
 date = 2024-05-01
-weight = 1
 
 [taxonomies]
 categories = ["welcome"]

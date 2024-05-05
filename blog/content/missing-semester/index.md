@@ -1,7 +1,6 @@
 +++
-title = "Biggest Takeaways from The Missing Semester of Your CS Education"
-date = 2024-05-04
-weight = 2
+title = "[2] Biggest Takeaways from The Missing Semester of Your CS Education"
+date = 2024-05-05
 
 [taxonomies]
 categories = ["programming"]
@@ -62,7 +61,7 @@ feature-branch: D'---E'
 main: A---B---C---D'---E'
 ```
 
-A key benefit of rebasing is that it keeps the commit history clean and linear, making it easier to understand and navigate. **However**, it is important to note that rebasing rewrites commit history, so it should be used with caution, especially when working on shared branches. If working with others, use the `--force-with-lease` flag when pushing rebased commits to a shared branch. This flag ensures that if your changes conflict with the remote branch, you will not overwrite someone else's work.
+A key benefit of rebasing is that it keeps the commit history clean and linear, making it easier to understand and navigate. **However**, it is important to note that rebasing rewrites commit history, so it should be used with caution, especially when working on shared branches with collaborators. If working with others, use the `--force-with-lease` flag when pushing rebased commits to a shared branch. This flag ensures that if your changes conflict with the remote branch, you will not overwrite someone else's work.
 
 ### 1.3 Stashing changes
 
