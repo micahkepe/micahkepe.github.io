@@ -35,7 +35,7 @@ This is the repository for my personal website built using React. The website is
 
 ## Installation
 
-To run this project locally, follow these steps:
+If you are interested in using this project as a template for your personal website, you can follow the steps below to set it up.
 
 1. Clone the repository:
 
@@ -70,6 +70,17 @@ npm start
 
 6. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to view the website.
 
+In the `npm start` script, the Zola blog is not built. If you want to build the blog and be able to navigate through the blog posts, you can build the Zola blog separately:
+
+```bash
+cd blog
+zola build --base-url http://localhost:3000/blog/
+```
+
+The second command builds the Zola blog with the base URL set to `http://localhost:3000/blog/`. This allows you to navigate through the blog posts when running the development server by overriding the base URL in the `config.toml` file.
+
+The suggested workflow for working on the blog is to have one terminal window running the React development server and another terminal window for running the Zola build command as you make changes to the blog content.
+
 ## Deployment
 
 To deploy this website to GitHub Pages, follow these steps:
@@ -95,6 +106,8 @@ npm run deploy
 Part of the deployment script is building the Zola blog. If you don't want to build the blog, you can remove the ` && npm run build:blog` command from end of the `deploy` script in the `package.json` file.
 
 4. Visit your GitHub Pages URL to view your deployed website.
+
+Make sure to update the content in the `src/components/views` directory with your information, projects, and blog posts. Additionally, remove or replace the content in the `blog/content` directory with your own blog posts. You can also update the theme using a different Zola theme or create your own.
 
 ## Usage and Attribution
 
