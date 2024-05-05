@@ -80,7 +80,7 @@
 </span>
     </header>
     <div itemprop="articleBody">
-      <p>Nearly a year ago, I took an online course called <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>. The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums <sup class="footnote-reference"><a href="#1">1</a></sup>. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.</p>
+      <p>Nearly a year ago, I took an online course called <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>. The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.</p>
 <p>Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.</p>
 <span id="continue-reading"></span><h2 id="1-version-control-with-git">1. Version Control with Git</h2>
 <p>For such a widely used tool, it is surprising how little formal education is given on Git beyond perhaps a brief introduction to <code>git clone</code>, <code>git add</code>, <code>git commit</code>, and <code>git push</code>. Personally, it wasn't until I began my first internship how little I knew about Git and how much I had to learn on the job. The course provides a greater overview of Git and its capabilities, including some of the more advanced features that can help you become a more efficient and effective programmer.</p>
@@ -92,7 +92,7 @@
 </span><span style="color:#65737e;"># Switching to the previous branch
 </span><span style="color:#bf616a;">git</span><span> switch -
 </span></code></pre>
-<p><code>switch</code> is a newer command that was introduced in Git 2.23. It is meant to be a more user-friendly alternative to <code>checkout</code> for switching branches <sup class="footnote-reference"><a href="#2">2</a></sup> .</p>
+<p><code>switch</code> is a newer command that was introduced in Git 2.23. It is meant to be a more user-friendly alternative to <code>checkout</code> for switching branches. The <code>switch</code> command is more intuitive and easier to use than <code>checkout</code>, especially for beginners. It is also more consistent with other Git commands, such as <code>git branch</code> and <code>git merge</code>.</p>
 <h3 id="1-2-learning-to-use-rebase">1.2 Learning to use rebase</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Rebasing a feature branch on top of the main branch to keep the commit history clean
 </span><span style="color:#bf616a;">git</span><span> switch main
@@ -111,8 +111,8 @@
 </span><span>
 </span><span># After running `git rebase main` on the feature branch
 </span><span>main: A---B---C
-</span><span>                  \
-</span><span>feature-branch:     D&#39;---E&#39;
+</span><span>              \
+</span><span>feature-branch: D&#39;---E&#39;
 </span><span>
 </span><span># After running `git switch main` and `git merge feature-branch`
 </span><span>main: A---B---C---D&#39;---E&#39;
@@ -131,7 +131,11 @@
 </span><span style="color:#65737e;"># Applying a specific stash
 </span><span style="color:#bf616a;">git</span><span> stash apply stash@{2}
 </span></code></pre>
-<p>There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for either &quot;<strong>global information tracker</strong>&quot; when it works or &quot;<strong>goddamn idiotic truckload of sh*t</strong>&quot; when it breaks.</p>
+<p>There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for:</p>
+<pre data-lang="plaintext" style="background-color:#2b303b;color:#c0c5ce;" class="language-plaintext "><code class="language-plaintext" data-lang="plaintext"><span>- &quot;global information tracker&quot;: you&#39;re in a good mood, and it actually
+</span><span>   works for you. Angels sing, and a light suddenly fills the room.
+</span><span>- &quot;goddamn idiotic truckload of sh*t&quot;: when it breaks
+</span></code></pre>
 <h2 id="2-hammerspoon">2. Hammerspoon</h2>
 <p>Hammerspoon is an automation tool available for macOS that runs on custom Lua scripts. The greatest use case that I found for it was for writing scripts to allow me to use custom keyboard bindings to control the sizing and location of my windows without having to use the mouse.</p>
 <p>While this seems like it a relatively small enhancement, the seconds saved from every time I need to resize a window compound into minutes and hours saved over time. Here's a snippet of the <code>window.lua</code> script I wrote to do this:</p>
@@ -164,20 +168,14 @@
 </span></code></pre>
 <h3 id="3-2-setting-up-a-dotfiles-repository">3.2 Setting up a dotfiles repository</h3>
 <p>To set up a dotfiles repository, you can follow these steps:</p>
-<ol>
-<li>Create a new directory for your dotfiles repository in your home directory:</li>
-</ol>
+<p>1. Create a new directory for your dotfiles repository in your home directory:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">mkdir ~</span><span>/.dotfiles </span><span style="color:#65737e;"># or any other name you prefer
 </span></code></pre>
-<ol start="2">
-<li>Initialize a new Git repository in the directory:</li>
-</ol>
+<p>2. Initialize a new Git repository in the directory:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~</span><span>/.dotfiles
 </span><span style="color:#bf616a;">git</span><span> init
 </span></code></pre>
-<ol start="3">
-<li>Move your dotfiles into the repository and create symbolic links to them in your home directory:</li>
-</ol>
+<p>3. Move your dotfiles into the repository and create symbolic links to them in your home directory:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">mv ~</span><span>/.bashrc </span><span style="color:#bf616a;">~</span><span>/.dotfiles
 </span><span style="color:#bf616a;">ln -s ~</span><span>/.dotfiles/.bashrc </span><span style="color:#bf616a;">~</span><span>/.bashrc
 </span></code></pre>
@@ -187,9 +185,7 @@
 <p>Configuration files that are prefixed with a <code>.</code> are typically hidden by default, so you may need to use the <code>-a</code> flag to display them.</p>
 <p>If you have set up the symbolic links correctly, running the <code>ls -a ~</code> command should show the symbolic links in your home directory pointing to the dotfiles in your repository like so:</p>
 <p><img src="https://micahkepe.com/blog/missing-semester/symlinks.png" alt="Dotfiles in home directory" /></p>
-<ol start="4">
-<li>Add, commit, and push your dotfiles to your remote repository (e.g., GitHub):</li>
-</ol>
+<p>4. Add, commit, and push your dotfiles to your remote repository (e.g., GitHub):</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> add .
 </span><span style="color:#bf616a;">git</span><span> commit</span><span style="color:#bf616a;"> -m </span><span>&quot;</span><span style="color:#a3be8c;">Initial commit</span><span>&quot;
 </span><span style="color:#bf616a;">git</span><span> remote add origin
@@ -199,11 +195,6 @@
 <p>The great thing about dotfiles repositories is that doing a simple search on GitHub will yield many examples of how others have set up their dotfiles. You can learn from their configurations and customize them to suit your own preferences. If you're interested in seeing an example of a dotfiles repository, you can check out <a href="https://github.com/micahkepe/dotfiles">mine</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The Missing Semester of Your CS Education is a fantastic course that covers a wide range of topics that are essential for becoming a more productive and efficient programmer. The course has helped me improve my skills in version control, automation, and configuration management, and I continue to use many of the tools and techniques that I learned in my day-to-day work.</p>
-<h2 id="references">References</h2>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p><a href="https://missing.csail.mit.edu/about/">Why we are teaching this class</a>
-<sup class="footnote-reference"><a href="#2">2</a></sup>: <a href="https://phoenixnap.com/kb/git-switch-vs-checkout#:~:text=The%20two%20commands%20are%20somewhat,their%20purpose%20should%20be%20clarified.">Git Switch vs. Checkout: What's the Difference?</a></p>
-</div>
 
     </div>
 
