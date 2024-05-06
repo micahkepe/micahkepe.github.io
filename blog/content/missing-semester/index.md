@@ -81,7 +81,7 @@ git stash apply stash@{2}
 
 There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for:
 
-```plaintext
+```
 - "global information tracker": you're in a good mood, and it actually
    works for you. Angels sing, and a light suddenly fills the room.
 - "goddamn idiotic truckload of sh*t": when it breaks
