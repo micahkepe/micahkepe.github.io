@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Micah&#x27;s Secret Blog - theory</title>
+    <subtitle>An assortment of my ramblings and random adventures.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/blog/tags/theory/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://micahkepe.com/blog"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-05-06T00:00:00+00:00</updated>
+    <id>https://micahkepe.com/blog/tags/theory/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
+        <published>2024-05-06T00:00:00+00:00</published>
+        <updated>2024-05-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/ingenious-algorithms/"/>
+        <id>https://micahkepe.com/blog/ingenious-algorithms/</id>
+        
+        <summary type="html">&lt;!-- Load latex shortcode --&gt;
+&lt;!-- MathJax script for rendering LaTeX math equations --&gt;
+&lt;script&gt;
+  MathJax = {
+    tex: {
+      inlineMath: [
+        [&quot;$&quot;, &quot;$&quot;],
+        [&quot;\\(&quot;, &quot;\\)&quot;],
+      ],
+      displayMath: [
+        [&quot;$$&quot;, &quot;$$&quot;],
+        [&quot;\\[&quot;, &quot;\\]&quot;],
+      ],
+    },
+  };
+&lt;&#x2F;script&gt;
+&lt;script
+  src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mathjax@3&#x2F;es5&#x2F;tex-chtml.js&quot;
+  async
+&gt;&lt;&#x2F;script&gt;
+&lt;p&gt;Algorithms are all around us. They are the invisible forces that power our modern world, from the search engines we use to find information to the social networks we use to connect with friends and family. In this post, I share some ingenious algorithms that I have learned about both in courses and through my own research.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
