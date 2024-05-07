@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Micah&#x27;s Secret Blog - theory</title>
     <subtitle>An assortment of my ramblings and random adventures.</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/blog/tags/theory/atom.xml"/>
-    <link rel="alternate" type="text/html" href="https://micahkepe.com/blog"/>
+    <link rel="self" type="application/atom+xml" href="http://localhost:3000/blog/tags/theory/atom.xml"/>
+    <link rel="alternate" type="text/html" href="http://localhost:3000/blog/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-05-06T00:00:00+00:00</updated>
-    <id>https://micahkepe.com/blog/tags/theory/atom.xml</id>
+    <id>http://localhost:3000/blog/tags/theory/atom.xml</id>
     <entry xml:lang="en">
         <title>[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
         <published>2024-05-06T00:00:00+00:00</published>
@@ -20,8 +20,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/ingenious-algorithms/"/>
-        <id>https://micahkepe.com/blog/ingenious-algorithms/</id>
+        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/ingenious-algorithms/"/>
+        <id>http://localhost:3000/blog/ingenious-algorithms/</id>
         
         <summary type="html">&lt;!-- Load latex shortcode --&gt;
 &lt;!-- MathJax script for rendering LaTeX math equations --&gt;

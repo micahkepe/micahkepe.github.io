@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Micah&#x27;s Secret Blog - programming</title>
     <subtitle>An assortment of my ramblings and random adventures.</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/blog/categories/programming/atom.xml"/>
-    <link rel="alternate" type="text/html" href="https://micahkepe.com/blog"/>
+    <link rel="self" type="application/atom+xml" href="http://localhost:3000/blog/categories/programming/atom.xml"/>
+    <link rel="alternate" type="text/html" href="http://localhost:3000/blog/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-05-06T00:00:00+00:00</updated>
-    <id>https://micahkepe.com/blog/categories/programming/atom.xml</id>
+    <id>http://localhost:3000/blog/categories/programming/atom.xml</id>
     <entry xml:lang="en">
         <title>[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
         <published>2024-05-06T00:00:00+00:00</published>
@@ -20,8 +20,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/ingenious-algorithms/"/>
-        <id>https://micahkepe.com/blog/ingenious-algorithms/</id>
+        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/ingenious-algorithms/"/>
+        <id>http://localhost:3000/blog/ingenious-algorithms/</id>
         
         <summary type="html">&lt;!-- Load latex shortcode --&gt;
 &lt;!-- MathJax script for rendering LaTeX math equations --&gt;
@@ -60,8 +60,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/missing-semester/"/>
-        <id>https://micahkepe.com/blog/missing-semester/</id>
+        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/missing-semester/"/>
+        <id>http://localhost:3000/blog/missing-semester/</id>
         
         <summary type="html">&lt;p&gt;Nearly a year ago, I took an online course called &lt;a href=&quot;https:&#x2F;&#x2F;missing.csail.mit.edu&#x2F;&quot;&gt;The Missing Semester of Your CS Education&lt;&#x2F;a&gt;. The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.&lt;&#x2F;p&gt;
 &lt;p&gt;Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.&lt;&#x2F;p&gt;
