@@ -1,6 +1,7 @@
 +++
 title = "[2] Biggest Takeaways from The Missing Semester of Your CS Education"
 date = 2024-05-05
+weight = 2
 
 [taxonomies]
 categories = ["programming"]
@@ -185,3 +186,5 @@ The great thing about dotfiles repositories is that doing a simple search on Git
 ## Conclusion
 
 The Missing Semester of Your CS Education is a fantastic course that covers a wide range of topics that are essential for becoming a more productive and efficient programmer. The course has helped me improve my skills in version control, automation, and configuration management, and I continue to use many of the tools and techniques that I learned in my day-to-day work.
+
+{{ disqus() }}

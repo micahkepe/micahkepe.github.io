@@ -1,6 +1,7 @@
 +++
 title = "[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam"
 date = 2024-05-06
+weight = 3
 
 [taxonomies]
 categories = ["programming"]
@@ -188,3 +189,5 @@ The next time you use a search engine to find information, correct a spelling mi
 \- [Shazam: An Industrial-Strength Audio Search Algorithm](https://www.ee.columbia.edu/~dpwe/papers/Wang03-shazam.pdf) \
 \- [How on Earth Does Shazam Recognize Songs](https://youtu.be/ev0Ay1m4MWs?si=C_Bk31NOsUeRVAPN) \
 \- [How does Shazam Uniquely Identify A Track?](https://networkedlifeq21.fandom.com/wiki/How_does_Shazam_Uniquely_Identify_A_Track%3F)
+
+{{ disqus() }}
