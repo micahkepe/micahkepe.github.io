@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:3000/blog/</loc>
+        <loc>https://micahkepe.com/blog/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/categories/</loc>
+        <loc>https://micahkepe.com/blog/categories/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/categories/programming/</loc>
+        <loc>https://micahkepe.com/blog/categories/programming/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/categories/welcome/</loc>
+        <loc>https://micahkepe.com/blog/categories/welcome/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/ingenious-algorithms/</loc>
+        <loc>https://micahkepe.com/blog/ingenious-algorithms/</loc>
         <lastmod>2024-05-06</lastmod>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/missing-semester/</loc>
+        <loc>https://micahkepe.com/blog/missing-semester/</loc>
         <lastmod>2024-05-05</lastmod>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/page/1/</loc>
+        <loc>https://micahkepe.com/blog/page/1/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/tags/</loc>
+        <loc>https://micahkepe.com/blog/tags/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/tags/productivity/</loc>
+        <loc>https://micahkepe.com/blog/tags/productivity/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/tags/scavenger-hunt/</loc>
+        <loc>https://micahkepe.com/blog/tags/scavenger-hunt/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/tags/theory/</loc>
+        <loc>https://micahkepe.com/blog/tags/theory/</loc>
     </url>
     <url>
-        <loc>http://localhost:3000/blog/welcome/</loc>
+        <loc>https://micahkepe.com/blog/welcome/</loc>
         <lastmod>2024-05-01</lastmod>
     </url>
 </urlset>
