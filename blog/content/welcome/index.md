@@ -32,5 +32,3 @@ I'm not sure what I will use this blog for yet, but I'm thinking it will be a pl
 For those curious, this blog is built with [Zola](https://www.getzola.org/), a static site generator written in Rust, because I am too lazy to write the code myself ("The three chief virtues of a programmer are: Laziness, Impatience and Hubris." - Larry Wall). The theme is a custom theme called "After Dark" that can be found [here](https://github.com/getzola/after-dark).
 
 Be warned-- though you found this blog this time, I think I will make it even harder to find in the future. Stay tuned for more hidden gems and easter eggs on my site. Until then, enjoy this little scavenger hunt victory!
-
-{{ disqus() }}
