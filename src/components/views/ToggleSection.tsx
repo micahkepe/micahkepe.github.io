@@ -3,17 +3,17 @@ import React, { useState } from "react";
 interface ToggleSectionProps {
   sections: string[];
   sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
+  activeSection: string | null;
+  onSectionClick: (section: string) => void;
 }
 
 const ToggleSection: React.FC<ToggleSectionProps> = ({
   sections,
   sectionRefs,
+  activeSection,
+  onSectionClick,
 }) => {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
-
-  const handleSectionClick = (section: string) => {
-    sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleSectionMouseEnter = (section: string) => {
     setHoveredSection(section);
@@ -29,18 +29,22 @@ const ToggleSection: React.FC<ToggleSectionProps> = ({
         <div
           key={section}
           className="flex items-center mb-3 cursor-pointer text-sm font-semibold"
-          onClick={() => handleSectionClick(section)}
+          onClick={() => onSectionClick(section)}
           onMouseEnter={() => handleSectionMouseEnter(section)}
           onMouseLeave={handleSectionMouseLeave}
         >
           <div
-            className={`h-1 w-8 bg-skyblue mr-2 transition-all duration-300 ${
-              hoveredSection === section ? "" : ""
+            className={`h-1 bg-skyblue mr-2 transition-all duration-300 ${
+              activeSection === section || hoveredSection === section
+                ? "w-12"
+                : "w-8"
             }`}
           ></div>
           <span
             className={`${
-              hoveredSection === section ? "hover:text-white" : "text-slate"
+              activeSection === section || hoveredSection === section
+                ? "text-white"
+                : "text-slate"
             }`}
           >
             ⸻ {section.toUpperCase()}
