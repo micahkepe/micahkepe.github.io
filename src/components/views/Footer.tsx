@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       <div>
         <p>
           Website created by{" "}
-          <a href="/blog" className="no-underline text-inherit">
+          <a href="/blog" className="text-inherit hover:text-green">
             Micah Kepe
           </a>
           <br />
@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
             href="https://brittanychiang.com"
             target="_blank"
             rel="noreferrer"
-            className="no-underline hover:underline hover:text-white"
+            className="no-underline hover:underline hover:text-white decoration-green"
           >
             Brittany Chiang
           </a>
