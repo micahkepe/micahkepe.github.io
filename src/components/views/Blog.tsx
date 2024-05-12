@@ -67,7 +67,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
           blog posts:
         </p>
         <br />
-        <div id="latest-blog-posts" className="mt-2 ml-5">
+        <div id="latest-blog-posts" className="mt-2">
           {blogPosts.map((post) => (
             <div
               key={post.link}
