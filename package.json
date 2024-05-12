@@ -1,7 +1,7 @@
 {
   "name": "my-personal-website",
   "homepage": "https://micahkepe.com/",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
