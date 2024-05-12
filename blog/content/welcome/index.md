@@ -35,3 +35,5 @@ For those curious, this blog is built with [Zola](https://www.getzola.org/), a s
 Be warned-- though you found this blog this time, I think I will make it even harder to find in the future. Stay tuned for more hidden gems and easter eggs on my site. Until then, enjoy this little scavenger hunt victory!
 
 **Update:** I have decided to make this blog public and link to it from my main site. I hope you enjoy the content I will be sharing here. Stay tuned for more updates!
+
+{{ utterances()}}

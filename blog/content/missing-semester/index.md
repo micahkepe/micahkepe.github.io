@@ -10,9 +10,9 @@ tags = ["productivity"]
 
 Nearly a year ago, I took an online course called [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/). The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.
 
-Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.
-
 <!-- more -->
+
+Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.
 
 ## 1. Version Control with Git
 
@@ -186,3 +186,5 @@ The great thing about dotfiles repositories is that doing a simple search on Git
 ## Conclusion
 
 The Missing Semester of Your CS Education is a fantastic course that covers a wide range of topics that are essential for becoming a more productive and efficient programmer. The course has helped me improve my skills in version control, automation, and configuration management, and I continue to use many of the tools and techniques that I learned in my day-to-day work.
+
+{{ utterances()}}
