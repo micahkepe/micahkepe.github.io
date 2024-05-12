@@ -2,14 +2,12 @@ import React, { useState } from "react";
 
 interface ToggleSectionProps {
   sections: string[];
-  sectionRefs: { [key: string]: React.RefObject<HTMLElement> };
   activeSection: string | null;
   onSectionClick: (section: string) => void;
 }
 
 const ToggleSection: React.FC<ToggleSectionProps> = ({
   sections,
-  sectionRefs,
   activeSection,
   onSectionClick,
 }) => {

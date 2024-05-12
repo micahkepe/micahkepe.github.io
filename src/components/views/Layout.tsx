@@ -93,7 +93,6 @@ const Layout: React.FC = () => {
         {windowWidth > 768 && (
           <ToggleSection
             sections={sections}
-            sectionRefs={sectionRefs}
             activeSection={activeSection}
             onSectionClick={handleSectionClick}
           />
