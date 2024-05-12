@@ -2,7 +2,7 @@ import React from "react";
 import GithubLogo from "../logos/GithubLogo";
 import LinkedinLogo from "../logos/LinkedinLogo";
 import InstagramLogo from "../logos/InstagramLogo";
-
+import DEVCommunityLogo from "../logos/DEVCommunityLogo";
 interface SocialLink {
   icon: JSX.Element;
   link: string;
@@ -25,6 +25,11 @@ const Socials: React.FC = () => {
       icon: <LinkedinLogo />,
       link: "https://www.linkedin.com/in/micah-kepe/",
       name: "Linkedin",
+    },
+    {
+      icon: <DEVCommunityLogo />,
+      link: "https://dev.to/micahkepe",
+      name: "DEV Community",
     },
   ];
 

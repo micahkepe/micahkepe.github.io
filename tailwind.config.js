@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         customgray: "#8392a7",
         slate: "#8892b0",
+        lightslate: "#a8b2d1",
         green: "#64ffda",
         teal: {
           300: "#5eead4",
