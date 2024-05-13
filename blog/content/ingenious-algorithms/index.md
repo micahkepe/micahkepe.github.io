@@ -170,7 +170,6 @@ One interesting aspect of Shazam's algorithm is that it uses a technique called 
 - Shazam has been used to identify over 50 billion songs since its launch in 2002.
 - The most Shazamed song of all time is "Dance Monkey" by Tones and I, which has been identified over 36.6 million times.
 - Shazam's algorithm can identify a song in as little as 1 second, even if the audio quality is poor or there is background noise.
-- Shazam has been used for more than just identifying songs. In 2014, the app was used to identify the sounds of illegal logging in the Amazon rainforest as part of a campaign to combat deforestation.
 - Shazam's co-founder Avery Wang is also an accomplished classical pianist and has performed at Carnegie Hall.
 
 ## Conclusion
