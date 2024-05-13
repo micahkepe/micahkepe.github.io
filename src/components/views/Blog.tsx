@@ -77,7 +77,9 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
                 {post.title}
               </h3>
               <p className="text-sm font-semibold text-gray-500 mb-4">
-                {new Date(post.pubDate).toLocaleDateString()}
+                {new Date(post.pubDate).toLocaleDateString("en-US", {
+                  timeZone: "UTC",
+                })}
               </p>
               <div
                 className="mt-2 text-sm text-slate"
