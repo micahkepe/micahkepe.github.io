@@ -27,6 +27,9 @@
         <loc>https://micahkepe.com/blog/tags/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/infosec/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/productivity/</loc>
     </url>
     <url>
@@ -34,6 +37,16 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/theory/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/vulnerability/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/webp/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/webp-vulnerability/</loc>
+        <lastmod>2024-05-13</lastmod>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/welcome/</loc>
