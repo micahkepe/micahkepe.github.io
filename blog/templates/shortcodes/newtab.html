@@ -1,0 +1,7 @@
+<!-- Shortcode to resize image and link to it in a new tab with alt text -->
+<div>
+  {% set image = resize_image(path=src, width=width, height=height) %}
+  <a href="{{ get_url(path=src) }}" target="_blank">
+    <img src="{{ image.url }}" alt="{{ alt }}" />
+  </a>
+</div>
