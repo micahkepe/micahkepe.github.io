@@ -1,6 +1,6 @@
 import React from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import LinkedinLogo from "../logos/LinkedinLogo";
+import LinkedinLogo from "../icons/LinkedinLogo";
 
 interface ContactProps {
   windowWidth: number;
@@ -11,7 +11,7 @@ const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
   return (
     <section id="contact">
       <div
-        className={`contact-content font-inter text-base font-thin text-slate pr-8 pl-3 ${paddingClass}`}
+        className={`contact-content text-base font-thin text-slate pr-8 pl-3 ${paddingClass}`}
       >
         <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
           <div className="flex gap-x-4">
@@ -33,7 +33,10 @@ const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
           </div>
           <div className="flex gap-x-4">
             <dt className="flex-none">
-              <LinkedinLogo fill="#0e76a8" className="w-6 h-6" />{" "}
+              <LinkedinLogo
+                fill="currentColor"
+                className="w-6 h-6 text-sky-700"
+              />{" "}
             </dt>
             <dd>
               <a

@@ -54,7 +54,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
   return (
     <section id="about">
       <div
-        className={`blog-content font-inter text-base text-left font-thin text-slate pr-8 pl-3 ${paddingClass}`}
+        className={`blog-content text-base text-left font-thin text-slate pr-8 pl-3 ${paddingClass}`}
       >
         <br />
         <p className="indent-8">

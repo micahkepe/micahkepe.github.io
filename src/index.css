@@ -1,20 +1,10 @@
-@font-face {
-  font-family: "Inter";
-  src:
-    url("../public/fonts/Inter-Regular.otf") format("woff"),
-    url("../public/fonts/Inter-Bold.otf") format("woff");
-  /* Add additional font weights and styles here if needed */
-  font-weight: normal;
-  font-style: normal;
-}
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 body,
 html {
-  @apply bg-[#10172A] text-white overflow-y-auto font-inter;
+  @apply bg-[#10172A] text-white overflow-y-auto;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,11 +12,6 @@ html {
 
 #root {
   @apply h-full flex flex-col overflow-y-auto;
-}
-
-#rocket-portal {
-  @apply absolute;
-  position: relative;
 }
 
 code {

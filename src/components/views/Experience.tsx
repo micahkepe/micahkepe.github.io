@@ -16,7 +16,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
       description:
         "Developing new features for the Vislang platform in the areas of computer vision, natural language processing, and machine learning.",
       link: "https://vislang.ai/",
-      skills: ["Python", "PyTorch", "Flask", "Docker", "JavaScript"],
+      skills: ["Python", "Flask", "JavaScript", "Web Crawling", "Socket.io"],
     },
     {
       date: "Jun 2023 - Aug 2023",

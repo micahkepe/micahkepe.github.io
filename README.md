@@ -75,10 +75,10 @@ In the `npm start` script, the Zola blog is not built. If you want to build the 
 
 ```bash
 cd blog
-zola build --base-url http://localhost:3000/blog/
+zola build --base-url http://localhost:3000/blog
 ```
 
-The second command builds the Zola blog with the base URL set to `http://localhost:3000/blog/`. This allows you to navigate through the blog posts when running the development server by overriding the base URL in the `config.toml` file.
+The second command builds the Zola blog with the base URL set to `http://localhost:3000/blog`. This allows you to navigate through the blog posts when running the development server by overriding the base URL in the `config.toml` file.
 
 The suggested workflow for working on the blog is to have one terminal window running the React development server and another terminal window for running the Zola build command as you make changes to the blog content.
 

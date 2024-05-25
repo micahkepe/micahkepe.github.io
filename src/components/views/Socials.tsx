@@ -1,8 +1,8 @@
 import React from "react";
-import GithubLogo from "../logos/GithubLogo";
-import LinkedinLogo from "../logos/LinkedinLogo";
-import InstagramLogo from "../logos/InstagramLogo";
-import DEVCommunityLogo from "../logos/DEVCommunityLogo";
+import GithubLogo from "../icons/GithubLogo";
+import LinkedinLogo from "../icons/LinkedinLogo";
+import InstagramLogo from "../icons/InstagramLogo";
+import DEVCommunityLogo from "../icons/DEVCommunityLogo";
 interface SocialLink {
   icon: JSX.Element;
   link: string;

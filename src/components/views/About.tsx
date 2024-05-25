@@ -9,7 +9,7 @@ const About: FC<AboutProps> = ({ windowWidth }) => {
   return (
     <section id="about">
       <div
-        className={`about-content font-inter text-base text-left font-thin text-slate pr-8 pl-3 ${paddingClass}`}
+        className={`about-content text-base text-left font-thin text-slate pr-8 pl-3 ${paddingClass}`}
       >
         <br />
         <p className="indent-8">

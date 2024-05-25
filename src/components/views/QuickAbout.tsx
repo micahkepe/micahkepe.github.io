@@ -59,7 +59,6 @@ const QuickAbout = (): JSX.Element => {
             target="_blank"
             rel="noreferrer"
             className="no-underline hover:underline decoration-indigo-500 owl-cursor"
-            style={{ color: "white" }}
           >
             Rice University
           </a>

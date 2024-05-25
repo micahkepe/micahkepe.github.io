@@ -55,10 +55,6 @@ html {
   animation: smokeFade 0.5s forwards;
 }
 
-.quick-about {
-  overflow: hidden;
-}
-
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
