@@ -88,7 +88,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="h-full lg:flex lg:justify-between overflow-x-hidden">
-      <div className="lg:w-1/3 lg:h-screen overflow-y-auto lg:fixed top-0 p-5 mt-8 ml-2">
+      <div className="lg:w-1/3 lg:h-screen overflow-y-hidden lg:fixed top-0 p-5 mt-8 ml-2">
         <QuickAbout />
         {windowWidth > 768 && (
           <ToggleSection
