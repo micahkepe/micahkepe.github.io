@@ -4,6 +4,10 @@
         <loc>https://micahkepe.com/blog/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/bloom-filters/</loc>
+        <lastmod>2024-05-25</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/categories/</loc>
     </url>
     <url>
@@ -25,6 +29,12 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/algorithms/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/data-structures/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/infosec/</loc>
