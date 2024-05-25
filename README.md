@@ -14,6 +14,7 @@ This is the repository for my personal website built using React. The website is
 - [Features](#features)
 - [Installation](#installation)
 - [Deployment](#deployment)
+- [Blog Shortcodes](#blog-shortcodes)
 - [Usage and Attribution](#usage-and-attribution)
 - [Contributing](#contributing)
 - [License](#license)
@@ -108,6 +109,14 @@ Part of the deployment script is building the Zola blog. If you don't want to bu
 4. Visit your GitHub Pages URL to view your deployed website.
 
 Make sure to update the content in the `src/components/views` directory with your information, projects, and blog posts. Additionally, remove or replace the content in the `blog/content` directory with your own blog posts. You can also update the theme using a different Zola theme or create your own.
+
+## Blog Shortcodes
+
+The blog posts in the `blog/content` directory use shortcodes to include images, code snippets, and other content. Here are some of the shortcodes available:
+
+- `{{ newtab(src="path/to/image", width=400, height=200, alt="Image Description") }}`: Include an image with a link that opens in a new tab with the specified width, height, and alt text.
+- `{{ latex() }}`: Include LaTeX math equations in the blog post with MathJax support. You can write LaTeX equations by including the shortcode at the beginning of the post and writing inline LaTeX using the following delimiters: `\\[ ... \\]` or `$$ ... $$` for display mode and `\\( ... \\)` or `$ ... $` for inline mode.
+- `{{ gallery(images=["path/to/image1", "path/to/image2", "path/to/image3"]) }}`: Create a gallery of images in the blog post with the specified JPG/PNG image paths.
 
 ## Usage and Attribution
 

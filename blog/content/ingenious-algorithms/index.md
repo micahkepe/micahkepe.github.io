@@ -5,7 +5,7 @@ weight = 3
 
 [taxonomies]
 categories = ["programming"]
-tags = ["theory"]
+tags = ["theory", "algorithms"]
 +++
 
 <!-- Load latex shortcode -->
