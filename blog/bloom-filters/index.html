@@ -69,7 +69,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>9 minute read</span>
+    <span>8 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -117,30 +117,21 @@
 <h2 id="how-bloom-filters-work">How Bloom Filters Work</h2>
 <h3 id="insertion">Insertion</h3>
 <p>To add an element to the Bloom filter, the element is passed through each of the $k$ hash functions, resulting in $k$ array positions. The bits at these positions in the bit array are set to 1. If any of these bits are already set to 1, they remain unchanged.</p>
+<p><img src="https://micahkepe.com/blog/bloom-filters/insertion.png" alt="Inserting an element into a Bloom filter" /></p>
 <h3 id="querying">Querying</h3>
 <p>To check if an element is in the Bloom filter, the element is hashed using the same $k$ hash functions to find the $k$ array positions. If all the corresponding bits in the bit array are 1, the Bloom filter reports that the element might be in the set. If any of the bits are 0, the element is definitely not in the set.</p>
+<p><img src="https://micahkepe.com/blog/bloom-filters/bloom-filter-membership.png" alt="Test for membership in a Bloom filter" /></p>
 <h3 id="false-positives">False Positives</h3>
 <p>Bloom filters do not store the actual elements, so they can never have false negatives (i.e., reporting an element is not in the set when it actually is). However, they can have false positives (i.e., reporting an element is in the set when it is not). The probability of false positives depends on the size of the bit array $m$, the number of hash functions $k$, and the number of elements inserted $n$.</p>
+<p><img src="https://micahkepe.com/blog/bloom-filters/bloom-filter-example.png" alt="Example of a false positive in a Bloom filter" /></p>
 <h2 id="mathematical-insight">Mathematical Insight</h2>
 <p>The false positive probability $p$ can be approximated by:</p>
 <p>\[ p \approx \left(1 - \left(1 - \frac{1}{m}\right)^{kn}\right)^k \]</p>
 <p>For practical use, choosing the optimal number of hash functions $k$ and the bit array size $m$ is crucial to minimize the false positive rate.</p>
-<h2 id="applications-of-bloom-filters">Applications of Bloom Filters</h2>
-<h3 id="caching">Caching</h3>
-<p>Imagine you have a web service that handles millions of requests per day. Checking the cache for each request can be time-consuming if the cache is large. Using a Bloom filter, you can quickly determine if an item is not in the cache, saving the time that would otherwise be spent on an unnecessary cache lookup.</p>
-<p>For example, a CDN (Content Delivery Network) might use a Bloom filter to track cached web pages. If a user requests a page, the Bloom filter can quickly check if the page is definitely not cached. If the Bloom filter indicates the page might be cached, a more thorough lookup is performed.</p>
-<h3 id="databases">Databases</h3>
-<p>In databases, Bloom filters can be used to filter out non-existent keys, thereby speeding up queries and reducing disk I/O. For instance, a large distributed database like Cassandra uses Bloom filters to avoid disk reads for non-existent rows. When a query is made, the Bloom filter quickly checks if the data is likely present on disk, reducing the load on the database.</p>
-<h3 id="networking">Networking</h3>
-<p>Bloom filters are used in network applications for efficient routing and data packet processing. For example, in a peer-to-peer network, Bloom filters can help determine which peers are likely to have the desired data, reducing the number of network messages needed.</p>
-<h3 id="security">Security</h3>
-<p>Bloom filters can help in security applications like detecting malicious URLs or spam emails by quickly checking membership in blacklists. For instance, an email system might use a Bloom filter to rapidly check incoming emails against a list of known spam addresses, filtering out potential spam before more resource-intensive checks are applied.</p>
-<h3 id="distributed-systems">Distributed Systems</h3>
-<p>In distributed systems, Bloom filters can be employed to reduce communication overhead by summarizing large sets of data. For example, in a distributed caching system, Bloom filters can be used to quickly check if a particular piece of data is stored across multiple nodes, reducing the need for extensive inter-node communication.</p>
-<h2 id="comparing-bloom-filters-with-other-data-structures">Comparing Bloom Filters with Other Data Structures</h2>
-<p>To demonstrate the practical use of Bloom filters, let's consider a mock scenario where a Bloom filter is used to check if a URL is malicious. We will compare Bloom filters, hash sets, and lists in terms of space efficiency and the ability to quickly determine if a URL is in the blacklist.</p>
+<h2 id="comparing-a-bloom-filter-with-a-hash-set-in-python">Comparing a Bloom Filter with a Hash Set in Python</h2>
+<p>To demonstrate the practical use of Bloom filters, let's consider a mock scenario where a Bloom filter is used to check if a URL is malicious. We will compare Bloom filters and hash sets in terms of space efficiency and the ability to quickly determine if a URL is in the blacklist.</p>
 <h3 id="mock-scenario-checking-malicious-urls">Mock Scenario: Checking Malicious URLs</h3>
-<p>In this scenario, we simulate a web browser that checks if a URL is malicious using a locally stored Bloom filter, hash set, or list. The Bloom filter offers a space-efficient solution, reducing the need for frequent network calls.</p>
+<p>In this scenario, we simulate a web browser that checks if a URL is malicious using a locally stored Bloom filter or list. The Bloom filter offers a space-efficient solution, reducing the need for frequent network calls.</p>
 <ul>
 <li><strong>Bloom Filter</strong>: Efficient in terms of space, but can have false positives.</li>
 <li><strong>Hash Set</strong>: No false positives, but can be memory-intensive.</li>
@@ -180,7 +171,6 @@
 <h3 id="cons">Cons</h3>
 <ul>
 <li><strong>False Positives</strong>: Bloom filters can produce false positives, which may not be acceptable in certain applications.</li>
-<li><strong>No Deletion</strong>: Bloom filters do not support deletion of elements once inserted.</li>
 <li><strong>Optimal Parameters</strong>: Choosing the optimal number of hash functions and bit array size is crucial for minimizing false positives.</li>
 <li><strong>Limited Applications</strong>: Bloom filters are best suited for scenarios where false positives are acceptable and space efficiency is critical.</li>
 </ul>
@@ -201,7 +191,8 @@
 - <a href="https://cloud.google.com/blog/products/databases/cloud-bigtable-improves-single-row-read-throughput-by-up-to-50-percent/">Cloud Bigtable under the hood: How we improved single-row read throughput by 20-50%</a> <br />
 - <a href="https://courses.cs.washington.edu/courses/cse312/22wi/files/student_drive/9.4.pdf">University of Washington Lecture Slides on Bloom Filter Applications</a> <br />
 - <a href="https://www.geeksforgeeks.org/bloom-filters-introduction-and-python-implementation/">Bloom Filters – Introduction and Implementation</a> <br />
-- <a href="https://towardsdatascience.com/system-design-bloom-filter-a2e19dcd4810">System Design: Bloom Filter</a></p>
+- <a href="https://towardsdatascience.com/system-design-bloom-filter-a2e19dcd4810">System Design: Bloom Filter</a> <br />
+- <a href="https://www.enjoyalgorithms.com/blog/bloom-filter">Bloom Filter Data Structure: Implementation and Application</a></p>
 <script
   src="https://utteranc.es/client.js"
   repo="micahkepe/micahkepe.github.io"
