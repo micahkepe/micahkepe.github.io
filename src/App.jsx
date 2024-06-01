@@ -7,6 +7,9 @@ function App() {
   const blobRef = useRef();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
+  /**
+   * Animate the blob to follow the user's pointer around the screen.
+   */
   useLayoutEffect(() => {
     const handlePointerMove = (event) => {
       const { clientX, clientY } = event;
@@ -27,6 +30,11 @@ function App() {
     };
   }, []);
 
+  /**
+   * Redirect to the index.html file if the user is on a blog post page.
+   * This is a necessary workaround due to migration to Vite from Create React App
+   * and the way in which Zola generates blog post pages.
+   */
   useLayoutEffect(() => {
     const isBlogPath = window.location.pathname.startsWith("/blog/");
     if (isBlogPath && !window.location.pathname.endsWith("/index.html")) {
@@ -38,8 +46,9 @@ function App() {
     }
   }, []);
 
+  // Render nothing while redirecting to avoid flickering
   if (isRedirecting) {
-    return null; // Render nothing while redirecting
+    return null;
   }
 
   return (
