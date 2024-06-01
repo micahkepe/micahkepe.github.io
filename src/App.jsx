@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import Layout from "./components/views/Layout";
 import "./App.css";
-import "./Loading.css";
+import "./Redirect.css";
 
 function App() {
   const blobRef = useRef();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handlePointerMove = (event) => {
       const { clientX, clientY } = event;
 
@@ -27,16 +27,14 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isBlogPath = window.location.pathname.startsWith("/blog/");
     if (isBlogPath && !window.location.pathname.endsWith("/index.html")) {
       setIsRedirecting(true);
       document.body.classList.add("black-screen"); // Ensure the black screen class is applied immediately
-      setTimeout(() => {
-        const url = new URL(window.location.href);
-        url.pathname = url.pathname.replace(/\/$/, "") + "/index.html";
-        window.location.href = url.href;
-      }, 0);
+      const url = new URL(window.location.href);
+      url.pathname = url.pathname.replace(/\/$/, "") + "/index.html";
+      window.location.href = url.href;
     }
   }, []);
 
