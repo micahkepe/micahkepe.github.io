@@ -4,8 +4,8 @@
     <meta http-equiv="refresh" content="0; url=/index.html?redirect=true" />
     <script>
       // Custom script to handle redirects
-      var redirectUrl = window.location.pathname;
-      window.location.href = '/index.html?redirect=true&path=' + encodeURIComponent(redirectUrl);
+      var originalUrl = window.location.pathname + window.location.search;
+      window.location.href = '/index.html?redirect=true&originalUrl=' + encodeURIComponent(originalUrl);
     </script>
     <style>
       body {
