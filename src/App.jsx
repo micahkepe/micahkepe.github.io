@@ -31,10 +31,10 @@ function App() {
     const isBlogPath = window.location.pathname.startsWith("/blog/");
     if (isBlogPath && !window.location.pathname.endsWith("/index.html")) {
       setIsRedirecting(true);
-      const url = new URL(window.location.href);
-      url.pathname = url.pathname.replace(/\/$/, "") + "/index.html";
-      document.body.classList.add("black-screen");
+      document.body.classList.add("black-screen"); // Ensure the black screen class is applied immediately
       setTimeout(() => {
+        const url = new URL(window.location.href);
+        url.pathname = url.pathname.replace(/\/$/, "") + "/index.html";
         window.location.href = url.href;
       }, 0);
     }
