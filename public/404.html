@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/index.html?redirect=true" />
+    <script>
+      // Custom script to handle redirects
+      var redirectUrl = window.location.pathname;
+      window.location.href = '/index.html?redirect=true&path=' + encodeURIComponent(redirectUrl);
+    </script>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+  </body>
+</html>

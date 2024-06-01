@@ -90,6 +90,6 @@ html {
 /* New styles for the owl cursor */
 .owl-cursor:hover {
   cursor:
-    url("/public/assets/owlSprite.gif") 20 40,
+    url("/assets/owlSprite.gif") 20 40,
     auto;
 }

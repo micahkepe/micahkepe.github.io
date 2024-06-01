@@ -20,7 +20,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
       try {
         // Fetch blog posts from the Atom feed of the Programming category
         const response = await fetch(
-          "https://micahkepe.com/blog/categories/programming/atom.xml",
+          "https://micahkepe.com/blog/categories/programming/atom.xml"
         );
         const xmlText = await response.text();
         const parser = new DOMParser();
@@ -115,7 +115,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
       <div>
         <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
           <span className="text-white font-semibold text-base">
-            <a href="/blog" rel="noopener noreferrer">
+            <a href="/blog/" rel="noopener noreferrer">
               Visit My Blog
             </a>
           </span>

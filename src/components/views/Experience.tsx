@@ -11,7 +11,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
   const experiences = [
     {
       date: "Feb 2024 - Present",
-      logo: "assets/vislang-logo.webp",
+      logo: "/assets/vislang-logo.webp",
       title: "ML Research Intern | Vislang Lab @ Rice University",
       description:
         "Developing new features for the Vislang platform in the areas of computer vision, natural language processing, and machine learning.",
@@ -20,7 +20,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     },
     {
       date: "Jun 2023 - Aug 2023",
-      logo: "assets/king-energy-logo.webp",
+      logo: "/assets/king-energy-logo.webp",
       title: "Software Development Intern | King Energy",
       description:
         "Helped build internal admin tool with user friendly UI to allow for more efficient document classification and management. Also worked on a web app to allow for easier access to documents and data.",
@@ -37,7 +37,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     },
     {
       date: "Aug 2022 - Present",
-      logo: "assets/eclipse-logo.webp",
+      logo: "/assets/eclipse-logo.webp",
       title: "Avionics Team Member | Rice Eclipse",
       description:
         "Working in various subteams to design and implement avionics solutions for rockets in competitions such as Spaceport America Cup.",
@@ -63,7 +63,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
               <a
-                href="assets/resume.pdf"
+                href="/assets/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

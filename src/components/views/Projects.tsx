@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
     {
-      image: "assets/personal-assistant.webp",
+      image: "/assets/personal-assistant.webp",
       title: "Custom Voice Assistant",
       description:
         "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
