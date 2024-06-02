@@ -23,7 +23,6 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview",
     "build:blog": "cd blog && zola build",
     "format": "prettier --write .",
     "test": "vite test",

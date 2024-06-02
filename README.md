@@ -22,10 +22,10 @@ This is the repository for my personal website built using React. The website is
 
 ## Technologies Used
 
-- React
-- Vite 
-- NodeJS
-- Tailwind CSS
+- React (JavaScript library for building user interfaces)
+- Vite (modern replacement for Create React App)
+- NodeJS (for package management)
+- Tailwind CSS (utility-first CSS framework)
 - Zola (static site generator)
 - GitHub Pages (for deployment and hosting)
 
