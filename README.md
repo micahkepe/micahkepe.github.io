@@ -13,6 +13,7 @@ This is the repository for my personal website built using React. The website is
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Installation](#installation)
+- [Development Workflow](#development-workflow)
 - [Deployment](#deployment)
 - [Blog Shortcodes](#blog-shortcodes)
 - [Usage and Attribution](#usage-and-attribution)
@@ -21,9 +22,10 @@ This is the repository for my personal website built using React. The website is
 
 ## Technologies Used
 
-- React
-- NodeJS
-- Tailwind CSS
+- React (JavaScript library for building user interfaces)
+- Vite (modern replacement for Create React App)
+- NodeJS (for package management)
+- Tailwind CSS (utility-first CSS framework)
 - Zola (static site generator)
 - GitHub Pages (for deployment and hosting)
 
@@ -89,7 +91,7 @@ To deploy this website to GitHub Pages, follow these steps:
 1. Update the `homepage` field in the `package.json` file with your GitHub Pages URL:
 
 ```json
-"homepage": "https://your-username.github.io/micahkepe.github.io"
+"homepage": "https://<your-username>.github.io/micahkepe.github.io"
 ```
 
 2. Build the project:

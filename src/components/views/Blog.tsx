@@ -115,7 +115,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
       <div>
         <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
           <span className="text-white font-semibold text-base">
-            <a href="/blog" rel="noopener noreferrer">
+            <a href="/blog/" rel="noopener noreferrer">
               Visit My Blog
             </a>
           </span>
