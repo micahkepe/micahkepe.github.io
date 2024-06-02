@@ -20,7 +20,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
       try {
         // Fetch blog posts from the Atom feed of the Programming category
         const response = await fetch(
-          "https://micahkepe.com/blog/categories/programming/atom.xml"
+          "https://micahkepe.com/blog/categories/programming/atom.xml",
         );
         const xmlText = await response.text();
         const parser = new DOMParser();
