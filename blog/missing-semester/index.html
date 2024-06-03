@@ -18,7 +18,7 @@
       
 
       
-          <link rel="stylesheet" href="http://localhost:3000/blog/site.css">
+          <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
       
 
       
@@ -35,17 +35,17 @@
                         
                             <a itemprop="url"
                                class=""
-                               href="http://localhost:3000/blog/">
+                               href="https://micahkepe.com/blog/">
                                 <span itemprop="name">Home</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="http://localhost:3000/blog/categories">
+                               href="https://micahkepe.com/blog/categories">
                                 <span itemprop="name">Categories</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="http://localhost:3000/blog/tags">
+                               href="https://micahkepe.com/blog/tags">
                                 <span itemprop="name">Tags</span></a>
                         
                             <a itemprop="url"
@@ -80,12 +80,28 @@
 </span>
     </header>
     <div itemprop="articleBody">
-      <p>Nearly a year ago, I took an online course called <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>. The course was created by a group of MIT students and covers a wide range of topics that are often overlooked in traditional computer science curriculums. The course is designed to help students become more productive and efficient programmers by teaching them essential skills that are not typically taught in school.</p>
+      <p>Nearly a year ago, I took an online course called
+<a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>. The
+course was created by a group of MIT students and covers a wide range of topics
+that are often overlooked in traditional computer science curriculums. The
+course is designed to help students become more productive and efficient
+programmers by teaching them essential skills that are not typically taught in
+school.</p>
 <span id="continue-reading"></span>
-<p>Still to this day, I find myself using many of the tools and techniques that I learned in the course. In this post, I will share some of the biggest takeaways from The Missing Semester of Your CS Education and how they have helped me become a better, more productive programmer.</p>
+<p>Still to this day, I find myself using many of the tools and techniques that I
+learned in the course. In this post, I will share some of the biggest takeaways
+from The Missing Semester of Your CS Education and how they have helped me
+become a better, more productive programmer.</p>
 <h2 id="1-version-control-with-git">1. Version Control with Git</h2>
-<p>For such a widely used tool, it is surprising how little formal education is given on Git beyond perhaps a brief introduction to <code>git clone</code>, <code>git add</code>, <code>git commit</code>, and <code>git push</code>. Personally, it wasn't until I began my first internship how little I knew about Git and how much I had to learn on the job. The course provides a greater overview of Git and its capabilities, including some of the more advanced features that can help you become a more efficient and effective programmer.</p>
-<p>Below are some of the less common but very useful commands that I learned from the course and through my own exploration:</p>
+<p>For such a widely used tool, it is surprising how little formal education is
+given on Git beyond perhaps a brief introduction to <code>git clone</code>, <code>git add</code>,
+<code>git commit</code>, and <code>git push</code>. Personally, it wasn't until I began my first
+internship how little I knew about Git and how much I had to learn on the job.
+The course provides a greater overview of Git and its capabilities, including
+some of the more advanced features that can help you become a more efficient and
+effective programmer.</p>
+<p>Below are some of the less common but very useful commands that I learned from
+the course and through my own exploration:</p>
 <h3 id="1-1-using-switch-instead-of-checkout">1.1 Using switch instead of checkout</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Using `switch` instead of `checkout`
 </span><span style="color:#bf616a;">git</span><span> switch</span><span style="color:#bf616a;"> -c</span><span> new-branch
@@ -93,7 +109,11 @@
 </span><span style="color:#65737e;"># Switching to the previous branch
 </span><span style="color:#bf616a;">git</span><span> switch -
 </span></code></pre>
-<p><code>switch</code> is a newer command that was introduced in Git 2.23. It is meant to be a more user-friendly alternative to <code>checkout</code> for switching branches. The <code>switch</code> command is more intuitive and easier to use than <code>checkout</code>, especially for beginners. It is also more consistent with other Git commands, such as <code>git branch</code> and <code>git merge</code>.</p>
+<p><code>switch</code> is a newer command that was introduced in Git 2.23. It is meant to be a
+more user-friendly alternative to <code>checkout</code> for switching branches. The
+<code>switch</code> command is more intuitive and easier to use than <code>checkout</code>, especially
+for beginners. It is also more consistent with other Git commands, such as
+<code>git branch</code> and <code>git merge</code>.</p>
 <h3 id="1-2-learning-to-use-rebase">1.2 Learning to use rebase</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Rebasing a feature branch on top of the main branch to keep the commit history clean
 </span><span style="color:#bf616a;">git</span><span> switch main
@@ -118,7 +138,13 @@
 </span><span># After running `git switch main` and `git merge feature-branch`
 </span><span>main: A---B---C---D&#39;---E&#39;
 </span></code></pre>
-<p>A key benefit of rebasing is that it keeps the commit history clean and linear, making it easier to understand and navigate. <strong>However</strong>, it is important to note that rebasing rewrites commit history, so it should be used with caution, especially when working on shared branches with collaborators. If working with others, use the <code>--force-with-lease</code> flag when pushing rebased commits to a shared branch. This flag ensures that if your changes conflict with the remote branch, you will not overwrite someone else's work.</p>
+<p>A key benefit of rebasing is that it keeps the commit history clean and linear,
+making it easier to understand and navigate. <strong>However</strong>, it is important to
+note that rebasing rewrites commit history, so it should be used with caution,
+especially when working on shared branches with collaborators. If working with
+others, use the <code>--force-with-lease</code> flag when pushing rebased commits to a
+shared branch. This flag ensures that if your changes conflict with the remote
+branch, you will not overwrite someone else's work.</p>
 <h3 id="1-3-stashing-changes">1.3 Stashing changes</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Stashing changes before switching branches
 </span><span style="color:#bf616a;">git</span><span> stash
@@ -132,26 +158,53 @@
 </span><span style="color:#65737e;"># Applying a specific stash
 </span><span style="color:#bf616a;">git</span><span> stash apply stash@{2}
 </span></code></pre>
-<p>There are many other useful Git commands and techniques, but these are some of the ones that I use most frequently in my day-to-day work. The best way to learn Git is by actually using it, struggling with it, and learning from others. Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of Git, wrote in the initial commit message of Git that it stands for:</p>
+<p>There are many other useful Git commands and techniques, but these are some of
+the ones that I use most frequently in my day-to-day work. The best way to learn
+Git is by actually using it, struggling with it, and learning from others.
+Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of
+Git, wrote in the initial commit message of Git that it stands for:</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>- &quot;global information tracker&quot;: you&#39;re in a good mood, and it actually
 </span><span>   works for you. Angels sing, and a light suddenly fills the room.
 </span><span>- &quot;goddamn idiotic truckload of sh*t&quot;: when it breaks
 </span></code></pre>
 <h2 id="2-hammerspoon">2. Hammerspoon</h2>
-<p>Hammerspoon is an automation tool available for macOS that runs on custom Lua scripts. The greatest use case that I found for it was for writing scripts to allow me to use custom keyboard bindings to control the sizing and location of my windows without having to use the mouse.</p>
-<p>While this seems like it a relatively small enhancement, the seconds saved from every time I need to resize a window compound into minutes and hours saved over time. Here's a snippet of the <code>window.lua</code> script I wrote to do this:</p>
+<p>Hammerspoon is an automation tool available for macOS that runs on custom Lua
+scripts. The greatest use case that I found for it was for writing scripts to
+allow me to use custom keyboard bindings to control the sizing and location of
+my windows without having to use the mouse.</p>
+<p>While this seems like it a relatively small enhancement, the seconds saved from
+every time I need to resize a window compound into minutes and hours saved over
+time. Here's a snippet of the <code>window.lua</code> script I wrote to do this:</p>
 <pre data-lang="lua" style="background-color:#2b303b;color:#c0c5ce;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#65737e;">-- Bind Option+Command+Arrow keys to move windows
 </span><span style="color:#bf616a;">hs</span><span>.hotkey.</span><span style="color:#bf616a;">bind</span><span>({&quot;</span><span style="color:#a3be8c;">cmd</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">alt</span><span>&quot;}, &quot;</span><span style="color:#a3be8c;">left</span><span>&quot;, </span><span style="color:#b48ead;">function</span><span>() </span><span style="color:#bf616a;">moveWindowToGrid</span><span>(</span><span style="color:#d08770;">1</span><span>) </span><span style="color:#b48ead;">end</span><span>)   </span><span style="color:#65737e;">-- Move window to left half
 </span><span style="color:#bf616a;">hs</span><span>.hotkey.</span><span style="color:#bf616a;">bind</span><span>({&quot;</span><span style="color:#a3be8c;">cmd</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">alt</span><span>&quot;}, &quot;</span><span style="color:#a3be8c;">right</span><span>&quot;, </span><span style="color:#b48ead;">function</span><span>() </span><span style="color:#bf616a;">moveWindowToGrid</span><span>(</span><span style="color:#d08770;">2</span><span>) </span><span style="color:#b48ead;">end</span><span>)  </span><span style="color:#65737e;">-- Move window to right half
 </span><span style="color:#bf616a;">hs</span><span>.hotkey.</span><span style="color:#bf616a;">bind</span><span>({&quot;</span><span style="color:#a3be8c;">cmd</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">alt</span><span>&quot;}, &quot;</span><span style="color:#a3be8c;">up</span><span>&quot;, </span><span style="color:#b48ead;">function</span><span>() </span><span style="color:#bf616a;">moveWindowToGrid</span><span>(</span><span style="color:#d08770;">3</span><span>) </span><span style="color:#b48ead;">end</span><span>)     </span><span style="color:#65737e;">-- Move window to top half
 </span><span style="color:#bf616a;">hs</span><span>.hotkey.</span><span style="color:#bf616a;">bind</span><span>({&quot;</span><span style="color:#a3be8c;">cmd</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">alt</span><span>&quot;}, &quot;</span><span style="color:#a3be8c;">down</span><span>&quot;, </span><span style="color:#b48ead;">function</span><span>() </span><span style="color:#bf616a;">moveWindowToGrid</span><span>(</span><span style="color:#d08770;">4</span><span>) </span><span style="color:#b48ead;">end</span><span>)   </span><span style="color:#65737e;">-- Move window to bottom half
 </span></code></pre>
-<p>I have not yet explored all the capabilities of Hammerspoon, but this one feature alone has made it a valuable tool for me. I highly recommend checking it out if you are a macOS user and are looking to automate repetitive tasks or create custom keyboard shortcuts. For more information on Hammerspoon, check out the <a href="https://www.hammerspoon.org/">official documentation</a>.</p>
+<p>I have not yet explored all the capabilities of Hammerspoon, but this one
+feature alone has made it a valuable tool for me. I highly recommend checking it
+out if you are a macOS user and are looking to automate repetitive tasks or
+create custom keyboard shortcuts. For more information on Hammerspoon, check out
+the <a href="https://www.hammerspoon.org/">official documentation</a>.</p>
 <h2 id="3-dotfiles">3. Dotfiles</h2>
-<p>Dotfiles are configuration files that are used to customize the settings of various programs and tools. They are typically stored in the home directory of a user and are prefixed with a <code>.</code> (e.g., <code>.bashrc</code>, <code>.vimrc</code>, <code>.gitconfig</code>). The course introduced me to the concept of dotfiles and the benefits of storing them in a version-controlled repository. Additionally, setting up aliases dotfiles can help you streamline your workflow and make your development environment more efficient.</p>
-<p>By storing your dotfiles in a version-controlled repository, you can easily synchronize your configurations across multiple machines and share them with others. Additionally, you can keep track of changes to your configurations over time and revert to previous versions if needed. If you ever switch to a new machine or need to set up a new environment, you can quickly install your dotfiles and have your familiar configurations ready to go, especially if you write a bootstrap script to automate the process.</p>
+<p>Dotfiles are configuration files that are used to customize the settings of
+various programs and tools. They are typically stored in the home directory of a
+user and are prefixed with a <code>.</code> (e.g., <code>.bashrc</code>, <code>.vimrc</code>, <code>.gitconfig</code>). The
+course introduced me to the concept of dotfiles and the benefits of storing them
+in a version-controlled repository. Additionally, setting up aliases dotfiles
+can help you streamline your workflow and make your development environment more
+efficient.</p>
+<p>By storing your dotfiles in a version-controlled repository, you can easily
+synchronize your configurations across multiple machines and share them with
+others. Additionally, you can keep track of changes to your configurations over
+time and revert to previous versions if needed. If you ever switch to a new
+machine or need to set up a new environment, you can quickly install your
+dotfiles and have your familiar configurations ready to go, especially if you
+write a bootstrap script to automate the process.</p>
 <h3 id="3-1-helpful-aliases">3.1 Helpful aliases</h3>
-<p>Aliases are shortcuts that you can define in your dotfiles to make common commands easier to type and remember. Here are some examples of aliases that you can add to your <code>.bashrc</code> or <code>.zshrc</code> file to make your life easier:</p>
+<p>Aliases are shortcuts that you can define in your dotfiles to make common
+commands easier to type and remember. Here are some examples of aliases that you
+can add to your <code>.bashrc</code> or <code>.zshrc</code> file to make your life easier:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Example aliases
 </span><span style="color:#96b5b4;">alias </span><span style="color:#8fa1b3;">ll</span><span>=&quot;</span><span style="color:#a3be8c;">ls -la</span><span>&quot;
 </span><span style="color:#96b5b4;">alias </span><span style="color:#8fa1b3;">gs</span><span>=&quot;</span><span style="color:#a3be8c;">git status</span><span>&quot;
@@ -161,7 +214,8 @@
 </span><span style="color:#96b5b4;">alias </span><span style="color:#8fa1b3;">gb</span><span>=&quot;</span><span style="color:#a3be8c;">git branch</span><span>&quot;
 </span><span style="color:#96b5b4;">alias </span><span style="color:#8fa1b3;">gl</span><span>=&quot;</span><span style="color:#a3be8c;">git log</span><span>&quot;
 </span></code></pre>
-<p>In my <code>.gitconfig</code> file, I have also set up aliases to enhance the <code>graph</code> and <code>log</code> commands:</p>
+<p>In my <code>.gitconfig</code> file, I have also set up aliases to enhance the <code>graph</code> and
+<code>log</code> commands:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># .gitconfig
 </span><span style="color:#bf616a;">[alias]
 </span><span>    </span><span style="color:#bf616a;">graph</span><span> = log</span><span style="color:#bf616a;"> --all --graph --decorate --oneline
@@ -176,26 +230,42 @@
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">cd </span><span style="color:#bf616a;">~</span><span>/.dotfiles
 </span><span style="color:#bf616a;">git</span><span> init
 </span></code></pre>
-<p>3. Move your dotfiles into the repository and create symbolic links to them in your home directory:</p>
+<p>3. Move your dotfiles into the repository and create symbolic links to them in
+your home directory:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">mv ~</span><span>/.bashrc </span><span style="color:#bf616a;">~</span><span>/.dotfiles
 </span><span style="color:#bf616a;">ln -s ~</span><span>/.dotfiles/.bashrc </span><span style="color:#bf616a;">~</span><span>/.bashrc
 </span></code></pre>
 <p>You can view all of your configuration files with the following command:</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">ls -a ~
 </span></code></pre>
-<p>Configuration files that are prefixed with a <code>.</code> are typically hidden by default, so you may need to use the <code>-a</code> flag to display them.</p>
-<p>If you have set up the symbolic links correctly, running the <code>ls -a ~</code> command should show the symbolic links in your home directory pointing to the dotfiles in your repository like so:</p>
-<p><img src="http://localhost:3000/blog/missing-semester/symlinks.png" alt="Dotfiles in home directory" /></p>
-<p>4. Add, commit, and push your dotfiles to your remote repository (e.g., GitHub):</p>
+<p>Configuration files that are prefixed with a <code>.</code> are typically hidden by
+default, so you may need to use the <code>-a</code> flag to display them.</p>
+<p>If you have set up the symbolic links correctly, running the <code>ls -a ~</code> command
+should show the symbolic links in your home directory pointing to the dotfiles
+in your repository like so:</p>
+<p><img src="https://micahkepe.com/blog/missing-semester/symlinks.png" alt="Dotfiles in home directory" /></p>
+<p>4. Add, commit, and push your dotfiles to your remote repository (e.g.,
+GitHub):</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> add .
 </span><span style="color:#bf616a;">git</span><span> commit</span><span style="color:#bf616a;"> -m </span><span>&quot;</span><span style="color:#a3be8c;">Initial commit</span><span>&quot;
 </span><span style="color:#bf616a;">git</span><span> remote add origin
 </span><span style="color:#bf616a;">git</span><span> push</span><span style="color:#bf616a;"> -u</span><span> origin master
 </span></code></pre>
-<p>By following these steps, you can create a centralized repository for your dotfiles and easily manage your configurations across multiple machines. You can also share your dotfiles with others and benefit from the productivity enhancements that they provide.</p>
-<p>The great thing about dotfiles repositories is that doing a simple search on GitHub will yield many examples of how others have set up their dotfiles. You can learn from their configurations and customize them to suit your own preferences. If you're interested in seeing an example of a dotfiles repository, you can check out <a href="https://github.com/micahkepe/dotfiles">mine</a>.</p>
+<p>By following these steps, you can create a centralized repository for your
+dotfiles and easily manage your configurations across multiple machines. You can
+also share your dotfiles with others and benefit from the productivity
+enhancements that they provide.</p>
+<p>The great thing about dotfiles repositories is that doing a simple search on
+GitHub will yield many examples of how others have set up their dotfiles. You
+can learn from their configurations and customize them to suit your own
+preferences. If you're interested in seeing an example of a dotfiles repository,
+you can check out <a href="https://github.com/micahkepe/dotfiles">mine</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The Missing Semester of Your CS Education is a fantastic course that covers a wide range of topics that are essential for becoming a more productive and efficient programmer. The course has helped me improve my skills in version control, automation, and configuration management, and I continue to use many of the tools and techniques that I learned in my day-to-day work.</p>
+<p>The Missing Semester of Your CS Education is a fantastic course that covers a
+wide range of topics that are essential for becoming a more productive and
+efficient programmer. The course has helped me improve my skills in version
+control, automation, and configuration management, and I continue to use many of
+the tools and techniques that I learned in my day-to-day work.</p>
 <script
   src="https://utteranc.es/client.js"
   repo="micahkepe/micahkepe.github.io"
@@ -217,13 +287,13 @@
                 
                 
                     
-                    in <a href="http://localhost:3000/blog/categories/programming/">programming</a>
+                    in <a href="https://micahkepe.com/blog/categories/programming/">programming</a>
                 
                 
                     and
                     tagged
                     
-                        <a href="http://localhost:3000/blog/tags/productivity/">productivity</a>
+                        <a href="https://micahkepe.com/blog/tags/productivity/">productivity</a>
                         
                     
                 

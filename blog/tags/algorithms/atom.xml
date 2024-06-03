@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Micah&#x27;s Secret Blog - algorithms</title>
     <subtitle>An assortment of my ramblings and random adventures.</subtitle>
-    <link rel="self" type="application/atom+xml" href="http://localhost:3000/blog/tags/algorithms/atom.xml"/>
-    <link rel="alternate" type="text/html" href="http://localhost:3000/blog"/>
+    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/blog/tags/algorithms/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://micahkepe.com/blog"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-05-26T00:00:00+00:00</updated>
-    <id>http://localhost:3000/blog/tags/algorithms/atom.xml</id>
+    <id>https://micahkepe.com/blog/tags/algorithms/atom.xml</id>
     <entry xml:lang="en">
         <title>[5] Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
         <published>2024-05-25T00:00:00+00:00</published>
@@ -20,8 +20,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/bloom-filters/"/>
-        <id>http://localhost:3000/blog/bloom-filters/</id>
+        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/bloom-filters/"/>
+        <id>https://micahkepe.com/blog/bloom-filters/</id>
         
         <summary type="html">&lt;!-- MathJax script for rendering LaTeX math equations --&gt;
 &lt;script&gt;
@@ -42,7 +42,12 @@
   src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mathjax@3&#x2F;es5&#x2F;tex-chtml.js&quot;
   async
 &gt;&lt;&#x2F;script&gt;
-&lt;p&gt;In the realm of computer science, efficiency is often the key to solving complex problems. One elegant solution that stands out for its efficiency is the Bloom filter. Despite being relatively lesser-known, Bloom filters offer a powerful method for determining set membership while using minimal space. This post explores what Bloom filters are, how they work, their applications in various fields, and compares them with other data structures.&lt;&#x2F;p&gt;
+&lt;p&gt;In the realm of computer science, efficiency is often the key to solving complex
+problems. One elegant solution that stands out for its efficiency is the Bloom
+filter. Despite being relatively lesser-known, Bloom filters offer a powerful
+method for determining set membership while using minimal space. This post
+explores what Bloom filters are, how they work, their applications in various
+fields, and compares them with other data structures.&lt;&#x2F;p&gt;
 </summary>
         
     </entry>
@@ -59,8 +64,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/ingenious-algorithms/"/>
-        <id>http://localhost:3000/blog/ingenious-algorithms/</id>
+        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/ingenious-algorithms/"/>
+        <id>https://micahkepe.com/blog/ingenious-algorithms/</id>
         
         <summary type="html">&lt;!-- Load latex shortcode --&gt;
 &lt;!-- MathJax script for rendering LaTeX math equations --&gt;
@@ -82,7 +87,11 @@
   src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mathjax@3&#x2F;es5&#x2F;tex-chtml.js&quot;
   async
 &gt;&lt;&#x2F;script&gt;
-&lt;p&gt;Algorithms are all around us. They are the invisible forces that power our modern world, from the search engines we use to find information to the social networks we use to connect with friends and family. In this post, I share some ingenious algorithms that I have learned about both in courses and through my own research.&lt;&#x2F;p&gt;
+&lt;p&gt;Algorithms are all around us. They are the invisible forces that power our
+modern world, from the search engines we use to find information to the social
+networks we use to connect with friends and family. In this post, I share some
+ingenious algorithms that I have learned about both in courses and through my
+own research.&lt;&#x2F;p&gt;
 </summary>
         
     </entry>
