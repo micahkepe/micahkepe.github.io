@@ -18,7 +18,7 @@
       
 
       
-          <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
+          <link rel="stylesheet" href="http://localhost:3000/blog/site.css">
       
 
       
@@ -35,17 +35,17 @@
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/">
+                               href="http://localhost:3000/blog/">
                                 <span itemprop="name">Home</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/categories">
+                               href="http://localhost:3000/blog/categories">
                                 <span itemprop="name">Categories</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/tags">
+                               href="http://localhost:3000/blog/tags">
                                 <span itemprop="name">Tags</span></a>
                         
                             <a itemprop="url"
@@ -105,8 +105,8 @@
 <!-- Shortcode to resize image and link to it in a new tab with alt text -->
 <div>
   
-  <a href="https://micahkepe.com/blog/bloom-filters/bloom-filter.webp" target="_blank">
-    <img src="https:&#x2F;&#x2F;micahkepe.com&#x2F;blog&#x2F;processed_images&#x2F;bloom-filter.ee7320e127a33815.jpg" alt="Bloom Filter Example" />
+  <a href="http://localhost:3000/blog/bloom-filters/bloom-filter.webp" target="_blank">
+    <img src="http:&#x2F;&#x2F;localhost:3000&#x2F;blog&#x2F;processed_images&#x2F;bloom-filter.ee7320e127a33815.jpg" alt="Bloom Filter Example" />
   </a>
 </div>
 <p>A Bloom filter consists of:</p>
@@ -117,13 +117,13 @@
 <h2 id="how-bloom-filters-work">How Bloom Filters Work</h2>
 <h3 id="insertion">Insertion</h3>
 <p>To add an element to the Bloom filter, the element is passed through each of the $k$ hash functions, resulting in $k$ array positions. The bits at these positions in the bit array are set to 1. If any of these bits are already set to 1, they remain unchanged.</p>
-<p><img src="https://micahkepe.com/blog/bloom-filters/insertion.png" alt="Inserting an element into a Bloom filter" /></p>
+<p><img src="http://localhost:3000/blog/bloom-filters/insertion.png" alt="Inserting an element into a Bloom filter" /></p>
 <h3 id="querying">Querying</h3>
 <p>To check if an element is in the Bloom filter, the element is hashed using the same $k$ hash functions to find the $k$ array positions. If all the corresponding bits in the bit array are 1, the Bloom filter reports that the element might be in the set. If any of the bits are 0, the element is definitely not in the set.</p>
-<p><img src="https://micahkepe.com/blog/bloom-filters/bloom-filter-membership.png" alt="Test for membership in a Bloom filter" /></p>
+<p><img src="http://localhost:3000/blog/bloom-filters/bloom-filter-membership.png" alt="Test for membership in a Bloom filter" /></p>
 <h3 id="false-positives">False Positives</h3>
 <p>Bloom filters do not store the actual elements, so they can never have false negatives (i.e., reporting an element is not in the set when it actually is). However, they can have false positives (i.e., reporting an element is in the set when it is not). The probability of false positives depends on the size of the bit array $m$, the number of hash functions $k$, and the number of elements inserted $n$.</p>
-<p><img src="https://micahkepe.com/blog/bloom-filters/bloom-filter-example.png" alt="Example of a false positive in a Bloom filter" /></p>
+<p><img src="http://localhost:3000/blog/bloom-filters/bloom-filter-example.png" alt="Example of a false positive in a Bloom filter" /></p>
 <h2 id="mathematical-insight">Mathematical Insight</h2>
 <p>The false positive probability $p$ can be approximated by:</p>
 <p>\[ p \approx \left(1 - \left(1 - \frac{1}{m}\right)^{kn}\right)^k \]</p>
@@ -214,13 +214,13 @@
                 
                 
                     
-                    in <a href="https://micahkepe.com/blog/categories/programming/">programming</a>
+                    in <a href="http://localhost:3000/blog/categories/programming/">programming</a>
                 
                 
                     and
                     tagged
                     
-                        <a href="https://micahkepe.com/blog/tags/data-structures/">data structures</a>
+                        <a href="http://localhost:3000/blog/tags/data-structures/">data structures</a>
                         
                             
                                 
@@ -229,7 +229,7 @@
                             
                         
                     
-                        <a href="https://micahkepe.com/blog/tags/algorithms/">algorithms</a>
+                        <a href="http://localhost:3000/blog/tags/algorithms/">algorithms</a>
                         
                             
                                 
@@ -238,7 +238,7 @@
                             
                         
                     
-                        <a href="https://micahkepe.com/blog/tags/theory/">theory</a>
+                        <a href="http://localhost:3000/blog/tags/theory/">theory</a>
                         
                             
                         

@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Micah&#x27;s Secret Blog - data structures</title>
     <subtitle>An assortment of my ramblings and random adventures.</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/blog/tags/data-structures/atom.xml"/>
-    <link rel="alternate" type="text/html" href="https://micahkepe.com/blog"/>
+    <link rel="self" type="application/atom+xml" href="http://localhost:3000/blog/tags/data-structures/atom.xml"/>
+    <link rel="alternate" type="text/html" href="http://localhost:3000/blog"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-05-26T00:00:00+00:00</updated>
-    <id>https://micahkepe.com/blog/tags/data-structures/atom.xml</id>
+    <id>http://localhost:3000/blog/tags/data-structures/atom.xml</id>
     <entry xml:lang="en">
         <title>[5] Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
         <published>2024-05-25T00:00:00+00:00</published>
@@ -20,8 +20,8 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/bloom-filters/"/>
-        <id>https://micahkepe.com/blog/bloom-filters/</id>
+        <link rel="alternate" type="text/html" href="http://localhost:3000/blog/bloom-filters/"/>
+        <id>http://localhost:3000/blog/bloom-filters/</id>
         
         <summary type="html">&lt;!-- MathJax script for rendering LaTeX math equations --&gt;
 &lt;script&gt;

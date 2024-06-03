@@ -18,7 +18,7 @@
       
 
       
-          <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
+          <link rel="stylesheet" href="http://localhost:3000/blog/site.css">
       
 
       
@@ -35,17 +35,17 @@
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/">
+                               href="http://localhost:3000/blog/">
                                 <span itemprop="name">Home</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/categories">
+                               href="http://localhost:3000/blog/categories">
                                 <span itemprop="name">Categories</span></a>
                         
                             <a itemprop="url"
                                class=""
-                               href="https://micahkepe.com/blog/tags">
+                               href="http://localhost:3000/blog/tags">
                                 <span itemprop="name">Tags</span></a>
                         
                             <a itemprop="url"
@@ -121,13 +121,13 @@
 <p>The damping factor $d$ is used to prevent pages with many incoming links (&quot;sinks&quot;) from having disproportionately high PageRank values since they have no outgoing links. Without the damping factor, the PageRank values would tend to concentrate on a small number of pages, leading to a skewed ranking of search results. You can think of the damping factor as a way to model the behavior of a random surfer who occasionally jumps to a random page instead of following links (after a certain number of clicks, the surfer gets bored and jumps to a random page).</p>
 <p>To calculate PageRank, the algorithm starts by assigning an initial PageRank value to each page (usually $1/N$). Then, it iteratively updates the PageRank values using the above equation until convergence. The final PageRank values represent the importance of each page.</p>
 <p>For example, consider a simple network of 4 web pages: A, B, C, and D. Suppose page B has a link to page A, page C has a link to page A, and page D has links to all three pages like so:</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/simple-network.png" alt="Simple Network Example" /></p>
+<p><img src="http://localhost:3000/blog/ingenious-algorithms/simple-network.png" alt="Simple Network Example" /></p>
 <p>Initially, each page is assigned a PageRank of 0.25. After one iteration, page A's PageRank is updated as follows:</p>
 <p>\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} + \frac{PR(D)}{3} \right) \]</p>
 <p>\[ PR(A) = 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1} + \frac{0.25}{3}\right) \]
 \[ PR(A) \approx 0.46 \]</p>
 <p>After several iterations, the PageRank values converge to stable values that reflect the importance of each page in the network. The final PageRank values can then be used to rank the pages in search results.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/pagerank.gif" alt="PageRank Explanation GIF" /></p>
+<p><img src="http://localhost:3000/blog/ingenious-algorithms/pagerank.gif" alt="PageRank Explanation GIF" /></p>
 <p>One interesting property of PageRank is that it is a Markov chain, which means that the PageRank values can be interpreted as the probability of a random surfer landing on a particular page after clicking on links for a long time. This interpretation has led to some interesting applications of PageRank beyond web search, such as modeling the spread of disease or analyzing the structure of social networks.</p>
 <h3 id="fun-facts-about-pagerank">Fun Facts about PageRank</h3>
 <ul>
@@ -193,12 +193,12 @@ $$</p>
 <li>If a match is found, the song is identified and returned to the user.</li>
 </ol>
 <p>The key insight behind Shazam is that the spectrogram peaks are robust to noise and distortion, so they can be used to identify songs even in noisy environments or when the audio quality is poor.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/spectrogram.png" alt="Spectrogram of &quot;Blurred Lines&quot; by Robin Thicke" /></p>
+<p><img src="http://localhost:3000/blog/ingenious-algorithms/spectrogram.png" alt="Spectrogram of &quot;Blurred Lines&quot; by Robin Thicke" /></p>
 <p>For example, suppose you're at a noisy bar and hear a song playing that you want to identify. You open up Shazam and record a 10-second clip of the song. Shazam then converts the clip into a spectrogram and identifies the peaks.</p>
 <p>The peaks are then hashed and combined into a fingerprint, which is compared to Shazam's database of over 11 million songs. Even though the clip is noisy and distorted, Shazam is still able to find a match and identify the song.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/signal-match.png" alt="Signal Matching in Shazam" /></p>
+<p><img src="http://localhost:3000/blog/ingenious-algorithms/signal-match.png" alt="Signal Matching in Shazam" /></p>
 <p>One interesting aspect of Shazam's algorithm is that it uses a technique called &quot;combinatorial hashing&quot; to efficiently search its database of song fingerprints. Combinatorial hashing works by dividing the fingerprint into smaller subfingerprints and searching for matches for each subfingerprint separately. This allows Shazam to identify songs quickly even though its database contains millions of songs.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/shazam.png" alt="Shazam Process" /></p>
+<p><img src="http://localhost:3000/blog/ingenious-algorithms/shazam.png" alt="Shazam Process" /></p>
 <h3 id="fun-facts-about-shazam">Fun Facts about Shazam</h3>
 <ul>
 <li>Shazam's database contains over 11 million songs and is growing every day.</li>
@@ -240,13 +240,13 @@ $$</p>
                 
                 
                     
-                    in <a href="https://micahkepe.com/blog/categories/programming/">programming</a>
+                    in <a href="http://localhost:3000/blog/categories/programming/">programming</a>
                 
                 
                     and
                     tagged
                     
-                        <a href="https://micahkepe.com/blog/tags/theory/">theory</a>
+                        <a href="http://localhost:3000/blog/tags/theory/">theory</a>
                         
                             
                                 
@@ -255,7 +255,7 @@ $$</p>
                             
                         
                     
-                        <a href="https://micahkepe.com/blog/tags/algorithms/">algorithms</a>
+                        <a href="http://localhost:3000/blog/tags/algorithms/">algorithms</a>
                         
                             
                         
