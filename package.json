@@ -27,7 +27,7 @@
     "format": "prettier --write .",
     "test": "vite test",
     "clean": "rm -rf build/*",
-    "predeploy": "npm run clean && npm run build && npm run build:blog",
+    "predeploy": "npm run clean && npm run build:blog && npm run build",
     "deploy": "gh-pages -d build -m 'deploying to gh-pages'"
   },
   "eslintConfig": {
