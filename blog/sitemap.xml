@@ -14,6 +14,9 @@
         <loc>https://micahkepe.com/blog/categories/programming/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/categories/software-engineering/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/categories/welcome/</loc>
     </url>
     <url>
@@ -28,6 +31,13 @@
         <loc>https://micahkepe.com/blog/page/1/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/software-packages/</loc>
+        <lastmod>2024-06-04</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/</loc>
     </url>
     <url>
@@ -40,10 +50,16 @@
         <loc>https://micahkepe.com/blog/tags/infosec/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/package-managers/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/productivity/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/scavenger-hunt/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/software-packages/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/theory/</loc>
