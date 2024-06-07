@@ -1,6 +1,6 @@
 # micahkepe.github.io
 
-[![NPM Version](https://img.shields.io/npm/v/react)](https://www.npmjs.com/package/react)
+[![React Version](https://img.shields.io/npm/v/react)](https://www.npmjs.com/package/react)
 [![GitHub Pages](https://img.shields.io/badge/deployed%20to-GitHub%20Pages-brightgreen)](https://micahkepe.github.io/)
 [![License](https://img.shields.io/github/license/micahkepe/micahkepe.github.io)](LICENSE)
 
