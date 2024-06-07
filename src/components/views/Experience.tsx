@@ -12,11 +12,19 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     {
       date: "Feb 2024 - Present",
       logo: "/assets/vislang-logo.webp",
-      title: "ML Research Intern | Vislang Lab @ Rice University",
+      title: "ML Research Assistant | Vislang Lab @ Rice University",
       description:
-        "Developing new features for the Vislang platform in the areas of computer vision, natural language processing, and machine learning.",
+        "Developing new features, tools, and datasets for the Vislang research group at Rice University in the areas of computer vision and natural language processing.",
       link: "https://vislang.ai/",
-      skills: ["Python", "Flask", "JavaScript", "Web Crawling", "Socket.io"],
+      skills: [
+        "Python",
+        "Flask",
+        "JavaScript",
+        "Web Crawling",
+        "Socket.io",
+        "SQL",
+        "Node.js",
+      ],
     },
     {
       date: "Jun 2023 - Aug 2023",
@@ -27,22 +35,13 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
       link: "https://www.kingenergy.com/",
       skills: [
         "React",
-        "Nest.js",
+        "NestJS",
         "GDrive API",
         "Prisma",
         "JavaScript",
         "Tailwind CSS",
         "Salesforce SOQL",
       ],
-    },
-    {
-      date: "Aug 2022 - Present",
-      logo: "/assets/eclipse-logo.webp",
-      title: "Avionics Team Member | Rice Eclipse",
-      description:
-        "Working in various subteams to design and implement avionics solutions for rockets in competitions such as Spaceport America Cup.",
-      link: "http://eclipse.rice.edu/",
-      skills: ["Python", "Git", "KiCAD"],
     },
   ];
 
@@ -53,7 +52,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
         {experiences.slice(0, 4).map(
           (
             experience,
-            index, // slice(0, 4) means that only the first 4 projects will be displayed, change this number to display more or less
+            index, // first 4 experiences
           ) => (
             <ExperienceComponent key={index} {...experience} />
           ),
