@@ -40,21 +40,6 @@ html {
   pointer-events: none;
 }
 
-.rocket {
-  height: 1.875rem;
-  width: 1.875rem;
-  font-size: 1.875rem; /* for emoji */
-}
-
-.smoke {
-  position: absolute;
-  background: rgba(255, 223, 0, 0.2);
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 50%;
-  animation: smokeFade 0.5s forwards;
-}
-
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -85,11 +70,4 @@ html {
     opacity: 0;
     transform: scale(2);
   }
-}
-
-/* New styles for the owl cursor */
-.owl-cursor:hover {
-  cursor:
-    url("/assets/owlSprite.gif") 20 40,
-    auto;
 }
