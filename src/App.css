@@ -21,8 +21,8 @@ html {
 
 #blob {
   background-color: white;
-  width: 20vmax;
-  height: 20vmax;
+  width: 25vmax;
+  height: 25vmax;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -32,4 +32,23 @@ html {
   opacity: 0.1;
   filter: blur(12vmax);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: 1rem;
+  }
+
+  #blob {
+    display: none;
+  }
+
+  .about-content,
+  .experience-content,
+  .projects-content,
+  .blog-content,
+  .contact-content {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }

@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const QuickAbout = (): JSX.Element => {
   const [showOwl, setShowOwl] = useState<boolean>(false);
   const [owlSrc, setOwlSrc] = useState<string>("/assets/owlSprite.gif");
+  const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
     setShowOwl(true);
-    setOwlSrc(""); // Temporarily set to an empty string to force reload
+    setOwlSrc("");
     setTimeout(() => {
-      setOwlSrc("/assets/owlSprite.gif"); // Reset to the actual URL
+      setOwlSrc("/assets/owlSprite.gif");
     }, 0);
   };
 
@@ -27,8 +39,8 @@ const QuickAbout = (): JSX.Element => {
           Computer Science Student at&nbsp;
           <span
             className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={isDesktop ? handleMouseEnter : undefined}
+            onMouseLeave={isDesktop ? handleMouseLeave : undefined}
             style={{ display: "inline-block" }}
           >
             <a
@@ -40,17 +52,19 @@ const QuickAbout = (): JSX.Element => {
             >
               Rice University
             </a>
-            <img
-              src={owlSrc}
-              alt="Owl flying GIF image."
-              style={{
-                position: "absolute",
-                top: "-50px",
-                left: "110px",
-                opacity: showOwl ? 1 : 0,
-                transition: "opacity 0.1s ease-in-out",
-              }}
-            />
+            {isDesktop && (
+              <img
+                src={owlSrc}
+                alt="Owl flying GIF image."
+                style={{
+                  position: "absolute",
+                  top: "-50px",
+                  left: "110px",
+                  opacity: showOwl ? 1 : 0,
+                  transition: "opacity 0.1s ease-in-out",
+                }}
+              />
+            )}
           </span>
         </p>
         <p className="font-semibold mb-6 mt-2 text-slate">
