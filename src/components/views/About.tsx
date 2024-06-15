@@ -1,8 +1,5 @@
 import React, { FC } from "react";
-
-interface AboutProps {
-  windowWidth: number;
-}
+import { AboutProps } from "../../types";
 
 const About: FC<AboutProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";

@@ -1,18 +1,7 @@
 import React from "react";
 import ProjectComponent from "../generic/ProjectComponent";
 import { motion, useAnimation } from "framer-motion";
-
-interface Project {
-  image: string;
-  title: string;
-  description: string;
-  link: string;
-  skills: string[];
-}
-
-interface ProjectsProps {
-  windowWidth: number;
-}
+import { Project, ProjectsProps } from "../../types";
 
 const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";

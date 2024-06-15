@@ -1,10 +1,7 @@
 import React from "react";
 import ExperienceComponent from "../generic/ExperienceComponent";
 import { motion, useAnimation } from "framer-motion";
-
-interface ExperienceProps {
-  windowWidth: number;
-}
+import { ExperienceProps } from "../../types";
 
 const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";

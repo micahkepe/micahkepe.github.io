@@ -1,15 +1,7 @@
 import React from "react";
 import BaseComponent from "./BasicContentComponent";
 import { motion, useAnimation } from "framer-motion";
-
-interface ExperienceComponentProps {
-  date: string;
-  logo: string;
-  title: string;
-  description: string;
-  link: string;
-  skills: string[];
-}
+import { ExperienceComponentProps } from "../../types";
 
 const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   date,

@@ -1,14 +1,7 @@
 import React from "react";
 import BaseComponent from "./BasicContentComponent";
 import { motion, useAnimation } from "framer-motion";
-
-interface ProjectComponentProps {
-  image: string;
-  title: string;
-  description: string;
-  link: string;
-  skills: string[];
-}
+import { ProjectComponentProps } from "../../types";
 
 const ProjectComponent: React.FC<ProjectComponentProps> = ({
   image,

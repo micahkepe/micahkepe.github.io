@@ -1,20 +1,13 @@
 import React, { FC, useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-
-interface BlogProps {
-  windowWidth: number;
-}
-
-interface BlogPost {
-  title: string;
-  link: string;
-  pubDate: string;
-  content: string;
-}
+import BlogPostComponent from "../generic/BlogPostComponent";
+import { BlogPost } from "../../types";
+import { BlogProps } from "../../types";
 
 const Blog: FC<BlogProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const controls = useAnimation();
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -49,8 +42,6 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
     fetchBlogPosts();
   }, []);
 
-  const controls = useAnimation();
-
   return (
     <section id="about">
       <div
@@ -69,41 +60,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
         <br />
         <div id="latest-blog-posts" className="mt-2">
           {blogPosts.map((post) => (
-            <div
-              key={post.link}
-              className="mb-5 border-solid border-2 border-slate p-4 rounded-lg hover:bg-white/5"
-            >
-              <a
-                href={post.link}
-                className="flex items-center text-sm text-white font-semibold mb-2 hover:text-green"
-                aria-label={`Read more about ${post.title}`}
-              >
-                <span>{post.title}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4 inline-block ml-1"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
-                </svg>
-              </a>
-              <p className="text-sm font-semibold text-gray-500 mb-4">
-                {new Date(post.pubDate).toLocaleDateString("en-US", {
-                  timeZone: "UTC",
-                })}
-              </p>
-              <div
-                className="mt-2 text-sm text-slate"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              ></div>
-            </div>
+            <BlogPostComponent key={post.link} post={post} />
           ))}
         </div>
         <br />
