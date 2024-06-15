@@ -1,19 +1,13 @@
 import React, { FC, useState, useEffect } from "react";
-
-interface BlogProps {
-  windowWidth: number;
-}
-
-interface BlogPost {
-  title: string;
-  link: string;
-  pubDate: string;
-  content: string;
-}
+import { motion, useAnimation } from "framer-motion";
+import BlogPostComponent from "../generic/BlogPostComponent";
+import { BlogPost } from "../../types";
+import { BlogProps } from "../../types";
 
 const Blog: FC<BlogProps> = ({ windowWidth }) => {
   const paddingClass = windowWidth > 768 ? "pt-8" : "";
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const controls = useAnimation();
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -66,68 +60,39 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
         <br />
         <div id="latest-blog-posts" className="mt-2">
           {blogPosts.map((post) => (
-            <div
-              key={post.link}
-              className="mb-5 border-solid border-2 border-slate p-4 rounded-lg hover:bg-white/5"
-            >
-              <a
-                href={post.link}
-                className="flex items-center text-sm text-white font-semibold mb-2 hover:text-green"
-                aria-label={`Read more about ${post.title}`}
-              >
-                <span>{post.title}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4 inline-block ml-1"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
-                </svg>
-              </a>
-              <p className="text-sm font-semibold text-gray-500 mb-4">
-                {new Date(post.pubDate).toLocaleDateString("en-US", {
-                  timeZone: "UTC",
-                })}
-              </p>
-              <div
-                className="mt-2 text-sm text-slate"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              ></div>
-            </div>
+            <BlogPostComponent key={post.link} post={post} />
           ))}
         </div>
         <br />
       </div>
-      <div>
+      <motion.div
+        onMouseEnter={() => controls.start({ x: 1, y: 0 })}
+        onMouseLeave={() => controls.start({ x: 0, y: 0 })}
+      >
         <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
           <span className="text-white font-semibold text-base">
             <a href="/blog/" rel="noopener noreferrer">
               Visit My Blog
             </a>
           </span>
-          <svg
+          <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
             className="w-6 h-6"
+            animate={controls}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
-          </svg>
+          </motion.svg>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

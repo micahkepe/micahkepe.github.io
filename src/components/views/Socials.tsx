@@ -3,11 +3,7 @@ import GithubLogo from "../icons/GithubLogo";
 import LinkedinLogo from "../icons/LinkedinLogo";
 import InstagramLogo from "../icons/InstagramLogo";
 import DEVCommunityLogo from "../icons/DEVCommunityLogo";
-interface SocialLink {
-  icon: JSX.Element;
-  link: string;
-  name: string;
-}
+import { SocialLink } from "../../types";
 
 const Socials: React.FC = () => {
   const socialsLinks: SocialLink[] = [

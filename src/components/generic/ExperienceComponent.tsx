@@ -1,14 +1,7 @@
 import React from "react";
 import BaseComponent from "./BasicContentComponent";
-
-interface ExperienceComponentProps {
-  date: string;
-  logo: string;
-  title: string;
-  description: string;
-  link: string;
-  skills: string[];
-}
+import { motion, useAnimation } from "framer-motion";
+import { ExperienceComponentProps } from "../../types";
 
 const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   date,
@@ -18,6 +11,8 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   link,
   skills,
 }) => {
+  const controls = useAnimation();
+
   return (
     <BaseComponent
       leftSideContent={
@@ -33,7 +28,11 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         </div>
       }
     >
-      <div className="text-base font-semibold hover:text-green">
+      <motion.div
+        className="text-base font-semibold hover:text-green"
+        onMouseEnter={() => controls.start({ x: 1, y: -1 })}
+        onMouseLeave={() => controls.start({ x: 0, y: 0 })}
+      >
         <a
           href={link}
           target="_blank"
@@ -42,23 +41,25 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
         >
           <div>
             <span>{title}</span>
-            <svg
+            <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
               className="w-4 h-4 inline-block ml-1"
+              animate={controls}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
               />
-            </svg>
+            </motion.svg>
           </div>
         </a>
-      </div>
+      </motion.div>
       <p className="font-thin text-sm text-slate mt-4 mb-4">{description}</p>
       <div>
         {skills.map((skill) => (

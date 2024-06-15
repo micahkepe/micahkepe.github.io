@@ -1,9 +1,4 @@
-import React, { ReactNode } from "react";
-
-interface BaseComponentProps {
-  leftSideContent: ReactNode;
-  children: ReactNode;
-}
+import { BaseComponentProps } from "../../types";
 
 const BaseComponent: React.FC<BaseComponentProps> = ({
   leftSideContent,

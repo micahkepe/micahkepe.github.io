@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-
-interface ToggleSectionProps {
-  sections: string[]; // Array of section names
-  activeSection: string | null; // Active section name
-  onSectionClick: (section: string) => void; // Function to handle section click
-}
+import { ToggleSectionProps } from "../../types";
 
 const ToggleSection: React.FC<ToggleSectionProps> = ({
   sections,
