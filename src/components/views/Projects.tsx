@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectComponent from "../generic/ProjectComponent";
+import { motion, useAnimation } from "framer-motion";
 
 interface Project {
   image: string;
@@ -41,15 +42,9 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
       link: "https://github.com/micahkepe/micahkepe.github.io",
       skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
-    {
-      image: "/assets/personal-assistant.webp",
-      title: "Custom Voice Assistant",
-      description:
-        "Created a customizable personal assistant by implementing Python and a user-friendly GUI interface. Leverages OpenAI API and ElevenLabs API to provide users the ability to have a personal assistant with a voice of their choice, such as a celebrity, that can respond to their written or spoken queries.",
-      link: "https://github.com/micahkepe/custom_assistant2.0",
-      skills: ["Python", "OpenAI API", "ElevenLabs API"],
-    },
   ];
+
+  const controls = useAnimation();
 
   return (
     <section id="projects">
@@ -58,7 +53,10 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
         {projects.map((project: Project, index: number) => (
           <ProjectComponent key={index} {...project} />
         ))}
-        <div className="resume-link">
+        <motion.div
+          onMouseEnter={() => controls.start({ x: 1, y: 0 })}
+          onMouseLeave={() => controls.start({ x: 0, y: 0 })}
+        >
           <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
               <a
@@ -69,22 +67,24 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
                 View Full Project List
               </a>
             </span>
-            <svg
+            <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
               className="w-6 h-6"
+              animate={controls}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
-            </svg>
+            </motion.svg>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
