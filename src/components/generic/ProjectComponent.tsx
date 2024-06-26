@@ -33,16 +33,16 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center space-x-2"
+          className="flex items-center justify-between space-x-2"
         >
-          <span>{title}</span>
+          <span className="flex-grow">{title}</span>
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-4 h-4 inline-block"
+            className="w-4 h-4 flex-shrink-0 ml-1"
             animate={controls}
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >

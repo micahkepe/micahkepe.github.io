@@ -9,19 +9,19 @@ const BlogPostComponent: FC<{ post: BlogPost }> = ({ post }) => {
     <div className="mb-5 border-solid border-2 border-slate p-4 rounded-lg hover:bg-white/5">
       <a
         href={post.link}
-        className="flex items-center text-sm text-white font-semibold mb-2 hover:text-green"
+        className="flex items-center justify-between text-sm text-white font-semibold mb-2 hover:text-green"
         aria-label={`Read more about ${post.title}`}
         onMouseEnter={() => controls.start({ x: 1, y: -1 })}
         onMouseLeave={() => controls.start({ x: 0, y: 0 })}
       >
-        <span>{post.title}</span>
+        <span className="flex-grow">{post.title}</span>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-4 h-4 inline-block ml-1"
+          className="w-4 h-4 flex-shrink-0 ml-1"
           animate={controls}
           transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
