@@ -9,10 +9,6 @@ categories = ["programming"]
 tags = ["theory", "algorithms"]
 +++
 
-<!-- Load latex shortcode -->
-
-{{ latex() }}
-
 Algorithms are all around us. They are the invisible forces that power our
 modern world, from the search engines we use to find information to the social
 networks we use to connect with friends and family. In this post, I share some
@@ -20,6 +16,8 @@ ingenious algorithms that I have learned about both in courses and through my
 own research.
 
 <!-- more -->
+
+{{ latex() }}
 
 ## 1. PageRank
 

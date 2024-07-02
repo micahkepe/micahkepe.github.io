@@ -10,8 +10,6 @@ categories = ["programming"]
 tags = ["data structures", "algorithms", "theory"]
 +++
 
-{{ latex() }}
-
 In the realm of computer science, efficiency is often the key to solving complex
 problems. One elegant solution that stands out for its efficiency is the Bloom
 filter. Despite being relatively lesser-known, Bloom filters offer a powerful
@@ -20,6 +18,8 @@ explores what Bloom filters are, how they work, their applications in various
 fields, and compares them with other data structures.
 
 <!-- more -->
+
+{{ latex() }}
 
 ## What is a Bloom Filter?
 
