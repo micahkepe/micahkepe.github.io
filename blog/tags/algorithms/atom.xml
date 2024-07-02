@@ -23,26 +23,7 @@
         <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/bloom-filters/"/>
         <id>https://micahkepe.com/blog/bloom-filters/</id>
         
-        <summary type="html">&lt;!-- MathJax script for rendering LaTeX math equations --&gt;
-&lt;script&gt;
-  MathJax = {
-    tex: {
-      inlineMath: [
-        [&quot;$&quot;, &quot;$&quot;],
-        [&quot;\\(&quot;, &quot;\\)&quot;],
-      ],
-      displayMath: [
-        [&quot;$$&quot;, &quot;$$&quot;],
-        [&quot;\\[&quot;, &quot;\\]&quot;],
-      ],
-    },
-  };
-&lt;&#x2F;script&gt;
-&lt;script
-  src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mathjax@3&#x2F;es5&#x2F;tex-chtml.js&quot;
-  async
-&gt;&lt;&#x2F;script&gt;
-&lt;p&gt;In the realm of computer science, efficiency is often the key to solving complex
+        <summary type="html">&lt;p&gt;In the realm of computer science, efficiency is often the key to solving complex
 problems. One elegant solution that stands out for its efficiency is the Bloom
 filter. Despite being relatively lesser-known, Bloom filters offer a powerful
 method for determining set membership while using minimal space. This post
@@ -67,27 +48,7 @@ fields, and compares them with other data structures.&lt;&#x2F;p&gt;
         <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/ingenious-algorithms/"/>
         <id>https://micahkepe.com/blog/ingenious-algorithms/</id>
         
-        <summary type="html">&lt;!-- Load latex shortcode --&gt;
-&lt;!-- MathJax script for rendering LaTeX math equations --&gt;
-&lt;script&gt;
-  MathJax = {
-    tex: {
-      inlineMath: [
-        [&quot;$&quot;, &quot;$&quot;],
-        [&quot;\\(&quot;, &quot;\\)&quot;],
-      ],
-      displayMath: [
-        [&quot;$$&quot;, &quot;$$&quot;],
-        [&quot;\\[&quot;, &quot;\\]&quot;],
-      ],
-    },
-  };
-&lt;&#x2F;script&gt;
-&lt;script
-  src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mathjax@3&#x2F;es5&#x2F;tex-chtml.js&quot;
-  async
-&gt;&lt;&#x2F;script&gt;
-&lt;p&gt;Algorithms are all around us. They are the invisible forces that power our
+        <summary type="html">&lt;p&gt;Algorithms are all around us. They are the invisible forces that power our
 modern world, from the search engines we use to find information to the social
 networks we use to connect with friends and family. In this post, I share some
 ingenious algorithms that I have learned about both in courses and through my
