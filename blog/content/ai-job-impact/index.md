@@ -28,7 +28,7 @@ Obviously, the likes of Bill Gates, Linus Torvalds, and countless other software
 The 1984 The Age article:
 ![1984 The Age Article on Artificial Intelligence](1984-the-age-article.png)
 
-The proliferation of this narrative has led to widespread fear and uncertainty among software professionals. In 2019, Forbes published an [article](https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/) that cites a ZipRecruiter survey finding that "One in five job seekers (one in three for those between the ages of 18 and 22) fear they will one day lose their job to AI." Fast forward to 2023, and a Gallup representation web poll of over 5,400 Americans found that 75% of respondents believe AI will reduce the total number of jobs in the U.S. in the next 10 years.
+The proliferation of this narrative has led to widespread fear and uncertainty among software professionals. In 2019, Forbes published an [article](https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/) that cites a ZipRecruiter survey finding that "One in five job seekers (one in three for those between the ages of 18 and 22) fear they will one day lose their job to AI." Fast forward to 2023, and a representative Gallup web poll of over 5,400 Americans found that 75% of respondents believe AI will reduce the total number of jobs in the U.S. in the next 10 years.
 
 The 2023 Gallup poll:
 ![2023 Gallup Poll on AI Job Impact](2023-gallup-survey.png)
