@@ -1,7 +1,7 @@
 +++
-title = "[1] Congrats! You've found my hidden blog! 🎉"
+title = "📌 [1] Congrats! You've found my hidden blog!"
 date = 2024-05-01
-updated = 2024-05-10
+updated = 2024-07-19
 weight = 1
 +++
 
