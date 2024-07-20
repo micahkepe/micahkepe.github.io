@@ -4,6 +4,10 @@
         <loc>https://micahkepe.com/blog/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/ai-job-impact/</loc>
+        <lastmod>2024-07-19</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/bloom-filters/</loc>
         <lastmod>2024-05-26</lastmod>
     </url>
@@ -44,7 +48,13 @@
         <loc>https://micahkepe.com/blog/tags/data-structures/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/future/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/infosec/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/opinion/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/package-managers/</loc>
@@ -54,6 +64,9 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/software-packages/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/technology/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/theory/</loc>
@@ -70,6 +83,6 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/welcome/</loc>
-        <lastmod>2024-05-10</lastmod>
+        <lastmod>2024-07-19</lastmod>
     </url>
 </urlset>
