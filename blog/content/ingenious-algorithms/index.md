@@ -96,9 +96,9 @@ A's PageRank is updated as follows:
 \\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
 \frac{PR(D)}{3} \right) \\]
 
-\\[ PR(A) = 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1}
+\\[ PR(A) = 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1} - \frac{0.25}{3}\right) \\]
 
-- \frac{0.25}{3}\right) \\] \\[ PR(A) \approx 0.46 \\]
+\\[ PR(A) \approx 0.46 \\]
 
 After several iterations, the PageRank values converge to stable values that
 reflect the importance of each page in the network. The final PageRank values
