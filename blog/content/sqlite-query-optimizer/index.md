@@ -15,7 +15,6 @@ I **love** databases, but they are still largely a magical black box to me, so i
 
 {{ latex() }}
 
-
 ## TODO: Add Content
 
 {{ utterances() }}
