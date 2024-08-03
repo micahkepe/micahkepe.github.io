@@ -11,6 +11,8 @@ export interface Project {
   image: string;
   link: string;
   skills: string[];
+  showStars?: boolean;
+  githubOwnerRepo?: string;
 }
 
 export interface ProjectComponentProps {
@@ -19,6 +21,8 @@ export interface ProjectComponentProps {
   description: string;
   link: string;
   skills: string[];
+  showStars?: boolean; // Show GitHub stars
+  githubOwnerRepo?: string; // GitHub owner and repository name (e.g. "micahkepe/micahkepe.github.io")
 }
 
 export interface ExperienceComponentProps {
