@@ -1,6 +1,6 @@
-import { BaseComponentProps } from "../../types";
+import { BaseContentComponentProps } from "../../types";
 
-const BaseComponent: React.FC<BaseComponentProps> = ({
+const BaseContentComponent: React.FC<BaseContentComponentProps> = ({
   leftSideContent,
   children,
 }) => {
@@ -15,4 +15,4 @@ const BaseComponent: React.FC<BaseComponentProps> = ({
   );
 };
 
-export default BaseComponent;
+export default BaseContentComponent;

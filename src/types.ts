@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface BaseComponentProps {
+export interface BaseContentComponentProps {
   leftSideContent: ReactNode;
   children: ReactNode;
 }

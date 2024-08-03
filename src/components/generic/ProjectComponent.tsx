@@ -1,5 +1,5 @@
 import React from "react";
-import BaseComponent from "./BasicContentComponent";
+import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
 import { ProjectComponentProps } from "../../types";
 
@@ -13,7 +13,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
   const controls = useAnimation();
 
   return (
-    <BaseComponent
+    <BaseContentComponent
       leftSideContent={
         <div className="w-40 h-20 overflow-hidden relative shadow-lg shadow-black sm:mr-10">
           <img
@@ -25,7 +25,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
       }
     >
       <motion.div
-        className="text-base font-semibold hover:text-green"
+        className="text-base font-semibold hover:text-green flex items-center"
         onMouseEnter={() => controls.start({ x: 1, y: -1 })}
         onMouseLeave={() => controls.start({ x: 0, y: 0 })}
       >
@@ -33,16 +33,16 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between space-x-2"
+          className="flex items-center space-x-2"
         >
-          <span className="flex-grow">{title}</span>
+          <span>{title}</span>
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-4 h-4 flex-shrink-0 ml-1"
+            className="w-4 h-4 ml-1"
             animate={controls}
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
@@ -65,7 +65,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
           </button>
         ))}
       </div>
-    </BaseComponent>
+    </BaseContentComponent>
   );
 };
 

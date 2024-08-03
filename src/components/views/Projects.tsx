@@ -8,6 +8,14 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
 
   const projects: Project[] = [
     {
+      image: "/assets/vim.webp",
+      title: "Vimtutor Sequel",
+      description:
+        "Vimtutor Sequel is designed to continue your Vim education from where the original vimtutor left off. The project is a series of lessons that cover more advanced topics in Vim, such as macros, registers, and plugins. The lessons are designed to be interactive and engaging, with exercises to reinforce learning.",
+      link: "https://github.com/micahkepe/vimtutor-sequel",
+      skills: ["Vim", "Shell Scripting", "Markdown"],
+    },
+    {
       image: "/assets/new-york-map.webp",
       title: "NYC Car Crash Analysis Project",
       description:
@@ -38,10 +46,11 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
   return (
     <section id="projects">
       <div className={`projects-content ${paddingClass}`}>
-        <div className="section-placeholder"></div>
-        {projects.map((project: Project, index: number) => (
-          <ProjectComponent key={index} {...project} />
-        ))}
+        <div className="">
+          {projects.map((project: Project, index: number) => (
+            <ProjectComponent key={index} {...project} />
+          ))}
+        </div>
         <motion.div
           onMouseEnter={() => controls.start({ x: 1, y: 0 })}
           onMouseLeave={() => controls.start({ x: 0, y: 0 })}

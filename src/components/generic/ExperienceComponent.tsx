@@ -1,5 +1,5 @@
 import React from "react";
-import BaseComponent from "./BasicContentComponent";
+import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
 import { ExperienceComponentProps } from "../../types";
 
@@ -14,7 +14,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   const controls = useAnimation();
 
   return (
-    <BaseComponent
+    <BaseContentComponent
       leftSideContent={
         <div className="flex flex-col items-start">
           <span className="mb-2">{date}</span>
@@ -29,7 +29,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
       }
     >
       <motion.div
-        className="text-base font-semibold hover:text-green"
+        className="text-base font-semibold hover:text-green flex items-center"
         onMouseEnter={() => controls.start({ x: 1, y: -1 })}
         onMouseLeave={() => controls.start({ x: 0, y: 0 })}
       >
@@ -37,7 +37,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between space-x-2"
+          className="flex items-center space-x-2"
         >
           <span className="flex-grow">{title}</span>
           <motion.svg
@@ -69,7 +69,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
           </button>
         ))}
       </div>
-    </BaseComponent>
+    </BaseContentComponent>
   );
 };
 
