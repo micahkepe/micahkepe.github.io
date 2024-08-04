@@ -46,7 +46,9 @@ $k$ hash functions, resulting in $k$ array positions. The bits at these
 positions in the bit array are set to 1. If any of these bits are already set to
 1, they remain unchanged.
 
-![Inserting an element into a Bloom filter](insertion.png)
+{{ responsive_image(src="insertion.png", alt="Inserting an element into a Bloom filter") }}
+
+<br>
 
 ### Querying
 
@@ -56,7 +58,9 @@ corresponding bits in the bit array are 1, the Bloom filter reports that the
 element might be in the set. If any of the bits are 0, the element is definitely
 not in the set.
 
-![Test for membership in a Bloom filter](bloom-filter-membership.png)
+{{ responsive_image(src="bloom-filter-membership.png", alt="Querying an element in a Bloom filter") }}
+
+<br>
 
 ### False Positives
 
@@ -67,7 +71,9 @@ when it is not). The probability of false positives depends on the size of the
 bit array $m$, the number of hash functions $k$, and the number of elements
 inserted $n$.
 
-![Example of a false positive in a Bloom filter](bloom-filter-example.png)
+{{ responsive_image(src="bloom-filter-example.png", alt="Example of a false positive in a Bloom filter") }}
+
+<br>
 
 ## Mathematical Insight
 

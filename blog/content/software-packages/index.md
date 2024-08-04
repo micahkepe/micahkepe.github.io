@@ -5,7 +5,7 @@ draft = false
 weight = 2
 
 [taxonomies]
-categories = ["programming", "software engineering"]
+categories = ["programming"]
 tags = ["software packages", "package managers"]
 +++
 

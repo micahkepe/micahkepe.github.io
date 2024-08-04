@@ -88,7 +88,9 @@ For example, consider a simple network of 4 web pages: A, B, C, and D. Suppose
 page B has a link to page A, page C has a link to page A, and page D has links
 to all three pages like so:
 
-![Simple Network Example](simple-network.png)
+{{ responsive_image(src="simple-network.png", alt="Simple Network Example") }}
+
+<br>
 
 Initially, each page is assigned a PageRank of 0.25. After one iteration, page
 A's PageRank is updated as follows:
@@ -104,7 +106,7 @@ After several iterations, the PageRank values converge to stable values that
 reflect the importance of each page in the network. The final PageRank values
 can then be used to rank the pages in search results.
 
-![PageRank Explanation GIF](pagerank.gif)
+{{ responsive_image(src="pagerank.gif", alt="PageRank Calculation Example") }}
 
 One interesting property of PageRank is that it is a Markov chain, which means
 that the PageRank values can be interpreted as the probability of a random
@@ -283,7 +285,7 @@ The key insight behind Shazam is that the spectrogram peaks are robust to noise
 and distortion, so they can be used to identify songs even in noisy environments
 or when the audio quality is poor.
 
-![Spectrogram of "Blurred Lines" by Robin Thicke](spectrogram.png)
+{{ responsive_image(src="spectrogram.png", alt="Spectrogram of 'Blurred Lines' by Robin Thicke") }}
 
 For example, suppose you're at a noisy bar and hear a song playing that you want
 to identify. You open up Shazam and record a 10-second clip of the song. Shazam
@@ -293,7 +295,7 @@ The peaks are then hashed and combined into a fingerprint, which is compared to
 Shazam's database of over 11 million songs. Even though the clip is noisy and
 distorted, Shazam is still able to find a match and identify the song.
 
-![Signal Matching in Shazam](signal-match.png)
+{{ responsive_image(src="signal-match.png", alt="Signal Matching in Shazam") }}
 
 One interesting aspect of Shazam's algorithm is that it uses a technique called
 "combinatorial hashing" to efficiently search its database of song fingerprints.
@@ -302,7 +304,9 @@ subfingerprints and searching for matches for each subfingerprint separately.
 This allows Shazam to identify songs quickly even though its database contains
 millions of songs.
 
-![Shazam Process](shazam.png)
+{{ responsive_image(src="shazam.png", alt="Shazam Process") }}
+
+<br>
 
 ### Fun Facts about Shazam
 
