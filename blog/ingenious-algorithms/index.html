@@ -50,6 +50,11 @@
                         
                             <a itemprop="url"
                                class=""
+                               href="https://micahkepe.com/blog/categories/programming/atom.xml">
+                                <span itemprop="name">RSS Feed</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
                                href="https://micahkepe.com/">
                                 <span itemprop="name">Main Site</span></a>
                         
@@ -161,7 +166,9 @@ represent the importance of each page.</p>
 <p>For example, consider a simple network of 4 web pages: A, B, C, and D. Suppose
 page B has a link to page A, page C has a link to page A, and page D has links
 to all three pages like so:</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/simple-network.png" alt="Simple Network Example" /></p>
+<div style="width: 100%; max-width: 100%; height: auto;">
+    <img src="simple-network.png" alt="Simple Network Example" style="width: 100%; height: auto;">
+</div><br>
 <p>Initially, each page is assigned a PageRank of 0.25. After one iteration, page
 A's PageRank is updated as follows:</p>
 <p>\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
@@ -171,7 +178,9 @@ A's PageRank is updated as follows:</p>
 <p>After several iterations, the PageRank values converge to stable values that
 reflect the importance of each page in the network. The final PageRank values
 can then be used to rank the pages in search results.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/pagerank.gif" alt="PageRank Explanation GIF" /></p>
+<div style="width: 100%; max-width: 100%; height: auto;">
+    <img src="pagerank.gif" alt="PageRank Calculation Example" style="width: 100%; height: auto;">
+</div>
 <p>One interesting property of PageRank is that it is a Markov chain, which means
 that the PageRank values can be interpreted as the probability of a random
 surfer landing on a particular page after clicking on links for a long time.
@@ -323,21 +332,27 @@ using a technique called &quot;combinatorial hashing&quot;.</li>
 <p>The key insight behind Shazam is that the spectrogram peaks are robust to noise
 and distortion, so they can be used to identify songs even in noisy environments
 or when the audio quality is poor.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/spectrogram.png" alt="Spectrogram of &quot;Blurred Lines&quot; by Robin Thicke" /></p>
+<div style="width: 100%; max-width: 100%; height: auto;">
+    <img src="spectrogram.png" alt="Spectrogram of 'Blurred Lines' by Robin Thicke" style="width: 100%; height: auto;">
+</div>
 <p>For example, suppose you're at a noisy bar and hear a song playing that you want
 to identify. You open up Shazam and record a 10-second clip of the song. Shazam
 then converts the clip into a spectrogram and identifies the peaks.</p>
 <p>The peaks are then hashed and combined into a fingerprint, which is compared to
 Shazam's database of over 11 million songs. Even though the clip is noisy and
 distorted, Shazam is still able to find a match and identify the song.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/signal-match.png" alt="Signal Matching in Shazam" /></p>
+<div style="width: 100%; max-width: 100%; height: auto;">
+    <img src="signal-match.png" alt="Signal Matching in Shazam" style="width: 100%; height: auto;">
+</div>
 <p>One interesting aspect of Shazam's algorithm is that it uses a technique called
 &quot;combinatorial hashing&quot; to efficiently search its database of song fingerprints.
 Combinatorial hashing works by dividing the fingerprint into smaller
 subfingerprints and searching for matches for each subfingerprint separately.
 This allows Shazam to identify songs quickly even though its database contains
 millions of songs.</p>
-<p><img src="https://micahkepe.com/blog/ingenious-algorithms/shazam.png" alt="Shazam Process" /></p>
+<div style="width: 100%; max-width: 100%; height: auto;">
+    <img src="shazam.png" alt="Shazam Process" style="width: 100%; height: auto;">
+</div><br>
 <h3 id="fun-facts-about-shazam">Fun Facts about Shazam</h3>
 <ul>
 <li>Shazam's database contains over 11 million songs and is growing every day.</li>
