@@ -1,3 +1,8 @@
 <div style="width: 100%; max-width: 100%; height: auto;">
     <img src="{{ src | safe }}" alt="{{ alt | safe }}" style="width: 100%; height: auto;">
+    {% if caption %}
+    <div style="text-align: center; margin-top: 0.5em;">
+        <p style="font-style: italic;">{{ caption | safe }}</p>
+    </div>
+    {% endif %}
 </div>

@@ -2,7 +2,7 @@
 title = "[2] Biggest Takeaways from The Missing Semester of Your CS Education"
 date = 2024-05-05
 draft = false
-weight = 2
+weight = 5
 
 [taxonomies]
 categories = ["programming"]
@@ -227,7 +227,7 @@ If you have set up the symbolic links correctly, running the `ls -a ~` command
 should show the symbolic links in your home directory pointing to the dotfiles
 in your repository like so:
 
-{{ responsive_image(src="symlinks.png", alt="Dotfiles in home directory") }}
+{{ responsive_image(src="symlinks.png", alt="Dotfiles in home directory", caption="Above: My dotfiles in my home directory symlinked to my dotfiles repository.") }}
 
 4\. Add, commit, and push your dotfiles to your remote repository (e.g.,
 GitHub):

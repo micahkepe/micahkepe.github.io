@@ -2,7 +2,7 @@
 title = "[7] An Optimistic Take: AI's Augmentation of Software Professionals"
 date = 2024-07-19
 draft = false
-weight = 2
+weight = 5
 
 [taxonomies]
 categories = ["programming"]
@@ -25,13 +25,11 @@ The narrative that AI will replace programmers is not new. This idea has pervade
 
 Obviously, the likes of Bill Gates, Linus Torvalds, and countless other software professionals who have made their careers in the decades since would beg to differ. More recently, in 2018, McKinsey & Company, a global management consulting firm, predicted that [800 million jobs would be lost](https://www.mckinsey.com/featured-insights/future-of-work/ai-automation-and-the-future-of-work-ten-things-to-solve-for) to automation by 2030. In countless media outlets since, the narrative has been repeated and amplified.
 
-The 1984 The Age article:
-{{ responsive_image(src="1984-the-age-article.png", alt="1984 The Age Article on Artificial Intelligence") }}
+{{ responsive_image(src="1984-the-age-article.png", alt="1984 The Age Article on Artificial Intelligence", caption="Above: 1984 The Age Article on Artificial Intelligence") }}
 
 The proliferation of this narrative has led to widespread fear and uncertainty among software professionals. In 2019, Forbes published an [article](https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/) that cites a ZipRecruiter survey finding that "One in five job seekers (one in three for those between the ages of 18 and 22) fear they will one day lose their job to AI." Fast forward to 2023, and a representative Gallup web poll of over 5,400 Americans found that 75% of respondents believe AI will reduce the total number of jobs in the United States in the next 10 years.
 
-The 2023 Gallup poll:
-{{ responsive_image(src="2023-gallup-survey.png", alt="2023 Gallup Poll on AI Job Impact") }}
+{{ responsive_image(src="2023-gallup-survey.png", alt="2023 Gallup Poll on AI Job Impact", caption="Above: The 2023 Gallup Poll on AI Job Impact") }}
 
 However, we don't have to accept this narrative based solely on projections and surveys—- the data is in and the results are more optimistic than you might think.
 
@@ -41,14 +39,14 @@ Annually, Stanford University's Human-Centered Artificial Intelligence (HAI) Ins
 
 - **AI makes workers more productive and leads to higher quality work.**
 
-{{ responsive_image(src="copilot-productive.jpg", alt="Cross-study comparison of AI's impact on task completion speed of Copilot users") }}
+{{ responsive_image(src="copilot-productive.jpg", alt="Cross-study comparison of AI's impact on task completion speed of Copilot users", caption="Above: Cross-study comparison of AI's impact on task completion speed of Copilot users") }}
 
 "AI has been shown to enable workers to complete tasks more quickly and **produce higher quality work**. A meta-review by Microsoft, which
 aggregated studies comparing the performance of workers using Microsoft Copilot or GitHub’s Copilot LLM-based productivity-enhancing tools with those who did not, found that Copilot users completed tasks in **26% to 73% less time** than their counterparts without AI access" (AI Index, 2024, p. 272)
 
 - **AI is creating new jobs.**
 
-{{ responsive_image(src="ai-private-investment.png", alt="Private investment in AI by geographic area, 2023") }}
+{{ responsive_image(src="ai-private-investment.png", alt="Private investment in AI by geographic area, 2023", caption="Above: Private investment in AI by geographic area, 2023") }}
 
 "The United States once again led the world in terms of total AI private investment. In 2023, the **$67.2 billion invested** in the United States was roughly 8.7 times greater than the amount invested in the next highest country, China ($7.8 billion), and 17.8 times the amount invested in the United Kingdom ($3.8 billion)" (AI Index, 2024, p. 247)
 
@@ -70,7 +68,7 @@ The U.S. Bureau of Labor Statistics also provides a [positive outlook](https://w
 
 The U.S. Bureau of Labor Statistics data for employees in "custom computer programming services" from the Current Employment Statistics survey also shows a steady increase in employment over the past 10 years:
 
-{{ responsive_image(src="bls-programming.png", alt="Employment, Hours, and Earnings from the Current Employment Statistics survey (National)") }}
+{{ responsive_image(src="bls-programming.png", alt="Employment, Hours, and Earnings from the Current Employment Statistics survey (National)", caption="Above: Employment, Hours, and Earnings from the Current Employment Statistics survey (National)") }}
 
 ## Historical Precedent: The Rise of Spreadsheets
 
