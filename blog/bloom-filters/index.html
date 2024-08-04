@@ -121,6 +121,7 @@ come with a small chance of false positives.</p>
   <a href="https://micahkepe.com/blog/bloom-filters/bloom-filter.webp" target="_blank">
     <img src="https:&#x2F;&#x2F;micahkepe.com&#x2F;blog&#x2F;processed_images&#x2F;bloom-filter.ee7320e127a33815.jpg" alt="Bloom Filter Example" style="width: 100%; height: auto;" />
   </a>
+  
 </div>
 <p>A Bloom filter consists of:</p>
 <ul>
@@ -136,6 +137,11 @@ positions in the bit array are set to 1. If any of these bits are already set to
 1, they remain unchanged.</p>
 <div style="width: 100%; max-width: 100%; height: auto;">
     <img src="insertion.png" alt="Inserting an element into a Bloom filter" style="width: 100%; height: auto;">
+    
+    <div style="text-align: center; margin-top: 0.5em;">
+        <p style="font-style: italic;">Above: Inserting an element into a Bloom filter</p>
+    </div>
+    
 </div><br>
 <h3 id="querying">Querying</h3>
 <p>To check if an element is in the Bloom filter, the element is hashed using the
@@ -145,6 +151,11 @@ element might be in the set. If any of the bits are 0, the element is definitely
 not in the set.</p>
 <div style="width: 100%; max-width: 100%; height: auto;">
     <img src="bloom-filter-membership.png" alt="Querying an element in a Bloom filter" style="width: 100%; height: auto;">
+    
+    <div style="text-align: center; margin-top: 0.5em;">
+        <p style="font-style: italic;">Above: Querying an element in a Bloom filter</p>
+    </div>
+    
 </div><br>
 <h3 id="false-positives">False Positives</h3>
 <p>Bloom filters do not store the actual elements, so they can never have false
@@ -155,6 +166,11 @@ bit array $m$, the number of hash functions $k$, and the number of elements
 inserted $n$.</p>
 <div style="width: 100%; max-width: 100%; height: auto;">
     <img src="bloom-filter-example.png" alt="Example of a false positive in a Bloom filter" style="width: 100%; height: auto;">
+    
+    <div style="text-align: center; margin-top: 0.5em;">
+        <p style="font-style: italic;">Above: Example of a false positive in a Bloom filter</p>
+    </div>
+    
 </div><br>
 <h2 id="mathematical-insight">Mathematical Insight</h2>
 <p>The false positive probability $p$ can be approximated by:</p>

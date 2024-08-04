@@ -60,6 +60,9 @@
         <loc>https://micahkepe.com/blog/tags/productivity/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/software-package/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/software-packages/</loc>
     </url>
     <url>
@@ -69,10 +72,17 @@
         <loc>https://micahkepe.com/blog/tags/theory/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/vim/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/vulnerability/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/webp/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/vimtutor-sequel/</loc>
+        <lastmod>2024-08-04</lastmod>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/webp-vulnerability/</loc>
