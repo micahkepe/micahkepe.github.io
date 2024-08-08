@@ -10,18 +10,17 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     {
       date: "Feb 2024 - Present",
       logo: "/assets/vislang-logo.webp",
-      title: "ML Research Assistant | Vislang Lab @ Rice University",
+      title: "Machine Learning Research | Vislang Lab @ Rice University",
       description:
         "Developing new features, tools, and datasets for the Vislang research group at Rice University in the areas of computer vision and natural language processing.",
       link: "https://vislang.ai/",
       skills: [
-        "Python",
         "Flask",
-        "JavaScript",
         "Web Crawling",
         "Socket.io",
         "SQL",
         "Node.js",
+        "PostgreSQL",
       ],
     },
     {
@@ -36,7 +35,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
         "NestJS",
         "GDrive API",
         "Prisma",
-        "JavaScript",
+        "TypeScript",
         "Tailwind CSS",
         "Salesforce SOQL",
       ],
