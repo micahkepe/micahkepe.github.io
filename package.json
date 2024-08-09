@@ -19,7 +19,7 @@
     "react-router-dom": "^6.23.1",
     "react-scroll": "^1.8.9",
     "vite": "^5.2.12",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^4.2.3"
   },
   "scripts": {
     "start": "vite",
