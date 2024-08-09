@@ -10,7 +10,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
     {
       date: "Feb 2024 - Present",
       logo: "/assets/vislang-logo.webp",
-      title: "Machine Learning Research | Vislang Lab @ Rice University",
+      title: "Machine Learning Researcher | Vislang Lab @ Rice University",
       description:
         "Developing new features, tools, and datasets for the Vislang research group at Rice University in the areas of computer vision and natural language processing.",
       link: "https://vislang.ai/",
