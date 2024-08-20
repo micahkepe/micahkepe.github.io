@@ -72,6 +72,8 @@ If you haven’t tried `vimtutor-sequel` yet, I encourage you to give it a go an
 
 Thank you for reading, and happy Vimming!
 
+**Update**: The project has grown to 400+ stars and continues to receive contributions and feedback from the community! Additionally, a new lesson on change navigation has been added to the tutorial as Lesson 16.
+
 **Links:**
 
 - [GitHub Repository](https://github.com/micahkepe/vimtutor-sequel) \
