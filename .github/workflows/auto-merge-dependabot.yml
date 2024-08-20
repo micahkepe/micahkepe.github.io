@@ -6,7 +6,7 @@ on:
       - opened
       - reopened
       - synchronize
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 permissions:
   contents: write # Allows the workflow to push changes
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   automerge:
-    if: github.actor == 'dependabot[bot]'
+    if: github.actor == 'dependabot[bot]' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
