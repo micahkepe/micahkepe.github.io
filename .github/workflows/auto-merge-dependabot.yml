@@ -6,6 +6,7 @@ on:
       - opened
       - reopened
       - synchronize
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 permissions:
   contents: write # Allows the workflow to push changes
