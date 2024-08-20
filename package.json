@@ -50,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
     "@svgr/cli": "^8.0.1",
     "@tailwindcss/typography": "^0.5.9",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
