@@ -8,8 +8,8 @@ on:
       - synchronize
 
 permissions:
-  contents: write # Allows the workflow to push changes
-  pull-requests: write # Allows the workflow to approve and merge PRs
+  contents: write # Allows merging PRs
+  pull-requests: write
 
 jobs:
   automerge:
@@ -25,13 +25,8 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Approve PR
-        run: gh pr review --approve "$PR_URL"
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Enable auto-merge for Dependabot PRs
+        if: github.actor == 'dependabot[bot]' # Only run for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
