@@ -7,6 +7,10 @@ on:
       - reopened
       - synchronize
 
+permissions:
+  contents: write # Allows the workflow to push changes
+  pull-requests: write # Allows the workflow to approve and merge PRs
+
 jobs:
   automerge:
     if: github.actor == 'dependabot[bot]'
@@ -15,15 +19,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
         with:
-          node-version: "20"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Automatic merge
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git checkout ${{ github.event.pull_request.head.ref }}
-          git merge ${{ github.event.pull_request.base.ref }} --no-edit
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - name: Approve PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
