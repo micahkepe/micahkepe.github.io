@@ -36,6 +36,10 @@
         <lastmod>2024-06-04</lastmod>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/sqlite-query-optimizer/</loc>
+        <lastmod>2024-08-27</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/</loc>
     </url>
     <url>
@@ -43,6 +47,9 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/data-structures/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/databases/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/future/</loc>
@@ -60,10 +67,16 @@
         <loc>https://micahkepe.com/blog/tags/productivity/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/query-optimizer/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/software-package/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/software-packages/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/sqlite/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/technology/</loc>
