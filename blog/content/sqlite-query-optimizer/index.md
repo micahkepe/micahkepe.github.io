@@ -1,7 +1,7 @@
 +++
 title = "[10] A Deep Dive into SQLite's Query Optimizer"
-date = 2024-08-25
-draft = true
+date = 2024-08-27
+draft = false
 weight = 2
 
 [taxonomies]
@@ -9,27 +9,24 @@ categories = ["programming"]
 tags = ["databases", "sqlite", "query-optimizer"]
 +++
 
-I **love** databases, but they are still largely a magical black box to me, so in this post, I'm going to explore how SQLite's query optimizer works. We'll delve together into how the process of how SQL queries are parsed, optimized, and executed, in particular focusing on the optimization phase. By the end of this post, you'll have a better understanding of how SQLite's query optimizer works and how it can help you write more efficient queries.
+I **love** databases, but they are still largely a magical black box to me, so in this post, I'm going to explore how SQLite's query optimizer works. We'll delve together into the process of how SQL queries are parsed, optimized, and executed, with a particular focus on the optimization phase. By the end of this post, you'll have a better understanding of how SQLite's query optimizer works and how it can help you write more efficient queries.
 
 <!-- more -->
 
-{{ latex() }}
-
-This past summer I got a lot of practice learning the ins and outs of SQLite as part of a project that I have been contributing to that we originally set up with a SQLite database. I've been working with SQLite for a while now, and I've come to appreciate its simplicity and ease of use.
+This past summer, I got a lot of practice learning the ins and outs of SQLite as part of a project that I have been contributing to, which we originally set up with a SQLite database. I've been working with SQLite for a while now, and I've come to appreciate its simplicity and ease of use.
 
 ## What Actually Happens When You Run a Query?
 
 Regardless of the database engine you're using, when you run a query, the database engine goes through a series of steps to execute the query. These steps include:
 
 1. **Writing**: The query is written and sent to the database engine.
-
 2. **Parsing**: The query is parsed to ensure it is syntactically correct.
-
 3. **Planning**: The query planner generates an execution plan for the query.
-
 4. **Execution**: The query is actually executed and the results are returned.
 
 Of course, while these steps are common to all database engines, the way they are implemented can vary significantly from one engine to another.
+
+{{ responsive_image(src="overview.png", alt="Overview of the query execution process", caption="Overview of the query execution process") }}
 
 ## SQLite's Approach to Query Optimization
 
@@ -121,7 +118,19 @@ The plan indicates "SCAN LIKES," meaning SQLite will read through the entire `LI
 
 Even though a full table scan is the least efficient method (especially with large tables), it’s the only option when no suitable index is available. For small tables like our example, the performance impact is minimal, but with larger datasets, this could become a bottleneck.
 
-#### 4. **Execution: Returning the Results**
+#### 4. **Using Rowid Lookups for Efficiency**
+
+While full table scans are sometimes necessary, SQLite often relies on **rowid lookups** to speed up queries when no more specific index is available. Each table in SQLite has a unique identifier for each row called the `rowid`. If your query involves this `rowid` directly, SQLite can perform a binary search on this identifier, which is significantly faster than a full table scan.
+
+For example, consider the following query:
+
+```sql
+SELECT BEER FROM LIKES WHERE rowid = 1;
+```
+
+In this case, SQLite will directly use the rowid to locate the record, bypassing the need to scan every row in the table. This technique can be particularly useful when you know the specific `rowid` of the data you need to retrieve.
+
+#### 5. **Execution: Returning the Results**
 
 Once the execution plan is ready, SQLite moves to the execution phase. The database engine follows the plan, scanning the `LIKES` table, filtering rows, and collecting the `BEER` values where `DRINKER` is 'Ava'. The results are then returned to the user.
 
@@ -135,7 +144,7 @@ Miller Lite
 
 These results match what we expected because the query is straightforward and the table is small.
 
-#### 5. **Optimizing the Query (The What-If Scenario)**
+#### 6. **Optimizing the Query (The What-If Scenario)**
 
 Let’s imagine we want to optimize this query. The most effective way would be to create an index on the `DRINKER` column. With an index, SQLite could:
 
@@ -297,21 +306,21 @@ Combining all these steps, we get the expected output:
 
 <br>
 
-### Optimizing the Query: Adding an Index
+### Optimizing the Query: Adding a Multi-Column Index
 
-As mentioned earlier, one way to improve this query's performance is by adding an index on the `LIKES` table. Specifically, creating an index on the combination of `DRINKER_ID` and `PREFERENCE` would directly support the sorting required by the query:
+As mentioned earlier, one way to improve this query's performance is by adding an index on the `LIKES` table. Specifically, creating a **multi-column index** on the combination of `DRINKER_ID` and `PREFERENCE` would directly support the sorting required by the query:
 
 ```sql
 CREATE INDEX idx_likes_drinker_pref ON LIKES(DRINKER_ID, PREFERENCE);
 ```
 
-By creating the index, SQLite:
+By creating this multi-column index, SQLite can:
 
-- **Avoids Full Table Scans**: With this index, SQLite can avoid a full scan of the `LIKES` table. Instead, it can directly jump to the relevant rows using the index, which is more efficient.
+- **Avoid Full Table Scans**: With this index, SQLite can avoid a full scan of the `LIKES` table. Instead, it can directly jump to the relevant rows using the index, which is more efficient.
 
-- **Improves Sorting Efficiency**: The index also covers the `PREFERENCE` column, which means the results can be retrieved in the correct order directly from the index. This eliminates the need for a temporary B-tree, reducing the query’s overall execution time.
+- **Optimize Sorting**: The index also covers the `PREFERENCE` column, which means the results can be retrieved in the correct order directly from the index. This eliminates the need for a temporary B-tree, reducing the query’s overall execution time.
 
-- **Reduced I/O Operations**: By using the index, SQLite reduces the number of disk I/O operations needed to retrieve and sort the data. This can significantly speed up the query, especially on large datasets.
+{{ responsive_image(src="multicolumn-idx.png", alt="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index", caption="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index.") }}
 
 ### Re-running the Query Plan
 
@@ -347,7 +356,7 @@ This new execution plan reflects several optimizations made by SQLite:
 
 3. **SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)**:
 
-   - For the `BEER` table, SQLite utilizes the primary key index, which is an automatically created index on the `ID` column (which acts as the `rowid`). Since this is the most efficient way to retrieve specific rows from `BEER`, SQLite uses this index to quickly find the beer names corresponding to the `BEER_ID` values from the `LIKES` table.
+- For the `BEER` table, SQLite utilizes the primary key index, which is an automatically created index on the `ID` column (which acts as the `rowid`). Since this is the most efficient way to retrieve specific rows from `BEER`, SQLite uses this index to quickly find the beer names corresponding to the `BEER_ID` values from the `LIKES` table.
 
 4. **USE TEMP B-TREE FOR ORDER BY**:
    - Finally, SQLite notes that it will use a temporary B-Tree to sort the results according to the `ORDER BY` clause (`DRINKER.NAME` and `LIKES.PREFERENCE`). Even though indexes can often help with sorting, in this case, SQLite decides to use a temporary B-Tree structure to ensure that the results are returned in the correct order. This step can be a bit more resource-intensive, but it guarantees that the results will be sorted as requested.
@@ -363,6 +372,7 @@ The final `ORDER BY` clause requires SQLite to sort the results, and since the c
 By peeking under the hood at how SQL queries are executed, you can gain some intuition on why certain queries are faster than others. Here are a few tips to keep in mind:
 
 1. **Index Your Foreign Keys**: Always create indexes on columns used in `JOIN` conditions. This speeds up the process of matching rows between tables.
+
 2. **Use Covering Indexes**: If possible, create indexes that cover all the columns your query needs, so SQLite doesn’t need to access the main table at all.
 
 3. **Write Selective WHERE Clauses**: If your `WHERE` clause can quickly eliminate rows from consideration, your query will run faster. The fewer rows SQLite has to process, the better.
@@ -377,9 +387,10 @@ Learning to write efficient SQL queries is a valuable skill that translates acro
 
 ## References
 
-- [The SQLite Query Optimizer Overview](https://www.sqlite.org/optoverview.html) \
-- [SQLite Query Planner](https://www.sqlite.org/queryplanner.html) \
-- [The Next-Generation Query Planner](https://www.sqlite.org/queryplanner-ng.html) \
+- [Full SQL Script for the Examples](https://gist.github.com/micahkepe/f9035bf308510b11482d1643b07ceaf7)
+- [The SQLite Query Optimizer Overview](https://www.sqlite.org/optoverview.html)
+- [SQLite Query Planner](https://www.sqlite.org/queryplanner.html)
+- [The Next-Generation Query Planner](https://www.sqlite.org/queryplanner-ng.html)
 - [Order of Execution of SQL Queries](https://www.geeksforgeeks.org/order-of-execution-of-sql-queries/)
 
 {{ utterances() }}
