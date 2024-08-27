@@ -80,15 +80,98 @@ For demonstration, I'll be using the [SQLite Online Compiler](https://sqliteonli
 SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
 ```
 
-{{ responsive_image(src="run-simple.png", alt="Running the simple query") }}
+{{ responsive_image(src="run-simple.png", alt="Running the simple query", caption="Results of the simple query") }}
 
 As we can see, we get the expected results for this query. But how does SQLite's query optimizer actually execute this query?
 
-### Analyzing the Query
+### Analyzing the Query: Breaking Down SQLite's Execution Process
 
-The first step is to analyze the query to ensure it is syntactically correct. In this case, the query is simple and straightforward, so there are no issues with the syntax.
+#### 1. **Parsing the Query**
 
-[ADD HERE]
+The first thing SQLite does is parse the SQL statement. The parser checks the query for any syntax errors and builds a parse tree—a hierarchical representation of the query. This step ensures that the SQL statement is valid and prepares it for further processing.
+
+#### 2. **Generating the Execution Plan**
+
+After parsing, SQLite moves on to the query planning phase, where it generates an execution plan. An execution plan is a step-by-step roadmap of how SQLite will retrieve the data. This involves several key decisions:
+
+- **Table Access Method**: SQLite needs to decide how to access the `LIKES` table. Since the `WHERE` clause filters rows based on the `DRINKER` column, SQLite considers whether there's an index on `DRINKER` that can speed up the retrieval.
+- **Index Usage**: If there were an index on the `DRINKER` column, SQLite might use it to directly look up rows where `DRINKER = 'Ava'`. However, in this case, there’s no such index, so SQLite will perform a **full table scan**.
+
+We can inspect the execution plan using the `EXPLAIN QUERY PLAN` command:
+
+```sql
+-- Explain query plan
+EXPLAIN QUERY PLAN
+SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
+```
+
+As expected since there's no index on the `DRINKER` column, the output is:
+
+```sql
+SCAN LIKES
+```
+
+#### 3. **Full Table Scan Explained**
+
+The plan indicates "SCAN LIKES," meaning SQLite will read through the entire `LIKES` table, row by row, to find matches where `DRINKER = 'Ava'`. Here’s how it works:
+
+- SQLite starts at the first row of the `LIKES` table and checks if the `DRINKER` column equals 'Ava'.
+- If it matches, SQLite includes the `BEER` column from that row in the result set.
+- This process repeats for every row in the table.
+
+Even though a full table scan is the least efficient method (especially with large tables), it’s the only option when no suitable index is available. For small tables like our example, the performance impact is minimal, but with larger datasets, this could become a bottleneck.
+
+#### 4. **Execution: Returning the Results**
+
+Once the execution plan is ready, SQLite moves to the execution phase. The database engine follows the plan, scanning the `LIKES` table, filtering rows, and collecting the `BEER` values where `DRINKER` is 'Ava'. The results are then returned to the user.
+
+In this simple case, the query returns:
+
+```
+Bud Light
+Pabst
+Miller Lite
+```
+
+These results match what we expected because the query is straightforward and the table is small.
+
+#### 5. **Optimizing the Query (The What-If Scenario)**
+
+Let’s imagine we want to optimize this query. The most effective way would be to create an index on the `DRINKER` column. With an index, SQLite could:
+
+- **Skip the Full Table Scan**: Instead of scanning the entire table, SQLite could directly jump to the rows where `DRINKER = 'Ava'`, significantly speeding up the query.
+
+Here’s how you could create the index:
+
+```sql
+CREATE INDEX idx_drinker ON LIKES(DRINKER);
+```
+
+With this index, if you run the same query again:
+
+```sql
+SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
+```
+
+SQLite would use the index to find all rows with `DRINKER = 'Ava'` directly, reducing the amount of work it needs to do.
+
+Now when we `EXPLAIN QUERY PLAN` command to inspect how SQLite would handle the query now, we see:
+
+```
+SEARCH LIKES USING INDEX idx_drinker (DRINKER=?)
+```
+
+This indicates that SQLite is now using the `idx_drinker` index to perform a much faster search. Instead of scanning the entire table, it quickly narrows down the relevant rows using the index, demonstrating a significant improvement in query performance.
+
+#### Takeaways from the Simple Query Example
+
+This simple example highlights how SQLite’s query optimizer works in the background to execute SQL queries efficiently. While a full table scan might be acceptable in small tables, as your data grows, understanding and utilizing indexes can make a world of difference in performance.
+
+Even in this simple query, we've uncovered the critical role the query planner plays in determining how to retrieve your data efficiently, and how small changes—like adding an index—can lead to significant performance gains.
+
+In the next sections, we’ll dive deeper into more complex queries and see how SQLite handles more challenging scenarios, giving you the tools to write even more efficient SQL code.
+
+---
 
 ## Complex Query Example: Getting to the Heart of the Optimizer
 
@@ -115,7 +198,11 @@ CREATE TABLE LIKES (
     FOREIGN KEY(DRINKER_ID) REFERENCES DRINKER(ID),
     FOREIGN KEY(BEER_ID) REFERENCES BEER(ID)
 );
+```
 
+And let's populate the tables with some example data:
+
+```sql
 -- Example data
 INSERT INTO DRINKER (ID, NAME) VALUES
 (1, 'Alice'),
@@ -152,9 +239,9 @@ This query isn’t as simple as it looks. SQLite’s optimizer has to decide:
 2. **Index Usage**: Which indexes, if any, can be used to speed up the joins and the sorting?
 3. **Sorting**: How should the results be sorted efficiently after the joins?
 
-### Analyzing the Query Plan
+### Understanding the Query Plan: What Happens Behind the Scenes
 
-By running `EXPLAIN QUERY PLAN` on this query, we can see how SQLite decides to execute it:
+When we look at the query plan for the complex query:
 
 ```sql
 EXPLAIN QUERY PLAN
@@ -165,31 +252,113 @@ JOIN BEER ON BEER.ID = LIKES.BEER_ID
 ORDER BY DRINKER.NAME, LIKES.PREFERENCE;
 ```
 
-You might see output like:
+We get the following output:
 
 ```
-SCAN TABLE DRINKER
-SEARCH TABLE LIKES USING INDEX idx_likes_drinker_id (DRINKER_ID=?)
-SEARCH TABLE BEER USING INTEGER PRIMARY KEY (rowid=?)
+SCAN LIKES
+SEARCH DRINKER USING INTEGER PRIMARY KEY (rowid=?)
+SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)
+USE TEMP B-TREE FOR ORDER BY
 ```
 
-This plan indicates that SQLite will:
+This output provides a high-level overview of how SQLite intends to execute the query. Let’s break down each component and understand what’s happening under the hood.
 
-1. **Scan the `DRINKER` table**: SQLite starts by scanning the `DRINKER` table. Since we’re ordering by `DRINKER.NAME`, starting here is logical.
-2. **Search `LIKES` using an index**: SQLite then uses an index on `DRINKER_ID` in the `LIKES` table to quickly find all beers liked by each drinker.
-3. **Search `BEER` by primary key**: Finally, SQLite looks up each beer by its primary key, which is efficient because it’s a direct lookup.
+#### 1. **Scan the `LIKES` Table**
 
-### Making the Query Even Faster
+- **Plan Step**: `SCAN LIKES`
 
-One way to improve this query’s performance is by ensuring the `LIKES` table has an index on `(DRINKER_ID, PREFERENCE)` to support the sort order directly:
+SQLite begins by scanning the `LIKES` table. Since `LIKES` is the central table in this query, containing the foreign keys that link `DRINKER` to `BEER`, it makes sense for SQLite to start here.
+
+- **Why a Table Scan?**: The plan shows that SQLite performs a full table scan on `LIKES`, meaning it reads every row in the table. This might seem inefficient, but without specific indexes on `DRINKER_ID` or `BEER_ID`, a full scan is necessary to gather all the relevant data.
+
+#### 2. **Searching the `DRINKER` and `BEER` Tables**
+
+- **Plan Steps**:
+  - `SEARCH DRINKER USING INTEGER PRIMARY KEY (rowid=?)`
+  - `SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)`
+
+For each row in `LIKES`, SQLite needs to find the corresponding `DRINKER` and `BEER` entries. It uses the primary key indexes (`INTEGER PRIMARY KEY`) on these tables to quickly locate the matching rows.
+
+- **Primary Key Lookup**: Because both `DRINKER.ID` and `BEER.ID` are defined as primary keys, SQLite can perform an efficient lookup using these indexes. The query plan indicates that for each `LIKES` entry, SQLite performs a quick search in both `DRINKER` and `BEER` tables to retrieve the `NAME` fields.
+
+#### 3. **Using a Temporary B-Tree for Sorting**
+
+- **Plan Step**: `USE TEMP B-TREE FOR ORDER BY`
+
+The final step in the query plan involves sorting the results. The query requests that the results be ordered by `DRINKER.NAME` and `LIKES.PREFERENCE`. Since the data isn’t naturally ordered in this way, SQLite must perform additional work to achieve this sort order.
+
+- **Temporary B-Tree**: To sort the results efficiently, SQLite creates a temporary B-tree structure. A B-tree is a self-balancing tree data structure that maintains sorted data and allows for efficient insertion, deletion, and lookup operations. By inserting the result set into this B-tree, SQLite can quickly and efficiently retrieve the data in the desired order.
+
+- **Why Not an Index?**: The need for a temporary B-tree indicates that there isn’t an existing index that supports the required sort order. This extra step adds overhead, which is why creating an appropriate index can be beneficial.
+
+Combining all these steps, we get the expected output:
+
+{{ responsive_image(src="run-complex.png", alt="Running the complex query", caption="Results of the complex query") }}
+
+<br>
+
+### Optimizing the Query: Adding an Index
+
+As mentioned earlier, one way to improve this query's performance is by adding an index on the `LIKES` table. Specifically, creating an index on the combination of `DRINKER_ID` and `PREFERENCE` would directly support the sorting required by the query:
 
 ```sql
 CREATE INDEX idx_likes_drinker_pref ON LIKES(DRINKER_ID, PREFERENCE);
 ```
 
-With this index, SQLite can more efficiently order the results by `PREFERENCE` for each `DRINKER` without needing additional sorting after the join.
+By creating the index, SQLite:
 
-## Tips for Writing Efficient Queries
+- **Avoids Full Table Scans**: With this index, SQLite can avoid a full scan of the `LIKES` table. Instead, it can directly jump to the relevant rows using the index, which is more efficient.
+
+- **Improves Sorting Efficiency**: The index also covers the `PREFERENCE` column, which means the results can be retrieved in the correct order directly from the index. This eliminates the need for a temporary B-tree, reducing the query’s overall execution time.
+
+- **Reduced I/O Operations**: By using the index, SQLite reduces the number of disk I/O operations needed to retrieve and sort the data. This can significantly speed up the query, especially on large datasets.
+
+### Re-running the Query Plan
+
+After creating the index, if we re-run the `EXPLAIN QUERY PLAN` command, we might see a different plan:
+
+```sql
+EXPLAIN QUERY PLAN
+SELECT DRINKER.NAME, BEER.NAME, LIKES.PREFERENCE
+FROM DRINKER
+JOIN LIKES ON DRINKER.ID = LIKES.DRINKER_ID
+JOIN BEER ON BEER.ID = LIKES.BEER_ID
+ORDER BY DRINKER.NAME, LIKES.PREFERENCE;
+```
+
+The updated plan now reflects the use of the new index:
+
+```
+SCAN DRINKER
+SEARCH LIKES USING INDEX idx_likes_drinker_pref (DRINKER_ID=?)
+SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)
+USE TEMP B-TREE FOR ORDER BY
+```
+
+This new execution plan reflects several optimizations made by SQLite:
+
+1. **SCAN DRINKER**:
+
+   - SQLite starts by scanning the `DRINKER` table. Since this is a full table scan, it reads each row from the `DRINKER` table sequentially. This step makes sense as it’s the starting point of our query, and no filters or constraints are applied to `DRINKER` that would allow an index to be used here.
+
+2. **SEARCH LIKES USING INDEX `idx_likes_drinker_pref` (DRINKER_ID=?)**:
+
+   - Here’s where the optimization kicks in. SQLite uses the newly created index `idx_likes_drinker_pref` on the `LIKES` table. This index is likely created on the `DRINKER_ID` and `PREFERENCE` columns, allowing SQLite to efficiently find the rows in `LIKES` where `DRINKER_ID` matches the current row from the `DRINKER` table. This dramatically reduces the amount of data SQLite needs to sift through compared to a full table scan.
+
+3. **SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)**:
+
+   - For the `BEER` table, SQLite utilizes the primary key index, which is an automatically created index on the `ID` column (which acts as the `rowid`). Since this is the most efficient way to retrieve specific rows from `BEER`, SQLite uses this index to quickly find the beer names corresponding to the `BEER_ID` values from the `LIKES` table.
+
+4. **USE TEMP B-TREE FOR ORDER BY**:
+   - Finally, SQLite notes that it will use a temporary B-Tree to sort the results according to the `ORDER BY` clause (`DRINKER.NAME` and `LIKES.PREFERENCE`). Even though indexes can often help with sorting, in this case, SQLite decides to use a temporary B-Tree structure to ensure that the results are returned in the correct order. This step can be a bit more resource-intensive, but it guarantees that the results will be sorted as requested.
+
+The use of the `idx_likes_drinker_pref` index significantly improves the efficiency of the query. By avoiding a full table scan on `LIKES`, SQLite reduces the amount of data it needs to process, which speeds up query execution, especially on larger datasets.
+
+The final `ORDER BY` clause requires SQLite to sort the results, and since the current indexes do not cover both `DRINKER.NAME` and `LIKES.PREFERENCE`, SQLite opts to use a temporary B-Tree. If you frequently run this query and notice the sorting step is a bottleneck, you could consider creating a composite index on these two columns to further optimize performance.
+
+---
+
+## Conclusion: Tips for Writing Efficient Queries
 
 By peeking under the hood at how SQL queries are executed, you can gain some intuition on why certain queries are faster than others. Here are a few tips to keep in mind:
 
@@ -203,6 +372,8 @@ By peeking under the hood at how SQL queries are executed, you can gain some int
 5. **Optimize Subqueries**: Subqueries can sometimes be rewritten as joins, which might be more efficient, especially if the subquery’s result set is large.
 
 6. **Understand the Query Planner**: Use tools like `EXPLAIN QUERY PLAN` to understand how SQLite executes your queries. Sometimes, a small change in the query structure can lead to a big performance improvement.
+
+Learning to write efficient SQL queries is a valuable skill that translates across all database systems and can make a significant difference in your application’s performance, scalability, and resource usage. Like most things, it takes practice and experimentation and this post just scratches the surface of optimizing queries. If you have any tips or tricks for optimizing SQL queries, feel free to share them in the comments!
 
 ## References
 
