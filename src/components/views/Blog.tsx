@@ -34,7 +34,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
 
         posts.splice(3);
         setBlogPosts(posts);
-      } catch (error) {
+      } catch {
         return;
       }
     };
