@@ -12,8 +12,9 @@ taxonomies = [
 
 output_dir = "../public/blog"
 
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+# When set to "true", the Sass files in the `sass` directory in the site root are compiled.
+# Sass files in theme directories are always compiled.
+compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
@@ -22,6 +23,8 @@ build_search_index = false
 # Whether to do syntax highlighting
 # Theme can be customized by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+
+highlight_theme = "dracula"
 
 [extra]
 # Put all your custom variables here
@@ -34,3 +37,7 @@ after_dark_menu = [
     {url = "$BASE_URL/categories/programming/atom.xml", name = "RSS Feed"},
     {url = "https://micahkepe.com/", name = "Main Site"},
 ]
+
+
+# Whether to have a clipboard copy button in code blocks
+codeblock_clipboard = true
