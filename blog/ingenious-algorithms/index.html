@@ -140,7 +140,12 @@ history.</p>
 the number and quality of other pages that link to it. In other words, if many
 important pages link to a particular page, then that page must also be
 important. Mathematically, PageRank can be expressed as:</p>
-<p>\[ PR(p_i) = \frac{1-d}{N} + d \sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} \]</p>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>\[ PR(p_i) = \frac{1-d}{N} + d \sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} \]</p>
 <p>where:</p>
 <ul>
 <li>$PR(p_i)$ is the PageRank of page $p_i$</li>
@@ -151,6 +156,11 @@ jumping to a random page</li>
 <li>$M(p_i)$ is the set of pages that link to $p_i$</li>
 <li>$L(p_j)$ is the number of outgoing links from page $p_j$</li>
 </ul>
+
+    </div>
+    
+  </div>
+<br>
 <p>The damping factor $d$ is used to prevent pages with many incoming links
 (&quot;sinks&quot;) from having disproportionately high PageRank values since they have no
 outgoing links. Without the damping factor, the PageRank values would tend to
@@ -166,30 +176,43 @@ represent the importance of each page.</p>
 <p>For example, consider a simple network of 4 web pages: A, B, C, and D. Suppose
 page B has a link to page A, page C has a link to page A, and page D has links
 to all three pages like so:</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="simple-network.png" alt="Simple Network Example" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Simple network of 4 web pages: A, B, C, and D</p>
-    </div>
-    
-</div><br>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="simple-network.png" alt="Simple Network Example"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Simple network of 4 web pages: A, B, C, and D</p>
+  </div>
+  
+</div>
 <p>Initially, each page is assigned a PageRank of 0.25. After one iteration, page
 A's PageRank is updated as follows:</p>
-<p>\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
 \frac{PR(D)}{3} \right) \]</p>
 <p>\[ PR(A) = 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1} - \frac{0.25}{3}\right) \]</p>
 <p>\[ PR(A) \approx 0.46 \]</p>
+
+    </div>
+    
+  </div>
 <p>After several iterations, the PageRank values converge to stable values that
 reflect the importance of each page in the network. The final PageRank values
 can then be used to rank the pages in search results.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="pagerank.gif" alt="PageRank Calculation Example" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: PageRank GIF showing the iterative calculation of PageRank values for a simple network of web pages</p>
-    </div>
-    
+<div
+  style="width: 100%; max-width: 70%; margin: 0 auto; text-align: center;">
+  <img src="pagerank.gif" alt="PageRank Calculation Example"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: PageRank GIF showing the iterative calculation of PageRank values for a simple network of web pages</p>
+  </div>
+  
 </div>
 <p>One interesting property of PageRank is that it is a Markov chain, which means
 that the PageRank values can be interpreted as the probability of a random
@@ -252,7 +275,12 @@ because we can transform &quot;kitten&quot; into &quot;sitting&quot; with the fo
 Let $d(i, j)$ be the Levenshtein distance between the first $i$ characters of
 string $s_1$ and the first $j$ characters of string $s_2$. Then, $d(i, j)$ can
 be calculated using the following recurrence relation:</p>
-<p>$$
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>$$
 d(i, j) =
 \begin{cases}
 \max(i, j) &amp; \text{if } \min(i, j) = 0 \newline
@@ -266,6 +294,10 @@ $$</p>
 <p>where $1*{s_1[i] \neq s_2[j]}$ is an indicator function that is 1 if the $i$-th
 character of $s_1$ is not equal to the $j$-th character of $s_2$, and 0
 otherwise.</p>
+
+    </div>
+    
+  </div>
 <p>To check the spelling of a word, a spell checker typically compares the word to
 a dictionary of correctly spelled words using the Levenshtein distance
 algorithm. If the Levenshtein distance between the word and its closest match in
@@ -342,13 +374,15 @@ using a technique called &quot;combinatorial hashing&quot;.</li>
 <p>The key insight behind Shazam is that the spectrogram peaks are robust to noise
 and distortion, so they can be used to identify songs even in noisy environments
 or when the audio quality is poor.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="spectrogram.png" alt="Spectrogram of 'Blurred Lines' by Robin Thicke" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Spectrogram of 'Blurred Lines' by Robin Thicke.</p>
-    </div>
-    
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="spectrogram.png" alt="Spectrogram of 'Blurred Lines' by Robin Thicke"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Spectrogram of 'Blurred Lines' by Robin Thicke.</p>
+  </div>
+  
 </div>
 <p>For example, suppose you're at a noisy bar and hear a song playing that you want
 to identify. You open up Shazam and record a 10-second clip of the song. Shazam
@@ -356,13 +390,15 @@ then converts the clip into a spectrogram and identifies the peaks.</p>
 <p>The peaks are then hashed and combined into a fingerprint, which is compared to
 Shazam's database of over 11 million songs. Even though the clip is noisy and
 distorted, Shazam is still able to find a match and identify the song.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="signal-match.png" alt="Signal Matching in Shazam" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Signal matching in Shazam.</p>
-    </div>
-    
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="signal-match.png" alt="Signal Matching in Shazam"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Signal matching in Shazam.</p>
+  </div>
+  
 </div>
 <p>One interesting aspect of Shazam's algorithm is that it uses a technique called
 &quot;combinatorial hashing&quot; to efficiently search its database of song fingerprints.
@@ -370,14 +406,17 @@ Combinatorial hashing works by dividing the fingerprint into smaller
 subfingerprints and searching for matches for each subfingerprint separately.
 This allows Shazam to identify songs quickly even though its database contains
 millions of songs.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="shazam.png" alt="Shazam Process" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Excerpt from Shazam's patent showing the process of identifying a song.</p>
-    </div>
-    
-</div><br>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+  <img src="shazam.png" alt="Shazam Process"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Excerpt from Shazam's patent showing the process of identifying a song.</p>
+  </div>
+  
+</div>
+<br>
 <h3 id="fun-facts-about-shazam">Fun Facts about Shazam</h3>
 <ul>
 <li>Shazam's database contains over 11 million songs and is growing every day.</li>
@@ -466,6 +505,13 @@ the digital age.</p>
 </article>
 
 
+
+        <!-- optional scripts -->
+        
+          
+            <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+          
+        
     </body>
 
 </html>

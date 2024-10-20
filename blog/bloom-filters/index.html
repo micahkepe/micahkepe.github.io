@@ -116,47 +116,62 @@ whether an element is a member of a set. It can tell you if an element is
 definitely not in the set or that it might be in the set. This probabilistic
 nature makes Bloom filters incredibly space-efficient, but it also means they
 come with a small chance of false positives.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-  
-  <a href="https://micahkepe.com/blog/bloom-filters/bloom-filter.webp" target="_blank">
-    <img src="https:&#x2F;&#x2F;micahkepe.com&#x2F;blog&#x2F;processed_images&#x2F;bloom-filter.ee7320e127a33815.jpg" alt="Bloom Filter Example" style="width: 100%; height: auto;" />
-  </a>
+<div
+  style="width: 100%; max-width: 70%; margin: 0 auto; text-align: center;">
+  <img src="bloom-filter.webp" alt="Bloom Filter Example"
+    style="max-width: 100%; height: auto; display: inline-block;">
   
 </div>
+<br>
 <p>A Bloom filter consists of:</p>
-<ul>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <ul>
 <li>A bit array of size $m$ (initially all bits are set to 0).</li>
 <li>$k$ independent hash functions, each of which maps an element to one of the
 $m$ array positions.</li>
 </ul>
+
+    </div>
+    
+  </div>
 <h2 id="how-bloom-filters-work">How Bloom Filters Work</h2>
 <h3 id="insertion">Insertion</h3>
 <p>To add an element to the Bloom filter, the element is passed through each of the
 $k$ hash functions, resulting in $k$ array positions. The bits at these
 positions in the bit array are set to 1. If any of these bits are already set to
 1, they remain unchanged.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="insertion.png" alt="Inserting an element into a Bloom filter" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Inserting an element into a Bloom filter</p>
-    </div>
-    
-</div><br>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="insertion.png" alt="Inserting an element into a Bloom filter"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Inserting an element into a Bloom filter</p>
+  </div>
+  
+</div>
+<br>
 <h3 id="querying">Querying</h3>
 <p>To check if an element is in the Bloom filter, the element is hashed using the
 same $k$ hash functions to find the $k$ array positions. If all the
 corresponding bits in the bit array are 1, the Bloom filter reports that the
 element might be in the set. If any of the bits are 0, the element is definitely
 not in the set.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="bloom-filter-membership.png" alt="Querying an element in a Bloom filter" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Querying an element in a Bloom filter</p>
-    </div>
-    
-</div><br>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="bloom-filter-membership.png" alt="Querying an element in a Bloom filter"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Querying an element in a Bloom filter</p>
+  </div>
+  
+</div>
+<br>
 <h3 id="false-positives">False Positives</h3>
 <p>Bloom filters do not store the actual elements, so they can never have false
 negatives (i.e., reporting an element is not in the set when it actually is).
@@ -164,17 +179,29 @@ However, they can have false positives (i.e., reporting an element is in the set
 when it is not). The probability of false positives depends on the size of the
 bit array $m$, the number of hash functions $k$, and the number of elements
 inserted $n$.</p>
-<div style="width: 100%; max-width: 100%; height: auto;">
-    <img src="bloom-filter-example.png" alt="Example of a false positive in a Bloom filter" style="width: 100%; height: auto;">
-    
-    <div style="text-align: center; margin-top: 0.5em;">
-        <p style="font-style: italic;">Above: Example of a false positive in a Bloom filter</p>
-    </div>
-    
-</div><br>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+  <img src="bloom-filter-example.png" alt="Example of a false positive in a Bloom filter"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">Above: Example of a false positive in a Bloom filter</p>
+  </div>
+  
+</div>
+<br>
 <h2 id="mathematical-insight">Mathematical Insight</h2>
 <p>The false positive probability $p$ can be approximated by:</p>
-<p>\[ p \approx \left(1 - \left(1 - \frac{1}{m}\right)^{kn}\right)^k \]</p>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>\[ p \approx \left(1 - \left(1 - \frac{1}{m}\right)^{kn}\right)^k \]</p>
+
+    </div>
+    
+  </div>
 <p>For practical use, choosing the optimal number of hash functions $k$ and the bit
 array size $m$ is crucial to minimize the false positive rate.</p>
 <h2 id="comparing-a-bloom-filter-with-a-hash-set-in-python">Comparing a Bloom Filter with a Hash Set in Python</h2>
@@ -195,21 +222,41 @@ space-efficient solution, reducing the need for frequent network calls.</p>
 check a large number of URLs to see if they are malicious. This will highlight
 the space efficiency of Bloom filters compared to hash sets.</p>
 <h3 id="bloom-filter">Bloom Filter</h3>
-<iframe height="500px" width="100%" src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+    <iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+</div>
 <p>Here's the results I got when running the Bloom filter simulation:</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Bloom Filter Insertion Time: 3.457702159881592 seconds
-</span><span>Bloom Filter Query Time: 0.10877871513366699 seconds
-</span><span>False Positives: 121
-</span><span>Memory Usage: 1.14 MB
-</span></code></pre>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>Bloom Filter Insertion Time: 3.457702159881592 seconds</p>
+<p>Bloom Filter Query Time: 0.10877871513366699 seconds</p>
+<p>False Positives: 121</p>
+<p>Memory Usage: 1.14 MB</p>
+
+    </div>
+    
+  </div>
 <h3 id="hash-set">Hash Set</h3>
-<iframe height="500px" width="100%" src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+<iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+</div>
 <p>Here's the results I got when running the hash set simulation:</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Hash Set Insertion Time: 0.6073956489562988 seconds
-</span><span>Hash Set Query Time: 0.03299856185913086 seconds
-</span><span>False Positives: 0
-</span><span>Memory Usage: 30.15 MB
-</span></code></pre>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p>Hash Set Insertion Time: 0.6073956489562988 seconds</p>
+<p>Hash Set Query Time: 0.03299856185913086 seconds</p>
+<p>False Positives: 0</p>
+<p>Memory Usage: 30.15 MB</p>
+
+    </div>
+    
+  </div>
 <p>As you can see, the hash set is significantly more memory-intensive compared to
 the Bloom filter (<strong>30.15 MB</strong> vs. <strong>1.14 MB</strong>). However, it does not have any
 false positives and is faster in terms of insertion and querying times. But,
@@ -228,7 +275,12 @@ latency and improving user experience.</li>
 </ul>
 <h2 id="pros-and-cons-of-bloom-filters">Pros and Cons of Bloom Filters</h2>
 <h3 id="pros">Pros</h3>
-<ul>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <ul>
 <li><strong>Space Efficiency</strong>: Bloom filters use minimal space compared to other data
 structures.</li>
 <li><strong>Fast Set Membership Tests</strong>: Bloom filters offer constant-time set
@@ -238,8 +290,18 @@ regardless of the number of elements inserted.</li>
 <li><strong>Reduced I/O Operations</strong>: Bloom filters can reduce disk reads and network
 calls by quickly filtering out non-existent elements.</li>
 </ul>
+
+    </div>
+    
+  </div>
+<br>
 <h3 id="cons">Cons</h3>
-<ul>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <ul>
 <li><strong>False Positives</strong>: Bloom filters can produce false positives, which may not
 be acceptable in certain applications.</li>
 <li><strong>Optimal Parameters</strong>: Choosing the optimal number of hash functions and bit
@@ -247,6 +309,11 @@ array size is crucial for minimizing false positives.</li>
 <li><strong>Limited Applications</strong>: Bloom filters are best suited for scenarios where
 false positives are acceptable and space efficiency is critical.</li>
 </ul>
+
+    </div>
+    
+  </div>
+<br>
 <h3 id="real-world-case-studies">Real-World Case Studies</h3>
 <p><strong>Case Study: Using Bloom Filters in Google Bigtable</strong></p>
 <p>Google Bigtable, a distributed storage system for managing structured data, uses
@@ -353,6 +420,13 @@ systems and continue to be a valuable tool in a programmer's toolkit.</p>
 </article>
 
 
+
+        <!-- optional scripts -->
+        
+          
+            <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+          
+        
     </body>
 
 </html>
