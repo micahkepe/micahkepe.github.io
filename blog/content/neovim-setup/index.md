@@ -497,6 +497,8 @@ option in the file explorer to "Reveal in Finder" so I created a simple Vim user
 command that allows me to open a file under in my cursor in a Finder window
 either from the open file buffer or from the file explorer sidebar.
 
+{{ gif(sources=["demos/finder.mp4"], width=80)}}
+
 ```lua
 
 -- Open file in default viewer
@@ -545,6 +547,8 @@ map("n", "N", "Nzzzv") -- Keeps the search result in the center after jumping to
 These are the mappings I use for GitSigns, which I believe are fairly standard.
 `gitsigns` works in "hunks" of code, hence all of these mappings begin with an
 `h` after the leader.
+
+{{ gif(sources=["demos/gitsigns.mp4"], width=80)}}
 
 ```lua
 
