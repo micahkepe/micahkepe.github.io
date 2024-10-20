@@ -109,9 +109,12 @@ to do the configuration yourself, you can run these commands to add my setup as 
 <p><strong>If you're interested in the nerdy details of my setup, keep reading!</strong></p>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
-  <img src="nvdash.png" alt="My Neovim dashboard greeter"
+  <video autoplay loop muted playsinline
     style="max-width: 100%; height: auto; display: inline-block;">
-  
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/nvdash.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
 </div>
 <hr />
 <h1 id="table-of-contents">Table of Contents</h1>
@@ -285,9 +288,12 @@ right out of the box. NVChad's setup ensures that these plugins are configured
 to work well together, providing a smooth and cohesive editing experience.</p>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
-  <img src="nvchad.png" alt="NVChad Neovim configuration"
+  <video autoplay loop muted playsinline
     style="max-width: 100%; height: auto; display: inline-block;">
-  
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/nvchad-demo.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
 </div>
 <br>
 <h3 id="added-plugins">Added Plugins</h3>
@@ -296,6 +302,15 @@ NVChad's base.</p>
 <ol>
 <li><a href="https://github.com/gelguy/wilder.nvim"><code>gelguy/wilder.nvim</code></a></li>
 </ol>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <video autoplay loop muted playsinline
+    style="max-width: 100%; height: auto; display: inline-block;">
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/wilder.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
+</div>
 <p>Makes navigating the Neovim command line much faster with fuzzy search
 capabilities, providing instant suggestions as you type commands.</p>
 <p>When you press <code>:</code>, <code>wilder.nvim</code> offers a real-time list of suggestions based
@@ -334,6 +349,15 @@ speeds up workflows that involve repeated or complex command usage.</p>
 <ol start="2">
 <li><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></li>
 </ol>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <video autoplay loop muted playsinline
+    style="max-width: 100%; height: auto; display: inline-block;">
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/image-nvim.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
+</div>
 <p>Enables image rendering in Neovim, essential for tasks like markdown previews
 and documentation editing. When editing markdown files or any other file format
 that supports images, image.nvim renders inline images. This eliminates the need
@@ -474,6 +498,15 @@ work. See the <code>backend</code> option if you want to use a different emulato
 <ol start="3">
 <li><a href="https://github.com/rmagatti/auto-session"><code>rmagatti/autosession</code></a></li>
 </ol>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <video autoplay loop muted playsinline
+    style="max-width: 100%; height: auto; display: inline-block;">
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/autosession.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
+</div>
 <p>Automatically saves and restores Neovim sessions, allowing you to pick up your
 work right where you left off. If you close Neovim and reopen it later,
 <code>autosession</code> will restore your previous session (open files, split windows,
@@ -501,6 +534,15 @@ want to resume exactly where you left off.</p>
 <ol start="4">
 <li><a href="https://github.com/christoomey/vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
 </ol>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <video autoplay loop muted playsinline
+    style="max-width: 100%; height: auto; display: inline-block;">
+    <source src="https://micahkepe.com/blog/neovim-setup/demos/navigator.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
+</div>
 <p>Enables smooth navigation between Neovim windows and
 <a href="https://github.com/tmux/tmux/wiki">Tmux</a> panes, making it feel like a unified
 experience. If you’re using Tmux and Neovim together,<code>vim-tmux-navigator</code> allows
@@ -529,6 +571,7 @@ Vim windown motions.</p>
 </span><span>    </span><span style="color:#ffffff;">}</span><span>,
 </span><span>  </span><span style="color:#ffffff;">}</span><span>,
 </span></code></pre>
+<br>
 <h2 id="key-mappings">Key Mappings</h2>
 <p>Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
@@ -606,6 +649,7 @@ scrolling or jumping to search results.</p>
 </span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hS&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.stage_buffer()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Stage buffer&quot; </span><span style="color:#ffffff;">}</span><span>)
 </span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hU&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer_index()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Reset buffer index&quot; </span><span style="color:#ffffff;">}</span><span>)
 </span></code></pre>
+<br>
 <h2 id="options">Options</h2>
 <p>These options provide a basic, yet highly functional configuration for Neovim
 that enhances usability by enabling features like clipboard integration and
