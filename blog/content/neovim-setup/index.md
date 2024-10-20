@@ -39,7 +39,7 @@ NVIM_APPNAME=micahkepe/dotfiles/nvim nvim
 
 **If you're interested in the nerdy details of my setup, keep reading!**
 
-{{ responsive(src="nvdash.png", alt="My Neovim dashboard greeter",
+{{ gif(sources=["demos/nvdash.mp4"]
 width=80) }}
 
 ---
@@ -197,7 +197,7 @@ These plugins work together to provide a fully-featured IDE-like experience
 right out of the box. NVChad's setup ensures that these plugins are configured
 to work well together, providing a smooth and cohesive editing experience.
 
-{{ responsive(src="nvchad.png", alt="NVChad Neovim configuration", width=80) }}
+{{ gif(sources=["demos/nvchad-demo.mp4"], width=80)}}
 
 <br>
 
@@ -207,6 +207,8 @@ In no particular order, here are the plugins that I have added to augment
 NVChad's base.
 
 1.  [`gelguy/wilder.nvim`](https://github.com/gelguy/wilder.nvim)
+
+{{ gif(sources=["demos/wilder.mp4"], width=80)}}
 
 Makes navigating the Neovim command line much faster with fuzzy search
 capabilities, providing instant suggestions as you type commands.
@@ -249,6 +251,8 @@ return {
 ```
 
 2. [`3rd/image.nvim`](https://github.com/3rd/image.nvim)
+
+{{ gif(sources=["demos/image-nvim.mp4"], width=80)}}
 
 Enables image rendering in Neovim, essential for tasks like markdown previews
 and documentation editing. When editing markdown files or any other file format
@@ -390,6 +394,8 @@ return {
 
 3. [`rmagatti/autosession`](https://github.com/rmagatti/auto-session)
 
+{{ gif(sources=["demos/autosession.mp4"], width=80)}}
+
 Automatically saves and restores Neovim sessions, allowing you to pick up your
 work right where you left off. If you close Neovim and reopen it later,
 `autosession` will restore your previous session (open files, split windows,
@@ -419,6 +425,8 @@ return {
 ```
 
 4. [`christoomey/vim-tmux-navigator`](https://github.com/christoomey/vim-tmux-navigator)
+
+{{ gif(sources=["demos/navigator.mp4"], width=80)}}
 
 Enables smooth navigation between Neovim windows and
 [Tmux](https://github.com/tmux/tmux/wiki) panes, making it feel like a unified
@@ -451,6 +459,8 @@ Vim windown motions.
     },
   },
 ```
+
+<br>
 
 ## Key Mappings
 
@@ -549,6 +559,8 @@ map("n", "<leader>hb", "<cmd>lua require'gitsigns'.blame_line()<CR>", { desc = "
 map("n", "<leader>hS", "<cmd>lua require'gitsigns'.stage_buffer()<CR>", { desc = "Stage buffer" })
 map("n", "<leader>hU", "<cmd>lua require'gitsigns'.reset_buffer_index()<CR>", { desc = "Reset buffer index" })
 ```
+
+<br>
 
 ## Options
 
