@@ -189,7 +189,7 @@ starting Neovim configuration that provides a great starting place.</p>
 <ul>
 <li>
 <p><strong>Pre-configured LSP</strong>: NVChad provides a hassle-free Language Server Protocol
-(LSP) setup.</p>
+(<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>) setup.</p>
 </li>
 <li>
 <p><strong>Lazy-loading Plugins</strong>: With the <a href="https://lazy.folke.io/">lazy.nvim</a> plugin
@@ -197,11 +197,12 @@ manager, NVChad optimizes startup time by only loading plugins when necessary.</
 </li>
 <li>
 <p><strong>Rich Theming</strong>: NVChad comes with lots of themes and color schemes to choose
-from (I am currently using <code>palenight</code>).</p>
+from (I am currently using
+<a href="https://github.com/drewtempelmeyer/palenight.vim"><code>palenight</code></a>).</p>
 </li>
 <li>
-<p><strong>Community Support</strong>: NVChad’s community is active, and the configuration gets
-frequent updates and improvements.</p>
+<p><strong>Community Support</strong>: NVChad’s <a href="https://discord.com/invite/gADmkJb9Fb">community</a>
+is active, and the configuration gets frequent updates and improvements.</p>
 </li>
 </ul>
 <br>
@@ -230,7 +231,7 @@ plugins that come by default from NVChad and the plugins that I have added on.</
     
 
     <div class="note-content">
-      <p><strong>Note</strong>: if you are curious about all of my plugins, you see them
+      <p><strong>Note:</strong> if you are curious about all of my plugins, you see them
 <a href="https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins">here</a>.</p>
 
     </div>
@@ -263,14 +264,12 @@ to what you'd find in modern IDEs.</p>
 <li>
 <p><a href="https://github.com/williamboman/mason.nvim"><strong>williamboman/mason.nvim</strong></a>:
 Portable package manager for Neovim that runs everywhere Neovim runs. Easily
-install and manage <a href="https://microsoft.github.io/language-server-protocol/">LSP</a>
-servers, <a href="https://microsoft.github.io/debug-adapter-protocol/">DAP</a> servers,
-linters, and formatters.</p>
+install and manage LSP servers, <a href="https://microsoft.github.io/debug-adapter-protocol/">DAP</a>
+debugger servers, linters, and formatters.</p>
 </li>
 <li>
 <p><a href="https://github.com/neovim/nvim-lspconfig"><strong>neovim/nvim-lspconfig</strong></a>: A
-collection of common configurations for Neovim's built-in
-<a href="https://microsoft.github.io/language-server-protocol/">LSP</a> client.</p>
+collection of common configurations for Neovim's built-in LSP client.</p>
 </li>
 <li>
 <p><a href="https://github.com/folke/which-key.nvim"><strong>folke/which-key.nvim</strong></a>: Displays
@@ -299,9 +298,7 @@ to work well together, providing a smooth and cohesive editing experience.</p>
 <h3 id="added-plugins">Added Plugins</h3>
 <p>In no particular order, here are the plugins that I have added to augment
 NVChad's base.</p>
-<ol>
-<li><a href="https://github.com/gelguy/wilder.nvim"><code>gelguy/wilder.nvim</code></a></li>
-</ol>
+<h4 id="gelguy-wilder-nvim"><a href="https://github.com/gelguy/wilder.nvim"><code>gelguy/wilder.nvim</code></a></h4>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
   <video autoplay loop muted playsinline
@@ -346,9 +343,7 @@ speeds up workflows that involve repeated or complex command usage.</p>
 </span><span style="color:#abb2bf;">}
 </span><span style="color:#abb2bf;">
 </span></code></pre>
-<ol start="2">
-<li><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></li>
-</ol>
+<h4 id="3rd-image-nvim"><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></h4>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
   <video autoplay loop muted playsinline
@@ -364,11 +359,11 @@ that supports images, image.nvim renders inline images. This eliminates the need
 to switch to a browser or other external tool, making Neovim more than just a
 text editor—it's a media-enabled workspace.</p>
 <p>Honestly this one was a pain in the ass to setup but worth it.</p>
-<p>I did have to make the switch to the <a href="https://micahkepe.com/blog/neovim-setup/replace-me">Kitty</a> terminal emulator from
-<a href="https://micahkepe.com/blog/neovim-setup/replace-me">iTerm2</a> as they implement different terminal image protocols
-(<code>kitty</code> vs. <code>imgcat</code>) and Kitty's protocol has more support as of writing.
-Additionally, getting the right Luarocks version (5.1) is a little tricky as it
-is an older version of Luarocks.</p>
+<p>I did have to make the switch to the <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>
+terminal emulator from <a href="https://iterm2.com/index.html">iTerm2</a> as they implement
+different terminal image protocols (<code>kitty</code> vs. <code>imgcat</code>) and Kitty's protocol
+has more support as of writing. Additionally, getting the right Luarocks
+version (5.1) is a little tricky as it is an older version of Luarocks.</p>
 <p>Honestly, I needed images in Neovim in order to even consider making the switch
 from Visual Studio Code, so getting this plugin working was a non-begotiable for
 me.</p>
@@ -377,7 +372,7 @@ me.</p>
     
 
     <div class="note-content">
-      <p><strong>Note</strong>: This particular configuration of the plugin must be run in Kitty to
+      <p><strong>Note:</strong> This particular configuration of the plugin must be run in Kitty to
 work. See the <code>backend</code> option if you want to use a different emulator.</p>
 
     </div>
@@ -495,9 +490,8 @@ work. See the <code>backend</code> option if you want to use a different emulato
 </span><span style="color:#abb2bf;">  },
 </span><span style="color:#abb2bf;">}
 </span></code></pre>
-<ol start="3">
-<li><a href="https://github.com/rmagatti/auto-session"><code>rmagatti/autosession</code></a></li>
-</ol>
+<br>
+<h4 id="rmagatti-autosession"><a href="https://github.com/rmagatti/auto-session"><code>rmagatti/autosession</code></a></h4>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
   <video autoplay loop muted playsinline
@@ -531,9 +525,8 @@ want to resume exactly where you left off.</p>
 </span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">}
 </span></code></pre>
-<ol start="4">
-<li><a href="https://github.com/christoomey/vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
-</ol>
+<br>
+<h4 id="christoomey-vim-tmux-navigator"><a href="https://github.com/christoomey/vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></h4>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
   <video autoplay loop muted playsinline
@@ -572,7 +565,7 @@ Vim windown motions.</p>
 </span><span style="color:#abb2bf;">  },
 </span></code></pre>
 <br>
-<h2 id="key-mappings">Key Mappings</h2>
+<h2 id="key-mappings"><strong>Key Mappings</strong></h2>
 <p>Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
 the mappings that come with the NVChad base configuration (NVChad users can view
@@ -668,7 +661,7 @@ scrolling or jumping to search results.</p>
 </span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hU&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer_index()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Reset buffer index&quot; </span><span style="color:#abb2bf;">})
 </span></code></pre>
 <br>
-<h2 id="options">Options</h2>
+<h2 id="options"><strong>Options</strong></h2>
 <p>These options provide a basic, yet highly functional configuration for Neovim
 that enhances usability by enabling features like clipboard integration and
 better search behavior.</p>
