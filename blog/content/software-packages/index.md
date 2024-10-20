@@ -27,17 +27,29 @@ For example, this website uses various software packages like React, Vite, and T
 
 Creating a software package involves writing code (**shocker**) that provides a specific functionality and then packaging it with metadata, documentation, and licensing information. The packaged code can then be published to a repository like NPM (Node Package Manager), making it available for others to use. Here's a simplified overview:
 
+{{ note(body="
+
 1. **Write the Code**: Develop the core functionality of your package.
 2. **Package the Code**: Include metadata, documentation, and licensing information.
 3. **Publish**: Upload the package to a repository like NPM.
+
+")}}
+
+<br>
 
 ### Installation and Dependency Management
 
 When you install a software package using a package manager like NPM, the package manager handles the downloading and installation of the package along with its dependencies. Dependencies are other packages that your package relies on to function correctly.
 
+{{ note(body="
+
 1. **Download:** The package and its dependencies are fetched from the repository.
 2. **Install:** The package and its dependencies are installed in your project.
 3. **Configure:** The package manager ensures that all dependencies are compatible.
+
+")}}
+
+<br>
 
 ### Dependency Resolution
 
@@ -63,7 +75,9 @@ Now, let's look at the Autoprefixer package, which is one of packages used for t
 
 Here's the directory structure of the Autoprefixer package in `node_modules`:
 
-```
+{{ note(body="
+
+<pre>
 ├── LICENSE
 ├── README.md
 ├── bin/
@@ -87,7 +101,11 @@ Here's the directory structure of the Autoprefixer package in `node_modules`:
 │   │   ├── backdrop-filter.js
 │   │   ├── ...
 └── package.json
-```
+</pre>
+
+")}}
+
+<br>
 
 ### Files and Their Purposes
 
@@ -102,7 +120,9 @@ Here's the directory structure of the Autoprefixer package in `node_modules`:
 
 Here's the `package.json` file for Autoprefixer:
 
+<!-- prettier-ignore-->
 ```json
+
 {
   "name": "autoprefixer",
   "version": "10.4.19",
@@ -150,6 +170,8 @@ Here's the `package.json` file for Autoprefixer:
 
 Let's break down some key fields in the `package.json` file:
 
+{{ note(body="
+
 - **name:** The name of the package.
 - **version:** The current version of the package.
 - **description:** A brief description of what the package does.
@@ -165,8 +187,11 @@ Let's break down some key fields in the `package.json` file:
 - **bugs:** The URL where issues can be reported.
 - **peerDependencies:** Other packages that are required for this package to work correctly.
 - **dependencies:** The packages that this package depends on.
+  ")}}
 
-## Creating a Software Package (Example: `date-formatter`)
+<br>
+
+## Creating a Software Package (Example: **date-formatter**)
 
 To illustrate the creation of a software package, let's build a hypothetical example package called `date-formatter`. This package will provide functions to format dates in various ways. We'll use Node.js and NPM for this example.
 
@@ -175,6 +200,7 @@ To illustrate the creation of a software package, let's build a hypothetical exa
 1. **Initialize the project:**
 
    ```bash
+
    mkdir date-formatter
    cd date-formatter
    npm init  # creates a package.json file
@@ -184,10 +210,13 @@ To illustrate the creation of a software package, let's build a hypothetical exa
    Create an `index.js` file with a simple date formatting function.
 
    ```bash
+
    touch index.js
    ```
 
-   ```javascript
+   <!-- prettier-ignore-->
+   ```js
+
    // index.js
    module.exports.formatDate = function (date, format) {
      const options = { year: "numeric", month: "long", day: "numeric" };
@@ -201,7 +230,9 @@ Before distributing the package, you should ensure it has proper documentation, 
 
 1. **Add a README file:**
 
+   <!-- prettier-ignore-->
    ````markdown
+
    # Date Formatter
 
    This package provides utility functions for formatting dates.
@@ -214,7 +245,7 @@ Before distributing the package, you should ensure it has proper documentation, 
 
    ## Usage
 
-   ```javascript
+   ```js
    const { formatDate } = require("date-formatter");
    console.log(formatDate("2024-06-04", "long"));
    // Outputs: June 4, 2024
@@ -229,7 +260,9 @@ Before distributing the package, you should ensure it has proper documentation, 
 
    Add an entry point to the `index.js` file and specify the main functionality of the package.
 
+   <!-- prettier-ignore -->
    ```json
+
    {
      "name": "date-formatter",
      "version": "1.0.0",
@@ -248,27 +281,46 @@ Before distributing the package, you should ensure it has proper documentation, 
 
 Now that your package is ready, you can publish it to the NPM registry for others to use.
 
-1. **Create an NPM account:**
+<ol>
+  <li><strong>Create an NPM account:</strong>
 
-   If you don't already have one, create an account on [NPM](https://www.npmjs.com/).
+If you don't already have one, create an account on <a href="https://www.npmjs.com/">NPM</a>.
 
-2. **Login to NPM:**
+  </li>
+
+  <li><strong>Login to NPM:</strong>
 
 ```bash
+
 npm login
 ```
 
-3. **Publish the package:**
+  </li>
+
+  <li><strong>Publish the package:</strong>
 
 ```bash
+
 npm publish
 ```
 
-This command will upload the package to the NPM registry. This registry is a large database that stores all the packages and their versions. When someone runs npm install <package-name>, NPM searches the registry for the package, downloads it, and installs it along with its dependencies.
+This command will upload the package to the NPM registry. This registry is a
+large database that stores all the packages and their versions. When someone
+runs `npm install <package-name>`, NPM searches the registry for the package,
+downloads it, and installs it along with its dependencies.
 
-The NPM registry ensures that packages are easily discoverable and accessible to developers around the world. It also handles versioning, so developers can specify which versions of a package they need, and NPM will resolve dependencies accordingly.
+The NPM registry ensures that packages are easily discoverable and accessible
+to developers around the world. It also handles versioning, so developers can
+specify which versions of a package they need, and NPM will resolve dependencies
+accordingly.
 
-**Congratulations!** Your package is now available for others to install and use.
+<strong>Congratulations!</strong> Your package is now available for others to
+install and use.
+
+  </li>
+</ol>
+
+---
 
 ## Conclusion
 

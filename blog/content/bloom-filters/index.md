@@ -29,13 +29,18 @@ definitely not in the set or that it might be in the set. This probabilistic
 nature makes Bloom filters incredibly space-efficient, but it also means they
 come with a small chance of false positives.
 
-{{ newtab(src="bloom-filters/bloom-filter.webp", width=700, height=400, alt="Bloom Filter Example") }}
+{{ responsive(src="bloom-filter.webp", width=70, alt="Bloom Filter Example") }}
+
+<br>
 
 A Bloom filter consists of:
+
+{{ note(body="
 
 - A bit array of size $m$ (initially all bits are set to 0).
 - $k$ independent hash functions, each of which maps an element to one of the
   $m$ array positions.
+  ")}}
 
 ## How Bloom Filters Work
 
@@ -46,7 +51,11 @@ $k$ hash functions, resulting in $k$ array positions. The bits at these
 positions in the bit array are set to 1. If any of these bits are already set to
 1, they remain unchanged.
 
-{{ responsive_image(src="insertion.png", alt="Inserting an element into a Bloom filter", caption="Above: Inserting an element into a Bloom filter") }}
+{{ responsive(
+src="insertion.png",
+alt="Inserting an element into a Bloom filter",
+caption="Above: Inserting an element into a Bloom filter",
+width=80) }}
 
 <br>
 
@@ -58,7 +67,11 @@ corresponding bits in the bit array are 1, the Bloom filter reports that the
 element might be in the set. If any of the bits are 0, the element is definitely
 not in the set.
 
-{{ responsive_image(src="bloom-filter-membership.png", alt="Querying an element in a Bloom filter", caption="Above: Querying an element in a Bloom filter") }}
+{{ responsive(
+src="bloom-filter-membership.png",
+alt="Querying an element in a Bloom filter",
+caption="Above: Querying an element in a Bloom filter"
+width=80) }}
 
 <br>
 
@@ -71,7 +84,7 @@ when it is not). The probability of false positives depends on the size of the
 bit array $m$, the number of hash functions $k$, and the number of elements
 inserted $n$.
 
-{{ responsive_image(src="bloom-filter-example.png", alt="Example of a false positive in a Bloom filter", caption="Above: Example of a false positive in a Bloom filter") }}
+{{ responsive(src="bloom-filter-example.png", alt="Example of a false positive in a Bloom filter", caption="Above: Example of a false positive in a Bloom filter") }}
 
 <br>
 
@@ -79,7 +92,9 @@ inserted $n$.
 
 The false positive probability $p$ can be approximated by:
 
+{{ note(body="
 \\[ p \approx \left(1 - \left(1 - \frac{1}{m}\right)^{kn}\right)^k \\]
+")}}
 
 For practical use, choosing the optimal number of hash functions $k$ and the bit
 array size $m$ is crucial to minimize the false positive rate.
@@ -108,29 +123,39 @@ the space efficiency of Bloom filters compared to hash sets.
 
 ### Bloom Filter
 
-<iframe height="500px" width="100%" src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+    <iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+</div>
 
 Here's the results I got when running the Bloom filter simulation:
 
-```
+{{ note(body="
 Bloom Filter Insertion Time: 3.457702159881592 seconds
+
 Bloom Filter Query Time: 0.10877871513366699 seconds
+
 False Positives: 121
+
 Memory Usage: 1.14 MB
-```
+")}}
 
 ### Hash Set
 
-<iframe height="500px" width="100%" src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+<iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+</div>
 
 Here's the results I got when running the hash set simulation:
 
-```
+{{ note(body="
 Hash Set Insertion Time: 0.6073956489562988 seconds
+
 Hash Set Query Time: 0.03299856185913086 seconds
+
 False Positives: 0
+
 Memory Usage: 30.15 MB
-```
+")}}
 
 As you can see, the hash set is significantly more memory-intensive compared to
 the Bloom filter (**30.15 MB** vs. **1.14 MB**). However, it does not have any
@@ -152,6 +177,8 @@ becomes a critical factor. This is where Bloom filters shine:
 
 ### Pros
 
+{{ note(body="
+
 - **Space Efficiency**: Bloom filters use minimal space compared to other data
   structures.
 - **Fast Set Membership Tests**: Bloom filters offer constant-time set
@@ -160,8 +187,13 @@ becomes a critical factor. This is where Bloom filters shine:
   regardless of the number of elements inserted.
 - **Reduced I/O Operations**: Bloom filters can reduce disk reads and network
   calls by quickly filtering out non-existent elements.
+  ")}}
+
+<br>
 
 ### Cons
+
+{{ note(body="
 
 - **False Positives**: Bloom filters can produce false positives, which may not
   be acceptable in certain applications.
@@ -169,6 +201,10 @@ becomes a critical factor. This is where Bloom filters shine:
   array size is crucial for minimizing false positives.
 - **Limited Applications**: Bloom filters are best suited for scenarios where
   false positives are acceptable and space efficiency is critical.
+
+")}}
+
+<br>
 
 ### Real-World Case Studies
 

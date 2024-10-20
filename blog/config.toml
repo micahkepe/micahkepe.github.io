@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://micahkepe.com/blog"
 title = "Micah's Secret Blog"
-theme = "after-dark"
+theme = "after-after-dark"
 description = "An assortment of my ramblings and random adventures."
 
 taxonomies = [
@@ -10,7 +10,8 @@ taxonomies = [
     {name = "tags", feed = true},
 ]
 
-output_dir = "../public/blog"
+# For overriding the default output directory `public`, set it to another value (e.g.: "docs")
+# output_dir = "public"
 
 # When set to "true", the Sass files in the `sass` directory in the site root are compiled.
 # Sass files in theme directories are always compiled.
@@ -39,5 +40,5 @@ after_dark_menu = [
 ]
 
 
-# Whether to have a clipboard copy button in code blocks
-codeblock_clipboard = true
+# Nicer codeblocks with copy to clipboard 
+codeblock = true

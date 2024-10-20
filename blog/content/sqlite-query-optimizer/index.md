@@ -26,7 +26,7 @@ Regardless of the database engine you're using, when you run a query, the databa
 
 Of course, while these steps are common to all database engines, the way they are implemented can vary significantly from one engine to another.
 
-{{ responsive_image(src="overview.png", alt="Overview of the query execution process", caption="Overview of the query execution process") }}
+{{ responsive(src="overview.png", alt="Overview of the query execution process", caption="Overview of the query execution process", width=60) }}
 
 ## SQLite's Approach to Query Optimization
 
@@ -53,6 +53,7 @@ Now that we have a basic understanding of how SQLite's query optimizer works, le
 Borrowing from the Rice University legend, Dr. Christopher Jermaine, let's say we have the following relational schema:
 
 ```sql
+
 CREATE TABLE LIKES (
     DRINKER TEXT,
     BEER TEXT
@@ -74,10 +75,11 @@ INSERT INTO LIKES (DRINKER, BEER) VALUES
 For demonstration, I'll be using the [SQLite Online Compiler](https://sqliteonline.com/) to run the queries. Suppose we want to find all the beers that Ava likes with the following query:
 
 ```sql
+
 SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
 ```
 
-{{ responsive_image(src="run-simple.png", alt="Running the simple query", caption="Results of the simple query") }}
+{{ responsive(src="run-simple.png", alt="Running the simple query", caption="Results of the simple query", width=80) }}
 
 As we can see, we get the expected results for this query. But how does SQLite's query optimizer actually execute this query?
 
@@ -91,12 +93,17 @@ The first thing SQLite does is parse the SQL statement. The parser checks the qu
 
 After parsing, SQLite moves on to the query planning phase, where it generates an execution plan. An execution plan is a step-by-step roadmap of how SQLite will retrieve the data. This involves several key decisions:
 
+{{note(body="
+
 - **Table Access Method**: SQLite needs to decide how to access the `LIKES` table. Since the `WHERE` clause filters rows based on the `DRINKER` column, SQLite considers whether there's an index on `DRINKER` that can speed up the retrieval.
+
 - **Index Usage**: If there were an index on the `DRINKER` column, SQLite might use it to directly look up rows where `DRINKER = 'Ava'`. However, in this case, there’s no such index, so SQLite will perform a **full table scan**.
+  ")}}
 
 We can inspect the execution plan using the `EXPLAIN QUERY PLAN` command:
 
 ```sql
+
 -- Explain query plan
 EXPLAIN QUERY PLAN
 SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
@@ -105,6 +112,7 @@ SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
 As expected since there's no index on the `DRINKER` column, the output is:
 
 ```sql
+
 SCAN LIKES
 ```
 
@@ -112,9 +120,12 @@ SCAN LIKES
 
 The plan indicates "SCAN LIKES," meaning SQLite will read through the entire `LIKES` table, row by row, to find matches where `DRINKER = 'Ava'`. Here’s how it works:
 
+{{ note(body="
+
 - SQLite starts at the first row of the `LIKES` table and checks if the `DRINKER` column equals 'Ava'.
 - If it matches, SQLite includes the `BEER` column from that row in the result set.
 - This process repeats for every row in the table.
+  ") }}
 
 Even though a full table scan is the least efficient method (especially with large tables), it’s the only option when no suitable index is available. For small tables like our example, the performance impact is minimal, but with larger datasets, this could become a bottleneck.
 
@@ -125,6 +136,7 @@ While full table scans are sometimes necessary, SQLite often relies on **rowid l
 For example, consider the following query:
 
 ```sql
+
 SELECT BEER FROM LIKES WHERE rowid = 1;
 ```
 
@@ -136,11 +148,13 @@ Once the execution plan is ready, SQLite moves to the execution phase. The datab
 
 In this simple case, the query returns:
 
-```
+{{ note(body="
 Bud Light
+
 Pabst
+
 Miller Lite
-```
+")}}
 
 These results match what we expected because the query is straightforward and the table is small.
 
@@ -153,12 +167,14 @@ Let’s imagine we want to optimize this query. The most effective way would be 
 Here’s how you could create the index:
 
 ```sql
+
 CREATE INDEX idx_drinker ON LIKES(DRINKER);
 ```
 
 With this index, if you run the same query again:
 
 ```sql
+
 SELECT BEER FROM LIKES WHERE DRINKER = 'Ava';
 ```
 
@@ -189,6 +205,7 @@ Now that we’ve covered the basics, let’s look at a more complicated query th
 Imagine we have two tables, `DRINKER` and `BEER`, and we want to perform a query that joins them to find out which beers each drinker likes, sorted by their preference. The schema might look something like this:
 
 ```sql
+
 CREATE TABLE DRINKER (
     ID INTEGER PRIMARY KEY,
     NAME TEXT
@@ -212,6 +229,7 @@ CREATE TABLE LIKES (
 And let's populate the tables with some example data:
 
 ```sql
+
 -- Example data
 INSERT INTO DRINKER (ID, NAME) VALUES
 (1, 'Alice'),
@@ -235,6 +253,7 @@ INSERT INTO LIKES (DRINKER_ID, BEER_ID, PREFERENCE) VALUES
 Now, suppose we want to find out which beers each drinker likes, sorted by their preference:
 
 ```sql
+
 SELECT DRINKER.NAME, BEER.NAME, LIKES.PREFERENCE
 FROM DRINKER
 JOIN LIKES ON DRINKER.ID = LIKES.DRINKER_ID
@@ -253,6 +272,7 @@ This query isn’t as simple as it looks. SQLite’s optimizer has to decide:
 When we look at the query plan for the complex query:
 
 ```sql
+
 EXPLAIN QUERY PLAN
 SELECT DRINKER.NAME, BEER.NAME, LIKES.PREFERENCE
 FROM DRINKER
@@ -263,12 +283,16 @@ ORDER BY DRINKER.NAME, LIKES.PREFERENCE;
 
 We get the following output:
 
-```
+{{ note(body="
 SCAN LIKES
+
 SEARCH DRINKER USING INTEGER PRIMARY KEY (rowid=?)
+
 SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)
+
 USE TEMP B-TREE FOR ORDER BY
-```
+
+")}}
 
 This output provides a high-level overview of how SQLite intends to execute the query. Let’s break down each component and understand what’s happening under the hood.
 
@@ -282,9 +306,13 @@ SQLite begins by scanning the `LIKES` table. Since `LIKES` is the central table 
 
 #### 2. **Searching the `DRINKER` and `BEER` Tables**
 
+{{ note(body="
+
 - **Plan Steps**:
   - `SEARCH DRINKER USING INTEGER PRIMARY KEY (rowid=?)`
   - `SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)`
+
+")}}
 
 For each row in `LIKES`, SQLite needs to find the corresponding `DRINKER` and `BEER` entries. It uses the primary key indexes (`INTEGER PRIMARY KEY`) on these tables to quickly locate the matching rows.
 
@@ -302,7 +330,7 @@ The final step in the query plan involves sorting the results. The query request
 
 Combining all these steps, we get the expected output:
 
-{{ responsive_image(src="run-complex.png", alt="Running the complex query", caption="Results of the complex query") }}
+{{ responsive(src="run-complex.png", alt="Running the complex query", caption="Results of the complex query", width=80) }}
 
 <br>
 
@@ -311,6 +339,7 @@ Combining all these steps, we get the expected output:
 As mentioned earlier, one way to improve this query's performance is by adding an index on the `LIKES` table. Specifically, creating a **multi-column index** on the combination of `DRINKER_ID` and `PREFERENCE` would directly support the sorting required by the query:
 
 ```sql
+
 CREATE INDEX idx_likes_drinker_pref ON LIKES(DRINKER_ID, PREFERENCE);
 ```
 
@@ -320,13 +349,14 @@ By creating this multi-column index, SQLite can:
 
 - **Optimize Sorting**: The index also covers the `PREFERENCE` column, which means the results can be retrieved in the correct order directly from the index. This eliminates the need for a temporary B-tree, reducing the query’s overall execution time.
 
-{{ responsive_image(src="multicolumn-idx.png", alt="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index", caption="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index.") }}
+{{ responsive(src="multicolumn-idx.png", alt="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index", caption="Example multicolumn index from the SQLite query planner documentation illustrating a lookup using the index.", width=80) }}
 
 ### Re-running the Query Plan
 
 After creating the index, if we re-run the `EXPLAIN QUERY PLAN` command, we might see a different plan:
 
 ```sql
+
 EXPLAIN QUERY PLAN
 SELECT DRINKER.NAME, BEER.NAME, LIKES.PREFERENCE
 FROM DRINKER
@@ -337,12 +367,13 @@ ORDER BY DRINKER.NAME, LIKES.PREFERENCE;
 
 The updated plan now reflects the use of the new index:
 
-```
+{{ note(body="
 SCAN DRINKER
 SEARCH LIKES USING INDEX idx_likes_drinker_pref (DRINKER_ID=?)
 SEARCH BEER USING INTEGER PRIMARY KEY (rowid=?)
 USE TEMP B-TREE FOR ORDER BY
-```
+
+")}}
 
 This new execution plan reflects several optimizations made by SQLite:
 

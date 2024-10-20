@@ -17,7 +17,7 @@ The vimtutor program is the essential starting point for anyone looking to learn
 
 I initially created `vimtutor-sequel` to fill in the gaps left by the original vimtutor. After completing the original tutorial, I felt there were many advanced features that users could benefit from, which were not covered. Thus, `vimtutor-sequel` was born.
 
-{{ responsive_image(src="teaser.png", alt="Screen shot of the vimtutor-sequel v1.0 program on launch.") }}
+{{ responsive(src="teaser.png", alt="Screen shot of the vimtutor-sequel v1.0 program on launch.", width=80) }}
 
 <br>
 
@@ -25,7 +25,8 @@ I initially created `vimtutor-sequel` to fill in the gaps left by the original v
 
 The original vimtutor has 7 lessons, I created 8 additional lessons for `vimtutor-sequel`. Here is a list of the lessons:
 
-```
+{{ note(body="
+
 - Lesson 8: Splitting Screens
 - Lesson 9: Spellcheck
 - Lesson 10: Indenting, Commenting, and Changing Case
@@ -34,7 +35,9 @@ The original vimtutor has 7 lessons, I created 8 additional lessons for `vimtuto
 - Lesson 13: Vim Scripting
 - Lesson 14: Vim Plugins
 - Lesson 15: Vim Sessions and Registers
-```
+  ")}}
+
+<br>
 
 ## Unexpected Popularity
 
@@ -48,7 +51,7 @@ At the time of writing, `vimtutor-sequel` has over 250 stars and has gained sign
 
 The feedback has been tremendous. I've received valuable input from the issues tab on GitHub, as well as from Reddit responses and HackerNews comments. This feedback has been instrumental in planning further improvements to the project.
 
-{{ responsive_image(src="traffic.png", alt="GitHub Traffic for vimtutor-sequel", caption="Above: Snapshot of GitHub traffic for vimtutor-sequel showing the top source of traffic from HackerNews with 2,834 views.") }}
+{{ responsive(src="traffic.png", alt="GitHub Traffic for vimtutor-sequel", caption="Above: Snapshot of GitHub traffic for vimtutor-sequel showing the top source of traffic from HackerNews with 2,834 views.", width=60) }}
 
 <br>
 
@@ -56,9 +59,12 @@ The feedback has been tremendous. I've received valuable input from the issues t
 
 With the initial success and the community's interest, I plan to continue enhancing `vimtutor-sequel`. Here are a few things on the roadmap:
 
+{{ note(body="
+
 - Adding more advanced lessons and topics.
 - Improving the existing content based on user feedback.
 - Exploring ways to make the tutorial even more interactive and engaging.
+  ")}}
 
 ### How You Can Help
 

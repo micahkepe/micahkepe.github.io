@@ -40,6 +40,7 @@ the course and through my own exploration:
 ### 1.1 Using switch instead of checkout
 
 ```bash
+
 # Using `switch` instead of `checkout`
 git switch -c new-branch
 
@@ -56,6 +57,7 @@ for beginners. It is also more consistent with other Git commands, such as
 ### 1.2 Learning to use rebase
 
 ```bash
+
 # Rebasing a feature branch on top of the main branch to keep the commit history clean
 git switch main
 git pull
@@ -69,19 +71,24 @@ git merge feature-branch
 
 A diagram of the rebase process:
 
-```
+{{ note(body="
+
+# 1. Initial State
+
 main: A---B---C
-              \
+\
 feature-branch: D---E
 
-# After running `git rebase main` on the feature branch
+# 2. After running `git rebase main` on the feature branch
+
 main: A---B---C
-              \
+\
 feature-branch: D'---E'
 
-# After running `git switch main` and `git merge feature-branch`
+# 3. After running `git switch main` and `git merge feature-branch`
+
 main: A---B---C---D'---E'
-```
+")}}
 
 A key benefit of rebasing is that it keeps the commit history clean and linear,
 making it easier to understand and navigate. **However**, it is important to
@@ -94,6 +101,7 @@ branch, you will not overwrite someone else's work.
 ### 1.3 Stashing changes
 
 ```bash
+
 # Stashing changes before switching branches
 git stash
 
@@ -113,11 +121,15 @@ Git is by actually using it, struggling with it, and learning from others.
 Again, Git can be tricky and it takes practice— Linus Torvalds, the creator of
 Git, wrote in the initial commit message of Git that it stands for:
 
-```
-- "global information tracker": you're in a good mood, and it actually
-   works for you. Angels sing, and a light suddenly fills the room.
-- "goddamn idiotic truckload of sh*t": when it breaks
-```
+{{ note(body="
+
+- 'global information tracker': you're in a good mood, and it actually
+  works for you. Angels sing, and a light suddenly fills the room.
+- 'goddamn idiotic truckload of sh\*t': when it breaks
+
+")}}
+
+<br>
 
 ## 2. Hammerspoon
 
@@ -131,6 +143,7 @@ every time I need to resize a window compound into minutes and hours saved over
 time. Here's a snippet of the `window.lua` script I wrote to do this:
 
 ```lua
+
 -- Bind Option+Command+Arrow keys to move windows
 hs.hotkey.bind({"cmd", "alt"}, "left", function() moveWindowToGrid(1) end)   -- Move window to left half
 hs.hotkey.bind({"cmd", "alt"}, "right", function() moveWindowToGrid(2) end)  -- Move window to right half
@@ -169,6 +182,7 @@ commands easier to type and remember. Here are some examples of aliases that you
 can add to your `.bashrc` or `.zshrc` file to make your life easier:
 
 ```bash
+
 # Example aliases
 alias ll="ls -la"
 alias gs="git status"
@@ -183,6 +197,7 @@ In my `.gitconfig` file, I have also set up aliases to enhance the `graph` and
 `log` commands:
 
 ```bash
+
 # .gitconfig
 [alias]
     graph = log --all --graph --decorate --oneline
@@ -196,12 +211,14 @@ To set up a dotfiles repository, you can follow these steps:
 1\. Create a new directory for your dotfiles repository in your home directory:
 
 ```bash
+
 mkdir ~/.dotfiles # or any other name you prefer
 ```
 
 2\. Initialize a new Git repository in the directory:
 
 ```bash
+
 cd ~/.dotfiles
 git init
 ```
@@ -210,6 +227,7 @@ git init
 your home directory:
 
 ```bash
+
 mv ~/.bashrc ~/.dotfiles
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ```
@@ -217,6 +235,7 @@ ln -s ~/.dotfiles/.bashrc ~/.bashrc
 You can view all of your configuration files with the following command:
 
 ```bash
+
 ls -a ~
 ```
 
@@ -227,12 +246,18 @@ If you have set up the symbolic links correctly, running the `ls -a ~` command
 should show the symbolic links in your home directory pointing to the dotfiles
 in your repository like so:
 
-{{ responsive_image(src="symlinks.png", alt="Dotfiles in home directory", caption="Above: My dotfiles in my home directory symlinked to my dotfiles repository.") }}
+{{ responsive(
+src="symlinks.png",
+alt="Dotfiles in home directory",
+caption="Above: My dotfiles in my home directory symlinked to my dotfiles repository."
+width=90
+) }}
 
 4\. Add, commit, and push your dotfiles to your remote repository (e.g.,
 GitHub):
 
 ```bash
+
 git add .
 git commit -m "Initial commit"
 git remote add origin

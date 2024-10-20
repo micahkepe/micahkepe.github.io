@@ -1,7 +1,7 @@
 +++
 title = "[11] Setting Up a Supercharged Neovim Configuration"
 date = 2024-10-13
-draft = true
+draft = false
 weight = 2
 
 [taxonomies]
@@ -17,7 +17,7 @@ landed at to turn my Neovim editor into a supercharged workhorse.
 
 <!-- more -->
 
-# TL;DR
+# **TL;DR**
 
 I think my setup is pretty sweet. If you want to try out my setup without having
 to do the configuration yourself, you can run these commands to add my setup as a
@@ -26,18 +26,20 @@ to do the configuration yourself, you can run these commands to add my setup as 
 1.  Clone the repository and install plugins:
 
 ```bash
+
 git clone git@github.com:micahkepe/dotfiles ~/.config/micahkepe/dotfiles
 ```
 
 2.  Open Neovim with this configuration:
 
 ```bash
+
 NVIM_APPNAME=micahkepe/dotfiles/nvim nvim
 ```
 
 **If you're interested in the nerdy details of my setup, keep reading!**
 
-{{ responsive_image(src="nvdash.png", alt="My Neovim dashboard greeter",
+{{ responsive(src="nvdash.png", alt="My Neovim dashboard greeter",
 width=80) }}
 
 ---
@@ -68,7 +70,7 @@ version of the Vi editor, which was originally developed in 1976 by Bill Joy for
 Unix systems. Vim quickly became popular due to its efficiency and ability to
 perform complex text manipulations with minimal keystrokes.
 
-{{ responsive_image(src="early-vi.png",
+{{ responsive(src="early-vi.png",
 alt="The original Vi program running with visuals.",
 caption="The original Vi program running with 'visuals'", width=80) }}
 
@@ -95,7 +97,7 @@ the Neovim repository for the instructions for your machine.
 
 <br>
 
-{{ responsive_image(src="neovim-logo.png", alt="Neovim logo") }}
+{{ responsive(src="neovim-logo.png", alt="Neovim logo") }}
 
 <br>
 
@@ -122,13 +124,14 @@ I particularly like NVChad for the following reasons:
 
 <br>
 
-{{ responsive_image(src="nvchad-logo.png", alt="NVChad logo", width=40) }}
+{{ responsive(src="nvchad-logo.png", alt="NVChad logo", width=40) }}
 
 If you are following along, let's first install NVChad before we continue:
 
 **For Mac and Linux Users**:
 
 ```bash
+
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 ```
 
@@ -146,8 +149,10 @@ become staples in my editing experience. All plugins snippets that follow will
 be using `lazy.nvim` install configurations. I will break this section into the
 plugins that come by default from NVChad and the plugins that I have added on.
 
-> **Note**: if you are curious about all of my plugins, you see them
-> [here](https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins).
+{{ note(body="
+ **Note**: if you are curious about all of my plugins, you see them
+[here](https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins).
+")}}
 
 ### NVChad Plugins
 
@@ -192,7 +197,7 @@ These plugins work together to provide a fully-featured IDE-like experience
 right out of the box. NVChad's setup ensures that these plugins are configured
 to work well together, providing a smooth and cohesive editing experience.
 
-{{ responsive_image(src="nvchad.png", alt="NVChad Neovim configuration", width=80) }}
+{{ responsive(src="nvchad.png", alt="NVChad Neovim configuration", width=80) }}
 
 <br>
 
@@ -213,6 +218,7 @@ speeds up workflows that involve repeated or complex command usage.
 **lazy.nvim**:
 
 ```lua
+
 -- nvim/lua/plugins/wilder.nvim
 
 return {
@@ -262,19 +268,16 @@ Honestly, I needed images in Neovim in order to even consider making the switch
 from Visual Studio Code, so getting this plugin working was a non-begotiable for
 me.
 
-> _Note_: This particular configuration of the plugin must be run in Kitty to
-> work. See the `backend` option if you want to use a different emulator.
+{{ note(body="
+ **Note**: This particular configuration of the plugin must be run in Kitty to
+ work. See the `backend` option if you want to use a different emulator.
+")}}
 
 **lazy.nvim**:
 
 ```lua
--- nvim/lua/plugins/image-nvim.lua
 
--- Taken from: https://github.com/linkarzu/dotfiles-latest/blob/4ac00c8653025da331d43adfb892dc7a67ea4c6a/neovim/nvim-lazyvim/lua/plugins/image-nvim.lua
--- https://github.com/3rd/image.nvim
---
--- Filename: ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/image-nvim.lua
--- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/image-nvim.lua
+-- nvim/lua/plugins/image-nvim.lua
 
 -- For dependencies see
 -- `~/github/dotfiles-latest/neovim/nvim-lazyvim/README.md`
@@ -383,7 +386,6 @@ return {
     end,
   },
 }
-
 ```
 
 3. [`rmagatti/autosession`](https://github.com/rmagatti/auto-session)
@@ -397,6 +399,7 @@ want to resume exactly where you left off.
 **lazy.nvim**:
 
 ```lua
+
 -- automatically creates a Vim session when Neovim opens for saving work
 return {
   "rmagatti/auto-session",
@@ -413,7 +416,6 @@ return {
     vim.keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" })
   end,
 }
-
 ```
 
 4. [`christoomey/vim-tmux-navigator`](https://github.com/christoomey/vim-tmux-navigator)
@@ -430,6 +432,7 @@ Vim windown motions.
 **lazy.nvim**:
 
 ```lua
+
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -447,10 +450,9 @@ Vim windown motions.
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-
 ```
 
-## Key mappings
+## Key Mappings
 
 Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
@@ -460,6 +462,7 @@ these by doing `<leader>ch` to pull up the mappings cheat sheet).
 ### Quality of Life Remaps
 
 ```lua
+
 -- nvim/lua/mappings.lua
 require "nvchad.mappings" -- NVChad-defined mappings
 
@@ -485,6 +488,7 @@ command that allows me to open a file under in my cursor in a Finder window
 either from the open file buffer or from the file explorer sidebar.
 
 ```lua
+
 -- Open file in default viewer
 vim.api.nvim_create_user_command("OpenFileInViewer", function()
   local current_file = vim.fn.expand "%:p"
@@ -504,6 +508,7 @@ key provides a description of the mapping for use in command help or plugins
 like `which-key.nvim`.
 
 ```lua
+
 map("n", "<leader>v", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 map("n", "<leader>sd", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 map("n", "<leader>se", "<C-w>=", { desc = "Equalize splits" }) -- equalize split layouts
@@ -517,6 +522,7 @@ These mappings keep the cursor and search result centered in the window while
 scrolling or jumping to search results.
 
 ```lua
+
 -- maintain visual context on page navigation and searching
 map("n", "<C-d>", "<C-d>zz") -- Keeps cursor centered when going down the page
 map("n", "<C-u>", "<C-u>zz") -- Keeps cursor centered when going up the page
@@ -531,6 +537,7 @@ These are the mappings I use for GitSigns, which I believe are fairly standard.
 `h` after the leader.
 
 ```lua
+
 map("n", "<leader>hn", "<cmd>lua require'gitsigns'.next_hunk()<CR>", { desc = "Next hunk" })
 map("n", "<leader>hp", "<cmd>lua require'gitsigns'.prev_hunk()<CR>", { desc = "Previous hunk" })
 map("n", "<leader>hs", "<cmd>lua require'gitsigns'.stage_hunk()<CR>", { desc = "Stage hunk" })
@@ -550,6 +557,7 @@ that enhances usability by enabling features like clipboard integration and
 better search behavior.
 
 ```lua
+
 -- nvim/lua/options.lua
 
 require "nvchad.options"
@@ -601,5 +609,6 @@ or just want to chat about Neovim, feel free to write in the comments below!
 \- [How I Setup Neovim On My Mac To Make it AMAZING in 2024
 ](https://www.josean.com/posts/how-to-setup-neovim-2024) \
 \- [NVChad Documentation](https://nvchad.com/docs/quickstart/install) \
+\- [An Experienced (Neo)Vimmer's Workflow.](https://seniormars.com/posts/neovim-workflow/) \
 
 {{ utterances() }}

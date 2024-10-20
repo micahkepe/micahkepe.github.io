@@ -22,9 +22,10 @@
     "web-vitals": "^4.2.3"
   },
   "scripts": {
-    "start": "vite",
+    "start": "npm run build:blog-dev && vite",
     "build": "vite build",
-    "build:blog": "cd blog && zola build",
+    "build:blog-dev": "rm -rf public/blog && cd blog && zola build --base-url http://localhost:3000/blog && cd .. && cp -r blog/public/ public/blog/",
+    "build:blog": "rm -rf public/blog && cd blog && zola build && cd .. && cp -r blog/public/ public/blog/",
     "format": "prettier --write .",
     "test": "vite test",
     "clean": "rm -rf build/*",
@@ -61,6 +62,7 @@
     "eslint-plugin-react": "^7.37.0",
     "gh-pages": "^6.1.1",
     "prettier": "^3.3.3",
+    "sass": "^1.80.3",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
   },
