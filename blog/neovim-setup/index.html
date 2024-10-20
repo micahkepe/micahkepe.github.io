@@ -97,14 +97,14 @@ to do the configuration yourself, you can run these commands to add my setup as 
 <ol>
 <li>Clone the repository and install plugins:</li>
 </ol>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">git</span><span> clone git@github.com:micahkepe/dotfiles </span><span style="color:#bd93f9;">~</span><span>/.config/micahkepe/dotfiles
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> clone git@github.com:micahkepe/dotfiles </span><span style="color:#eb6772;">~</span><span style="color:#abb2bf;">/.config/micahkepe/dotfiles
 </span></code></pre>
 <ol start="2">
 <li>Open Neovim with this configuration:</li>
 </ol>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#ffffff;">NVIM_APPNAME</span><span style="color:#ff79c6;">=</span><span style="color:#f1fa8c;">micahkepe/dotfiles/nvim </span><span style="color:#50fa7b;">nvim
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">NVIM_APPNAME</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">micahkepe/dotfiles/nvim </span><span style="color:#eb6772;">nvim
 </span></code></pre>
 <p><strong>If you're interested in the nerdy details of my setup, keep reading!</strong></p>
 <div
@@ -213,8 +213,8 @@ frequent updates and improvements.</p>
 </div>
 <p>If you are following along, let's first install NVChad before we continue:</p>
 <p><strong>For Mac and Linux Users</strong>:</p>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">git</span><span> clone https://github.com/NvChad/starter </span><span style="color:#bd93f9;">~</span><span>/.config/nvim </span><span style="color:#ff79c6;">&amp;&amp; </span><span style="color:#50fa7b;">nvim
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> clone https://github.com/NvChad/starter </span><span style="color:#eb6772;">~</span><span style="color:#abb2bf;">/.config/nvim </span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">nvim
 </span></code></pre>
 <p><strong>Windows Users</strong>:</p>
 <p>A little more complicated (as usual), check out the install documentation
@@ -317,34 +317,34 @@ capabilities, providing instant suggestions as you type commands.</p>
 on your command history, file paths, and available commands. This dramatically
 speeds up workflows that involve repeated or complex command usage.</p>
 <p><strong>lazy.nvim</strong>:</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- nvim/lua/plugins/wilder.nvim
-</span><span>
-</span><span style="color:#ff79c6;">return </span><span style="color:#ffffff;">{
-</span><span>  </span><span style="color:#ffffff;">{
-</span><span>    </span><span style="color:#f1fa8c;">&quot;gelguy/wilder.nvim&quot;</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">event </span><span>= </span><span style="color:#f1fa8c;">&quot;CmdlineEnter&quot;</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">build </span><span>= </span><span style="color:#f1fa8c;">&quot;:UpdateRemotePlugins&quot;</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">dependencies </span><span>= </span><span style="color:#ffffff;">{
-</span><span>      </span><span style="color:#f1fa8c;">&quot;nvim-tree/nvim-web-devicons&quot;</span><span>,
-</span><span>    </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#50fa7b;">config </span><span>= </span><span style="font-style:italic;color:#8be9fd;">function</span><span>()
-</span><span>      </span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">wilder </span><span style="color:#ff79c6;">= </span><span style="color:#8be9fd;">require </span><span style="color:#f1fa8c;">&quot;wilder&quot;
-</span><span>      </span><span style="color:#ffffff;">wilder</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">setup </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">modes </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;:&quot; </span><span style="color:#ffffff;">} }
-</span><span>
-</span><span>      </span><span style="color:#ffffff;">wilder</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">set_option</span><span>(
-</span><span>        </span><span style="color:#f1fa8c;">&quot;renderer&quot;</span><span>,
-</span><span>        </span><span style="color:#ffffff;">wilder</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">popupmenu_renderer </span><span style="color:#ffffff;">{
-</span><span>          </span><span style="color:#f1fa8c;">highlighter </span><span>= </span><span style="color:#ffffff;">wilder</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">basic_highlighter</span><span>(),
-</span><span>          </span><span style="color:#f1fa8c;">left </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot; &quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#f1fa8c;">right </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot; &quot;</span><span>, </span><span style="color:#ffffff;">wilder</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">popupmenu_scrollbar </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">thumb_char </span><span>= </span><span style="color:#f1fa8c;">&quot; &quot; </span><span style="color:#ffffff;">} }</span><span>,
-</span><span>          </span><span style="color:#f1fa8c;">highlights </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">default </span><span>= </span><span style="color:#f1fa8c;">&quot;WilderMenu&quot;</span><span>, </span><span style="color:#f1fa8c;">accent </span><span>= </span><span style="color:#f1fa8c;">&quot;WilderAccent&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>        </span><span style="color:#ffffff;">}
-</span><span>      )
-</span><span>    </span><span style="color:#ff79c6;">end</span><span>,
-</span><span>  </span><span style="color:#ffffff;">}</span><span>,
-</span><span style="color:#ffffff;">}
-</span><span>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/wilder.nvim
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">  {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;gelguy/wilder.nvim&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">event </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;CmdlineEnter&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">build </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;:UpdateRemotePlugins&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">dependencies </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;nvim-tree/nvim-web-devicons&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">    </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">      </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">wilder </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;wilder&quot;
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">modes </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;:&quot; </span><span style="color:#abb2bf;">} }
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">set_option</span><span style="color:#abb2bf;">(
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">&quot;renderer&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_renderer </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlighter </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">basic_highlighter</span><span style="color:#abb2bf;">(),
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">left </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">right </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_scrollbar </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">thumb_char </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot; &quot; </span><span style="color:#abb2bf;">} },
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlights </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">default </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;WilderMenu&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">accent </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;WilderAccent&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">        }
+</span><span style="color:#abb2bf;">      )
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">
 </span></code></pre>
 <ol start="2">
 <li><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></li>
@@ -384,116 +384,116 @@ work. See the <code>backend</code> option if you want to use a different emulato
     
   </div>
 <p><strong>lazy.nvim</strong>:</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- nvim/lua/plugins/image-nvim.lua
-</span><span>
-</span><span style="color:#6272a4;">-- For dependencies see
-</span><span style="color:#6272a4;">-- `~/github/dotfiles-latest/neovim/nvim-lazyvim/README.md`
-</span><span style="color:#6272a4;">--
-</span><span style="color:#6272a4;">-- -- Uncomment the following 2 lines if you use the local luarocks installation
-</span><span style="color:#6272a4;">-- -- Leave them commented to instead use `luarocks.nvim`
-</span><span style="color:#6272a4;">-- -- instead of luarocks.nvim
-</span><span style="color:#6272a4;">-- Notice that in the following 2 commands I&#39;m using luaver
-</span><span style="color:#6272a4;">-- package.path = package.path
-</span><span style="color:#6272a4;">--   .. &quot;;&quot;
-</span><span style="color:#6272a4;">--   .. vim.fn.expand(&quot;$HOME&quot;)
-</span><span style="color:#6272a4;">--   .. &quot;/.luaver/luarocks/3.11.0_5.1/share/lua/5.1/magick/?/init.lua&quot;
-</span><span style="color:#6272a4;">-- package.path = package.path
-</span><span style="color:#6272a4;">--   .. &quot;;&quot;
-</span><span style="color:#6272a4;">--   .. vim.fn.expand(&quot;$HOME&quot;)
-</span><span style="color:#6272a4;">--   .. &quot;/.luaver/luarocks/3.11.0_5.1/share/lua/5.1/magick/?.lua&quot;
-</span><span style="color:#6272a4;">--
-</span><span style="color:#6272a4;">-- -- Here I&#39;m not using luaver, but instead installed lua and luarocks directly through
-</span><span style="color:#6272a4;">-- -- homebrew
-</span><span style="color:#6be5fd;">package</span><span style="color:#ff79c6;">.</span><span style="color:#6be5fd;">path </span><span style="color:#ff79c6;">= </span><span style="color:#6be5fd;">package</span><span style="color:#ff79c6;">.</span><span style="color:#6be5fd;">path </span><span style="color:#ff79c6;">.. </span><span style="color:#f1fa8c;">&quot;;&quot; </span><span style="color:#ff79c6;">.. </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>fn</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">expand </span><span style="color:#f1fa8c;">&quot;$HOME&quot; </span><span style="color:#ff79c6;">.. </span><span style="color:#f1fa8c;">&quot;/.luarocks/share/lua/5.1/?/init.lua&quot;
-</span><span style="color:#6be5fd;">package</span><span style="color:#ff79c6;">.</span><span style="color:#6be5fd;">path </span><span style="color:#ff79c6;">= </span><span style="color:#6be5fd;">package</span><span style="color:#ff79c6;">.</span><span style="color:#6be5fd;">path </span><span style="color:#ff79c6;">.. </span><span style="color:#f1fa8c;">&quot;;&quot; </span><span style="color:#ff79c6;">.. </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>fn</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">expand </span><span style="color:#f1fa8c;">&quot;$HOME&quot; </span><span style="color:#ff79c6;">.. </span><span style="color:#f1fa8c;">&quot;/.luarocks/share/lua/5.1/?.lua&quot;
-</span><span>
-</span><span style="color:#ff79c6;">return </span><span style="color:#ffffff;">{
-</span><span>  </span><span style="color:#ffffff;">{
-</span><span>    </span><span style="color:#6272a4;">-- luarocks.nvim is a Neovim plugin designed to streamline the installation
-</span><span>    </span><span style="color:#6272a4;">-- of luarocks packages directly within Neovim. It simplifies the process
-</span><span>    </span><span style="color:#6272a4;">-- of managing Lua dependencies, ensuring a hassle-free experience for
-</span><span>    </span><span style="color:#6272a4;">-- Neovim users.
-</span><span>    </span><span style="color:#6272a4;">-- https://github.com/vhyrro/luarocks.nvim
-</span><span>    </span><span style="color:#f1fa8c;">&quot;vhyrro/luarocks.nvim&quot;</span><span>,
-</span><span>    </span><span style="color:#6272a4;">-- this plugin needs to run before anything else
-</span><span>    </span><span style="color:#f1fa8c;">priority </span><span>= </span><span style="color:#bd93f9;">1001</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">opts </span><span>= </span><span style="color:#ffffff;">{
-</span><span>      </span><span style="color:#f1fa8c;">rocks </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;magick&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#ffffff;">}</span><span>,
-</span><span>  </span><span style="color:#ffffff;">}</span><span>,
-</span><span>  </span><span style="color:#ffffff;">{
-</span><span>    </span><span style="color:#f1fa8c;">&quot;3rd/image.nvim&quot;</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">lazy </span><span>= </span><span style="color:#bd93f9;">false</span><span>, </span><span style="color:#6272a4;">-- load on start up
-</span><span>    </span><span style="color:#f1fa8c;">dependencies </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;luarocks.nvim&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#50fa7b;">config </span><span>= </span><span style="font-style:italic;color:#8be9fd;">function</span><span>()
-</span><span>      </span><span style="color:#8be9fd;">require</span><span>(</span><span style="color:#f1fa8c;">&quot;image&quot;</span><span>)</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">setup </span><span style="color:#ffffff;">{
-</span><span>        </span><span style="color:#f1fa8c;">backend </span><span>= </span><span style="color:#f1fa8c;">&quot;kitty&quot;</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">kitty_method </span><span>= </span><span style="color:#f1fa8c;">&quot;normal&quot;</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">integrations </span><span>= </span><span style="color:#ffffff;">{
-</span><span>          </span><span style="color:#6272a4;">-- Notice these are the settings for markdown files
-</span><span>          </span><span style="color:#f1fa8c;">markdown </span><span>= </span><span style="color:#ffffff;">{
-</span><span>            </span><span style="color:#f1fa8c;">enabled </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>            </span><span style="color:#f1fa8c;">clear_in_insert_mode </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>            </span><span style="color:#6272a4;">-- Set this to false if you don&#39;t want to render images coming from
-</span><span>            </span><span style="color:#6272a4;">-- a URL
-</span><span>            </span><span style="color:#f1fa8c;">download_remote_images </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>            </span><span style="color:#6272a4;">-- Change this if you would only like to render the image where the
-</span><span>            </span><span style="color:#6272a4;">-- cursor is at
-</span><span>            </span><span style="color:#6272a4;">-- I set this to true, because if the file has way too many images
-</span><span>            </span><span style="color:#6272a4;">-- it will be laggy and will take time for the initial load
-</span><span>            </span><span style="color:#f1fa8c;">only_render_image_at_cursor </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>            </span><span style="color:#6272a4;">-- markdown extensions (ie. quarto) can go here
-</span><span>            </span><span style="color:#f1fa8c;">filetypes </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;markdown&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;vimwiki&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#f1fa8c;">neorg </span><span>= </span><span style="color:#ffffff;">{
-</span><span>            </span><span style="color:#f1fa8c;">enabled </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>            </span><span style="color:#f1fa8c;">clear_in_insert_mode </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>            </span><span style="color:#f1fa8c;">download_remote_images </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>            </span><span style="color:#f1fa8c;">only_render_image_at_cursor </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>            </span><span style="color:#f1fa8c;">filetypes </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;norg&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#6272a4;">-- This is disabled by default
-</span><span>          </span><span style="color:#6272a4;">-- Detect and render images referenced in HTML files
-</span><span>          </span><span style="color:#6272a4;">-- Make sure you have an html treesitter parser installed
-</span><span>          </span><span style="color:#6272a4;">-- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/treesitter.lua
-</span><span>          </span><span style="color:#f1fa8c;">html </span><span>= </span><span style="color:#ffffff;">{
-</span><span>            </span><span style="color:#f1fa8c;">enabled </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>          </span><span style="color:#ffffff;">}</span><span>,
-</span><span>          </span><span style="color:#6272a4;">-- This is disabled by default
-</span><span>          </span><span style="color:#6272a4;">-- Detect and render images referenced in CSS files
-</span><span>          </span><span style="color:#6272a4;">-- Make sure you have a css treesitter parser installed
-</span><span>          </span><span style="color:#6272a4;">-- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/treesitter.lua
-</span><span>          </span><span style="color:#f1fa8c;">css </span><span>= </span><span style="color:#ffffff;">{
-</span><span>            </span><span style="color:#f1fa8c;">enabled </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>          </span><span style="color:#ffffff;">}</span><span>,
-</span><span>        </span><span style="color:#ffffff;">}</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">max_width </span><span>= </span><span style="color:#bd93f9;">nil</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">max_height </span><span>= </span><span style="color:#bd93f9;">nil</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">max_width_window_percentage </span><span>= </span><span style="color:#bd93f9;">nil</span><span>,
-</span><span>
-</span><span>        </span><span style="color:#6272a4;">-- This is what I changed to make my images look smaller, like a
-</span><span>        </span><span style="color:#6272a4;">-- thumbnail, the default value is 50
-</span><span>        </span><span style="color:#6272a4;">-- max_height_window_percentage = 20,
-</span><span>        </span><span style="color:#f1fa8c;">max_height_window_percentage </span><span>= </span><span style="color:#bd93f9;">40</span><span>,
-</span><span>
-</span><span>        </span><span style="color:#6272a4;">-- toggles images when windows are overlapped
-</span><span>        </span><span style="color:#f1fa8c;">window_overlap_clear_enabled </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>        </span><span style="color:#f1fa8c;">window_overlap_clear_ft_ignore </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;cmp_menu&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;cmp_docs&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>
-</span><span>        </span><span style="color:#6272a4;">-- auto show/hide images when the editor gains/looses focus
-</span><span>        </span><span style="color:#f1fa8c;">editor_only_render_when_focused </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>
-</span><span>        </span><span style="color:#6272a4;">-- auto show/hide images in the correct tmux window
-</span><span>        </span><span style="color:#6272a4;">-- In the tmux.conf add `set -g visual-activity off`
-</span><span>        </span><span style="color:#f1fa8c;">tmux_show_only_in_active_window </span><span>= </span><span style="color:#bd93f9;">true</span><span>,
-</span><span>
-</span><span>        </span><span style="color:#6272a4;">-- render image files as images when opened
-</span><span>        </span><span style="color:#f1fa8c;">hijack_file_patterns </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;*.png&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;*.jpg&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;*.jpeg&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;*.gif&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;*.webp&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;*.avif&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>      </span><span style="color:#ffffff;">}
-</span><span>    </span><span style="color:#ff79c6;">end</span><span>,
-</span><span>  </span><span style="color:#ffffff;">}</span><span>,
-</span><span style="color:#ffffff;">}
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/image-nvim.lua
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- For dependencies see
+</span><span style="font-style:italic;color:#5f697a;">-- `~/github/dotfiles-latest/neovim/nvim-lazyvim/README.md`
+</span><span style="font-style:italic;color:#5f697a;">--
+</span><span style="font-style:italic;color:#5f697a;">-- -- Uncomment the following 2 lines if you use the local luarocks installation
+</span><span style="font-style:italic;color:#5f697a;">-- -- Leave them commented to instead use `luarocks.nvim`
+</span><span style="font-style:italic;color:#5f697a;">-- -- instead of luarocks.nvim
+</span><span style="font-style:italic;color:#5f697a;">-- Notice that in the following 2 commands I&#39;m using luaver
+</span><span style="font-style:italic;color:#5f697a;">-- package.path = package.path
+</span><span style="font-style:italic;color:#5f697a;">--   .. &quot;;&quot;
+</span><span style="font-style:italic;color:#5f697a;">--   .. vim.fn.expand(&quot;$HOME&quot;)
+</span><span style="font-style:italic;color:#5f697a;">--   .. &quot;/.luaver/luarocks/3.11.0_5.1/share/lua/5.1/magick/?/init.lua&quot;
+</span><span style="font-style:italic;color:#5f697a;">-- package.path = package.path
+</span><span style="font-style:italic;color:#5f697a;">--   .. &quot;;&quot;
+</span><span style="font-style:italic;color:#5f697a;">--   .. vim.fn.expand(&quot;$HOME&quot;)
+</span><span style="font-style:italic;color:#5f697a;">--   .. &quot;/.luaver/luarocks/3.11.0_5.1/share/lua/5.1/magick/?.lua&quot;
+</span><span style="font-style:italic;color:#5f697a;">--
+</span><span style="font-style:italic;color:#5f697a;">-- -- Here I&#39;m not using luaver, but instead installed lua and luarocks directly through
+</span><span style="font-style:italic;color:#5f697a;">-- -- homebrew
+</span><span style="color:#abb2bf;">package.path </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">package.path </span><span style="color:#adb7c9;">.. </span><span style="color:#9acc76;">&quot;;&quot; </span><span style="color:#adb7c9;">.. </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.fn.</span><span style="color:#eb6772;">expand </span><span style="color:#9acc76;">&quot;$HOME&quot; </span><span style="color:#adb7c9;">.. </span><span style="color:#9acc76;">&quot;/.luarocks/share/lua/5.1/?/init.lua&quot;
+</span><span style="color:#abb2bf;">package.path </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">package.path </span><span style="color:#adb7c9;">.. </span><span style="color:#9acc76;">&quot;;&quot; </span><span style="color:#adb7c9;">.. </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.fn.</span><span style="color:#eb6772;">expand </span><span style="color:#9acc76;">&quot;$HOME&quot; </span><span style="color:#adb7c9;">.. </span><span style="color:#9acc76;">&quot;/.luarocks/share/lua/5.1/?.lua&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">  {
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- luarocks.nvim is a Neovim plugin designed to streamline the installation
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- of luarocks packages directly within Neovim. It simplifies the process
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- of managing Lua dependencies, ensuring a hassle-free experience for
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- Neovim users.
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- https://github.com/vhyrro/luarocks.nvim
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;vhyrro/luarocks.nvim&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- this plugin needs to run before anything else
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">priority </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1001</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">opts </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">rocks </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;magick&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">  {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;3rd/image.nvim&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">lazy </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- load on start up
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">dependencies </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;luarocks.nvim&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">    </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">      </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;image&quot;</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">backend </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;kitty&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">kitty_method </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;normal&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">integrations </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- Notice these are the settings for markdown files
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">markdown </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">clear_in_insert_mode </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- Set this to false if you don&#39;t want to render images coming from
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- a URL
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">download_remote_images </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- Change this if you would only like to render the image where the
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- cursor is at
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- I set this to true, because if the file has way too many images
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- it will be laggy and will take time for the initial load
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">only_render_image_at_cursor </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="font-style:italic;color:#5f697a;">-- markdown extensions (ie. quarto) can go here
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">filetypes </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;markdown&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;vimwiki&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">neorg </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">clear_in_insert_mode </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">download_remote_images </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">only_render_image_at_cursor </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">filetypes </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;norg&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- This is disabled by default
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- Detect and render images referenced in HTML files
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- Make sure you have an html treesitter parser installed
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/treesitter.lua
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">html </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- This is disabled by default
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- Detect and render images referenced in CSS files
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- Make sure you have a css treesitter parser installed
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/treesitter.lua
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">css </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">        },
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">max_width </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">nil</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">max_height </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">nil</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">max_width_window_percentage </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">nil</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- This is what I changed to make my images look smaller, like a
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- thumbnail, the default value is 50
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- max_height_window_percentage = 20,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">max_height_window_percentage </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">40</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- toggles images when windows are overlapped
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">window_overlap_clear_enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">window_overlap_clear_ft_ignore </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;cmp_menu&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;cmp_docs&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- auto show/hide images when the editor gains/looses focus
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">editor_only_render_when_focused </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- auto show/hide images in the correct tmux window
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- In the tmux.conf add `set -g visual-activity off`
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">tmux_show_only_in_active_window </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">        </span><span style="font-style:italic;color:#5f697a;">-- render image files as images when opened
+</span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">hijack_file_patterns </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;*.png&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;*.jpg&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;*.jpeg&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;*.gif&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;*.webp&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;*.avif&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      }
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">}
 </span></code></pre>
 <ol start="3">
 <li><a href="https://github.com/rmagatti/auto-session"><code>rmagatti/autosession</code></a></li>
@@ -513,23 +513,23 @@ work right where you left off. If you close Neovim and reopen it later,
 etc.). This is incredibly useful when you are juggling multiple projects and
 want to resume exactly where you left off.</p>
 <p><strong>lazy.nvim</strong>:</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- automatically creates a Vim session when Neovim opens for saving work
-</span><span style="color:#ff79c6;">return </span><span style="color:#ffffff;">{
-</span><span>  </span><span style="color:#f1fa8c;">&quot;rmagatti/auto-session&quot;</span><span>,
-</span><span>  </span><span style="color:#f1fa8c;">event </span><span>= </span><span style="color:#f1fa8c;">&quot;BufRead&quot;</span><span>, </span><span style="color:#6272a4;">-- Load on first buffer read
-</span><span>  </span><span style="color:#50fa7b;">config </span><span>= </span><span style="font-style:italic;color:#8be9fd;">function</span><span>()
-</span><span>    </span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">auto_session </span><span style="color:#ff79c6;">= </span><span style="color:#8be9fd;">require </span><span style="color:#f1fa8c;">&quot;auto-session&quot;
-</span><span>    </span><span style="color:#ffffff;">auto_session</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">setup </span><span style="color:#ffffff;">{
-</span><span>      </span><span style="color:#f1fa8c;">auto_restore_enabled </span><span>= </span><span style="color:#bd93f9;">false</span><span>,
-</span><span>      </span><span style="color:#f1fa8c;">auto_session_suppress_dirs </span><span>= </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;~/&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;~/Dev/&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;~/Downloads&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;~/Documents&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;~/Desktop/&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#ffffff;">}
-</span><span>
-</span><span>    </span><span style="color:#6272a4;">-- Define keymaps after setup
-</span><span>    </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>keymap</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">set</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;wr&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;SessionRestore&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Restore session for cwd&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span>    </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>keymap</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">set</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;ws&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;SessionSave&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Save session for auto session root dir&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span>  </span><span style="color:#ff79c6;">end</span><span>,
-</span><span style="color:#ffffff;">}
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- automatically creates a Vim session when Neovim opens for saving work
+</span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;rmagatti/auto-session&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">event </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;BufRead&quot;</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- Load on first buffer read
+</span><span style="color:#abb2bf;">  </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">auto_session </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;auto-session&quot;
+</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">auto_session</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">auto_restore_enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">auto_session_suppress_dirs </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;~/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Dev/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Downloads&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Documents&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Desktop/&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">    }
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- Define keymaps after setup
+</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.</span><span style="color:#eb6772;">set</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;wr&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionRestore&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Restore session for cwd&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.</span><span style="color:#eb6772;">set</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;ws&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionSave&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Save session for auto session root dir&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">}
 </span></code></pre>
 <ol start="4">
 <li><a href="https://github.com/christoomey/vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
@@ -552,24 +552,24 @@ as I don't have to think about whether I'm moving inside Neovim or across Tmux.
 Not to mention I find this bindings much less awkward than the default <code>&lt;C-w&gt;</code>
 Vim windown motions.</p>
 <p><strong>lazy.nvim</strong>:</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span>  </span><span style="color:#ffffff;">{
-</span><span>    </span><span style="color:#f1fa8c;">&quot;christoomey/vim-tmux-navigator&quot;</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">cmd </span><span>= </span><span style="color:#ffffff;">{
-</span><span>      </span><span style="color:#f1fa8c;">&quot;TmuxNavigateLeft&quot;</span><span>,
-</span><span>      </span><span style="color:#f1fa8c;">&quot;TmuxNavigateDown&quot;</span><span>,
-</span><span>      </span><span style="color:#f1fa8c;">&quot;TmuxNavigateUp&quot;</span><span>,
-</span><span>      </span><span style="color:#f1fa8c;">&quot;TmuxNavigateRight&quot;</span><span>,
-</span><span>      </span><span style="color:#f1fa8c;">&quot;TmuxNavigatePrevious&quot;</span><span>,
-</span><span>    </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#f1fa8c;">keys </span><span>= </span><span style="color:#ffffff;">{
-</span><span>      </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;&lt;c-h&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>      </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;&lt;c-j&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>      </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;&lt;c-k&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>      </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;&lt;c-l&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>      </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;&lt;c-</span><span style="color:#ff79c6;">\\</span><span style="color:#f1fa8c;">&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigatePrevious&lt;cr&gt;&quot; </span><span style="color:#ffffff;">}</span><span>,
-</span><span>    </span><span style="color:#ffffff;">}</span><span>,
-</span><span>  </span><span style="color:#ffffff;">}</span><span>,
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">  {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;christoomey/vim-tmux-navigator&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">cmd </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateLeft&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateDown&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateUp&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateRight&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigatePrevious&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">keys </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-h&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-j&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-k&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-l&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigatePrevious&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">  },
 </span></code></pre>
 <br>
 <h2 id="key-mappings">Key Mappings</h2>
@@ -578,110 +578,110 @@ over the ones that I can't live without. Additionally, I will not be detailing
 the mappings that come with the NVChad base configuration (NVChad users can view
 these by doing <code>&lt;leader&gt;ch</code> to pull up the mappings cheat sheet).</p>
 <h3 id="quality-of-life-remaps">Quality of Life Remaps</h3>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- nvim/lua/mappings.lua
-</span><span style="color:#8be9fd;">require </span><span style="color:#f1fa8c;">&quot;nvchad.mappings&quot; </span><span style="color:#6272a4;">-- NVChad-defined mappings
-</span><span>
-</span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">map </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>keymap</span><span style="color:#ff79c6;">.</span><span>set
-</span><span>
-</span><span style="color:#6272a4;">-- Add ; as a CMD mapping as well
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;:&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;CMD enter command mode&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span>
-</span><span style="color:#6272a4;">-- Quickly exit Normal mode with `jk`
-</span><span style="color:#6272a4;">-- This makes the transition from typing to command mode faster and more comfortable for the fingers.
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;i&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;jk&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;ESC&gt;&quot;</span><span>)
-</span><span>
-</span><span style="color:#6272a4;">-- Map &lt;C-s&gt; to save
-</span><span style="color:#6272a4;">-- This is a common shortcut in many editors, bringing familiarity from other tools like VSCode.
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;i&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;v&quot; </span><span style="color:#ffffff;">}</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-s&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt; w &lt;cr&gt;&quot;</span><span>)
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/mappings.lua
+</span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;nvchad.mappings&quot; </span><span style="font-style:italic;color:#5f697a;">-- NVChad-defined mappings
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">map </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.set
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Add ; as a CMD mapping as well
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;CMD enter command mode&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Quickly exit Normal mode with `jk`
+</span><span style="font-style:italic;color:#5f697a;">-- This makes the transition from typing to command mode faster and more comfortable for the fingers.
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;i&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;jk&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;ESC&gt;&quot;</span><span style="color:#abb2bf;">)
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Map &lt;C-s&gt; to save
+</span><span style="font-style:italic;color:#5f697a;">-- This is a common shortcut in many editors, bringing familiarity from other tools like VSCode.
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">({ </span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;i&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;v&quot; </span><span style="color:#abb2bf;">}, </span><span style="color:#9acc76;">&quot;&lt;C-s&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt; w &lt;cr&gt;&quot;</span><span style="color:#abb2bf;">)
 </span></code></pre>
 <h3 id="reveal-in-finder-dupe">&quot;Reveal in Finder&quot; Dupe</h3>
 <p>One of the things that I was missing coming from Visual Studio Code was the
 option in the file explorer to &quot;Reveal in Finder&quot; so I created a simple Vim user
 command that allows me to open a file under in my cursor in a Finder window
 either from the open file buffer or from the file explorer sidebar.</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- Open file in default viewer
-</span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>api</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">nvim_create_user_command</span><span>(</span><span style="color:#f1fa8c;">&quot;OpenFileInViewer&quot;</span><span>, </span><span style="font-style:italic;color:#8be9fd;">function</span><span>()
-</span><span>  </span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">current_file </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>fn</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">expand </span><span style="color:#f1fa8c;">&quot;%:p&quot;
-</span><span>  </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>fn</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">system</span><span>(</span><span style="color:#f1fa8c;">&#39;open &quot;&#39; </span><span style="color:#ff79c6;">.. </span><span style="color:#ffffff;">current_file </span><span style="color:#ff79c6;">.. </span><span style="color:#f1fa8c;">&#39;&quot;&#39;</span><span>)
-</span><span style="color:#ff79c6;">end</span><span>, </span><span style="color:#ffffff;">{}</span><span>)
-</span><span>
-</span><span style="color:#6272a4;">-- Map &lt;leader&gt;sv to open file in standard viewer
-</span><span style="color:#6272a4;">-- NOTE: if cursor is on the file name Nvim Tree, you can simply press `sv` to open the file in the default viewer
-</span><span style="color:#6272a4;">-- since the leader key is already used by Nvim Tree.
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;sv&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;:OpenFileInViewer&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">noremap </span><span>= </span><span style="color:#bd93f9;">true</span><span>, </span><span style="color:#f1fa8c;">silent </span><span>= </span><span style="color:#bd93f9;">true</span><span>, </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Open file in default viewer&quot; </span><span style="color:#ffffff;">}</span><span>)
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Open file in default viewer
+</span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.api.</span><span style="color:#eb6772;">nvim_create_user_command</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;OpenFileInViewer&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">current_file </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.fn.</span><span style="color:#eb6772;">expand </span><span style="color:#9acc76;">&quot;%:p&quot;
+</span><span style="color:#abb2bf;">  </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.fn.</span><span style="color:#eb6772;">system</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;open &quot;&#39; </span><span style="color:#adb7c9;">.. </span><span style="color:#eb6772;">current_file </span><span style="color:#adb7c9;">.. </span><span style="color:#9acc76;">&#39;&quot;&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">, {})
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Map &lt;leader&gt;sv to open file in standard viewer
+</span><span style="font-style:italic;color:#5f697a;">-- NOTE: if cursor is on the file name Nvim Tree, you can simply press `sv` to open the file in the default viewer
+</span><span style="font-style:italic;color:#5f697a;">-- since the leader key is already used by Nvim Tree.
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;sv&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;:OpenFileInViewer&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">noremap </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">silent </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Open file in default viewer&quot; </span><span style="color:#abb2bf;">})
 </span></code></pre>
 <h3 id="window-management">Window Management</h3>
 <p>These mappings manage window splits and layout efficiently in Neovim. The <code>desc</code>
 key provides a description of the mapping for use in command help or plugins
 like <code>which-key.nvim</code>.</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;v&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-w&gt;v&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Split window vertically&quot; </span><span style="color:#ffffff;">}</span><span>) </span><span style="color:#6272a4;">-- split window vertically
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;sd&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;close&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Close current split&quot; </span><span style="color:#ffffff;">}</span><span>) </span><span style="color:#6272a4;">-- close current split window
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;se&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-w&gt;=&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Equalize splits&quot; </span><span style="color:#ffffff;">}</span><span>) </span><span style="color:#6272a4;">-- equalize split layouts
-</span><span style="color:#6272a4;">-- can&#39;t use &lt;leader&gt;sh since that is used by LSPs to signature help
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;s&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;split&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Split window horizontally&quot; </span><span style="color:#ffffff;">}</span><span>) </span><span style="color:#6272a4;">-- split window horizobtally
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;v&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-w&gt;v&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Split window vertically&quot; </span><span style="color:#abb2bf;">}) </span><span style="font-style:italic;color:#5f697a;">-- split window vertically
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;sd&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;close&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Close current split&quot; </span><span style="color:#abb2bf;">}) </span><span style="font-style:italic;color:#5f697a;">-- close current split window
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;se&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-w&gt;=&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Equalize splits&quot; </span><span style="color:#abb2bf;">}) </span><span style="font-style:italic;color:#5f697a;">-- equalize split layouts
+</span><span style="font-style:italic;color:#5f697a;">-- can&#39;t use &lt;leader&gt;sh since that is used by LSPs to signature help
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;s&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;split&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Split window horizontally&quot; </span><span style="color:#abb2bf;">}) </span><span style="font-style:italic;color:#5f697a;">-- split window horizobtally
 </span></code></pre>
 <h3 id="visually-appealing-scrolling-and-searching">Visually Appealing Scrolling and Searching</h3>
 <p>These mappings keep the cursor and search result centered in the window while
 scrolling or jumping to search results.</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- maintain visual context on page navigation and searching
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-d&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-d&gt;zz&quot;</span><span>) </span><span style="color:#6272a4;">-- Keeps cursor centered when going down the page
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-u&gt;&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;C-u&gt;zz&quot;</span><span>) </span><span style="color:#6272a4;">-- Keeps cursor centered when going up the page
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;nzzzv&quot;</span><span>) </span><span style="color:#6272a4;">-- Keeps the search result in the center after jumping to next result
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;N&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;Nzzzv&quot;</span><span>) </span><span style="color:#6272a4;">-- Keeps the search result in the center after jumping to previous result
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- maintain visual context on page navigation and searching
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-d&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-d&gt;zz&quot;</span><span style="color:#abb2bf;">) </span><span style="font-style:italic;color:#5f697a;">-- Keeps cursor centered when going down the page
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-u&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-u&gt;zz&quot;</span><span style="color:#abb2bf;">) </span><span style="font-style:italic;color:#5f697a;">-- Keeps cursor centered when going up the page
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;nzzzv&quot;</span><span style="color:#abb2bf;">) </span><span style="font-style:italic;color:#5f697a;">-- Keeps the search result in the center after jumping to next result
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;N&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;Nzzzv&quot;</span><span style="color:#abb2bf;">) </span><span style="font-style:italic;color:#5f697a;">-- Keeps the search result in the center after jumping to previous result
 </span></code></pre>
 <h3 id="gitsigns-mappings">GitSigns Mappings</h3>
 <p>These are the mappings I use for GitSigns, which I believe are fairly standard.
 <code>gitsigns</code> works in &quot;hunks&quot; of code, hence all of these mappings begin with an
 <code>h</code> after the leader.</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hn&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.next_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Next hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hp&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.prev_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Previous hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hs&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.stage_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Stage hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hu&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.undo_stage_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Undo stage hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hr&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Reset hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hR&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Reset buffer&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hp&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.preview_hunk()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Preview hunk&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hb&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.blame_line()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Blame line&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hS&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.stage_buffer()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Stage buffer&quot; </span><span style="color:#ffffff;">}</span><span>)
-</span><span style="color:#50fa7b;">map</span><span>(</span><span style="color:#f1fa8c;">&quot;n&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;leader&gt;hU&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer_index()&lt;CR&gt;&quot;</span><span>, </span><span style="color:#ffffff;">{ </span><span style="color:#f1fa8c;">desc </span><span>= </span><span style="color:#f1fa8c;">&quot;Reset buffer index&quot; </span><span style="color:#ffffff;">}</span><span>)
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hn&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.next_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Next hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hp&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.prev_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Previous hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hs&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.stage_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Stage hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hu&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.undo_stage_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Undo stage hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hr&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Reset hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hR&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Reset buffer&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hp&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.preview_hunk()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Preview hunk&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hb&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.blame_line()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Blame line&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hS&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.stage_buffer()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Stage buffer&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;hU&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;lua require&#39;gitsigns&#39;.reset_buffer_index()&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Reset buffer index&quot; </span><span style="color:#abb2bf;">})
 </span></code></pre>
 <br>
 <h2 id="options">Options</h2>
 <p>These options provide a basic, yet highly functional configuration for Neovim
 that enhances usability by enabling features like clipboard integration and
 better search behavior.</p>
-<pre data-lang="lua" style="background-color:#282a36;color:#f8f8f2;" class="language-lua "><code class="language-lua" data-lang="lua"><span>
-</span><span style="color:#6272a4;">-- nvim/lua/options.lua
-</span><span>
-</span><span style="color:#8be9fd;">require </span><span style="color:#f1fa8c;">&quot;nvchad.options&quot;
-</span><span>
-</span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">o </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>o
-</span><span style="color:#ff79c6;">local </span><span style="color:#ffffff;">opt </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">vim</span><span style="color:#ff79c6;">.</span><span>opt
-</span><span>
-</span><span style="color:#6272a4;">-- Cursorline
-</span><span style="color:#ffffff;">o</span><span style="color:#ff79c6;">.</span><span>cursorlineopt </span><span style="color:#ff79c6;">= </span><span style="color:#f1fa8c;">&quot;both&quot; </span><span style="color:#6272a4;">-- to enable cursorline!
-</span><span>
-</span><span style="color:#6272a4;">-- Make line numbers defaults
-</span><span style="color:#ffffff;">o</span><span style="color:#ff79c6;">.</span><span>number </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">true
-</span><span>
-</span><span style="color:#6272a4;">-- Search and replace
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>ignorecase </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">true </span><span style="color:#6272a4;">-- ignore case letters when searching
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>smartcase </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">true </span><span style="color:#6272a4;">-- match case if capital letter is present
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>incsearch </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">true </span><span style="color:#6272a4;">-- show search matches as you type
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>inccommand </span><span style="color:#ff79c6;">= </span><span style="color:#f1fa8c;">&quot;split&quot; </span><span style="color:#6272a4;">-- show live preview of substitute commands
-</span><span>
-</span><span style="color:#6272a4;">-- disable swapfile
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>swapfile </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">false
-</span><span>
-</span><span style="color:#6272a4;">-- clipboard
-</span><span style="color:#ffffff;">opt</span><span style="color:#ff79c6;">.</span><span>clipboard</span><span style="color:#ff79c6;">:</span><span style="color:#50fa7b;">append </span><span style="color:#f1fa8c;">&quot;unnamedplus&quot;
-</span><span>
-</span><span style="color:#6272a4;">-- text wrapping
-</span><span style="color:#ffffff;">o</span><span style="color:#ff79c6;">.</span><span>wrap </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">false
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/options.lua
+</span><span style="color:#abb2bf;">
+</span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;nvchad.options&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">o </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.o
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">opt </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.opt
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Cursorline
+</span><span style="color:#eb6772;">o</span><span style="color:#abb2bf;">.cursorlineopt </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&quot;both&quot; </span><span style="font-style:italic;color:#5f697a;">-- to enable cursorline!
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Make line numbers defaults
+</span><span style="color:#eb6772;">o</span><span style="color:#abb2bf;">.number </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">true
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Search and replace
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.ignorecase </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;">-- ignore case letters when searching
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.smartcase </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;">-- match case if capital letter is present
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.incsearch </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;">-- show search matches as you type
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.inccommand </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&quot;split&quot; </span><span style="font-style:italic;color:#5f697a;">-- show live preview of substitute commands
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- disable swapfile
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.swapfile </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">false
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- clipboard
+</span><span style="color:#eb6772;">opt</span><span style="color:#abb2bf;">.clipboard:</span><span style="color:#eb6772;">append </span><span style="color:#9acc76;">&quot;unnamedplus&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- text wrapping
+</span><span style="color:#eb6772;">o</span><span style="color:#abb2bf;">.wrap </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">false
 </span></code></pre>
 <h1 id="conclusion">Conclusion</h1>
 <p>While transitioning from VSCode to Neovim wasn’t without its challenges—

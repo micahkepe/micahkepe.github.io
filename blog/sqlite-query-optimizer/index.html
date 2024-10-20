@@ -131,27 +131,27 @@
 <h2 id="simple-example-query">Simple Example Query</h2>
 <p>Now that we have a basic understanding of how SQLite's query optimizer works, let's take a look at a simple example query and see how it's optimized.</p>
 <p>Borrowing from the Rice University legend, Dr. Christopher Jermaine, let's say we have the following relational schema:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">CREATE TABLE </span><span style="color:#50fa7b;">LIKES</span><span> (
-</span><span>    DRINKER </span><span style="font-style:italic;color:#8be9fd;">TEXT</span><span>,
-</span><span>    BEER </span><span style="font-style:italic;color:#8be9fd;">TEXT
-</span><span>);
-</span><span>
-</span><span style="color:#6272a4;">-- Example data
-</span><span style="color:#ff79c6;">INSERT INTO</span><span> LIKES (DRINKER, BEER) </span><span style="color:#ff79c6;">VALUES
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Bud Light&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Pabst&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Miller Lite&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Bob&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Bud Light&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Bob&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Coors Light&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Bob&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Miller Lite&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Charlie&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Bud Light&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Charlie&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Coors Light&#39;</span><span>),
-</span><span>(</span><span style="color:#f1fa8c;">&#39;Charlie&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Miller Lite&#39;</span><span>);
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE TABLE </span><span style="color:#5cb3fa;">LIKES</span><span style="color:#abb2bf;"> (
+</span><span style="color:#abb2bf;">    DRINKER </span><span style="color:#cd74e8;">TEXT</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    BEER </span><span style="color:#cd74e8;">TEXT
+</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Example data
+</span><span style="color:#cd74e8;">INSERT INTO</span><span style="color:#abb2bf;"> LIKES (DRINKER, BEER) </span><span style="color:#cd74e8;">VALUES
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Bud Light&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Pabst&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Miller Lite&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Bob&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Bud Light&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Bob&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Coors Light&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Bob&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Miller Lite&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Charlie&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Bud Light&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Charlie&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Coors Light&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;Charlie&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Miller Lite&#39;</span><span style="color:#abb2bf;">);
 </span></code></pre>
 <p>For demonstration, I'll be using the <a href="https://sqliteonline.com/">SQLite Online Compiler</a> to run the queries. Suppose we want to find all the beers that Ava likes with the following query:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">SELECT</span><span> BEER </span><span style="color:#ff79c6;">FROM</span><span> LIKES </span><span style="color:#ff79c6;">WHERE</span><span> DRINKER </span><span style="color:#ff79c6;">= </span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">SELECT</span><span style="color:#abb2bf;"> BEER </span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> LIKES </span><span style="color:#cd74e8;">WHERE</span><span style="color:#abb2bf;"> DRINKER </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
@@ -187,14 +187,14 @@
     
   </div>
 <p>We can inspect the execution plan using the <code>EXPLAIN QUERY PLAN</code> command:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#6272a4;">-- Explain query plan
-</span><span>EXPLAIN QUERY PLAN
-</span><span style="color:#ff79c6;">SELECT</span><span> BEER </span><span style="color:#ff79c6;">FROM</span><span> LIKES </span><span style="color:#ff79c6;">WHERE</span><span> DRINKER </span><span style="color:#ff79c6;">= </span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Explain query plan
+</span><span style="color:#abb2bf;">EXPLAIN QUERY PLAN
+</span><span style="color:#cd74e8;">SELECT</span><span style="color:#abb2bf;"> BEER </span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> LIKES </span><span style="color:#cd74e8;">WHERE</span><span style="color:#abb2bf;"> DRINKER </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>As expected since there's no index on the <code>DRINKER</code> column, the output is:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span>SCAN LIKES
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">SCAN LIKES
 </span></code></pre>
 <h4 id="3-full-table-scan-explained">3. <strong>Full Table Scan Explained</strong></h4>
 <p>The plan indicates &quot;SCAN LIKES,&quot; meaning SQLite will read through the entire <code>LIKES</code> table, row by row, to find matches where <code>DRINKER = 'Ava'</code>. Here’s how it works:</p>
@@ -216,8 +216,8 @@
 <h4 id="4-using-rowid-lookups-for-efficiency">4. <strong>Using Rowid Lookups for Efficiency</strong></h4>
 <p>While full table scans are sometimes necessary, SQLite often relies on <strong>rowid lookups</strong> to speed up queries when no more specific index is available. Each table in SQLite has a unique identifier for each row called the <code>rowid</code>. If your query involves this <code>rowid</code> directly, SQLite can perform a binary search on this identifier, which is significantly faster than a full table scan.</p>
 <p>For example, consider the following query:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">SELECT</span><span> BEER </span><span style="color:#ff79c6;">FROM</span><span> LIKES </span><span style="color:#ff79c6;">WHERE</span><span> rowid </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">1</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">SELECT</span><span style="color:#abb2bf;"> BEER </span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> LIKES </span><span style="color:#cd74e8;">WHERE</span><span style="color:#abb2bf;"> rowid </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>In this case, SQLite will directly use the rowid to locate the record, bypassing the need to scan every row in the table. This technique can be particularly useful when you know the specific <code>rowid</code> of the data you need to retrieve.</p>
 <h4 id="5-execution-returning-the-results">5. <strong>Execution: Returning the Results</strong></h4>
@@ -242,16 +242,16 @@
 <li><strong>Skip the Full Table Scan</strong>: Instead of scanning the entire table, SQLite could directly jump to the rows where <code>DRINKER = 'Ava'</code>, significantly speeding up the query.</li>
 </ul>
 <p>Here’s how you could create the index:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">CREATE INDEX </span><span>idx_drinker ON </span><span style="color:#50fa7b;">LIKES</span><span>(DRINKER);
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE INDEX </span><span style="color:#abb2bf;">idx_drinker ON </span><span style="color:#5cb3fa;">LIKES</span><span style="color:#abb2bf;">(DRINKER);
 </span></code></pre>
 <p>With this index, if you run the same query again:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">SELECT</span><span> BEER </span><span style="color:#ff79c6;">FROM</span><span> LIKES </span><span style="color:#ff79c6;">WHERE</span><span> DRINKER </span><span style="color:#ff79c6;">= </span><span style="color:#f1fa8c;">&#39;Ava&#39;</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">SELECT</span><span style="color:#abb2bf;"> BEER </span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> LIKES </span><span style="color:#cd74e8;">WHERE</span><span style="color:#abb2bf;"> DRINKER </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&#39;Ava&#39;</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>SQLite would use the index to find all rows with <code>DRINKER = 'Ava'</code> directly, reducing the amount of work it needs to do.</p>
 <p>Now when we <code>EXPLAIN QUERY PLAN</code> command to inspect how SQLite would handle the query now, we see:</p>
-<pre style="background-color:#282a36;color:#f8f8f2;"><code><span>SEARCH LIKES USING INDEX idx_drinker (DRINKER=?)
+<pre style="background-color:#2b303b;color:#6c7079;"><code><span style="color:#abb2bf;">SEARCH LIKES USING INDEX idx_drinker (DRINKER=?)
 </span></code></pre>
 <p>This indicates that SQLite is now using the <code>idx_drinker</code> index to perform a much faster search. Instead of scanning the entire table, it quickly narrows down the relevant rows using the index, demonstrating a significant improvement in query performance.</p>
 <h4 id="takeaways-from-the-simple-query-example">Takeaways from the Simple Query Example</h4>
@@ -262,54 +262,54 @@
 <h2 id="complex-query-example-getting-to-the-heart-of-the-optimizer">Complex Query Example: Getting to the Heart of the Optimizer</h2>
 <p>Now that we’ve covered the basics, let’s look at a more complicated query that gives SQLite’s optimizer something to chew on.</p>
 <p>Imagine we have two tables, <code>DRINKER</code> and <code>BEER</code>, and we want to perform a query that joins them to find out which beers each drinker likes, sorted by their preference. The schema might look something like this:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">CREATE TABLE </span><span style="color:#50fa7b;">DRINKER</span><span> (
-</span><span>    ID </span><span style="font-style:italic;color:#8be9fd;">INTEGER </span><span style="color:#ff79c6;">PRIMARY KEY</span><span>,
-</span><span>    NAME </span><span style="font-style:italic;color:#8be9fd;">TEXT
-</span><span>);
-</span><span>
-</span><span style="color:#ff79c6;">CREATE TABLE </span><span style="color:#50fa7b;">BEER</span><span> (
-</span><span>    ID </span><span style="font-style:italic;color:#8be9fd;">INTEGER </span><span style="color:#ff79c6;">PRIMARY KEY</span><span>,
-</span><span>    NAME </span><span style="font-style:italic;color:#8be9fd;">TEXT</span><span>,
-</span><span>    TYPE </span><span style="font-style:italic;color:#8be9fd;">TEXT
-</span><span>);
-</span><span>
-</span><span style="color:#ff79c6;">CREATE TABLE </span><span style="color:#50fa7b;">LIKES</span><span> (
-</span><span>    DRINKER_ID </span><span style="font-style:italic;color:#8be9fd;">INTEGER</span><span>,
-</span><span>    BEER_ID </span><span style="font-style:italic;color:#8be9fd;">INTEGER</span><span>,
-</span><span>    PREFERENCE </span><span style="font-style:italic;color:#8be9fd;">INTEGER</span><span>, </span><span style="color:#6272a4;">-- Lower numbers indicate higher preference
-</span><span>    </span><span style="color:#ff79c6;">FOREIGN KEY</span><span>(DRINKER_ID) </span><span style="color:#ff79c6;">REFERENCES</span><span> DRINKER(ID),
-</span><span>    </span><span style="color:#ff79c6;">FOREIGN KEY</span><span>(BEER_ID) </span><span style="color:#ff79c6;">REFERENCES</span><span> BEER(ID)
-</span><span>);
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE TABLE </span><span style="color:#5cb3fa;">DRINKER</span><span style="color:#abb2bf;"> (
+</span><span style="color:#abb2bf;">    ID </span><span style="color:#cd74e8;">INTEGER PRIMARY KEY</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    NAME </span><span style="color:#cd74e8;">TEXT
+</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE TABLE </span><span style="color:#5cb3fa;">BEER</span><span style="color:#abb2bf;"> (
+</span><span style="color:#abb2bf;">    ID </span><span style="color:#cd74e8;">INTEGER PRIMARY KEY</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    NAME </span><span style="color:#cd74e8;">TEXT</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    TYPE </span><span style="color:#cd74e8;">TEXT
+</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE TABLE </span><span style="color:#5cb3fa;">LIKES</span><span style="color:#abb2bf;"> (
+</span><span style="color:#abb2bf;">    DRINKER_ID </span><span style="color:#cd74e8;">INTEGER</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    BEER_ID </span><span style="color:#cd74e8;">INTEGER</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    PREFERENCE </span><span style="color:#cd74e8;">INTEGER</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- Lower numbers indicate higher preference
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">FOREIGN KEY</span><span style="color:#abb2bf;">(DRINKER_ID) </span><span style="color:#cd74e8;">REFERENCES</span><span style="color:#abb2bf;"> DRINKER(ID),
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">FOREIGN KEY</span><span style="color:#abb2bf;">(BEER_ID) </span><span style="color:#cd74e8;">REFERENCES</span><span style="color:#abb2bf;"> BEER(ID)
+</span><span style="color:#abb2bf;">);
 </span></code></pre>
 <p>And let's populate the tables with some example data:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#6272a4;">-- Example data
-</span><span style="color:#ff79c6;">INSERT INTO</span><span> DRINKER (ID, NAME) </span><span style="color:#ff79c6;">VALUES
-</span><span>(</span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#f1fa8c;">&#39;Alice&#39;</span><span>),
-</span><span>(</span><span style="color:#bd93f9;">2</span><span>, </span><span style="color:#f1fa8c;">&#39;Bob&#39;</span><span>),
-</span><span>(</span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#f1fa8c;">&#39;Charlie&#39;</span><span>);
-</span><span>
-</span><span style="color:#ff79c6;">INSERT INTO</span><span> BEER (ID, NAME, TYPE) </span><span style="color:#ff79c6;">VALUES
-</span><span>(</span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#f1fa8c;">&#39;Budweiser&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Lager&#39;</span><span>),
-</span><span>(</span><span style="color:#bd93f9;">2</span><span>, </span><span style="color:#f1fa8c;">&#39;Coors Light&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Lager&#39;</span><span>),
-</span><span>(</span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#f1fa8c;">&#39;Miller Lite&#39;</span><span>, </span><span style="color:#f1fa8c;">&#39;Pilsner&#39;</span><span>);
-</span><span>
-</span><span style="color:#ff79c6;">INSERT INTO</span><span> LIKES (DRINKER_ID, BEER_ID, PREFERENCE) </span><span style="color:#ff79c6;">VALUES
-</span><span>(</span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#bd93f9;">1</span><span>),  </span><span style="color:#6272a4;">-- Alice likes Budweiser the most
-</span><span>(</span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#bd93f9;">2</span><span>, </span><span style="color:#bd93f9;">2</span><span>),  </span><span style="color:#6272a4;">-- Alice likes Coors Light second
-</span><span>(</span><span style="color:#bd93f9;">2</span><span>, </span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#bd93f9;">1</span><span>),  </span><span style="color:#6272a4;">-- Bob prefers Miller Lite
-</span><span>(</span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#bd93f9;">1</span><span>, </span><span style="color:#bd93f9;">1</span><span>),  </span><span style="color:#6272a4;">-- Charlie likes Budweiser the most
-</span><span>(</span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#bd93f9;">2</span><span>, </span><span style="color:#bd93f9;">3</span><span>),  </span><span style="color:#6272a4;">-- Charlie&#39;s least favorite is Coors Light
-</span><span>(</span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#bd93f9;">3</span><span>, </span><span style="color:#bd93f9;">2</span><span>);  </span><span style="color:#6272a4;">-- Charlie likes Miller Lite second
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Example data
+</span><span style="color:#cd74e8;">INSERT INTO</span><span style="color:#abb2bf;"> DRINKER (ID, NAME) </span><span style="color:#cd74e8;">VALUES
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Alice&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Bob&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Charlie&#39;</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">INSERT INTO</span><span style="color:#abb2bf;"> BEER (ID, NAME, TYPE) </span><span style="color:#cd74e8;">VALUES
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Budweiser&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Lager&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Coors Light&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Lager&#39;</span><span style="color:#abb2bf;">),
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Miller Lite&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;Pilsner&#39;</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">INSERT INTO</span><span style="color:#abb2bf;"> LIKES (DRINKER_ID, BEER_ID, PREFERENCE) </span><span style="color:#cd74e8;">VALUES
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">),  </span><span style="font-style:italic;color:#5f697a;">-- Alice likes Budweiser the most
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">),  </span><span style="font-style:italic;color:#5f697a;">-- Alice likes Coors Light second
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">),  </span><span style="font-style:italic;color:#5f697a;">-- Bob prefers Miller Lite
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">),  </span><span style="font-style:italic;color:#5f697a;">-- Charlie likes Budweiser the most
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">),  </span><span style="font-style:italic;color:#5f697a;">-- Charlie&#39;s least favorite is Coors Light
+</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">);  </span><span style="font-style:italic;color:#5f697a;">-- Charlie likes Miller Lite second
 </span></code></pre>
 <p>Now, suppose we want to find out which beers each drinker likes, sorted by their preference:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">SELECT </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE
-</span><span style="color:#ff79c6;">FROM</span><span> DRINKER
-</span><span style="color:#ff79c6;">JOIN</span><span> LIKES ON </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">DRINKER_ID
-</span><span style="color:#ff79c6;">JOIN</span><span> BEER ON </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">BEER_ID
-</span><span style="color:#ff79c6;">ORDER BY </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">SELECT </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE
+</span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> DRINKER
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> LIKES ON </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">DRINKER_ID
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> BEER ON </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">BEER_ID
+</span><span style="color:#cd74e8;">ORDER BY </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>This query isn’t as simple as it looks. SQLite’s optimizer has to decide:</p>
 <ol>
@@ -319,13 +319,13 @@
 </ol>
 <h3 id="understanding-the-query-plan-what-happens-behind-the-scenes">Understanding the Query Plan: What Happens Behind the Scenes</h3>
 <p>When we look at the query plan for the complex query:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span>EXPLAIN QUERY PLAN
-</span><span style="color:#ff79c6;">SELECT </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE
-</span><span style="color:#ff79c6;">FROM</span><span> DRINKER
-</span><span style="color:#ff79c6;">JOIN</span><span> LIKES ON </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">DRINKER_ID
-</span><span style="color:#ff79c6;">JOIN</span><span> BEER ON </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">BEER_ID
-</span><span style="color:#ff79c6;">ORDER BY </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">EXPLAIN QUERY PLAN
+</span><span style="color:#cd74e8;">SELECT </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE
+</span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> DRINKER
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> LIKES ON </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">DRINKER_ID
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> BEER ON </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">BEER_ID
+</span><span style="color:#cd74e8;">ORDER BY </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>We get the following output:</p>
 <div class="note-container" style="border:  1px solid #e0e0e0">
@@ -399,8 +399,8 @@
 <br>
 <h3 id="optimizing-the-query-adding-a-multi-column-index">Optimizing the Query: Adding a Multi-Column Index</h3>
 <p>As mentioned earlier, one way to improve this query's performance is by adding an index on the <code>LIKES</code> table. Specifically, creating a <strong>multi-column index</strong> on the combination of <code>DRINKER_ID</code> and <code>PREFERENCE</code> would directly support the sorting required by the query:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span style="color:#ff79c6;">CREATE INDEX </span><span>idx_likes_drinker_pref ON </span><span style="color:#50fa7b;">LIKES</span><span>(DRINKER_ID, PREFERENCE);
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">CREATE INDEX </span><span style="color:#abb2bf;">idx_likes_drinker_pref ON </span><span style="color:#5cb3fa;">LIKES</span><span style="color:#abb2bf;">(DRINKER_ID, PREFERENCE);
 </span></code></pre>
 <p>By creating this multi-column index, SQLite can:</p>
 <ul>
@@ -423,13 +423,13 @@
 </div>
 <h3 id="re-running-the-query-plan">Re-running the Query Plan</h3>
 <p>After creating the index, if we re-run the <code>EXPLAIN QUERY PLAN</code> command, we might see a different plan:</p>
-<pre data-lang="sql" style="background-color:#282a36;color:#f8f8f2;" class="language-sql "><code class="language-sql" data-lang="sql"><span>
-</span><span>EXPLAIN QUERY PLAN
-</span><span style="color:#ff79c6;">SELECT </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE
-</span><span style="color:#ff79c6;">FROM</span><span> DRINKER
-</span><span style="color:#ff79c6;">JOIN</span><span> LIKES ON </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">DRINKER_ID
-</span><span style="color:#ff79c6;">JOIN</span><span> BEER ON </span><span style="color:#bd93f9;">BEER</span><span>.</span><span style="color:#bd93f9;">ID </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">BEER_ID
-</span><span style="color:#ff79c6;">ORDER BY </span><span style="color:#bd93f9;">DRINKER</span><span>.</span><span style="color:#bd93f9;">NAME</span><span>, </span><span style="color:#bd93f9;">LIKES</span><span>.</span><span style="color:#bd93f9;">PREFERENCE</span><span>;
+<pre data-lang="sql" style="background-color:#2b303b;color:#6c7079;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">EXPLAIN QUERY PLAN
+</span><span style="color:#cd74e8;">SELECT </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE
+</span><span style="color:#cd74e8;">FROM</span><span style="color:#abb2bf;"> DRINKER
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> LIKES ON </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">DRINKER_ID
+</span><span style="color:#cd74e8;">JOIN</span><span style="color:#abb2bf;"> BEER ON </span><span style="color:#db9d63;">BEER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">ID </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">BEER_ID
+</span><span style="color:#cd74e8;">ORDER BY </span><span style="color:#db9d63;">DRINKER</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">NAME</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">LIKES</span><span style="color:#abb2bf;">.</span><span style="color:#db9d63;">PREFERENCE</span><span style="color:#abb2bf;">;
 </span></code></pre>
 <p>The updated plan now reflects the use of the new index:</p>
 <div class="note-container" style="border:  1px solid #e0e0e0">

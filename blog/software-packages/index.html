@@ -182,50 +182,50 @@
 <h3 id="package-json-1">package.json</h3>
 <p>Here's the <code>package.json</code> file for Autoprefixer:</p>
 <!-- prettier-ignore-->
-<pre data-lang="json" style="background-color:#282a36;color:#f8f8f2;" class="language-json "><code class="language-json" data-lang="json"><span>
-</span><span>{
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">name</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">autoprefixer</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">version</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">10.4.19</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">description</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">engines</span><span style="color:#eeeeee;">&quot;</span><span>: {
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">node</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^10 || ^12 || &gt;=14</span><span style="color:#eeeeee;">&quot;
-</span><span>  },
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">keywords</span><span style="color:#eeeeee;">&quot;</span><span>: [</span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">autoprefixer</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">css</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">prefix</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">postcss</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">postcss-plugin</span><span style="color:#eeeeee;">&quot;</span><span>],
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">main</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">lib/autoprefixer.js</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">bin</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">bin/autoprefixer</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">types</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">lib/autoprefixer.d.ts</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">funding</span><span style="color:#eeeeee;">&quot;</span><span>: [
-</span><span>    {
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">type</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">opencollective</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">url</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">https://opencollective.com/postcss/</span><span style="color:#eeeeee;">&quot;
-</span><span>    },
-</span><span>    {
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">type</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">tidelift</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">url</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">https://tidelift.com/funding/github/npm/autoprefixer</span><span style="color:#eeeeee;">&quot;
-</span><span>    },
-</span><span>    {
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">type</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">github</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>      </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">url</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">https://github.com/sponsors/ai</span><span style="color:#eeeeee;">&quot;
-</span><span>    }
-</span><span>  ],
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">author</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">Andrey Sitnik &lt;andrey@sitnik.ru&gt;</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">license</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">MIT</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">repository</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">postcss/autoprefixer</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">bugs</span><span style="color:#eeeeee;">&quot;</span><span>: {
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">url</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">https://github.com/postcss/autoprefixer/issues</span><span style="color:#eeeeee;">&quot;
-</span><span>  },
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">peerDependencies</span><span style="color:#eeeeee;">&quot;</span><span>: {
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">postcss</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^8.1.0</span><span style="color:#eeeeee;">&quot;
-</span><span>  },
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">dependencies</span><span style="color:#eeeeee;">&quot;</span><span>: {
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">browserslist</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^4.23.0</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">caniuse-lite</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^1.0.30001599</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">fraction.js</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^4.3.7</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">normalize-range</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^0.1.2</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">picocolors</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^1.0.0</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">postcss-value-parser</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">^4.2.0</span><span style="color:#eeeeee;">&quot;
-</span><span>  }
-</span><span>}
+<pre data-lang="json" style="background-color:#2b303b;color:#6c7079;" class="language-json "><code class="language-json" data-lang="json"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;name&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;autoprefixer&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;version&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;10.4.19&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;description&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;engines&quot;</span><span style="color:#abb2bf;">: {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;node&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^10 || ^12 || &gt;=14&quot;
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;keywords&quot;</span><span style="color:#abb2bf;">: [</span><span style="color:#9acc76;">&quot;autoprefixer&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;css&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;prefix&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;postcss&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;postcss-plugin&quot;</span><span style="color:#abb2bf;">],
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;main&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;lib/autoprefixer.js&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;bin&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;bin/autoprefixer&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;types&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;lib/autoprefixer.d.ts&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;funding&quot;</span><span style="color:#abb2bf;">: [
+</span><span style="color:#abb2bf;">    {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;type&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;opencollective&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;url&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;https://opencollective.com/postcss/&quot;
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">    {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;type&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;tidelift&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;url&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;https://tidelift.com/funding/github/npm/autoprefixer&quot;
+</span><span style="color:#abb2bf;">    },
+</span><span style="color:#abb2bf;">    {
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;type&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;github&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;url&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;https://github.com/sponsors/ai&quot;
+</span><span style="color:#abb2bf;">    }
+</span><span style="color:#abb2bf;">  ],
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;author&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;Andrey Sitnik &lt;andrey@sitnik.ru&gt;&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;license&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;MIT&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;repository&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;postcss/autoprefixer&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;bugs&quot;</span><span style="color:#abb2bf;">: {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;url&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;https://github.com/postcss/autoprefixer/issues&quot;
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;peerDependencies&quot;</span><span style="color:#abb2bf;">: {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;postcss&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^8.1.0&quot;
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;dependencies&quot;</span><span style="color:#abb2bf;">: {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;browserslist&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^4.23.0&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;caniuse-lite&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^1.0.30001599&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;fraction.js&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^4.3.7&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;normalize-range&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^0.1.2&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;picocolors&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^1.0.0&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;postcss-value-parser&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;^4.2.0&quot;
+</span><span style="color:#abb2bf;">  }
+</span><span style="color:#abb2bf;">}
 </span></code></pre>
 <p>Let's break down some key fields in the <code>package.json</code> file:</p>
 <div class="note-container" style="border:  1px solid #e0e0e0">
@@ -261,25 +261,25 @@
 <ol>
 <li>
 <p><strong>Initialize the project:</strong></p>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">mkdir</span><span> date-formatter
-</span><span style="color:#8be9fd;">cd</span><span> date-formatter
-</span><span style="color:#50fa7b;">npm</span><span> init  </span><span style="color:#6272a4;"># creates a package.json file
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">mkdir</span><span style="color:#abb2bf;"> date-formatter
+</span><span style="color:#5ebfcc;">cd</span><span style="color:#abb2bf;"> date-formatter
+</span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> init  </span><span style="font-style:italic;color:#5f697a;"># creates a package.json file
 </span></code></pre>
 </li>
 <li>
 <p><strong>Add some functionality:</strong>
 Create an <code>index.js</code> file with a simple date formatting function.</p>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">touch</span><span> index.js
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">touch</span><span style="color:#abb2bf;"> index.js
 </span></code></pre>
 <!-- prettier-ignore-->
-<pre data-lang="js" style="background-color:#282a36;color:#f8f8f2;" class="language-js "><code class="language-js" data-lang="js"><span>
-</span><span style="color:#6272a4;">// index.js
-</span><span style="font-style:italic;color:#66d9ef;">module</span><span style="color:#ff79c6;">.</span><span style="font-style:italic;color:#66d9ef;">exports</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">formatDate </span><span style="color:#ff79c6;">= </span><span style="font-style:italic;color:#8be9fd;">function </span><span>(</span><span style="font-style:italic;color:#ffb86c;">date</span><span>, </span><span style="font-style:italic;color:#ffb86c;">format</span><span>) {
-</span><span>  </span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">options </span><span style="color:#ff79c6;">= </span><span>{ year: </span><span style="color:#f1fa8c;">&quot;numeric&quot;</span><span>, month: </span><span style="color:#f1fa8c;">&quot;long&quot;</span><span>, day: </span><span style="color:#f1fa8c;">&quot;numeric&quot; </span><span>};
-</span><span>  </span><span style="color:#ff79c6;">return new </span><span>Date(</span><span style="color:#ffffff;">date</span><span>)</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">toLocaleDateString</span><span>(</span><span style="color:#bd93f9;">undefined</span><span>, </span><span style="color:#ffffff;">options</span><span>);
-</span><span>};
+<pre data-lang="js" style="background-color:#2b303b;color:#6c7079;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">// index.js
+</span><span style="color:#abb2bf;">module.exports.</span><span style="color:#5cb3fa;">formatDate </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">function </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">format</span><span style="color:#abb2bf;">) {
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">options </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{ year: </span><span style="color:#9acc76;">&quot;numeric&quot;</span><span style="color:#abb2bf;">, month: </span><span style="color:#9acc76;">&quot;long&quot;</span><span style="color:#abb2bf;">, day: </span><span style="color:#9acc76;">&quot;numeric&quot; </span><span style="color:#abb2bf;">};
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Date(</span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">).</span><span style="color:#5cb3fa;">toLocaleDateString</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">undefined</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">options</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">};
 </span></code></pre>
 </li>
 </ol>
@@ -289,24 +289,24 @@ Create an <code>index.js</code> file with a simple date formatting function.</p>
 <li>
 <p><strong>Add a README file:</strong></p>
 <!-- prettier-ignore-->
-<pre data-lang="markdown" style="background-color:#282a36;color:#f8f8f2;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span>
-</span><span style="color:#8be9fd;"># Date Formatter
-</span><span>
-</span><span>This package provides utility functions for formatting dates.
-</span><span>
-</span><span style="color:#8be9fd;">## Installation
-</span><span>
-</span><span>```</span><span style="color:#bd93f9;">bash
-</span><span style="color:#50fa7b;">npm</span><span> install date-formatter
-</span><span>```
-</span><span>
-</span><span style="color:#8be9fd;">## Usage
-</span><span>
-</span><span>```</span><span style="color:#bd93f9;">js
-</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">{ formatDate } </span><span style="color:#ff79c6;">= </span><span style="color:#8be9fd;">require</span><span>(</span><span style="color:#f1fa8c;">&quot;date-formatter&quot;</span><span>);
-</span><span style="font-style:italic;color:#66d9ef;">console</span><span style="color:#ff79c6;">.</span><span style="color:#8be9fd;">log</span><span>(</span><span style="color:#50fa7b;">formatDate</span><span>(</span><span style="color:#f1fa8c;">&quot;2024-06-04&quot;</span><span>, </span><span style="color:#f1fa8c;">&quot;long&quot;</span><span>));
-</span><span style="color:#6272a4;">// Outputs: June 4, 2024
-</span><span>```
+<pre data-lang="markdown" style="background-color:#2b303b;color:#6c7079;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span style="color:#abb2bf;">
+</span><span style="color:#5cb3fa;"># Date Formatter
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">This package provides utility functions for formatting dates.
+</span><span style="color:#abb2bf;">
+</span><span style="color:#5cb3fa;">## Installation
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">```</span><span style="color:#db9d63;">bash
+</span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> install date-formatter
+</span><span style="color:#abb2bf;">```
+</span><span style="color:#abb2bf;">
+</span><span style="color:#5cb3fa;">## Usage
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">```</span><span style="color:#db9d63;">js
+</span><span style="color:#cd74e8;">const </span><span style="color:#abb2bf;">{ </span><span style="color:#adb7c9;">formatDate </span><span style="color:#abb2bf;">} </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;date-formatter&quot;</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">console.</span><span style="color:#5ebfcc;">log</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">formatDate</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;2024-06-04&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;long&quot;</span><span style="color:#abb2bf;">));
+</span><span style="font-style:italic;color:#5f697a;">// Outputs: June 4, 2024
+</span><span style="color:#abb2bf;">```
 </span></code></pre>
 </li>
 <li>
@@ -317,19 +317,19 @@ Create an <code>index.js</code> file with a simple date formatting function.</p>
 <p><strong>Update the <code>package.json</code> file:</strong></p>
 <p>Add an entry point to the <code>index.js</code> file and specify the main functionality of the package.</p>
 <!-- prettier-ignore -->
-<pre data-lang="json" style="background-color:#282a36;color:#f8f8f2;" class="language-json "><code class="language-json" data-lang="json"><span>
-</span><span>{
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">name</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">date-formatter</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">version</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">1.0.0</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">description</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">A simple date formatting utility</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">main</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">index.js</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">scripts</span><span style="color:#eeeeee;">&quot;</span><span>: {
-</span><span>    </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">test</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">echo </span><span style="color:#ff79c6;">\&quot;</span><span style="color:#f1fa8c;">Error: no test specified</span><span style="color:#ff79c6;">\&quot;</span><span style="color:#f1fa8c;"> &amp;&amp; exit 1</span><span style="color:#eeeeee;">&quot;
-</span><span>  },
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">keywords</span><span style="color:#eeeeee;">&quot;</span><span>: [</span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">date</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">format</span><span style="color:#eeeeee;">&quot;</span><span>, </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">utility</span><span style="color:#eeeeee;">&quot;</span><span>],
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">author</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">Your Name</span><span style="color:#eeeeee;">&quot;</span><span>,
-</span><span>  </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">license</span><span style="color:#eeeeee;">&quot;</span><span>: </span><span style="color:#eeeeee;">&quot;</span><span style="color:#f1fa8c;">MIT</span><span style="color:#eeeeee;">&quot;
-</span><span>}
+<pre data-lang="json" style="background-color:#2b303b;color:#6c7079;" class="language-json "><code class="language-json" data-lang="json"><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;name&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;date-formatter&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;version&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;1.0.0&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;description&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;A simple date formatting utility&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;main&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;index.js&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;scripts&quot;</span><span style="color:#abb2bf;">: {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;test&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;echo </span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;">Error: no test specified</span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;"> &amp;&amp; exit 1&quot;
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;keywords&quot;</span><span style="color:#abb2bf;">: [</span><span style="color:#9acc76;">&quot;date&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;format&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;utility&quot;</span><span style="color:#abb2bf;">],
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;author&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;Your Name&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;license&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;MIT&quot;
+</span><span style="color:#abb2bf;">}
 </span></code></pre>
 </li>
 </ol>
@@ -340,13 +340,13 @@ Create an <code>index.js</code> file with a simple date formatting function.</p>
 <p>If you don't already have one, create an account on <a href="https://www.npmjs.com/">NPM</a>.</p>
 </li>
 <li><strong>Login to NPM:</strong>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">npm</span><span> login
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> login
 </span></code></pre>
 </li>
 <li><strong>Publish the package:</strong>
-<pre data-lang="bash" style="background-color:#282a36;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#50fa7b;">npm</span><span> publish
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> publish
 </span></code></pre>
 <p>This command will upload the package to the NPM registry. This registry is a
 large database that stores all the packages and their versions. When someone
