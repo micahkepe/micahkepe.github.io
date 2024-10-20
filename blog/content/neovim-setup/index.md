@@ -111,16 +111,17 @@ starting Neovim configuration that provides a great starting place.
 I particularly like NVChad for the following reasons:
 
 - **Pre-configured LSP**: NVChad provides a hassle-free Language Server Protocol
-  (LSP) setup.
+  ([LSP](https://microsoft.github.io/language-server-protocol/)) setup.
 
 - **Lazy-loading Plugins**: With the [lazy.nvim](https://lazy.folke.io/) plugin
   manager, NVChad optimizes startup time by only loading plugins when necessary.
 
 - **Rich Theming**: NVChad comes with lots of themes and color schemes to choose
-  from (I am currently using `palenight`).
+  from (I am currently using
+  [`palenight`](https://github.com/drewtempelmeyer/palenight.vim)).
 
-- **Community Support**: NVChad’s community is active, and the configuration gets
-  frequent updates and improvements.
+- **Community Support**: NVChad’s [community](https://discord.com/invite/gADmkJb9Fb)
+  is active, and the configuration gets frequent updates and improvements.
 
 <br>
 
@@ -150,7 +151,7 @@ be using `lazy.nvim` install configurations. I will break this section into the
 plugins that come by default from NVChad and the plugins that I have added on.
 
 {{ note(body="
- **Note**: if you are curious about all of my plugins, you see them
+ **Note:** if you are curious about all of my plugins, you see them
 [here](https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins).
 ")}}
 
@@ -177,13 +178,11 @@ foundation for your Neovim setup. Here are some of the key plugins included:
 
 5. [**williamboman/mason.nvim**](https://github.com/williamboman/mason.nvim):
    Portable package manager for Neovim that runs everywhere Neovim runs. Easily
-   install and manage [LSP](https://microsoft.github.io/language-server-protocol/)
-   servers, [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers,
-   linters, and formatters.
+   install and manage LSP servers, [DAP](https://microsoft.github.io/debug-adapter-protocol/)
+   debugger servers, linters, and formatters.
 
 6. [**neovim/nvim-lspconfig**](https://github.com/neovim/nvim-lspconfig): A
-   collection of common configurations for Neovim's built-in
-   [LSP](https://microsoft.github.io/language-server-protocol/) client.
+   collection of common configurations for Neovim's built-in LSP client.
 
 7. [**folke/which-key.nvim**](https://github.com/folke/which-key.nvim): Displays
    a popup with possible key bindings of the command you started typing.
@@ -206,7 +205,7 @@ to work well together, providing a smooth and cohesive editing experience.
 In no particular order, here are the plugins that I have added to augment
 NVChad's base.
 
-1.  [`gelguy/wilder.nvim`](https://github.com/gelguy/wilder.nvim)
+#### [`gelguy/wilder.nvim`](https://github.com/gelguy/wilder.nvim)
 
 {{ gif(sources=["demos/wilder.mp4"], width=80)}}
 
@@ -250,7 +249,7 @@ return {
 
 ```
 
-2. [`3rd/image.nvim`](https://github.com/3rd/image.nvim)
+#### [`3rd/image.nvim`](https://github.com/3rd/image.nvim)
 
 {{ gif(sources=["demos/image-nvim.mp4"], width=80)}}
 
@@ -262,18 +261,18 @@ text editor—it's a media-enabled workspace.
 
 Honestly this one was a pain in the ass to setup but worth it.
 
-I did have to make the switch to the [Kitty](replace-me) terminal emulator from
-[iTerm2](replace-me) as they implement different terminal image protocols
-(`kitty` vs. `imgcat`) and Kitty's protocol has more support as of writing.
-Additionally, getting the right Luarocks version (5.1) is a little tricky as it
-is an older version of Luarocks.
+I did have to make the switch to the [Kitty](https://sw.kovidgoyal.net/kitty/)
+terminal emulator from [iTerm2](https://iterm2.com/index.html) as they implement
+different terminal image protocols (`kitty` vs. `imgcat`) and Kitty's protocol
+has more support as of writing. Additionally, getting the right Luarocks
+version (5.1) is a little tricky as it is an older version of Luarocks.
 
 Honestly, I needed images in Neovim in order to even consider making the switch
 from Visual Studio Code, so getting this plugin working was a non-begotiable for
 me.
 
 {{ note(body="
- **Note**: This particular configuration of the plugin must be run in Kitty to
+ **Note:** This particular configuration of the plugin must be run in Kitty to
  work. See the `backend` option if you want to use a different emulator.
 ")}}
 
@@ -392,7 +391,9 @@ return {
 }
 ```
 
-3. [`rmagatti/autosession`](https://github.com/rmagatti/auto-session)
+<br>
+
+#### [`rmagatti/autosession`](https://github.com/rmagatti/auto-session)
 
 {{ gif(sources=["demos/autosession.mp4"], width=80)}}
 
@@ -424,7 +425,9 @@ return {
 }
 ```
 
-4. [`christoomey/vim-tmux-navigator`](https://github.com/christoomey/vim-tmux-navigator)
+<br>
+
+#### [`christoomey/vim-tmux-navigator`](https://github.com/christoomey/vim-tmux-navigator)
 
 {{ gif(sources=["demos/navigator.mp4"], width=80)}}
 
@@ -462,7 +465,7 @@ Vim windown motions.
 
 <br>
 
-## Key Mappings
+## **Key Mappings**
 
 Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
@@ -566,7 +569,7 @@ map("n", "<leader>hU", "<cmd>lua require'gitsigns'.reset_buffer_index()<CR>", { 
 
 <br>
 
-## Options
+## **Options**
 
 These options provide a basic, yet highly functional configuration for Neovim
 that enhances usability by enabling features like clipboard integration and
