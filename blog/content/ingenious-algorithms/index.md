@@ -17,8 +17,6 @@ own research.
 
 <!-- more -->
 
-{{ latex() }}
-
 ## 1. PageRank
 
 When Larry Page and Sergey Brin founded Google in 1998, they revolutionized the

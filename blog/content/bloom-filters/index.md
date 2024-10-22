@@ -19,8 +19,6 @@ fields, and compares them with other data structures.
 
 <!-- more -->
 
-{{ latex() }}
-
 ## What is a Bloom Filter?
 
 A Bloom filter is a probabilistic data structure designed to efficiently test

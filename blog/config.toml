@@ -42,3 +42,6 @@ after_dark_menu = [
 
 # Nicer codeblocks with copy to clipboard 
 codeblock = true
+
+# Enable MathJax rendering support
+latex = true
