@@ -3,22 +3,21 @@ base_url = "https://micahkepe.com/blog"
 title = "Micah's Secret Blog"
 theme = "after-after-dark"
 description = "An assortment of my ramblings and random adventures."
+generate_feed = true
 
 taxonomies = [
     # You can enable/disable RSS
     {name = "categories", feed = true},
     {name = "tags", feed = true},
-]
-
-# For overriding the default output directory `public`, set it to another value (e.g.: "docs")
-# output_dir = "public"
+ ]
 
 # When set to "true", the Sass files in the `sass` directory in the site root are compiled.
 # Sass files in theme directories are always compiled.
 compile_sass = false
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+# When set to "true", a search index is built from the pages and section
+# content for `default_language`.
+build_search_index = true 
 
 [markdown]
 # Whether to do syntax highlighting
@@ -26,6 +25,13 @@ build_search_index = false
 highlight_code = true
 
 highlight_theme = "one-dark"
+
+[search]
+# Wether to produce the search index as a javascript file or as a JSON file
+# Accepted values:
+# - "elasticlunr_javascript", "elasticlunr_json"
+# - "fuse_javascript", "fuse_json"
+index_format = "elasticlunr_json"
 
 [extra]
 # Put all your custom variables here
@@ -45,3 +51,6 @@ codeblock = true
 
 # Enable MathJax rendering support
 latex = true
+
+# Enable search bar 
+enable_search = false
