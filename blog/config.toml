@@ -53,4 +53,4 @@ codeblock = true
 latex = true
 
 # Enable search bar 
-enable_search = false
+enable_search = true
