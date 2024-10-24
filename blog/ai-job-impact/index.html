@@ -17,6 +17,8 @@
   <title>Micah&#x27;s Secret Blog</title>
 
   
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://micahkepe.com/blog/atom.xml">
+  
 
   
   <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
@@ -32,22 +34,47 @@
         
   
   <header>
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
+      <div class="nav-links">
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/">
+          <span itemprop="name">Home</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/categories">
+          <span itemprop="name">Categories</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/tags">
+          <span itemprop="name">Tags</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/categories/programming/atom.xml">
+          <span itemprop="name">RSS Feed</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/">
+          <span itemprop="name">Main Site</span></a>
+        
+      </div>
       
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/">
-        <span itemprop="name">Home</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/categories">
-        <span itemprop="name">Categories</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/tags">
-        <span itemprop="name">Tags</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/categories/programming/atom.xml">
-        <span itemprop="name">RSS Feed</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/">
-        <span itemprop="name">Main Site</span></a>
+      <div class="search-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="search-icon size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input type="text" id="search" placeholder="Search...">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </div>
       
     </nav>
   </header>
@@ -300,6 +327,11 @@ spreadsheets made accounting more effective and easier, which resulted in
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+
+  
+<script type="text/javascript" src="https://micahkepe.com/blog/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://micahkepe.com/blog/js/search.js"></script>
 
 
 

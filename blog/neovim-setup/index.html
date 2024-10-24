@@ -17,6 +17,8 @@
   <title>Micah&#x27;s Secret Blog</title>
 
   
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://micahkepe.com/blog/atom.xml">
+  
 
   
   <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
@@ -32,22 +34,47 @@
         
   
   <header>
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
+      <div class="nav-links">
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/">
+          <span itemprop="name">Home</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/categories">
+          <span itemprop="name">Categories</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/tags">
+          <span itemprop="name">Tags</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/blog/categories/programming/atom.xml">
+          <span itemprop="name">RSS Feed</span></a>
+        
+        <a itemprop="url"
+          class=""
+          href="https://micahkepe.com/">
+          <span itemprop="name">Main Site</span></a>
+        
+      </div>
       
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/">
-        <span itemprop="name">Home</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/categories">
-        <span itemprop="name">Categories</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/tags">
-        <span itemprop="name">Tags</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/blog/categories/programming/atom.xml">
-        <span itemprop="name">RSS Feed</span></a>
-      
-      <a itemprop="url" class="" href="https://micahkepe.com/">
-        <span itemprop="name">Main Site</span></a>
+      <div class="search-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="search-icon size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input type="text" id="search" placeholder="Search...">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </div>
       
     </nav>
   </header>
@@ -318,20 +345,43 @@ speeds up workflows that involve repeated or complex command usage.</p>
 </span><span style="color:#abb2bf;">    },
 </span><span style="color:#abb2bf;">    </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
 </span><span style="color:#abb2bf;">      </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">wilder </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;wilder&quot;
-</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">modes </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;:&quot; </span><span style="color:#abb2bf;">} }
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">modes </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;?&quot; </span><span style="color:#abb2bf;">} }
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">set_option</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;pipeline&quot;</span><span style="color:#abb2bf;">, {
+</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">branch</span><span style="color:#abb2bf;">(
+</span><span style="color:#abb2bf;">          </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">python_file_finder_pipeline </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">            </span><span style="color:#5cb3fa;">file_command </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">(</span><span style="color:#adb7c9;">_</span><span style="color:#abb2bf;">, </span><span style="color:#adb7c9;">arg</span><span style="color:#abb2bf;">)
+</span><span style="color:#abb2bf;">              </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">string.</span><span style="color:#5ebfcc;">find</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">arg</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;.&quot;</span><span style="color:#abb2bf;">) </span><span style="color:#adb7c9;">~= </span><span style="color:#db9d63;">nil </span><span style="color:#cd74e8;">then
+</span><span style="color:#abb2bf;">                </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">&quot;fd&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;-tf&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;-H&quot; </span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">              </span><span style="color:#cd74e8;">else
+</span><span style="color:#abb2bf;">                </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">&quot;fd&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;-tf&quot; </span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">              </span><span style="color:#cd74e8;">end
+</span><span style="color:#abb2bf;">            </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">dir_command </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;fd&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;-td&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">filters </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;fuzzy_filter&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;difflib_sorter&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">          </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">cmdline_pipeline</span><span style="color:#abb2bf;">(),
+</span><span style="color:#abb2bf;">          </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">python_search_pipeline</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">        ),
+</span><span style="color:#abb2bf;">      })
 </span><span style="color:#abb2bf;">
 </span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">set_option</span><span style="color:#abb2bf;">(
 </span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">&quot;renderer&quot;</span><span style="color:#abb2bf;">,
-</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_renderer </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_renderer</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_border_theme </span><span style="color:#abb2bf;">{
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlights </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">accent </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">make_hl</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;WilderAccent&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;Pmenu&quot;</span><span style="color:#abb2bf;">, { { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">}, { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">}, { </span><span style="color:#9acc76;">foreground </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;#f4468f&quot; </span><span style="color:#abb2bf;">} }),
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- &#39;single&#39;, &#39;double&#39;, &#39;rounded&#39; or &#39;solid&#39;
+</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">border </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;rounded&quot;</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlighter </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">basic_highlighter</span><span style="color:#abb2bf;">(),
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">left </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">right </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_scrollbar </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">thumb_char </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot; &quot; </span><span style="color:#abb2bf;">} },
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlights </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">default </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;WilderMenu&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">accent </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;WilderAccent&quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">        }
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">left </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_devicons</span><span style="color:#abb2bf;">() },
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">right </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_scrollbar</span><span style="color:#abb2bf;">() },
+</span><span style="color:#abb2bf;">        })
 </span><span style="color:#abb2bf;">      )
 </span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">  },
 </span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">
 </span><span style="color:#abb2bf;">
 </span></code></pre>
 <h4 id="3rd-image-nvim"><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></h4>
@@ -795,6 +845,11 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+
+
+  
+<script type="text/javascript" src="https://micahkepe.com/blog/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://micahkepe.com/blog/js/search.js"></script>
 
 
 
