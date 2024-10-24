@@ -150,9 +150,11 @@ function initSearch() {
 
   var initIndex = async function () {
     if (index === undefined) {
-      index = fetch("/search_index.en.json").then(async function (response) {
-        return await elasticlunr.Index.load(await response.json());
-      });
+      index = fetch("/blog/search_index.en.json").then(
+        async function (response) {
+          return await elasticlunr.Index.load(await response.json());
+        },
+      );
     }
     let res = await index;
     return res;
