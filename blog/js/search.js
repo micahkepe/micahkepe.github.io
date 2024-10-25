@@ -148,16 +148,6 @@ function initSearch() {
   var currentTerm = "";
   var index;
 
-  //var initIndex = async function () {
-  //  if (index === undefined) {
-  //    index = fetch("/search_index.en.json").then(async function (response) {
-  //      return await elasticlunr.Index.load(await response.json());
-  //    });
-  //  }
-  //  let res = await index;
-  //  return res;
-  //};
-  //
   const initIndex = async function () {
     if (index === undefined) {
       try {
