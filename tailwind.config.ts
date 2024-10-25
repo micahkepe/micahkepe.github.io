@@ -1,7 +1,7 @@
 import forms from "@tailwindcss/forms";
 
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "!./blog/*"],
   theme: {
     extend: {
       spacing: {
