@@ -44,7 +44,9 @@ width=80) }}
 
 ---
 
-# Table of Contents
+{{ note(body="
+
+# **Table of Contents**
 
 1. [What is Neovim Anyway?](#what-is-neovim-anyway)
 2. [Getting Started with Neovim](#getting-started-with-neovim)
@@ -60,6 +62,8 @@ width=80) }}
 6. [Options](#options)
 7. [Conclusion](#conclusion)
 8. [References](#references)
+
+")}}
 
 ---
 

@@ -17,7 +17,19 @@ own research.
 
 <!-- more -->
 
-## 1. PageRank
+{{ note(body="
+
+# **Table of Contents**
+
+1. [PageRank](#1-pagerank)
+2. [Spell Checkers](#2-spell-checkers)
+3. [Shazam](#3-shazam)
+
+")}}
+
+---
+
+# 1. PageRank
 
 When Larry Page and Sergey Brin founded Google in 1998, they revolutionized the
 way we search for information on the internet. Their search engine, Google
@@ -27,7 +39,7 @@ more sophisticated algorithms, PageRank remains a fundamental part of their
 search engine and understanding how it works can help you better understand how
 search engines work.
 
-### History of PageRank
+## History of PageRank
 
 The idea for PageRank came to Larry Page in a dream in 1996 while he was a
 graduate student at Stanford University. Page was interested in the problem of
@@ -49,7 +61,7 @@ on the word "googol", which means 1 followed by 100 zeros) and incorporated
 PageRank as a key part of their ranking algorithm. The rest, as they say, is
 history.
 
-### How PageRank Works
+## How PageRank Works
 
 PageRank is based on the idea that a web page's importance can be measured by
 the number and quality of other pages that link to it. In other words, if many
@@ -131,7 +143,7 @@ This interpretation has led to some interesting applications of PageRank beyond
 web search, such as modeling the spread of disease or analyzing the structure of
 social networks.
 
-### Fun Facts about PageRank
+## Fun Facts about PageRank
 
 - The original PageRank algorithm was inspired by the way academic papers are
   cited by other papers. Just as an academic paper's importance can be measured
@@ -145,13 +157,15 @@ social networks.
   algorithms that try to measure the importance and influence of individuals
   based on their social connections.
 
-## 2. Spell Checkers
+---
+
+# 2. Spell Checkers
 
 Have you ever wondered how spell checkers work? How do they know when you've
 misspelled a word and suggest the correct spelling? The answer lies in a clever
 algorithm called the Levenshtein distance algorithm.
 
-### History of Spell Checkers
+## History of Spell Checkers
 
 The history of spell checkers dates back to the early days of computing. In
 1957, a team of researchers at Bell Labs developed a program called
@@ -176,7 +190,7 @@ clients to social media apps. Modern spell checkers use sophisticated algorithms
 and machine learning techniques to detect and correct spelling errors in
 real-time.
 
-### How Spell Checkers Work
+## How Spell Checkers Work
 
 At the core of most spell checkers is the Levenshtein distance algorithm, which
 measures the similarity between two strings. The Levenshtein distance between
@@ -227,7 +241,7 @@ Damerau-Levenshtein distance, which allows for transpositions of adjacent
 characters in addition to insertions, deletions, and substitutions. This variant
 is useful for catching common typing errors like "teh" instead of "the".
 
-### Fun Facts about Spell Checkers
+## Fun Facts about Spell Checkers
 
 - The first spell checker was developed for the Unix operating system and was
   called "spell". It used a simple algorithm that compared each word to a
@@ -244,13 +258,15 @@ is useful for catching common typing errors like "teh" instead of "the".
 - The Levenshtein distance algorithm has applications beyond spell checking,
   such as DNA sequence alignment and plagiarism detection.
 
-## 3. Shazam
+---
+
+# 3. Shazam
 
 Have you ever heard a song playing and wondered what it was called or who sang
 it? Shazam is a popular app that can identify songs based on a short audio clip.
 The algorithm behind Shazam is ingenious in its simplicity and effectiveness.
 
-### History of Shazam
+## History of Shazam
 
 The idea for Shazam came to co-founder Chris Barton in 1999 when he was a
 student at the University of California, Berkeley. Barton was at a bar with
@@ -278,7 +294,7 @@ Today, Shazam is one of the most popular music recognition apps in the world,
 with over 1 billion downloads and 20 million song identifications per day. In
 2018, Shazam was acquired by Apple for a reported $400 million.
 
-### How Shazam Works
+## How Shazam Works
 
 At a high level, Shazam works by converting an audio clip into a "fingerprint"
 that can be compared to a database of known songs. The fingerprint is created
@@ -337,7 +353,7 @@ millions of songs.
 
 <br>
 
-### Fun Facts about Shazam
+## Fun Facts about Shazam
 
 - Shazam's database contains over 11 million songs and is growing every day.
 - Shazam has been used to identify over 50 billion songs since its launch
@@ -361,6 +377,8 @@ The next time you use a search engine to find information, correct a spelling
 mistake, or identify a song, take a moment to appreciate the algorithms that
 make it all possible. They may be invisible, but they are the unsung heroes of
 the digital age.
+
+---
 
 ## References
 
