@@ -55,7 +55,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.9",
     "@babel/eslint-parser": "^7.25.9",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
     "@babel/preset-react": "^7.25.9",
     "@svgr/cli": "^8.0.1",
     "@tailwindcss/typography": "^0.5.15",
