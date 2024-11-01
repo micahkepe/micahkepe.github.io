@@ -19,7 +19,7 @@
     "react-router-dom": "^6.27.0",
     "react-scroll": "^1.8.9",
     "vite": "^5.4.10",
-    "web-vitals": "^4.2.3"
+    "web-vitals": "^4.2.4"
   },
   "scripts": {
     "start": "npm run build:blog-dev && vite",
