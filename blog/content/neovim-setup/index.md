@@ -216,9 +216,10 @@ NVChad's base.
 Makes navigating the Neovim command line much faster with fuzzy search
 capabilities, providing instant suggestions as you type commands.
 
-When you press `:`, `wilder.nvim` offers a real-time list of suggestions based
-on your command history, file paths, and available commands. This dramatically
-speeds up workflows that involve repeated or complex command usage.
+When executing a command or searching, `wilder.nvim` offers a real-time list of
+suggestions based on your command history, file paths, and available commands.
+This dramatically speeds up workflows that involve repeated or complex command
+usage.
 
 **lazy.nvim**:
 
@@ -257,23 +258,23 @@ return {
 
       wilder.set_option(
         "renderer",
-        wilder.popupmenu_renderer(wilder.popupmenu_border_theme {
-          highlights = {
-            accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#f4468f" } }),
-          },
-          -- 'single', 'double', 'rounded' or 'solid'
-          -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-          border = "rounded",
+        wilder.popupmenu_renderer {
           highlighter = wilder.basic_highlighter(),
           left = { " ", wilder.popupmenu_devicons() },
-          right = { " ", wilder.popupmenu_scrollbar() },
-        })
+          right = { " ", wilder.popupmenu_scrollbar { thumb_char = " " } },
+          highlights = {
+            default = "WilderMenu",
+            accent = wilder.make_hl("WilderAccent", "Pmenu", {
+              { a = 1 },
+              { a = 1 },
+              { foreground = "#f4468f" },
+            }),
+          },
+        }
       )
     end,
   },
 }
-
-
 ```
 
 #### [`3rd/image.nvim`](https://github.com/3rd/image.nvim)
@@ -295,7 +296,7 @@ has more support as of writing. Additionally, getting the right Luarocks
 version (5.1) is a little tricky as it is an older version of Luarocks.
 
 Honestly, I needed images in Neovim in order to even consider making the switch
-from Visual Studio Code, so getting this plugin working was a non-begotiable for
+from Visual Studio Code, so getting this plugin working was a non-negotiable for
 me.
 
 > **Note:** This particular configuration of the plugin must be run in Kitty to
