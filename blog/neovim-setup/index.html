@@ -96,7 +96,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>17 minute read</span>
+    <span>16 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -335,9 +335,10 @@ NVChad's base.</p>
 </div>
 <p>Makes navigating the Neovim command line much faster with fuzzy search
 capabilities, providing instant suggestions as you type commands.</p>
-<p>When you press <code>:</code>, <code>wilder.nvim</code> offers a real-time list of suggestions based
-on your command history, file paths, and available commands. This dramatically
-speeds up workflows that involve repeated or complex command usage.</p>
+<p>When executing a command or searching, <code>wilder.nvim</code> offers a real-time list of
+suggestions based on your command history, file paths, and available commands.
+This dramatically speeds up workflows that involve repeated or complex command
+usage.</p>
 <p><strong>lazy.nvim</strong>:</p>
 <pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
 </span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/wilder.nvim
@@ -373,23 +374,23 @@ speeds up workflows that involve repeated or complex command usage.</p>
 </span><span style="color:#abb2bf;">
 </span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">set_option</span><span style="color:#abb2bf;">(
 </span><span style="color:#abb2bf;">        </span><span style="color:#9acc76;">&quot;renderer&quot;</span><span style="color:#abb2bf;">,
-</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_renderer</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_border_theme </span><span style="color:#abb2bf;">{
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlights </span><span style="color:#abb2bf;">= {
-</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">accent </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">make_hl</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;WilderAccent&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;Pmenu&quot;</span><span style="color:#abb2bf;">, { { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">}, { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">}, { </span><span style="color:#9acc76;">foreground </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;#f4468f&quot; </span><span style="color:#abb2bf;">} }),
-</span><span style="color:#abb2bf;">          },
-</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- &#39;single&#39;, &#39;double&#39;, &#39;rounded&#39; or &#39;solid&#39;
-</span><span style="color:#abb2bf;">          </span><span style="font-style:italic;color:#5f697a;">-- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">border </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;rounded&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">        </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_renderer </span><span style="color:#abb2bf;">{
 </span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlighter </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">basic_highlighter</span><span style="color:#abb2bf;">(),
 </span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">left </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_devicons</span><span style="color:#abb2bf;">() },
-</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">right </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_scrollbar</span><span style="color:#abb2bf;">() },
-</span><span style="color:#abb2bf;">        })
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">right </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">popupmenu_scrollbar </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">thumb_char </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot; &quot; </span><span style="color:#abb2bf;">} },
+</span><span style="color:#abb2bf;">          </span><span style="color:#9acc76;">highlights </span><span style="color:#abb2bf;">= {
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">default </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;WilderMenu&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">            </span><span style="color:#9acc76;">accent </span><span style="color:#abb2bf;">= </span><span style="color:#eb6772;">wilder</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">make_hl</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;WilderAccent&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;Pmenu&quot;</span><span style="color:#abb2bf;">, {
+</span><span style="color:#abb2bf;">              { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">              { </span><span style="color:#9acc76;">a </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">1 </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">              { </span><span style="color:#9acc76;">foreground </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;#f4468f&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">            }),
+</span><span style="color:#abb2bf;">          },
+</span><span style="color:#abb2bf;">        }
 </span><span style="color:#abb2bf;">      )
 </span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">  },
 </span><span style="color:#abb2bf;">}
-</span><span style="color:#abb2bf;">
-</span><span style="color:#abb2bf;">
 </span></code></pre>
 <h4 id="3rd-image-nvim"><a href="https://github.com/3rd/image.nvim"><code>3rd/image.nvim</code></a></h4>
 <div
@@ -413,7 +414,7 @@ different terminal image protocols (<code>kitty</code> vs. <code>imgcat</code>) 
 has more support as of writing. Additionally, getting the right Luarocks
 version (5.1) is a little tricky as it is an older version of Luarocks.</p>
 <p>Honestly, I needed images in Neovim in order to even consider making the switch
-from Visual Studio Code, so getting this plugin working was a non-begotiable for
+from Visual Studio Code, so getting this plugin working was a non-negotiable for
 me.</p>
 <blockquote>
 <p><strong>Note:</strong> This particular configuration of the plugin must be run in Kitty to
