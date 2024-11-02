@@ -211,7 +211,7 @@ NVChad's base.
 
 #### [`gelguy/wilder.nvim`](https://github.com/gelguy/wilder.nvim)
 
-{{ gif(sources=["demos/wilder.mp4"], width=80)}}
+{{ gif(sources=["demos/wilder-cmds.mp4"], width=80)}}
 
 Makes navigating the Neovim command line much faster with fuzzy search
 capabilities, providing instant suggestions as you type commands.
