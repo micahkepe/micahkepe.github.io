@@ -96,7 +96,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>16 minute read</span>
+    <span>17 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -257,17 +257,11 @@ is active, and the configuration gets frequent updates and improvements.</p>
 become staples in my editing experience. All plugins snippets that follow will
 be using <code>lazy.nvim</code> install configurations. I will break this section into the
 plugins that come by default from NVChad and the plugins that I have added on.</p>
-<div class="note-container" style="border:  1px solid #e0e0e0">
-  
-    
-
-    <div class="note-content">
-      <p><strong>Note:</strong> if you are curious about all of my plugins, you see them
+<blockquote>
+<p><strong>Note:</strong> If you are curious about all of my plugins, you can see them
 <a href="https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins">here</a>.</p>
-
-    </div>
-    
-  </div>
+</blockquote>
+<br>
 <h3 id="nvchad-plugins">NVChad Plugins</h3>
 <p>NVChad comes with a carefully curated set of plugins that provide a solid
 foundation for your Neovim setup. Here are some of the key plugins included:</p>
@@ -421,17 +415,10 @@ version (5.1) is a little tricky as it is an older version of Luarocks.</p>
 <p>Honestly, I needed images in Neovim in order to even consider making the switch
 from Visual Studio Code, so getting this plugin working was a non-begotiable for
 me.</p>
-<div class="note-container" style="border:  1px solid #e0e0e0">
-  
-    
-
-    <div class="note-content">
-      <p><strong>Note:</strong> This particular configuration of the plugin must be run in Kitty to
+<blockquote>
+<p><strong>Note:</strong> This particular configuration of the plugin must be run in Kitty to
 work. See the <code>backend</code> option if you want to use a different emulator.</p>
-
-    </div>
-    
-  </div>
+</blockquote>
 <p><strong>lazy.nvim</strong>:</p>
 <pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
 </span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/image-nvim.lua
@@ -565,19 +552,23 @@ want to resume exactly where you left off.</p>
 </span><span style="font-style:italic;color:#5f697a;">-- automatically creates a Vim session when Neovim opens for saving work
 </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">{
 </span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">&quot;rmagatti/auto-session&quot;</span><span style="color:#abb2bf;">,
-</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">event </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;BufRead&quot;</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- Load on first buffer read
+</span><span style="color:#abb2bf;">  </span><span style="color:#9acc76;">lazy </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">  </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
 </span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">auto_session </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;auto-session&quot;
 </span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">auto_session</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{
-</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">auto_restore_enabled </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
-</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">auto_session_suppress_dirs </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;~/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Dev/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Downloads&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Documents&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Desktop/&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">auto_restore </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">suppressed_dirs </span><span style="color:#abb2bf;">= { </span><span style="color:#9acc76;">&quot;~/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Dev/&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Downloads&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Documents&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;~/Desktop/&quot; </span><span style="color:#abb2bf;">},
 </span><span style="color:#abb2bf;">    }
-</span><span style="color:#abb2bf;">
-</span><span style="color:#abb2bf;">    </span><span style="font-style:italic;color:#5f697a;">-- Define keymaps after setup
-</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.</span><span style="color:#eb6772;">set</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;wr&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionRestore&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Restore session for cwd&quot; </span><span style="color:#abb2bf;">})
-</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.</span><span style="color:#eb6772;">set</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;ws&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionSave&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Save session for auto session root dir&quot; </span><span style="color:#abb2bf;">})
 </span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>Then I define these mappings to save and restore sessions:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/mappings.lua
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Autosession mappings
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;ws&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionSave&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Save session for auto session root dir&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;leader&gt;wr&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;SessionRestore&lt;CR&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Restore session for cwd&quot; </span><span style="color:#abb2bf;">})
 </span></code></pre>
 <br>
 <h4 id="christoomey-vim-tmux-navigator"><a href="https://github.com/christoomey/vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></h4>
@@ -598,10 +589,14 @@ you to navigate between Tmux panes and Neovim splits using the same keybindings
 as I don't have to think about whether I'm moving inside Neovim or across Tmux.
 Not to mention I find this bindings much less awkward than the default <code>&lt;C-w&gt;</code>
 Vim windown motions.</p>
+<p>The true value of this plugins comes when you are working in various Tmux panes
+running a combination of Neovim, a shell, and other tools. Without thinking I
+can navigate between these panes with ease.</p>
 <p><strong>lazy.nvim</strong>:</p>
 <pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
 </span><span style="color:#abb2bf;">  {
 </span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;christoomey/vim-tmux-navigator&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">lazy </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- load on start up to immediately enable
 </span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">cmd </span><span style="color:#abb2bf;">= {
 </span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateLeft&quot;</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigateDown&quot;</span><span style="color:#abb2bf;">,
@@ -610,14 +605,33 @@ Vim windown motions.</p>
 </span><span style="color:#abb2bf;">      </span><span style="color:#9acc76;">&quot;TmuxNavigatePrevious&quot;</span><span style="color:#abb2bf;">,
 </span><span style="color:#abb2bf;">    },
 </span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">keys </span><span style="color:#abb2bf;">= {
-</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-h&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-j&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-k&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-l&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
-</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;c-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigatePrevious&lt;cr&gt;&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;C-h&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateLeft&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate left&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;C-j&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateDown&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate down&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;C-k&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateUp&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate up&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;C-l&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigateRight&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate right&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">      { </span><span style="color:#9acc76;">&quot;&lt;C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;&lt;C-U&gt;TmuxNavigatePrevious&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate previous&quot; </span><span style="color:#abb2bf;">},
 </span><span style="color:#abb2bf;">    },
 </span><span style="color:#abb2bf;">  },
 </span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> If using NVChad, you will need to override its mapping of these keys
+to use the Tmux navigation commands instead:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/options.lua
+</span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;nvchad.mappings&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">map </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.set
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- override nvchad mappings for window navigation so I can use them for
+</span><span style="font-style:italic;color:#5f697a;">-- vim-tmux-navigator
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-h&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;TmuxNavigateLeft&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate left&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-j&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;TmuxNavigateDown&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate down&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-k&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;TmuxNavigateUp&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate up&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-l&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;TmuxNavigateRight&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate right&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt;TmuxNavigatePrevious&lt;cr&gt;&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;Navigate previous&quot; </span><span style="color:#abb2bf;">})
+</span><span style="color:#abb2bf;">
+</span></code></pre>
+</blockquote>
 <br>
 <h2 id="key-mappings"><strong>Key Mappings</strong></h2>
 <p>Similarly, I have a ton of mappings that I have defined so I will just be going
@@ -630,9 +644,6 @@ these by doing <code>&lt;leader&gt;ch</code> to pull up the mappings cheat sheet
 </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;nvchad.mappings&quot; </span><span style="font-style:italic;color:#5f697a;">-- NVChad-defined mappings
 </span><span style="color:#abb2bf;">
 </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">map </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.keymap.set
-</span><span style="color:#abb2bf;">
-</span><span style="font-style:italic;color:#5f697a;">-- Add ; as a CMD mapping as well
-</span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">, { </span><span style="color:#9acc76;">desc </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;CMD enter command mode&quot; </span><span style="color:#abb2bf;">})
 </span><span style="color:#abb2bf;">
 </span><span style="font-style:italic;color:#5f697a;">-- Quickly exit Normal mode with `jk`
 </span><span style="font-style:italic;color:#5f697a;">-- This makes the transition from typing to command mode faster and more comfortable for the fingers.
