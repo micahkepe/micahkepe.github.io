@@ -154,10 +154,10 @@ become staples in my editing experience. All plugins snippets that follow will
 be using `lazy.nvim` install configurations. I will break this section into the
 plugins that come by default from NVChad and the plugins that I have added on.
 
-{{ note(body="
- **Note:** if you are curious about all of my plugins, you see them
-[here](https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins).
-")}}
+> **Note:** If you are curious about all of my plugins, you can see them
+> [here](https://github.com/micahkepe/dotfiles/tree/main/nvim/lua/plugins).
+
+<br>
 
 ### NVChad Plugins
 
@@ -298,10 +298,8 @@ Honestly, I needed images in Neovim in order to even consider making the switch
 from Visual Studio Code, so getting this plugin working was a non-begotiable for
 me.
 
-{{ note(body="
- **Note:** This particular configuration of the plugin must be run in Kitty to
- work. See the `backend` option if you want to use a different emulator.
-")}}
+> **Note:** This particular configuration of the plugin must be run in Kitty to
+> work. See the `backend` option if you want to use a different emulator.
 
 **lazy.nvim**:
 
@@ -437,19 +435,26 @@ want to resume exactly where you left off.
 -- automatically creates a Vim session when Neovim opens for saving work
 return {
   "rmagatti/auto-session",
-  event = "BufRead", -- Load on first buffer read
+  lazy = false,
   config = function()
     local auto_session = require "auto-session"
     auto_session.setup {
-      auto_restore_enabled = false,
-      auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+      auto_restore = false,
+      suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
     }
-
-    -- Define keymaps after setup
-    vim.keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" })
-    vim.keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" })
   end,
 }
+```
+
+Then I define these mappings to save and restore sessions:
+
+```lua
+
+-- nvim/lua/mappings.lua
+
+-- Autosession mappings
+map("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" })
+map("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" })
 ```
 
 <br>
@@ -467,12 +472,17 @@ as I don't have to think about whether I'm moving inside Neovim or across Tmux.
 Not to mention I find this bindings much less awkward than the default `<C-w>`
 Vim windown motions.
 
+The true value of this plugins comes when you are working in various Tmux panes
+running a combination of Neovim, a shell, and other tools. Without thinking I
+can navigate between these panes with ease.
+
 **lazy.nvim**:
 
 ```lua
 
   {
     "christoomey/vim-tmux-navigator",
+    lazy = false, -- load on start up to immediately enable
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
@@ -481,14 +491,34 @@ Vim windown motions.
       "TmuxNavigatePrevious",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+      { "<C-h>", "<cmd><C-U>TmuxNavigateLeft<cr>", desc = "Navigate left" },
+      { "<C-j>", "<cmd><C-U>TmuxNavigateDown<cr>", desc = "Navigate down" },
+      { "<C-k>", "<cmd><C-U>TmuxNavigateUp<cr>", desc = "Navigate up" },
+      { "<C-l>", "<cmd><C-U>TmuxNavigateRight<cr>", desc = "Navigate right" },
+      { "<C-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>", desc = "Navigate previous" },
     },
   },
 ```
+
+> **Note:** If using NVChad, you will need to override its mapping of these keys
+> to use the Tmux navigation commands instead:
+>
+> ```lua
+>
+> -- nvim/lua/options.lua
+> require "nvchad.mappings"
+>
+> local map = vim.keymap.set
+>
+> -- override nvchad mappings for window navigation so I can use them for
+> -- vim-tmux-navigator
+> map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate left" })
+> map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down" })
+> map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up" })
+> map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right" })
+> map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Navigate previous" })
+>
+> ```
 
 <br>
 
@@ -507,9 +537,6 @@ these by doing `<leader>ch` to pull up the mappings cheat sheet).
 require "nvchad.mappings" -- NVChad-defined mappings
 
 local map = vim.keymap.set
-
--- Add ; as a CMD mapping as well
-map("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- Quickly exit Normal mode with `jk`
 -- This makes the transition from typing to command mode faster and more comfortable for the fingers.
