@@ -31,7 +31,7 @@ For those curious, this blog is built with [Zola](https://www.getzola.org/), a
 static site generator written in Rust, because I am too lazy to write the code
 myself (**The three chief virtues of a programmer are: Laziness, Impatience and
 Hubris" - Larry Wall**). The theme is a custom Zola theme called
-["After After Dark"](https://github.com/micahkepe/after-after-dark)
+[`radion`](https://github.com/micahkepe/radion)
 that I made based off the
 [`after-dark` theme](https://github.com/getzola/after-dark).
 

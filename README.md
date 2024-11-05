@@ -27,7 +27,7 @@ updates and is being developed to showcase my portfolio and provide information 
 - Experience: Showcase prior experiences and skills utilized for each role
 - Blog: Writing articles about various topics, including technology, programming,
   and personal development. Uses a customized forked Zola theme I am developing
-  called [`after-after-dark`](https://github.com/micahkepe/after-after-dark)
+  called [`radion`](https://github.com/micahkepe/radion)
 
 ## Using Codebase As Template
 
@@ -111,7 +111,7 @@ I welcome contributions to improve the website. If you find any bugs or have
 suggestions for new features, please open an issue or submit a pull request.
 
 If you are interested in contributing to the Zola blog theme, see the repository
-[here](https://github.com/micahkepe/after-after-dark).
+[here](https://github.com/micahkepe/radion).
 
 ## License
 

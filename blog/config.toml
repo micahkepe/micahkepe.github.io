@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://micahkepe.com/blog"
 title = "Micah's Secret Blog"
-theme = "after-after-dark"
+theme = "radion"
 description = "An assortment of my ramblings and random adventures."
 generate_feed = true
 
@@ -35,9 +35,9 @@ index_format = "elasticlunr_json"
 
 [extra]
 # Put all your custom variables here
-after_dark_title = "Micah's Secret Blog"
+radion_title = "Micah's Secret Blog"
 author = "Micah Kepe"
-after_dark_menu = [
+radion_menu = [
     {url = "$BASE_URL/", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
