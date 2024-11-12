@@ -54,16 +54,20 @@ width=80) }}
 4. [Plugins](#plugins)
    - [NVChad Plugins](#nvchad-plugins)
    - [Added Plugins](#added-plugins)
+     - [`gelguy/wilder.nvim`](#gelguy-wilder-nvim)
+     - [`3rd/image.nvim`](#3rd-image-nvim)
+     - [`rmagatti/autosession`](#rmagatti-autosession)
+     - [`christoomey/vim-tmux-navigator`](#christoomey-vim-tmux-navigator)
 5. [Key Mappings](#key-mappings)
    - [Quality of Life Remaps](#quality-of-life-remaps)
+   - [&quot;Reveal in Finder&quot; Dupe](#reveal-in-finder-dupe)
    - [Window Management](#window-management)
    - [Visually Appealing Scrolling and Searching](#visually-appealing-scrolling-and-searching)
    - [GitSigns Mappings](#gitsigns-mappings)
 6. [Options](#options)
 7. [Conclusion](#conclusion)
 8. [References](#references)
-
-")}}
+   ")}}
 
 ---
 
@@ -144,6 +148,104 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 A little more complicated (as usual), check out the install documentation
 [here](https://nvchad.com/docs/quickstart/install)
+
+## Changes to NVChad's Default Settings
+
+### Diagnostics Menu
+
+One of the things I changed from NVChad was the diagnostics display. By default,
+NVChad has the diagnostics displayed inline in red text. One consequence of this
+is that long diagnostic messages do not wrap at the end of the buffer, making it
+difficult to read the entire message:
+
+{{ responsive(src="default-diagnostics.png", width=80, alt="Diagnostics display in red text", caption="NvChad default diagnostics") }}
+
+To make the diagnostics more readable and "Visual-Studio-Code-like", I changed
+the diagnostics to underline the offending line and display to a floating window
+at the offending line on a cursor hold:
+
+{{ responsive(src="new-diagnostics-ex1.png", alt="Diagnostics display in a floating window on the screen") }}
+
+<br>
+
+{{ responsive(src="new-diagnostics-ex2.png", alt="Diagnostics display in a floating window at the bottom of the screen") }}
+
+To do this, I created a separate file for the diagnostics configuration in
+`nvim/lua/configs/diagnostics.lua`:
+
+```lua
+
+-- nvim/lua/configs/diagnostics.lua
+local M = {}
+
+M.setup = function()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false, -- no inline diagnostics
+    underline = true, -- underline problematic code
+  })
+
+  -- Set the update time for diagnostics
+  vim.o.updatetime = 250
+
+  -- Automatically show diagnostics on cursor hold
+  vim.cmd [[
+    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+  ]]
+end
+
+return M
+```
+
+Then to load this configuration, I added the following lines to the top of my
+`nvim/lua/configs/lspconfig.lua`:
+
+```lua
+
+-- nvim/lua/configs/lspconfig.lua
+local diagnostics = require "configs.diagnostics"
+
+-- Diagnostics popup
+diagnostics.setup()
+```
+
+### Enable Hidden Files in `nvim-tree` Display
+
+Another change I made was to show hidden files in the `nvim-tree` file explorer.
+By default, hidden files are not displayed in the file explorer, which can be a
+little annoying when you need to access a `.gitignore`, configuration files, or
+a `.env` file, for example.
+
+To do this, I altered the section in the `nvim/lua/init.lua` file that loads
+NvChad's defined plugins:
+
+```lua
+
+-- nvim/lua/init.lua
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+      -- Override nvim-tree settings
+      local nvim_tree_options = require "nvchad.configs.nvimtree"
+      nvim_tree_options.filters.dotfiles = false
+      nvim_tree_options.git = { enable = true }
+      nvim_tree_options.filters.git_ignored = false
+      nvim_tree_options.filters.custom = { "^\\.git$", "DS_Store" }
+    end,
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+```
+
+In the `nvim_tree_options.filters.custom` table above, I added `"^\\.git$"` and
+`"DS_Store"` regular expressions to not display files from the `.git/` folder,
+and to ignore the `.DS_Store` files that macOS creates, respectively.
 
 ---
 
