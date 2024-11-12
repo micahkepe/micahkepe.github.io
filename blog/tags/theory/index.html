@@ -53,7 +53,7 @@
         <a itemprop="url"
           class=""
           href="https://micahkepe.com/blog/categories/programming/atom.xml">
-          <span itemprop="name">RSS Feed</span></a>
+          <span itemprop="name">RSS</span></a>
         
         <a itemprop="url"
           class=""
@@ -62,8 +62,9 @@
         
       </div>
     </nav>
-    
-    <div class="search-container">
+    <div class="user-actions-container">
+            
+
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -72,7 +73,23 @@
       <div class="search-results">
         <div class="search-results__items"></div>
       </div>
+            
+
+        
+      <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+          <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+          <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark" />
+      </a>
+    
     </div>
+    
+    
+
+    
+    <!-- Set the correct theme in the script -->
+    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
     
 
   </header>
@@ -163,7 +180,11 @@ own research.</p>
   <!-- optional scripts -->
   
   
-  <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+    <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+  
+
+  
+    <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
   
 
   

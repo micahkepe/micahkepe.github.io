@@ -67,7 +67,11 @@ landed at to turn my Neovim editor into a supercharged workhorse.&lt;&#x2F;p&gt;
         <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/vimtutor-sequel/"/>
         <id>https://micahkepe.com/blog/vimtutor-sequel/</id>
         
-        <summary type="html">&lt;p&gt;The vimtutor program is the essential starting point for anyone looking to learn the basics of using Vim. In as little as a half hour, you can learn 90% of what you&#x27;ll ever need for vim, however, there are many useful motions and commands that are left out of the program. This article details the simple software package I wrote to address this limitation, &lt;code&gt;vimtutor-sequel&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+        <summary type="html">&lt;p&gt;The vimtutor program is the essential starting point for anyone looking to learn
+the basics of using Vim. In as little as a half hour, you can learn 90% of what
+you&#x27;ll ever need for vim, however, there are many useful motions and commands
+that are left out of the program. This article details the simple software
+package I wrote to address this limitation, &lt;code&gt;vimtutor-sequel&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

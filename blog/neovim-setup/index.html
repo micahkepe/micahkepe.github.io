@@ -59,7 +59,7 @@
         <a itemprop="url"
           class=""
           href="https://micahkepe.com/blog/categories/programming/atom.xml">
-          <span itemprop="name">RSS Feed</span></a>
+          <span itemprop="name">RSS</span></a>
         
         <a itemprop="url"
           class=""
@@ -68,8 +68,9 @@
         
       </div>
     </nav>
-    
-    <div class="search-container">
+    <div class="user-actions-container">
+            
+
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -78,7 +79,23 @@
       <div class="search-results">
         <div class="search-results__items"></div>
       </div>
+            
+
+        
+      <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+          <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+          <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark" />
+      </a>
+    
     </div>
+    
+    
+
+    
+    <!-- Set the correct theme in the script -->
+    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
     
 
   </header>
@@ -96,7 +113,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>16 minute read</span>
+    <span>18 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -583,14 +600,14 @@ want to resume exactly where you left off.</p>
   </video>
 </div>
 <p>Enables smooth navigation between Neovim windows and
-<a href="https://github.com/tmux/tmux/wiki">Tmux</a> panes, making it feel like a unified
-experience. If you’re using Tmux and Neovim together,<code>vim-tmux-navigator</code> allows
-you to navigate between Tmux panes and Neovim splits using the same keybindings
+<a href="https://github.com/tmux/tmux/wiki">tmux</a> panes, making it feel like a unified
+experience. If you’re using tmux and Neovim together,<code>vim-tmux-navigator</code> allows
+you to navigate between tmux panes and Neovim splits using the same keybindings
 (like <code>&lt;C-h&gt;</code>,<code>&lt;C-j&gt;</code>, <code>&lt;C-k&gt;</code>, and <code>&lt;C-l&gt;</code>). This makes my workflow more fluid
 as I don't have to think about whether I'm moving inside Neovim or across Tmux.
 Not to mention I find this bindings much less awkward than the default <code>&lt;C-w&gt;</code>
 Vim windown motions.</p>
-<p>The true value of this plugins comes when you are working in various Tmux panes
+<p>The true value of this plugins comes when you are working in various tmux panes
 running a combination of Neovim, a shell, and other tools. Without thinking I
 can navigate between these panes with ease.</p>
 <p><strong>lazy.nvim</strong>:</p>
@@ -633,7 +650,33 @@ to use the Tmux navigation commands instead:</p>
 </span><span style="color:#abb2bf;">
 </span></code></pre>
 </blockquote>
-<br>
+<p>If using tmux, add the following to your <code>~/.tmux.conf</code>:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;"># ~/.tmux.conf
+</span><span style="font-style:italic;color:#5f697a;"># Smart pane switching with awareness of Vim splits.
+</span><span style="font-style:italic;color:#5f697a;"># See: https://github.com/christoomey/vim-tmux-navigator
+</span><span style="color:#eb6772;">is_vim</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot;ps -o state= -o comm= -t &#39;#{pane_tty}&#39; </span><span style="color:#5ebfcc;">\
+</span><span style="color:#9acc76;">    | grep -iqE &#39;^[^TXZ ]+ +(</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">S+</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">/)?g?(view|l?n?vim?x?|fzf)(diff)?$&#39;&quot;
+</span><span style="color:#5ebfcc;">bind</span><span style="color:#abb2bf;"> -n </span><span style="color:#9acc76;">&#39;C-h&#39;</span><span style="color:#abb2bf;"> if-shell </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">is_vim</span><span style="color:#9acc76;">&quot; &quot;send-keys C-h&quot; &quot;select-pane -L&quot;
+</span><span style="color:#5ebfcc;">bind</span><span style="color:#abb2bf;"> -n </span><span style="color:#9acc76;">&#39;C-j&#39;</span><span style="color:#abb2bf;"> if-shell </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">is_vim</span><span style="color:#9acc76;">&quot; &quot;send-keys C-j&quot; &quot;select-pane -D&quot;
+</span><span style="color:#5ebfcc;">bind</span><span style="color:#abb2bf;"> -n </span><span style="color:#9acc76;">&#39;C-k&#39;</span><span style="color:#abb2bf;"> if-shell </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">is_vim</span><span style="color:#9acc76;">&quot; &quot;send-keys C-k&quot; &quot;select-pane -U&quot;
+</span><span style="color:#5ebfcc;">bind</span><span style="color:#abb2bf;"> -n </span><span style="color:#9acc76;">&#39;C-l&#39;</span><span style="color:#abb2bf;"> if-shell </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">is_vim</span><span style="color:#9acc76;">&quot; &quot;send-keys C-l&quot; &quot;select-pane -R&quot;
+</span><span style="color:#5ebfcc;">bind</span><span style="color:#abb2bf;"> -n </span><span style="color:#9acc76;">&#39;C-\&#39;</span><span style="color:#abb2bf;"> if-shell </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">is_vim</span><span style="color:#9acc76;">&quot; &quot;send-keys C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&quot; &quot;select-pane -l&quot;
+</span><span style="color:#eb6772;">tmux_version</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&#39;$(tmux -V | sed -En &quot;s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p&quot;)&#39;
+</span><span style="color:#eb6772;">if-shell -b </span><span style="color:#9acc76;">&#39;[ &quot;$(echo &quot;$tmux_version &lt; 3.0&quot; | bc)&quot; = 1 ]&#39; </span><span style="color:#abb2bf;">\
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;bind-key -n &#39;C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&#39; if-shell </span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;">$</span><span style="color:#eb6772;">is_vim</span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;"> &#39;send-keys C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&#39;  &#39;select-pane -l&#39;&quot;
+</span><span style="color:#eb6772;">if-shell -b </span><span style="color:#9acc76;">&#39;[ &quot;$(echo &quot;$tmux_version &gt;= 3.0&quot; | bc)&quot; = 1 ]&#39; </span><span style="color:#abb2bf;">\
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;bind-key -n &#39;C-</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">&#39; if-shell </span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;">$</span><span style="color:#eb6772;">is_vim</span><span style="color:#5ebfcc;">\&quot;</span><span style="color:#9acc76;"> &#39;send-keys C-</span><span style="color:#5ebfcc;">\\\\</span><span style="color:#9acc76;">&#39;  &#39;select-pane -l&#39;&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">bind-key -T</span><span style="color:#abb2bf;"> copy-mode-vi </span><span style="color:#9acc76;">&#39;C-h&#39;</span><span style="color:#abb2bf;"> select-pane</span><span style="color:#eb6772;"> -L
+</span><span style="color:#eb6772;">bind-key -T</span><span style="color:#abb2bf;"> copy-mode-vi </span><span style="color:#9acc76;">&#39;C-j&#39;</span><span style="color:#abb2bf;"> select-pane</span><span style="color:#eb6772;"> -D
+</span><span style="color:#eb6772;">bind-key -T</span><span style="color:#abb2bf;"> copy-mode-vi </span><span style="color:#9acc76;">&#39;C-k&#39;</span><span style="color:#abb2bf;"> select-pane</span><span style="color:#eb6772;"> -U
+</span><span style="color:#eb6772;">bind-key -T</span><span style="color:#abb2bf;"> copy-mode-vi </span><span style="color:#9acc76;">&#39;C-l&#39;</span><span style="color:#abb2bf;"> select-pane</span><span style="color:#eb6772;"> -R
+</span><span style="color:#eb6772;">bind-key -T</span><span style="color:#abb2bf;"> copy-mode-vi </span><span style="color:#9acc76;">&#39;C-\&#39;</span><span style="color:#abb2bf;"> select-pane</span><span style="color:#eb6772;"> -l
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;"># Enable passthrough for panes
+</span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> -g allow-passthrough on
+</span></code></pre>
 <h2 id="key-mappings"><strong>Key Mappings</strong></h2>
 <p>Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
@@ -850,7 +893,11 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
   <!-- optional scripts -->
   
   
-  <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+    <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+  
+
+  
+    <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
   
 
   

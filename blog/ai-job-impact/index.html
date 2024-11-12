@@ -59,7 +59,7 @@
         <a itemprop="url"
           class=""
           href="https://micahkepe.com/blog/categories/programming/atom.xml">
-          <span itemprop="name">RSS Feed</span></a>
+          <span itemprop="name">RSS</span></a>
         
         <a itemprop="url"
           class=""
@@ -68,8 +68,9 @@
         
       </div>
     </nav>
-    
-    <div class="search-container">
+    <div class="user-actions-container">
+            
+
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -78,7 +79,23 @@
       <div class="search-results">
         <div class="search-results__items"></div>
       </div>
+            
+
+        
+      <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+          <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+          <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark" />
+      </a>
+    
     </div>
+    
+    
+
+    
+    <!-- Set the correct theme in the script -->
+    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
     
 
   </header>
@@ -175,7 +192,11 @@ aggregated studies comparing the performance of workers using Microsoft Copilot 
   </div>
   
 </div>
-<p>&quot;The United States once again led the world in terms of total AI private investment. In 2023, the <strong>$67.2 billion invested</strong> in the United States was roughly 8.7 times greater than the amount invested in the next highest country, China ($7.8 billion), and 17.8 times the amount invested in the United Kingdom ($3.8 billion)&quot; (AI Index, 2024, p. 247)</p>
+<p>&quot;The United States once again led the world in terms of total AI private
+investment. In 2023, the <strong>$67.2 billion invested</strong> in the United States was
+roughly 8.7 times greater than the amount invested in the next highest country,
+China (\$7.8 billion), and 17.8 times the amount invested in the United Kingdom
+(\$3.8 billion)&quot; (AI Index, 2024, p. 247)</p>
 <p>&quot;Consistent with trends in private investment, the United States leads all regions with <strong>897 new AI companies</strong>, followed by China with 122, and the United Kingdom with 104.&quot; (AI Index, 2024, p. 251)</p>
 <p>A great recent blog post from Builder.io, a company that builds AI-powered tools for developers, also provides a <a href="https://www.builder.io/blog/ai-jobs-truth">comprehensive look</a> at the current state of AI in the software industry and also seeks to dispel the myth that AI will replace software professionals. The post states:</p>
 <div class="note-container" style="border:  1px solid #e0e0e0">
@@ -311,7 +332,11 @@ spreadsheets made accounting more effective and easier, which resulted in
   <!-- optional scripts -->
   
   
-  <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+    <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
+  
+
+  
+    <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
   
 
   
