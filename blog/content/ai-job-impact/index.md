@@ -48,7 +48,11 @@ aggregated studies comparing the performance of workers using Microsoft Copilot 
 
 {{ responsive(src="ai-private-investment.png", alt="Private investment in AI by geographic area, 2023", caption="Above: Private investment in AI by geographic area, 2023", width=80) }}
 
-"The United States once again led the world in terms of total AI private investment. In 2023, the **$67.2 billion invested** in the United States was roughly 8.7 times greater than the amount invested in the next highest country, China ($7.8 billion), and 17.8 times the amount invested in the United Kingdom ($3.8 billion)" (AI Index, 2024, p. 247)
+"The United States once again led the world in terms of total AI private
+investment. In 2023, the **$67.2 billion invested** in the United States was
+roughly 8.7 times greater than the amount invested in the next highest country,
+China (\\\$7.8 billion), and 17.8 times the amount invested in the United Kingdom
+(\\\$3.8 billion)" (AI Index, 2024, p. 247)
 
 "Consistent with trends in private investment, the United States leads all regions with **897 new AI companies**, followed by China with 122, and the United Kingdom with 104." (AI Index, 2024, p. 251)
 

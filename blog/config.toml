@@ -41,7 +41,7 @@ radion_menu = [
     {url = "$BASE_URL/", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
-    {url = "$BASE_URL/categories/programming/atom.xml", name = "RSS Feed"},
+    {url = "$BASE_URL/categories/programming/atom.xml", name = "RSS"},
     {url = "https://micahkepe.com/", name = "Main Site"},
 ]
 
@@ -54,3 +54,6 @@ latex = true
 
 # Enable search bar 
 enable_search = true
+
+# Light/Dark Mode set 
+theme = "toggle" # options: {light, dark, auto, toggle}

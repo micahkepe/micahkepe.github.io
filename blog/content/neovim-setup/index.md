@@ -465,15 +465,15 @@ map("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for 
 {{ gif(sources=["demos/navigator.mp4"], width=80)}}
 
 Enables smooth navigation between Neovim windows and
-[Tmux](https://github.com/tmux/tmux/wiki) panes, making it feel like a unified
-experience. If you’re using Tmux and Neovim together,`vim-tmux-navigator` allows
-you to navigate between Tmux panes and Neovim splits using the same keybindings
+[tmux](https://github.com/tmux/tmux/wiki) panes, making it feel like a unified
+experience. If you’re using tmux and Neovim together,`vim-tmux-navigator` allows
+you to navigate between tmux panes and Neovim splits using the same keybindings
 (like `<C-h>`,`<C-j>`, `<C-k>`, and `<C-l>`). This makes my workflow more fluid
 as I don't have to think about whether I'm moving inside Neovim or across Tmux.
 Not to mention I find this bindings much less awkward than the default `<C-w>`
 Vim windown motions.
 
-The true value of this plugins comes when you are working in various Tmux panes
+The true value of this plugins comes when you are working in various tmux panes
 running a combination of Neovim, a shell, and other tools. Without thinking I
 can navigate between these panes with ease.
 
@@ -521,7 +521,35 @@ can navigate between these panes with ease.
 >
 > ```
 
-<br>
+If using tmux, add the following to your `~/.tmux.conf`:
+
+```bash
+
+# ~/.tmux.conf
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+bind -n 'C-h' if-shell "$is_vim" "send-keys C-h" "select-pane -L"
+bind -n 'C-j' if-shell "$is_vim" "send-keys C-j" "select-pane -D"
+bind -n 'C-k' if-shell "$is_vim" "send-keys C-k" "select-pane -U"
+bind -n 'C-l' if-shell "$is_vim" "send-keys C-l" "select-pane -R"
+bind -n 'C-\' if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+# Enable passthrough for panes
+set -g allow-passthrough on
+```
 
 ## **Key Mappings**
 
