@@ -113,7 +113,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>18 minute read</span>
+    <span>20 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -169,12 +169,20 @@ to do the configuration yourself, you can run these commands to add my setup as 
 <li><a href="#plugins">Plugins</a>
 <ul>
 <li><a href="#nvchad-plugins">NVChad Plugins</a></li>
-<li><a href="#added-plugins">Added Plugins</a></li>
+<li><a href="#added-plugins">Added Plugins</a>
+<ul>
+<li><a href="#gelguy-wilder-nvim"><code>gelguy/wilder.nvim</code></a></li>
+<li><a href="#3rd-image-nvim"><code>3rd/image.nvim</code></a></li>
+<li><a href="#rmagatti-autosession"><code>rmagatti/autosession</code></a></li>
+<li><a href="#christoomey-vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#key-mappings">Key Mappings</a>
 <ul>
 <li><a href="#quality-of-life-remaps">Quality of Life Remaps</a></li>
+<li><a href="#reveal-in-finder-dupe">&quot;Reveal in Finder&quot; Dupe</a></li>
 <li><a href="#window-management">Window Management</a></li>
 <li><a href="#visually-appealing-scrolling-and-searching">Visually Appealing Scrolling and Searching</a></li>
 <li><a href="#gitsigns-mappings">GitSigns Mappings</a></li>
@@ -268,6 +276,103 @@ is active, and the configuration gets frequent updates and improvements.</p>
 <p><strong>Windows Users</strong>:</p>
 <p>A little more complicated (as usual), check out the install documentation
 <a href="https://nvchad.com/docs/quickstart/install">here</a></p>
+<h2 id="changes-to-nvchad-s-default-settings">Changes to NVChad's Default Settings</h2>
+<h3 id="diagnostics-menu">Diagnostics Menu</h3>
+<p>One of the things I changed from NVChad was the diagnostics display. By default,
+NVChad has the diagnostics displayed inline in red text. One consequence of this
+is that long diagnostic messages do not wrap at the end of the buffer, making it
+difficult to read the entire message:</p>
+<div
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <img src="default-diagnostics.png" alt="Diagnostics display in red text"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+  <div style="margin-top: 0.5em;">
+    <p style="font-style: italic;">NvChad default diagnostics</p>
+  </div>
+  
+</div>
+<p>To make the diagnostics more readable and &quot;Visual-Studio-Code-like&quot;, I changed
+the diagnostics to underline the offending line and display to a floating window
+at the offending line on a cursor hold:</p>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+  <img src="new-diagnostics-ex1.png" alt="Diagnostics display in a floating window on the screen"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+</div>
+<br>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+  <img src="new-diagnostics-ex2.png" alt="Diagnostics display in a floating window at the bottom of the screen"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+</div>
+<p>To do this, I created a separate file for the diagnostics configuration in
+<code>nvim/lua/configs/diagnostics.lua</code>:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/configs/diagnostics.lua
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">M </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{}
+</span><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">M</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">setup </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">  </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.lsp.handlers[</span><span style="color:#9acc76;">&quot;textDocument/publishDiagnostics&quot;</span><span style="color:#abb2bf;">] </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.lsp.</span><span style="color:#eb6772;">with</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.lsp.diagnostic.on_publish_diagnostics, {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">virtual_text </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- no inline diagnostics
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">underline </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">-- underline problematic code
+</span><span style="color:#abb2bf;">  })
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">  </span><span style="font-style:italic;color:#5f697a;">-- Set the update time for diagnostics
+</span><span style="color:#abb2bf;">  </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.o.updatetime </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">250
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">  </span><span style="font-style:italic;color:#5f697a;">-- Automatically show diagnostics on cursor hold
+</span><span style="color:#abb2bf;">  </span><span style="color:#eb6772;">vim</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">cmd </span><span style="color:#9acc76;">[[
+</span><span style="color:#9acc76;">    autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+</span><span style="color:#9acc76;">  ]]
+</span><span style="color:#cd74e8;">end
+</span><span style="color:#abb2bf;">
+</span><span style="color:#cd74e8;">return </span><span style="color:#eb6772;">M
+</span></code></pre>
+<p>Then to load this configuration, I added the following lines to the top of my
+<code>nvim/lua/configs/lspconfig.lua</code>:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/configs/lspconfig.lua
+</span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">diagnostics </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;configs.diagnostics&quot;
+</span><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- Diagnostics popup
+</span><span style="color:#eb6772;">diagnostics</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">setup</span><span style="color:#abb2bf;">()
+</span></code></pre>
+<h3 id="enable-hidden-files-in-nvim-tree-display">Enable Hidden Files in <code>nvim-tree</code> Display</h3>
+<p>Another change I made was to show hidden files in the <code>nvim-tree</code> file explorer.
+By default, hidden files are not displayed in the file explorer, which can be a
+little annoying when you need to access a <code>.gitignore</code>, configuration files, or
+a <code>.env</code> file, for example.</p>
+<p>To do this, I altered the section in the <code>nvim/lua/init.lua</code> file that loads
+NvChad's defined plugins:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/init.lua
+</span><span style="font-style:italic;color:#5f697a;">-- load plugins
+</span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;lazy&quot;</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">setup</span><span style="color:#abb2bf;">({
+</span><span style="color:#abb2bf;">  {
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">&quot;NvChad/NvChad&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">lazy </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">branch </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;v2.5&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#9acc76;">import </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;nvchad.plugins&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">    </span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">      </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;options&quot;
+</span><span style="color:#abb2bf;">      </span><span style="font-style:italic;color:#5f697a;">-- Override nvim-tree settings
+</span><span style="color:#abb2bf;">      </span><span style="color:#cd74e8;">local </span><span style="color:#eb6772;">nvim_tree_options </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require </span><span style="color:#9acc76;">&quot;nvchad.configs.nvimtree&quot;
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">nvim_tree_options</span><span style="color:#abb2bf;">.filters.dotfiles </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">false
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">nvim_tree_options</span><span style="color:#abb2bf;">.git </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">enable </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">true </span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">nvim_tree_options</span><span style="color:#abb2bf;">.filters.git_ignored </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">false
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">nvim_tree_options</span><span style="color:#abb2bf;">.filters.custom </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">&quot;^</span><span style="color:#5ebfcc;">\\</span><span style="color:#9acc76;">.git$&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;DS_Store&quot; </span><span style="color:#abb2bf;">}
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">  },
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">  { </span><span style="color:#9acc76;">import </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;plugins&quot; </span><span style="color:#abb2bf;">},
+</span><span style="color:#abb2bf;">}, </span><span style="color:#eb6772;">lazy_config</span><span style="color:#abb2bf;">)
+</span></code></pre>
+<p>In the <code>nvim_tree_options.filters.custom</code> table above, I added <code>&quot;^\\.git$&quot;</code> and
+<code>&quot;DS_Store&quot;</code> regular expressions to not display files from the <code>.git/</code> folder,
+and to ignore the <code>.DS_Store</code> files that macOS creates, respectively.</p>
 <hr />
 <h2 id="plugins">Plugins</h2>
 <p>I won't be detailing every plugin that I use, but instead the ones that have
