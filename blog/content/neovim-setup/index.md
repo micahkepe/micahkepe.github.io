@@ -51,13 +51,18 @@ width=80) }}
 1. [What is Neovim Anyway?](#what-is-neovim-anyway)
 2. [Getting Started with Neovim](#getting-started-with-neovim)
 3. [The Setup](#the-setup)
+   - [Changes to NVChad's Default Settings](#changes-to-nvchad-s-default-settings)
+     - [Diagnostics Menu](#diagnostics-menu)
+     - [Enable Hidden Files in `nvim-tree` Display](#enable-hidden-files-in-nvim-tree-display)
 4. [Plugins](#plugins)
    - [NVChad Plugins](#nvchad-plugins)
-   - [Added Plugins](#added-plugins)
+   - [Added Plugins &quot;Musts&quot;](#added-plugins-musts)
      - [`gelguy/wilder.nvim`](#gelguy-wilder-nvim)
      - [`3rd/image.nvim`](#3rd-image-nvim)
      - [`rmagatti/autosession`](#rmagatti-autosession)
      - [`christoomey/vim-tmux-navigator`](#christoomey-vim-tmux-navigator)
+     - [`pocco81/auto-save.nvim`](#pocco81-auto-save-nvim)
+     - [`stevearc/dressing.nvim`](#stevearc-dressing-nvim)
 5. [Key Mappings](#key-mappings)
    - [Quality of Life Remaps](#quality-of-life-remaps)
    - [&quot;Reveal in Finder&quot; Dupe](#reveal-in-finder-dupe)
@@ -306,7 +311,7 @@ to work well together, providing a smooth and cohesive editing experience.
 
 <br>
 
-### Added Plugins
+### Added Plugins "Musts"
 
 In no particular order, here are the plugins that I have added to augment
 NVChad's base.
@@ -652,6 +657,48 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 # Enable passthrough for panes
 set -g allow-passthrough on
 ```
+
+#### [`pocco81/auto-save.nvim`](https://github.com/pocco81/auto-save.nvim)
+
+Automatically saves your files when you leave insert mode. This plugin is a
+lifesaver for those who forget to save their work frequently. It ensures that
+your changes are always saved, even if you forget to do so manually. It is also
+highly customizable, allowing you to configure the save interval and other
+settings to suit your workflow.
+
+**lazy.nvim**:
+
+```lua
+
+-- nvim/lua/plugins/init.lua
+{
+"pocco81/auto-save.nvim",
+lazy = false,
+config = function()
+  require("auto-save").setup {}
+end,
+},
+```
+
+#### [`stevearc/dressing.nvim`](https://github.com/stevearc/dressing.nvim)
+
+{{ responsive(src="dressing.png", alt="Dressing.nvim plugin in action") }}
+
+This plugins provides way better styling to the default `vim.ui` interfaces. The
+biggest improvement in my opinion is over the `vim.input` interface that is used
+for renaming files in `nvim-tree` and renaming variable definitions using
+NvChad's renamer. This is another highly customizable plugin that allows you to
+style the UI to your liking.
+
+**lazy.nvim**:
+
+```lua
+
+-- nvim/lua/plugins/init.lua
+{ "stevearc/dressing.nvim", event = "VeryLazy" },
+```
+
+<br>
 
 ## **Key Mappings**
 
