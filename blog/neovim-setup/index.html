@@ -113,7 +113,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>20 minute read</span>
+    <span>21 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -165,16 +165,27 @@ to do the configuration yourself, you can run these commands to add my setup as 
 <ol>
 <li><a href="#what-is-neovim-anyway">What is Neovim Anyway?</a></li>
 <li><a href="#getting-started-with-neovim">Getting Started with Neovim</a></li>
-<li><a href="#the-setup">The Setup</a></li>
+<li><a href="#the-setup">The Setup</a>
+<ul>
+<li><a href="#changes-to-nvchad-s-default-settings">Changes to NVChad's Default Settings</a>
+<ul>
+<li><a href="#diagnostics-menu">Diagnostics Menu</a></li>
+<li><a href="#enable-hidden-files-in-nvim-tree-display">Enable Hidden Files in <code>nvim-tree</code> Display</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#plugins">Plugins</a>
 <ul>
 <li><a href="#nvchad-plugins">NVChad Plugins</a></li>
-<li><a href="#added-plugins">Added Plugins</a>
+<li><a href="#added-plugins-musts">Added Plugins &quot;Musts&quot;</a>
 <ul>
 <li><a href="#gelguy-wilder-nvim"><code>gelguy/wilder.nvim</code></a></li>
 <li><a href="#3rd-image-nvim"><code>3rd/image.nvim</code></a></li>
 <li><a href="#rmagatti-autosession"><code>rmagatti/autosession</code></a></li>
 <li><a href="#christoomey-vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
+<li><a href="#pocco81-auto-save-nvim"><code>pocco81/auto-save.nvim</code></a></li>
+<li><a href="#stevearc-dressing-nvim"><code>stevearc/dressing.nvim</code></a></li>
 </ul>
 </li>
 </ul>
@@ -442,7 +453,7 @@ to work well together, providing a smooth and cohesive editing experience.</p>
   </video>
 </div>
 <br>
-<h3 id="added-plugins">Added Plugins</h3>
+<h3 id="added-plugins-musts">Added Plugins &quot;Musts&quot;</h3>
 <p>In no particular order, here are the plugins that I have added to augment
 NVChad's base.</p>
 <h4 id="gelguy-wilder-nvim"><a href="https://github.com/gelguy/wilder.nvim"><code>gelguy/wilder.nvim</code></a></h4>
@@ -782,6 +793,41 @@ to use the Tmux navigation commands instead:</p>
 </span><span style="font-style:italic;color:#5f697a;"># Enable passthrough for panes
 </span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> -g allow-passthrough on
 </span></code></pre>
+<h4 id="pocco81-auto-save-nvim"><a href="https://github.com/pocco81/auto-save.nvim"><code>pocco81/auto-save.nvim</code></a></h4>
+<p>Automatically saves your files when you leave insert mode. This plugin is a
+lifesaver for those who forget to save their work frequently. It ensures that
+your changes are always saved, even if you forget to do so manually. It is also
+highly customizable, allowing you to configure the save interval and other
+settings to suit your workflow.</p>
+<p><strong>lazy.nvim</strong>:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/init.lua
+</span><span style="color:#abb2bf;">{
+</span><span style="color:#9acc76;">&quot;pocco81/auto-save.nvim&quot;</span><span style="color:#abb2bf;">,
+</span><span style="color:#9acc76;">lazy </span><span style="color:#abb2bf;">= </span><span style="color:#db9d63;">false</span><span style="color:#abb2bf;">,
+</span><span style="color:#5cb3fa;">config </span><span style="color:#abb2bf;">= </span><span style="color:#cd74e8;">function</span><span style="color:#abb2bf;">()
+</span><span style="color:#abb2bf;">  </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;auto-save&quot;</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">setup </span><span style="color:#abb2bf;">{}
+</span><span style="color:#cd74e8;">end</span><span style="color:#abb2bf;">,
+</span><span style="color:#abb2bf;">},
+</span></code></pre>
+<h4 id="stevearc-dressing-nvim"><a href="https://github.com/stevearc/dressing.nvim"><code>stevearc/dressing.nvim</code></a></h4>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+  <img src="dressing.png" alt="Dressing.nvim plugin in action"
+    style="max-width: 100%; height: auto; display: inline-block;">
+  
+</div>
+<p>This plugins provides way better styling to the default <code>vim.ui</code> interfaces. The
+biggest improvement in my opinion is over the <code>vim.input</code> interface that is used
+for renaming files in <code>nvim-tree</code> and renaming variable definitions using
+NvChad's renamer. This is another highly customizable plugin that allows you to
+style the UI to your liking.</p>
+<p><strong>lazy.nvim</strong>:</p>
+<pre data-lang="lua" style="background-color:#2b303b;color:#6c7079;" class="language-lua "><code class="language-lua" data-lang="lua"><span style="color:#abb2bf;">
+</span><span style="font-style:italic;color:#5f697a;">-- nvim/lua/plugins/init.lua
+</span><span style="color:#abb2bf;">{ </span><span style="color:#9acc76;">&quot;stevearc/dressing.nvim&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">event </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;VeryLazy&quot; </span><span style="color:#abb2bf;">},
+</span></code></pre>
+<br>
 <h2 id="key-mappings"><strong>Key Mappings</strong></h2>
 <p>Similarly, I have a ton of mappings that I have defined so I will just be going
 over the ones that I can't live without. Additionally, I will not be detailing
