@@ -113,7 +113,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>8 minute read</span>
+    <span>9 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -172,32 +172,40 @@ for beginners. It is also more consistent with other Git commands, such as
 </span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> merge feature-branch
 </span></code></pre>
 <p>A diagram of the rebase process:</p>
-<div class="note-container" style="border:  1px solid #e0e0e0">
-  
-    
-
-    <div class="note-content">
-      <h1 id="1-initial-state">1. Initial State</h1>
-<p>main: A---B---C
-<br />
-feature-branch: D---E</p>
+<h1 id="1-initial-state">1. Initial State</h1>
+<pre>
+main:       A---B---C
+                 \
+feature-branch:   D---E
+</pre>
+<p>As you can see, the feature branch has diverged from the main branch with
+commits <code>D</code> and <code>E</code>, which are behind commit <code>C</code> on the main branch.</p>
 <h1 id="2-after-running-git-rebase-main-on-the-feature-branch">2. After running <code>git rebase main</code> on the feature branch</h1>
-<p>main: A---B---C
-<br />
-feature-branch: D'---E'</p>
+<pre>
+main:       A---B---C
+                     \
+feature-branch:       D'---E'
+</pre>
+<p>After rebasing, two <strong>new</strong> commits <code>D'</code> and <code>E'</code> are created on the feature
+branch, which have new commit hashes from the original commits <code>D</code> and <code>E</code>.
+If there are any conflicts during the rebase process, you will need to resolve
+them before continuing.</p>
 <h1 id="3-after-running-git-switch-main-and-git-merge-feature-branch">3. After running <code>git switch main</code> and <code>git merge feature-branch</code></h1>
-<p>main: A---B---C---D'---E'</p>
-
-    </div>
-    
-  </div>
+<pre>
+main: A---B---C---D'---E'
+</pre>
+<p>Finally, the feature branch is merged back into the main branch. Now we have a
+<strong>linear commit history</strong>!</p>
 <p>A key benefit of rebasing is that it keeps the commit history clean and linear,
-making it easier to understand and navigate. <strong>However</strong>, it is important to
-note that rebasing rewrites commit history, so it should be used with caution,
-especially when working on shared branches with collaborators. If working with
-others, use the <code>--force-with-lease</code> flag when pushing rebased commits to a
-shared branch. This flag ensures that if your changes conflict with the remote
-branch, you will not overwrite someone else's work.</p>
+making it easier to understand and navigate.</p>
+<blockquote>
+<p><strong>NOTE</strong> It is important to note that rebasing rewrites commit history, so it should be
+used <em>with caution</em>, especially when working on shared branches with
+collaborators. If working with others, use the <code>--force-with-lease</code> flag when
+pushing rebased commits to a shared branch. This flag ensures that if your
+changes conflict with the remote branch, you will not overwrite someone else's
+work.</p>
+</blockquote>
 <h3 id="1-3-stashing-changes">1.3 Stashing changes</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
 </span><span style="font-style:italic;color:#5f697a;"># Stashing changes before switching branches
