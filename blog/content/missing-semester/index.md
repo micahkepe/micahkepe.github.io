@@ -71,32 +71,48 @@ git merge feature-branch
 
 A diagram of the rebase process:
 
-{{ note(body="
-
 # 1. Initial State
 
-main: A---B---C
-\
-feature-branch: D---E
+<pre>
+main:       A---B---C
+                 \
+feature-branch:   D---E
+</pre>
+
+As you can see, the feature branch has diverged from the main branch with
+commits `D` and `E`, which are behind commit `C` on the main branch.
 
 # 2. After running `git rebase main` on the feature branch
 
-main: A---B---C
-\
-feature-branch: D'---E'
+<pre>
+main:       A---B---C
+                     \
+feature-branch:       D'---E'
+</pre>
+
+After rebasing, two **new** commits `D'` and `E'` are created on the feature
+branch, which have new commit hashes from the original commits `D` and `E`.
+If there are any conflicts during the rebase process, you will need to resolve
+them before continuing.
 
 # 3. After running `git switch main` and `git merge feature-branch`
 
+<pre>
 main: A---B---C---D'---E'
-")}}
+</pre>
+
+Finally, the feature branch is merged back into the main branch. Now we have a
+**linear commit history**!
 
 A key benefit of rebasing is that it keeps the commit history clean and linear,
-making it easier to understand and navigate. **However**, it is important to
-note that rebasing rewrites commit history, so it should be used with caution,
-especially when working on shared branches with collaborators. If working with
-others, use the `--force-with-lease` flag when pushing rebased commits to a
-shared branch. This flag ensures that if your changes conflict with the remote
-branch, you will not overwrite someone else's work.
+making it easier to understand and navigate.
+
+> **NOTE** It is important to note that rebasing rewrites commit history, so it should be
+> used _with caution_, especially when working on shared branches with
+> collaborators. If working with others, use the `--force-with-lease` flag when
+> pushing rebased commits to a shared branch. This flag ensures that if your
+> changes conflict with the remote branch, you will not overwrite someone else's
+> work.
 
 ### 1.3 Stashing changes
 
