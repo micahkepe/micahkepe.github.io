@@ -52,38 +52,41 @@
         
         <a itemprop="url"
           class=""
-          href="https://micahkepe.com/blog/categories/programming/atom.xml">
-          <span itemprop="name">RSS</span></a>
-        
-        <a itemprop="url"
-          class=""
           href="https://micahkepe.com/">
           <span itemprop="name">Main Site</span></a>
         
       </div>
     </nav>
     <div class="user-actions-container">
-            
+      
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input type="text" id="search" placeholder="Search...">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      
 
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-      </svg>
-      <input type="text" id="search" placeholder="Search...">
-      <div class="search-results">
-        <div class="search-results__items"></div>
-      </div>
-            
-
-        
+      
       <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
-          <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
-          <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark" />
+        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
-    
+      
+
+      
+      <a href="https://micahkepe.com/blog/atom.xml" class="feed-icon">
+        <img
+            src="https://micahkepe.com/blog/icons/rss.svg"
+            id="rss-icon"
+            alt="RSS feed"
+            class="rss-icon"
+        />
+      </a>
+      
     </div>
-    
-    
 
     
     <!-- Set the correct theme in the script -->
