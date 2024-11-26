@@ -13,7 +13,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
     const fetchBlogPosts = async () => {
       try {
         const response = await fetch(
-          "https://micahkepe.com/blog/categories/programming/atom.xml",
+          "https://micahkepe.com/blog/atom.xml",
         );
         const xmlText = await response.text();
         const parser = new DOMParser();
@@ -54,8 +54,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
           software engineer. I write about technical topics ranging from theory
           and algorithms to software development and data science. I also
           explore potpourri topics such as information security, productivity,
-          and personal development. Here&apos;s the latest programming-related
-          blog posts:
+          and personal development. Here&apos;s some of my latest posts:
         </p>
         <br />
         <div id="latest-blog-posts" className="mt-2">
