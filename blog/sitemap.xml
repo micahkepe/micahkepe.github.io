@@ -15,6 +15,9 @@
         <loc>https://micahkepe.com/blog/categories/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/categories/game-dev/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/categories/programming/</loc>
     </url>
     <url>
@@ -26,6 +29,10 @@
         <lastmod>2024-05-05</lastmod>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/monkey-mayhem/</loc>
+        <lastmod>2024-11-26</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/neovim-setup/</loc>
         <lastmod>2024-10-13</lastmod>
     </url>
@@ -34,6 +41,9 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/page/3/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/software-packages/</loc>
@@ -59,6 +69,12 @@
         <loc>https://micahkepe.com/blog/tags/future/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/game-dev/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/godot/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/infosec/</loc>
     </url>
     <url>
@@ -78,6 +94,9 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/query-optimizer/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/rice/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/software-package/</loc>
