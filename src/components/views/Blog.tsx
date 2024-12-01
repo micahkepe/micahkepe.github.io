@@ -12,9 +12,7 @@ const Blog: FC<BlogProps> = ({ windowWidth }) => {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const response = await fetch(
-          "https://micahkepe.com/blog/atom.xml",
-        );
+        const response = await fetch("https://micahkepe.com/blog/atom.xml");
         const xmlText = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, "text/xml");
