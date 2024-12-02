@@ -5,7 +5,7 @@ draft = false
 weight = 2
 
 [taxonomies]
-categories = ["programming"]
+categories = ["databases"]
 tags = ["databases", "sqlite", "query-optimizer"]
 +++
 

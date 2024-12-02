@@ -5,7 +5,7 @@ draft = false
 weight = 2
 
 [taxonomies]
-categories = ["game-dev"]
+categories = ["projects"]
 tags = ["godot", "game-dev", "rice"]
 +++
 

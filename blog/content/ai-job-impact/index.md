@@ -5,7 +5,7 @@ draft = false
 weight = 5
 
 [taxonomies]
-categories = ["programming"]
+categories = ["opinion"]
 tags = ["opinion", "future", "technology"]
 +++
 

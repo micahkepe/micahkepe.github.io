@@ -5,7 +5,7 @@ draft = false
 weight = 2
 
 [taxonomies]
-categories = ["programming"]
+categories = ["tools"]
 tags = ["neovim", "lua", "vim", "productivity"]
 +++
 
