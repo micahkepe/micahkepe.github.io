@@ -1,5 +1,5 @@
 +++
-title = "[12] (WIP) Building a Godot Game! The Making of 'Monkey Mayhem'"
+title = "[12] (WIP) Building a Godot Game! The Making of '43Monkeys'"
 date = 2024-11-26
 draft = false
 weight = 2
@@ -10,16 +10,16 @@ tags = ["godot", "game-dev", "rice"]
 +++
 
 As part of my design course requirements at Rice University, I will be creating
-a game in a group of 4-5 using the Godot engine over the upcoming semester. This
+a game in a group of 4 using the Godot engine over the upcoming semester. This
 blog post will serve as a progress log for the game's development and hopefully
 provide some good insights into the game development process from someone who
 has never made a game before.
 
 <!-- more -->
 
-# The Idea
+# Initial Project Proposal
 
-I don't want to give too much away, but our game is called **Monkey Mayhem** and
+I don't want to give too much away, but our game is called **43Monkeys** and
 draws a lot of inspiration from this news source:
 [What we know after 43 monkeys escaped a South Carolina research facility](https://www.cbsnews.com/news/south-carolina-escaped-monkeys-what-we-know/)
 
