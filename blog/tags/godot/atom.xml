@@ -8,7 +8,7 @@
     <updated>2024-11-26T00:00:00+00:00</updated>
     <id>https://micahkepe.com/blog/tags/godot/atom.xml</id>
     <entry xml:lang="en">
-        <title>[12] (WIP) Building a Godot Game! The Making of &#x27;Monkey Mayhem&#x27;</title>
+        <title>[12] (WIP) Building a Godot Game! The Making of &#x27;43Monkeys&#x27;</title>
         <published>2024-11-26T00:00:00+00:00</published>
         <updated>2024-11-26T00:00:00+00:00</updated>
         
@@ -20,11 +20,11 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/monkey-mayhem/"/>
-        <id>https://micahkepe.com/blog/monkey-mayhem/</id>
+        <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/43-monkeys/"/>
+        <id>https://micahkepe.com/blog/43-monkeys/</id>
         
         <summary type="html">&lt;p&gt;As part of my design course requirements at Rice University, I will be creating
-a game in a group of 4-5 using the Godot engine over the upcoming semester. This
+a game in a group of 4 using the Godot engine over the upcoming semester. This
 blog post will serve as a progress log for the game&#x27;s development and hopefully
 provide some good insights into the game development process from someone who
 has never made a game before.&lt;&#x2F;p&gt;

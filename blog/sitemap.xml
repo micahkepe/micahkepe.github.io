@@ -4,6 +4,10 @@
         <loc>https://micahkepe.com/blog/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/43-monkeys/</loc>
+        <lastmod>2024-11-26</lastmod>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/ai-job-impact/</loc>
         <lastmod>2024-07-19</lastmod>
     </url>
@@ -42,10 +46,6 @@
     <url>
         <loc>https://micahkepe.com/blog/missing-semester/</loc>
         <lastmod>2024-05-05</lastmod>
-    </url>
-    <url>
-        <loc>https://micahkepe.com/blog/monkey-mayhem/</loc>
-        <lastmod>2024-11-26</lastmod>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/neovim-setup/</loc>
