@@ -37,6 +37,7 @@ index_format = "elasticlunr_json"
 # Put all your custom variables here
 radion_title = "Micah's Secret Blog"
 author = "Micah Kepe"
+github = "https://github.com/micahkepe"
 radion_menu = [
     {url = "$BASE_URL/", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
