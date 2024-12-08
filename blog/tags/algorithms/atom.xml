@@ -8,7 +8,7 @@
     <updated>2024-05-26T00:00:00+00:00</updated>
     <id>https://micahkepe.com/blog/tags/algorithms/atom.xml</id>
     <entry xml:lang="en">
-        <title>[5] Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
+        <title>Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
         <published>2024-05-25T00:00:00+00:00</published>
         <updated>2024-05-26T00:00:00+00:00</updated>
         
@@ -33,7 +33,7 @@ fields, and compares them with other data structures.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
+        <title>Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
         <published>2024-05-06T00:00:00+00:00</published>
         <updated>2024-05-06T00:00:00+00:00</updated>
         

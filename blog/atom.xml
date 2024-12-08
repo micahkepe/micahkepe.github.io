@@ -8,7 +8,7 @@
     <updated>2024-11-26T00:00:00+00:00</updated>
     <id>https://micahkepe.com/blog/atom.xml</id>
     <entry xml:lang="en">
-        <title>[12] (WIP) Building a Godot Game! The Making of &#x27;43Monkeys&#x27;</title>
+        <title>(WIP) Building a Godot Game! The Making of &#x27;43Monkeys&#x27;</title>
         <published>2024-11-26T00:00:00+00:00</published>
         <updated>2024-11-26T00:00:00+00:00</updated>
         
@@ -32,7 +32,7 @@ has never made a game before.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[11] Setting Up a Supercharged Neovim Configuration</title>
+        <title>Setting Up a Supercharged Neovim Configuration</title>
         <published>2024-10-13T00:00:00+00:00</published>
         <updated>2024-10-13T00:00:00+00:00</updated>
         
@@ -56,7 +56,7 @@ landed at to turn my Neovim editor into a supercharged workhorse.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[10] A Deep Dive into SQLite&#x27;s Query Optimizer</title>
+        <title>A Deep Dive into SQLite&#x27;s Query Optimizer</title>
         <published>2024-08-27T00:00:00+00:00</published>
         <updated>2024-08-27T00:00:00+00:00</updated>
         
@@ -76,7 +76,7 @@ landed at to turn my Neovim editor into a supercharged workhorse.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[9] vimtutor-sequel: The Extended vimtutor</title>
+        <title>vimtutor-sequel: The Extended vimtutor</title>
         <published>2024-08-04T00:00:00+00:00</published>
         <updated>2024-08-04T00:00:00+00:00</updated>
         
@@ -100,7 +100,7 @@ package I wrote to address this limitation, &lt;code&gt;vimtutor-sequel&lt;&#x2F
         
     </entry>
     <entry xml:lang="en">
-        <title>[7] An Optimistic Take: AI&#x27;s Augmentation of Software Professionals</title>
+        <title>An Optimistic Take: AI&#x27;s Augmentation of Software Professionals</title>
         <published>2024-07-19T00:00:00+00:00</published>
         <updated>2024-07-19T00:00:00+00:00</updated>
         
@@ -120,7 +120,7 @@ package I wrote to address this limitation, &lt;code&gt;vimtutor-sequel&lt;&#x2F
         
     </entry>
     <entry xml:lang="en">
-        <title>[6] How Do Software Packages Work?</title>
+        <title>How Do Software Packages Work?</title>
         <published>2024-06-04T00:00:00+00:00</published>
         <updated>2024-06-04T00:00:00+00:00</updated>
         
@@ -140,7 +140,7 @@ package I wrote to address this limitation, &lt;code&gt;vimtutor-sequel&lt;&#x2F
         
     </entry>
     <entry xml:lang="en">
-        <title>[5] Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
+        <title>Bloom Filters: Space-Efficient Probabilistic Data Structures</title>
         <published>2024-05-25T00:00:00+00:00</published>
         <updated>2024-05-26T00:00:00+00:00</updated>
         
@@ -165,7 +165,7 @@ fields, and compares them with other data structures.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[4] WebP: A Case Study in the Hidden Vulnerabilities of Image Formats</title>
+        <title>WebP: A Case Study in the Hidden Vulnerabilities of Image Formats</title>
         <published>2024-05-13T00:00:00+00:00</published>
         <updated>2024-05-13T00:00:00+00:00</updated>
         
@@ -188,7 +188,7 @@ machine.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
+        <title>Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam</title>
         <published>2024-05-06T00:00:00+00:00</published>
         <updated>2024-05-06T00:00:00+00:00</updated>
         
@@ -212,7 +212,7 @@ own research.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>[2] Biggest Takeaways from The Missing Semester of Your CS Education</title>
+        <title>Biggest Takeaways from The Missing Semester of Your CS Education</title>
         <published>2024-05-05T00:00:00+00:00</published>
         <updated>2024-05-05T00:00:00+00:00</updated>
         
@@ -238,7 +238,7 @@ school.&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>📌 [1] Congrats! You&#x27;ve found my hidden blog!</title>
+        <title>Congrats! You&#x27;ve found my hidden blog!</title>
         <published>2024-05-01T00:00:00+00:00</published>
         <updated>2024-10-28T00:00:00+00:00</updated>
         
