@@ -1,4 +1,4 @@
 +++
 paginate_by = 5
-sort_by = "weight"
+sort_by = "date"
 +++

@@ -1,8 +1,8 @@
 +++
-title = "[6] How Do Software Packages Work?"
+title = "How Do Software Packages Work?"
 date = 2024-06-04
 draft = false
-weight = 5
+weight = 2
 
 [taxonomies]
 categories = ["programming"]

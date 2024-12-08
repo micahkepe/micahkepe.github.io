@@ -1,8 +1,8 @@
 +++
-title = "[7] An Optimistic Take: AI's Augmentation of Software Professionals"
+title = "An Optimistic Take: AI's Augmentation of Software Professionals"
 date = 2024-07-19
 draft = false
-weight = 5
+weight = 2
 
 [taxonomies]
 categories = ["opinion"]

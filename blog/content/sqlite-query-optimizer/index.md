@@ -1,5 +1,5 @@
 +++
-title = "[10] A Deep Dive into SQLite's Query Optimizer"
+title = "A Deep Dive into SQLite's Query Optimizer"
 date = 2024-08-27
 draft = false
 weight = 2

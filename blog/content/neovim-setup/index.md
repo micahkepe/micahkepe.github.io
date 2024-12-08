@@ -1,5 +1,5 @@
 +++
-title = "[11] Setting Up a Supercharged Neovim Configuration"
+title = "Setting Up a Supercharged Neovim Configuration"
 date = 2024-10-13
 draft = false
 weight = 2

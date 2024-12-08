@@ -1,5 +1,5 @@
 +++
-title = "[12] (WIP) Building a Godot Game! The Making of '43Monkeys'"
+title = "(WIP) Building a Godot Game! The Making of '43Monkeys'"
 date = 2024-11-26
 draft = false
 weight = 2

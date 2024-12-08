@@ -1,9 +1,9 @@
 +++
-title = "[5] Bloom Filters: Space-Efficient Probabilistic Data Structures"
+title = "Bloom Filters: Space-Efficient Probabilistic Data Structures"
 date = 2024-05-25
 updated = 2024-05-26
 draft = false
-weight = 5
+weight = 2
 
 [taxonomies]
 categories = ["theory"]

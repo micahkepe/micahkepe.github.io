@@ -1,8 +1,8 @@
 +++
-title = "[3] Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam"
+title = "Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam"
 date = 2024-05-06
 draft = false
-weight = 5
+weight = 2
 
 [taxonomies]
 categories = ["theory"]

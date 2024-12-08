@@ -1,8 +1,8 @@
 +++
-title = "[2] Biggest Takeaways from The Missing Semester of Your CS Education"
+title = "Biggest Takeaways from The Missing Semester of Your CS Education"
 date = 2024-05-05
 draft = false
-weight = 5
+weight = 2
 
 [taxonomies]
 categories = ["programming"]

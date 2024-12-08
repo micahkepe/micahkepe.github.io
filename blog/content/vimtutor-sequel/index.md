@@ -1,5 +1,5 @@
 +++
-title = "[9] vimtutor-sequel: The Extended vimtutor"
+title = "vimtutor-sequel: The Extended vimtutor"
 date = 2024-08-04
 draft = false
 weight = 2 
