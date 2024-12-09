@@ -34,4 +34,39 @@ A lot is still up in the air (open-source or not, full storyboard, etc.), but
 I'm excited to see where this project goes. I'll be updating this post as we
 make progress, so stay tuned!
 
+---
+
+# Progress Log 📓:
+
+<details open>
+<summary>Pre-Class Work</summary>
+<br>
+
+## Updates
+
+Before the class officially starts, we are taking time to familiarize ourselves
+with the Godot engine and the basics of game development. My first thoughts on
+working with GDScript is that it like a blend of Python and TypeScript, which is
+pretty cool. I'm excited to see how it works in practice. I've also been watching
+some tutorials on the Godot engine and game development in general to get a feel
+for the process.
+
+As of now, we have basic character sprites and background tiles ready to go. We
+are also working getting a basic scene set up in Godot to start testing out
+movement and interactions. Godot's [documentation](https://docs.godotengine.org/en/stable/index.html)
+is very good and has been a great resource for getting started.
+
+## Basic Movement
+
+{{ gif(
+    sources=["videos/basic-movt.mp4"],
+    width=40
+)}}
+
+## Helpful Tutorials
+
+{{ youtube(id="LOhfqjmasi0", width=80)}}
+
+</details>
+
 {{ utterances() }}
