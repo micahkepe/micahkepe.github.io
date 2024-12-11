@@ -1,5 +1,5 @@
 +++
-title = "(WIP) Building a Godot Game! The Making of '43Monkeys'"
+title = "Building a Godot Game! The Making of '43 Monkeys'"
 date = 2024-11-26
 draft = false
 weight = 2
@@ -19,7 +19,7 @@ has never made a game before.
 
 # Initial Project Proposal
 
-I don't want to give too much away, but our game is called **43Monkeys** and
+I don't want to give too much away, but our game is called **43 Monkeys** and
 draws a lot of inspiration from this news source:
 [What we know after 43 monkeys escaped a South Carolina research facility](https://www.cbsnews.com/news/south-carolina-escaped-monkeys-what-we-know/)
 
