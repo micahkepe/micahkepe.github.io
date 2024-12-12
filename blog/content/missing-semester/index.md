@@ -2,7 +2,6 @@
 title = "Biggest Takeaways from The Missing Semester of Your CS Education"
 date = 2024-05-05
 draft = false
-weight = 2
 
 [taxonomies]
 categories = ["programming"]
@@ -58,13 +57,15 @@ for beginners. It is also more consistent with other Git commands, such as
 
 ```bash
 
-# Rebasing a feature branch on top of the main branch to keep the commit history clean
+# Rebasing a feature branch on top of the main branch to keep the commit
+# history clean
 git switch main
 git pull
 git switch feature-branch
 git rebase main
 
-# After resolving any conflicts, switch back to the main branch and merge the feature branch
+# After resolving any conflicts, switch back to the main branch and merge the
+# feature branch
 git switch main
 git merge feature-branch
 ```
@@ -107,12 +108,12 @@ Finally, the feature branch is merged back into the main branch. Now we have a
 A key benefit of rebasing is that it keeps the commit history clean and linear,
 making it easier to understand and navigate.
 
-> **NOTE** It is important to note that rebasing rewrites commit history, so it should be
-> used _with caution_, especially when working on shared branches with
-> collaborators. If working with others, use the `--force-with-lease` flag when
-> pushing rebased commits to a shared branch. This flag ensures that if your
-> changes conflict with the remote branch, you will not overwrite someone else's
-> work.
+> **NOTE** It is important to note that rebasing rewrites commit history, so
+> it should be used _with caution_, especially when working on shared
+> branches with collaborators. If working with others, use the
+> `--force-with-lease` flag when pushing rebased commits to a shared branch.
+> This flag ensures that if your changes conflict with the remote branch, you
+> will not overwrite someone else's work.
 
 ### 1.3 Stashing changes
 
@@ -263,10 +264,11 @@ should show the symbolic links in your home directory pointing to the dotfiles
 in your repository like so:
 
 {{ responsive(
-src="symlinks.png",
-alt="Dotfiles in home directory",
-caption="Above: My dotfiles in my home directory symlinked to my dotfiles repository."
-width=90
+    src="symlinks.png",
+    alt="Dotfiles in home directory",
+    caption="Above: My dotfiles in my home directory symlinked to my dotfiles
+        repository."
+    width=90
 ) }}
 
 4\. Add, commit, and push your dotfiles to your remote repository (e.g.,

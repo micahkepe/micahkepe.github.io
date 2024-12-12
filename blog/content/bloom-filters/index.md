@@ -3,7 +3,6 @@ title = "Bloom Filters: Space-Efficient Probabilistic Data Structures"
 date = 2024-05-25
 updated = 2024-05-26
 draft = false
-weight = 2
 
 [taxonomies]
 categories = ["theory"]
@@ -27,7 +26,11 @@ definitely not in the set or that it might be in the set. This probabilistic
 nature makes Bloom filters incredibly space-efficient, but it also means they
 come with a small chance of false positives.
 
-{{ responsive(src="bloom-filter.webp", width=70, alt="Bloom Filter Example") }}
+{{ responsive(
+    src="bloom-filter.webp",
+    width=70,
+    alt="Bloom Filter Example"
+) }}
 
 <br>
 
@@ -50,10 +53,11 @@ positions in the bit array are set to 1. If any of these bits are already set to
 1, they remain unchanged.
 
 {{ responsive(
-src="insertion.png",
-alt="Inserting an element into a Bloom filter",
-caption="Above: Inserting an element into a Bloom filter",
-width=80) }}
+    src="insertion.png",
+    alt="Inserting an element into a Bloom filter",
+    caption="Above: Inserting an element into a Bloom filter",
+    width=80
+) }}
 
 <br>
 
@@ -82,7 +86,11 @@ when it is not). The probability of false positives depends on the size of the
 bit array $m$, the number of hash functions $k$, and the number of elements
 inserted $n$.
 
-{{ responsive(src="bloom-filter-example.png", alt="Example of a false positive in a Bloom filter", caption="Above: Example of a false positive in a Bloom filter") }}
+{{ responsive(
+    src="bloom-filter-example.png",
+    alt="Example of a false positive in a Bloom filter",
+    caption="Above: Example of a false positive in a Bloom filter"
+) }}
 
 <br>
 
@@ -122,7 +130,13 @@ the space efficiency of Bloom filters compared to hash sets.
 ### Bloom Filter
 
 <div style="display: flex; justify-content: center;">
-    <iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+    <iframe 
+        height="500px" 
+        width="80%" 
+        src="https://repl.it/@MicahKepe/BloomFilterMaliciousURLs?lite=true" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
 </div>
 
 Here's the results I got when running the Bloom filter simulation:
@@ -140,7 +154,13 @@ Memory Usage: 1.14 MB
 ### Hash Set
 
 <div style="display: flex; justify-content: center;">
-<iframe height="500px" width="80%" src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" frameborder="0" allowfullscreen></iframe>
+    <iframe 
+        height="500px" 
+        width="80%" 
+        src="https://repl.it/@MicahKepe/HashSetMaliciousURLs?lite=true" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
 </div>
 
 Here's the results I got when running the hash set simulation:

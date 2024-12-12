@@ -2,7 +2,6 @@
 title = "Building a Godot Game! The Making of '43 Monkeys'"
 date = 2024-11-26
 draft = false
-weight = 2
 
 [taxonomies]
 categories = ["projects"]

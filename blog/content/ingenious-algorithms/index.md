@@ -2,7 +2,6 @@
 title = "Ingenious Algorithms We Take for Granted: PageRank, Spell Checkers, and Shazam"
 date = 2024-05-06
 draft = false
-weight = 2
 
 [taxonomies]
 categories = ["theory"]
@@ -116,12 +115,14 @@ A's PageRank is updated as follows:
 
 {{ note(body="
 
-\\[ PR(A) = \frac{1-0.85}{4} + 0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
+\\[ PR(A) = \frac{1-0.85}{4} + \\]
+
+\\[0.85 \left( \frac{PR(B)}{1} + \frac{PR(C)}{1} +
 \frac{PR(D)}{3} \right) \\]
 
-\\[ PR(A) = 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1} - \frac{0.25}{3}\right) \\]
+\\[= 0.0375 + 0.85 \left(\frac{0.25}{1} + \frac{0.25}{1} - \frac{0.25}{3}\right) \\]
 
-\\[ PR(A) \approx 0.46 \\]
+\\[\boxed{ PR(A) \approx 0.46 }\\]
 
 ")}}
 
@@ -130,10 +131,11 @@ reflect the importance of each page in the network. The final PageRank values
 can then be used to rank the pages in search results.
 
 {{ responsive(
-src="pagerank.gif",
-alt="PageRank Calculation Example",
-caption="Above: PageRank GIF showing the iterative calculation of PageRank values for a simple network of web pages"
-width=70
+    src="pagerank.gif",
+    alt="PageRank Calculation Example",
+    caption="Above: PageRank GIF showing the iterative calculation of
+        PageRank values for a simple network of web pages"
+    width=70
 ) }}
 
 One interesting property of PageRank is that it is a Markov chain, which means
@@ -336,10 +338,10 @@ Shazam's database of over 11 million songs. Even though the clip is noisy and
 distorted, Shazam is still able to find a match and identify the song.
 
 {{ responsive(
-src="signal-match.png",
-alt="Signal Matching in Shazam",
-caption="Above: Signal matching in Shazam."
-width=80
+    src="signal-match.png",
+    alt="Signal Matching in Shazam",
+    caption="Above: Signal matching in Shazam."
+    width=80
 ) }}
 
 One interesting aspect of Shazam's algorithm is that it uses a technique called
@@ -349,7 +351,12 @@ subfingerprints and searching for matches for each subfingerprint separately.
 This allows Shazam to identify songs quickly even though its database contains
 millions of songs.
 
-{{ responsive(src="shazam.png", alt="Shazam Process", caption="Above: Excerpt from Shazam's patent showing the process of identifying a song.") }}
+{{ responsive(
+    src="shazam.png",
+    alt="Shazam Process",
+    caption="Above: Excerpt from Shazam's patent showing the process of
+        identifying a song."
+) }}
 
 <br>
 

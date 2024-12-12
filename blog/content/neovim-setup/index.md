@@ -2,7 +2,6 @@
 title = "Setting Up a Supercharged Neovim Configuration"
 date = 2024-10-13
 draft = false
-weight = 2
 
 [taxonomies]
 categories = ["tools"]
@@ -163,17 +162,27 @@ NVChad has the diagnostics displayed inline in red text. One consequence of this
 is that long diagnostic messages do not wrap at the end of the buffer, making it
 difficult to read the entire message:
 
-{{ responsive(src="default-diagnostics.png", width=80, alt="Diagnostics display in red text", caption="NvChad default diagnostics") }}
+{{ responsive(
+    src="default-diagnostics.png",
+    width=80, alt="Diagnostics display in red text",
+    caption="NvChad default diagnostics"
+) }}
 
 To make the diagnostics more readable and "Visual-Studio-Code-like", I changed
 the diagnostics to underline the offending line and display to a floating window
 at the offending line on a cursor hold:
 
-{{ responsive(src="new-diagnostics-ex1.png", alt="Diagnostics display in a floating window on the screen") }}
+{{ responsive(
+    src="new-diagnostics-ex1.png",
+    alt="Diagnostics display in a floating window on the screen"
+) }}
 
 <br>
 
-{{ responsive(src="new-diagnostics-ex2.png", alt="Diagnostics display in a floating window at the bottom of the screen") }}
+{{ responsive(
+    src="new-diagnostics-ex2.png",
+    alt="Diagnostics display in a floating window at the bottom of the screen"
+) }}
 
 To do this, I created a separate file for the diagnostics configuration in
 `nvim/lua/configs/diagnostics.lua`:

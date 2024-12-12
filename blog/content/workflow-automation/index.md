@@ -1,8 +1,7 @@
 +++
-title = "Expediating My Workflow with Bash, Unix Tools, and Hammerspoon"
+title = "Using Bash, Unix Tools, and Hammerspoon to Speed Up Your Workflow"
 date = 2024-12-05
 draft = true
-weight = 2
 
 [taxonomies]
 categories = ["productivity"]
@@ -41,6 +40,136 @@ still be useful for automating repetitive tasks, managing files, and more.
 
 ## Your 20 Minute Intro to Bash
 
+Bash can be a little intimidating at first, but it is actually quite simple once
+you get the hang of it. In this section, we will cover the basics of Bash
+scripting to get you started. By no means at the end of this will you be an
+expert at writing Bash scripts, but we will know enough to write some useful
+scripts of our own.
+
+### Variables
+
+Just like you would expect, varibles are assigned using the `=` operator. Here
+is an example:
+
+```bash
+
+name="John"
+age=20
+```
+
+Notice that there are no spaces around the `=` operator. Also, Bash does not
+distinguish between different types of variables, so you can assign a string to
+a variable and then assign an integer to the same variable.
+
+Here's some basic things we can do with variables:
+
+```bash
+
+# Print the value of a variable using the echo command
+echo $name # access the value of a variable using the $ operator
+
+# Assign the output of a command to a variable
+files=$(ls) # syntax: $(command)
+
+# Use the value of a variable in a command
+echo "Hello, $name!" # prints "Hello, John!"
+```
+
+### Supported Data Types in Bash
+
+### Bash Comparisons
+
+Bash has wonky ass syntax for comparisons that you just have to memorize
+unfortunately.
+
+<details open>
+<summary>Arithmetic Comparisons</summary>
+
+| **Bash** | **Meaning** |
+| -------- | ----------- |
+| `-lt`    | <           |
+| `-gt`    | >           |
+| `-le`    | <=          |
+| `-ge`    | >=          |
+| `-eq`    | ==          |
+| `-ne`    | !=          |
+
+</details>
+
+Examples of arithmetic comparisons:
+
+```bash
+
+
+```
+
+<details open> 
+<summary>String Comparisons</summary>
+
+| **Bash** | **Meaning**              |
+| -------- | ------------------------ |
+| `=`      | equal                    |
+| `!=`     | not equal                |
+| `<`      | less than                |
+| `>`      | greater than             |
+| `-n s1`  | string `s1` is not empty |
+| `-z s1`  | string `s1` is empty     |
+
+</details>
+
+Examples of arithmetic comparisons:
+
+```bash
+
+```
+
+### Writing Loops
+
+In Bash, loops
+
+### Reading User Input and Trapping
+
+- `read` command
+- `trap` command
+
+### Executing Bash files
+
+To actually be able to run a Bash scripts, we need to do two things: (1) make
+the file executable and (2) add a shebang to the file.
+
+The shebang is a special line at the beginning of a script that tells the
+operating system what interpreter to use to run the script. The shebang for
+Bash scripts is `#!/bin/bash`. Here is an example of a simple Bash script:
+
+```bash
+
+#!/bin/bash
+echo "Hello, World!"
+```
+
+Breaking down the shebang, you'll notice that `#!` is the shebang character
+sequence, and `/bin/bash` is the path to the Bash interpreter. The shebang line
+**must** be the first line of the script, as it tells your operating system how
+to run the script. Without it, the script will not run since the operating system
+will not know what interpreter to use.
+
+Now to actually run the script, save it to a file (e.g. `hello.sh`), make it
+executable using the `chmod` command, and then run it:
+
+```bash
+
+chmod +x hello.sh
+```
+
+Then to run the script, use `./hello.sh`.
+
+That's it for our 20 minute intro to Bash. There is still a lot more to learn,
+but this should be enough to get you started writing some simple scripts.
+If you are interested in learning more, I recommend checking out the resources I
+have linked at the end of this post or this Youtube video:
+
+{{ youtube(id="tK9Oc6AEnR4", width=80)}}
+
 ---
 
 ## Unix Tools 101
@@ -72,17 +201,56 @@ since text streams are a universal interface.
 
 ### Common Unix Tools
 
-- `tldr`
+- `tldr`: a simplified man page that provides practical examples of how to use
+  a command
 
-- `fzf`
+- `fzf`: basic use, shell integration functions
 
-- `rg`
+> Note for fish shell: `fzf` has a fish plugin, but it doesn't seem well
+> maintained and I had issues, use [fzf.fish](https://github.com/PatrickF1/fzf.fish)
+> instead, which actually has a lot of bonus features as well.
 
-- `tmux`
+- `rg`: faster than `grep`, more powerful
 
-- `sed` and `awk`
+- `tmux`: gigachad terminal multiplexer, in the future I will most likely have
+  a whole post dedicated to tmux and how I use it, but for now, just know that
+  it is a terminal multiplexer that allows you to split your terminal into multiple
+  panes, create sessions, and more.
+
+- `sed` and `awk`: text processing tools
+
+- `htop`: system monitoring tools
+
+- `bat` over `cat`: syntax highlighting and line numbers
 
 ### Practial Examples of Unix Tool Chains in Action
+
+(this is a stupid example compile better ones)
+
+```bash
+
+# Find all files in the current directory that contain the word "foo"
+# and display the file name and line
+rg foo | fzf | awk '{print $1, $2}'
+```
+
+Better example:
+
+```bash
+
+nvim $(fzf --preview="bat --color=always {}")
+```
+
+even better for top:
+
+```bash
+
+nvim $(fzf -m --preview="bat --color=always {}")
+```
+
+can save this as an alias to call instead of `nvim`
+
+#### ThePrimeagen's `tmux-sessionizer` Script
 
 ---
 
@@ -104,7 +272,14 @@ resize them, and switch between them without ever having to touch the mouse.
 
 ## Getting Started with Hammerspoon
 
+### Installation and Getting Started
+
+[install instructions, making skeleton files blah blah]
+
 ### Window Sizing
+
+Now with Hammerspoon installed, we can start scripting. Create a new file in
+your `~/.hammerspoon` directory called `window.lua` and add the following code:
 
 ```lua
 
@@ -169,6 +344,11 @@ hs.hotkey.bind({ "alt", "cmd" }, "f", function()
 end)
 ```
 
+Save the file and reload your Hammerspoon configuration (you can do this by
+clicking on the Hammerspoon icon in the menu bar and selecting "Reload Config").
+
+Now try using the keybinds you set up to move your windows around.
+
 ### Window Switching
 
 ```lua
@@ -206,14 +386,21 @@ end)
 
 ---
 
-## Putting It All Together
+## Putting It All Together: My Personal Workflow and Most Used Commands
 
-[talk about gigachad no mouse workflow that makes everyone jealous (not :( )]
+Up to this point, I have shown you a lot of examples, but I'll use this section
+to walkthrough my personal workflow and how I leverage these tools to improve my
+productivity.
 
----
+## References and Resources
 
-## References
-
-- [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) \
+- [Unix Philosophy Wikipedia page](https://en.wikipedia.org/wiki/Unix_philosophy) \
+- [typescraft: This may be my favorite CLI tool ever](https://www.youtube.com/watch?v=oTNRvnQLLLs&list=WL&index=1) \
+- [Josean Martinez: 7 Amazing CLI Tools You Need To Try](https://www.youtube.com/watch?v=mmqDYw9C30I&t=248s) \
+- [Bash Scripting Tutorial: How to Write a Bash Script](https://linuxconfig.org/bash-scripting-tutorial) \
+- [Bash Scripting Tutorial for Beginners](https://www.youtube.com/watch?v=tK9Oc6AEnR4) \
+- [`fzf` GitHub Repository](https://github.com/junegunn/fzf) \
+- [`fzf.fish` GitHub Repository](https://github.com/PatrickF1/fzf.fish) \
+- [`ripgrep` GitHub Repository](https://github.com/BurntSushi/ripgrep)
 
 {{ utterances() }}

@@ -2,7 +2,6 @@
 title = "vimtutor-sequel: The Extended vimtutor"
 date = 2024-08-04
 draft = false
-weight = 2 
 
 [taxonomies]
 categories = ["projects"]
@@ -85,7 +84,8 @@ feedback has been instrumental in planning further improvements to the project.
 
 ## Future Plans
 
-With the initial success and the community's interest, I plan to continue enhancing `vimtutor-sequel`. Here are a few things on the roadmap:
+With the initial success and the community's interest, I plan to continue
+enhancing `vimtutor-sequel`. Here are a few things on the roadmap:
 
 {{ note(body="
 
@@ -102,11 +102,18 @@ see how it can take your Vim skills to the next level. Your feedback is
 incredibly valuable, and I would love to hear your thoughts on how to make it
 even better.
 
-1. **Try It Out**: [Download `vimtutor-sequel`](https://github.com/micahkepe/vimtutor-sequel) and start the lessons.
-2. **Provide Feedback**: Use the [Issues tab](https://github.com/micahkepe/vimtutor-sequel/issues) on GitHub to report bugs, suggest new features, or share your experience.
-3. **Contribute**: If you're a developer, feel free to fork the repository and submit pull requests. Contributions are always welcome!
-4. **Star the Repository**: If you find `vimtutor-sequel` useful, consider starring the repository on GitHub to help others find it.
-5. **Share the Project**: Spread the word about `vimtutor-sequel` on social media, forums, or with your friends and colleagues who use Vim.
+1. **Try It Out**: [Download
+   `vimtutor-sequel`](https://github.com/micahkepe/vimtutor-sequel) and start
+   the lessons.
+2. **Provide Feedback**: Use the [Issues
+   tab](https://github.com/micahkepe/vimtutor-sequel/issues) on GitHub to
+   report bugs, suggest new features, or share your experience.
+3. **Contribute**: If you're a developer, feel free to fork the repository
+   and submit pull requests. Contributions are always welcome!
+4. **Star the Repository**: If you find `vimtutor-sequel` useful, consider
+   starring the repository on GitHub to help others find it.
+5. **Share the Project**: Spread the word about `vimtutor-sequel` on social
+   media, forums, or with your friends and colleagues who use Vim.
 
 Thank you for reading, and happy Vimming!
 

@@ -2,7 +2,6 @@
 title = "Congrats! You've found my hidden blog!"
 date = 2024-05-01
 updated = 2024-10-28
-weight = 1
 +++
 
 {{ note(body="
