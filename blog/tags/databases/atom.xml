@@ -23,7 +23,12 @@
         <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/sqlite-query-optimizer/"/>
         <id>https://micahkepe.com/blog/sqlite-query-optimizer/</id>
         
-        <summary type="html">&lt;p&gt;I &lt;strong&gt;love&lt;&#x2F;strong&gt; databases, but they are still largely a magical black box to me, so in this post, I&#x27;m going to explore how SQLite&#x27;s query optimizer works. We&#x27;ll delve together into the process of how SQL queries are parsed, optimized, and executed, with a particular focus on the optimization phase. By the end of this post, you&#x27;ll have a better understanding of how SQLite&#x27;s query optimizer works and how it can help you write more efficient queries.&lt;&#x2F;p&gt;
+        <summary type="html">&lt;p&gt;I &lt;strong&gt;love&lt;&#x2F;strong&gt; databases, but they are still largely a magical black box to me, so
+in this post, I&#x27;m going to explore how SQLite&#x27;s query optimizer works. We&#x27;ll
+delve together into the process of how SQL queries are parsed, optimized, and
+executed, with a particular focus on the optimization phase. By the end of this
+post, you&#x27;ll have a better understanding of how SQLite&#x27;s query optimizer works
+and how it can help you write more efficient queries.&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

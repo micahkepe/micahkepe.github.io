@@ -23,7 +23,10 @@
         <link rel="alternate" type="text/html" href="https://micahkepe.com/blog/software-packages/"/>
         <id>https://micahkepe.com/blog/software-packages/</id>
         
-        <summary type="html">&lt;p&gt;How do software packages work behind the scenes? How are they created, distributed, and installed? In this post, we&#x27;ll explore the lifecycle of software packages, from creation to installation, using the Node Package Manager (NPM) and the Autoprefixer package as real-world examples.&lt;&#x2F;p&gt;
+        <summary type="html">&lt;p&gt;How do software packages work behind the scenes? How are they created,
+distributed, and installed? In this post, we&#x27;ll explore the lifecycle of
+software packages, from creation to installation, using the Node Package
+Manager (NPM) and the Autoprefixer package as real-world examples.&lt;&#x2F;p&gt;
 </summary>
         
     </entry>
