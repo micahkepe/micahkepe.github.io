@@ -129,8 +129,10 @@ In Bash, loops have another somewhat weird syntax that you will get used to.
 
 ### Reading User Input and Trapping
 
-- `read` command
-- `trap` command
+The `read` command will let us retrieve data from `stdin`.
+
+Next, we can use the `trap` command to execute another command after an event
+like a sent signal.
 
 ### Executing Bash files
 
@@ -199,76 +201,77 @@ difficult or impossible with a single program. By writing programs to handle tex
 streams, you can create tools that can be used in a wide variety of contexts,
 since text streams are a universal interface.
 
-### Common Unix Tools
+### Common Unix-like Tools
 
 #### `tldr`: simpler man pages
 
-- `tldr`: a simplified man page that provides practical examples of how to use
-  a command
+`tldr` provides simplified man page that provides practical examples of how to
+use a command.
 
-```
-tldr
+You can also get platform-specific man pages with the `--platform` flag like
+this:
 
-Display simple help pages for command-line tools from the tldr-pages project.
-Note: the `--language` and `--list` options are not required by the client specification, but most clients implement them.
-More information: <https://github.com/tldr-pages/tldr/blob/main/CLIENT-SPECIFICATION.md#command-line-interface>.
+```bash
 
-- Print the tldr page for a specific command (hint: this is how you got here!):
-    tldr command
-
-- Print the tldr page for a specific subcommand:
-    tldr command subcommand
-
-- Print the tldr page for a command in the given [L]anguage (if available, otherwise fall back to English):
-    tldr --language language_code command
-
-- Print the tldr page for a command from a specific [p]latform:
-    tldr --platform android|common|freebsd|linux|osx|netbsd|openbsd|sunos|windows command
-
-- [u]pdate the local cache of tldr pages:
-    tldr --update
-
-- [l]ist all pages for the current platform and `common`:
-    tldr --list
-
-- [l]ist all available subcommand pages for a command:
-    tldr --list | grep command | column
-
+# - Print the tldr page for a command from a specific [p]latform:
+#     tldr --platform android|common|freebsd|linux|osx|netbsd|openbsd|sunos|windows command
+# Example:
+tldr --platform linux htop
 ```
 
 #### `fzf`: powerful fuzzy finder
 
-- `fzf`: basic use, shell integration functions
+For basic use, just running `fzf` will fuzzy find recursively on all files in
+the present working directory. However, the `tldr` page for `fzf` also lists out
+some more complex commands with `fzf`:
 
-> Note for fish shell: `fzf` has a fish plugin, but it doesn't seem well
-> maintained and I had issues, use [fzf.fish](https://github.com/PatrickF1/fzf.fish)
-> instead, which actually has a lot of bonus features as well.
+```bash
 
+# - Start `fzf` on all files in the specified directory:
+find path/to/directory -type f | fzf
+
+# - Start `fzf` for running processes:
+ps aux | fzf
+
+# - Select multiple files with `Shift + Tab` and write to a file:
+find path/to/directory -type f | fzf --multi > path/to/file
+
+# - Start `fzf` with a specified query:
+fzf --query "query"
+
+# - Start `fzf` on entries that start with core and end with either go, rb, or py:
+fzf --query "^core go$ | rb$ | py$"
+
+# - Start `fzf` on entries that not match pyc and match exactly travis:
+fzf --query "!pyc 'travis"
 ```
-fzf
 
-Command-line fuzzy finder.
-Similar to `sk`.
-More information: <https://github.com/junegunn/fzf>.
+`fzf` will list the files in a nicely formatted list that you can navigate using
+either the arrow keys or Vim-like bindings using `Ctrl + <hjkl>`.
 
-- Start `fzf` on all files in the specified directory:
-    find path/to/directory -type f | fzf
+`fzf` also has shell integration functions that are very helpful. To set up the
+integration you'll need to add the following to your shell's respective
+configuration file:
 
-- Start `fzf` for running processes:
-    ps aux | fzf
+```bash
 
-- Select multiple files with `Shift + Tab` and write to a file:
-    find path/to/directory -type f | fzf --multi > path/to/file
+# Zsh
+source <(fzf --zsh)
 
-- Start `fzf` with a specified query:
-    fzf --query "query"
+# Bash
+eval "$(fzf --bash)"
 
-- Start `fzf` on entries that start with core and end with either go, rb, or py:
-    fzf --query "^core go$ | rb$ | py$"
-
-- Start `fzf` on entries that not match pyc and match exactly travis:
-    fzf --query "!pyc 'travis"
+# Fish
+fzf --fish | source
 ```
+
+Relaunch your shell to source the new configuration. Now we can use the provided
+shell functionality.
+
+> Note for fish shell: I use Fish shell, and while `fzf` has a fish plugin, but
+> it doesn't seem well maintained and I had issues, use [fzf.fish](https://github.com/PatrickF1/fzf.fish)
+> instead, which actually has a lot of bonus features as well like finding
+> processes and variables.
 
 #### `tmux`: terminal manager
 
