@@ -25,6 +25,9 @@
         <loc>https://micahkepe.com/blog/categories/opinion/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/categories/productivity/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/categories/programming/</loc>
     </url>
     <url>
@@ -73,6 +76,12 @@
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/algorithms/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/bash/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/cli/</loc>
     </url>
     <url>
         <loc>https://micahkepe.com/blog/tags/data-structures/</loc>
@@ -129,6 +138,12 @@
         <loc>https://micahkepe.com/blog/tags/theory/</loc>
     </url>
     <url>
+        <loc>https://micahkepe.com/blog/tags/tools/</loc>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/tags/unix/</loc>
+    </url>
+    <url>
         <loc>https://micahkepe.com/blog/tags/vim/</loc>
     </url>
     <url>
@@ -148,5 +163,9 @@
     <url>
         <loc>https://micahkepe.com/blog/welcome/</loc>
         <lastmod>2024-10-28</lastmod>
+    </url>
+    <url>
+        <loc>https://micahkepe.com/blog/workflow-automation/</loc>
+        <lastmod>2024-12-05</lastmod>
     </url>
 </urlset>
