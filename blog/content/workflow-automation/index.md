@@ -75,12 +75,103 @@ files=$(ls) # syntax: $(command)
 echo "Hello, $name!" # prints "Hello, John!"
 ```
 
+### Bash Loops and Comparisons
+
+#### Bash Loops
+
+Bash loops and conditionals have a somewhat unusual syntax when coming from
+languages like Python or Java. The key patterns to remember are:
+
+- `if ... then ... fi` for conditionals
+- `for ... do ... done` for loops
+- `while ... do ... done` and `until ... do ... done` for other loop constructs
+
+Bash uses `fi` to end an `if` block, and done to end loops. This might
+feel odd at first, but you’ll get used to it quickly.
+
+`for` loops:
+
+```bash
+
+for file in *.txt; do
+    echo "Processing $file"
+done
+```
+
+This loop iterates over all `.txt` files in the current directory. The `do`
+keyword starts the loop's body, and `done` ends it.
+
+`while` loops:
+
+```bash
+
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    count=$((count+1))
+done
+```
+
+This loop runs as long as the condition `[ $count -le 5 ]` is true (we'll go
+over the syntax for comparisons in a bit). The `count=$((count+1))` line
+increments the value of the `count` variable by 1.
+
+`if` statements:
+
+```bash
+
+age=20
+if [ $age -ge 18 ]; then
+    echo "You are an adult."
+else
+    echo "You are a minor."
+fi
+```
+
+In Bash, `if` blocks always end with `fi`. Also notice we use `[` and `]`
+around the condition; this is part of Bash's test syntax.
+
 ### Supported Data Types in Bash
 
-### Bash Comparisons
+Bash doesn't strongly differentiate data types the way higher-level languages do.
+All variables are essentially strings. For arithmetic operations, Bash evaluates
+the variable contents as integers if possible. Arrays in Bash are just lists of
+strings. There's no native support for complex data structures out of the box,
+but you can do a lot with what is provided.
 
-Bash has wonky ass syntax for comparisons that you just have to memorize
+Examples:
+
+```bash
+
+name="Alice"    # string
+count=42        # integer stored as a string, but usable in arithmetic
+
+fruits=("apple" "banana" "cherry")
+echo ${fruits[0]}  # prints "apple"
+```
+
+There’s no separate syntax for declaring a variable as an integer vs. a string.
+It’s all context-based.
+
+#### Bash Comparisons
+
+Bash has wonky syntax for comparisons that you just have to memorize
 unfortunately.
+
+Bash uses different forms of brackets and parentheses for distinct purposes,
+which can be confusing at first. The single brackets `[ ]` are essentially a
+shorthand for the `test` command and are used for conditional checks. The
+double brackets `[[ ]]` are a Bash-specific enhancement that provides more
+features, like regular expression matching and simplified handling of strings
+without the need for extensive quoting. For arithmetic operations, double
+parentheses `(( ))` treat variables as integers and allow direct arithmetic
+evaluation, while command substitution uses `$( )` to run a command and
+capture its output.
+
+**tldr**: `[ ]` and `[[ ]]` are for conditionals, with `[[ ]]` being more
+versatile and safer in many cases; `(( ))` handles arithmetic cleanly, and
+`$( )` executes commands and returns their results. Understanding these
+subtle differences will make your Bash scripts more reliable and easier to read.
 
 <details open>
 <summary>Arithmetic Comparisons</summary>
@@ -96,11 +187,14 @@ unfortunately.
 
 </details>
 
-Examples of arithmetic comparisons:
+Example:
 
 ```bash
 
-
+num=10
+if [ $num -gt 5 ]; then
+  echo "$num is greater than 5"
+fi
 ```
 
 <details open> 
@@ -117,22 +211,39 @@ Examples of arithmetic comparisons:
 
 </details>
 
-Examples of arithmetic comparisons:
+Example:
 
 ```bash
 
+str="hello"
+if [ "$str" = "hello" ]; then
+    echo "The strings match"
+fi
 ```
-
-### Writing Loops
-
-In Bash, loops have another somewhat weird syntax that you will get used to.
 
 ### Reading User Input and Trapping
 
 The `read` command will let us retrieve data from `stdin`.
 
+```bash
+
+echo "Enter your name:"
+read user_name
+echo "Hello, $user_name!"
+```
+
 Next, we can use the `trap` command to execute another command after an event
-like a sent signal.
+like a sent signal such as `SIGINT` (Ctrl + C):
+
+```bash
+
+trap 'echo "Caught CTRL+C, exiting..."; exit 1' INT
+
+while true; do
+    echo "Press Ctrl+C to stop..."
+    sleep 2
+done
+```
 
 ### Executing Bash files
 
@@ -183,15 +294,15 @@ not only because it is the foundation of Unix tools, but also because it is a
 design philosphy that leads to the powerful combinations and versatility of Unix
 tools.
 
-The following diagram illustrates the Unix philosophy:
-
-[insert cool diagram I made yay]
-
 This philosophy can be summarized as follows:
+
+{{ note(body="
 
 1. Write programs that do one thing and do it well.
 2. Write programs to work together.
 3. Write programs to handle text streams, because that is a universal interface.
+
+")}}
 
 These rules are simple but have powerful implications. By writing programs that
 do one thing well, you can create a set of tools that can be combined in
@@ -268,219 +379,121 @@ fzf --fish | source
 Relaunch your shell to source the new configuration. Now we can use the provided
 shell functionality.
 
-> Note for fish shell: I use Fish shell, and while `fzf` has a fish plugin, but
-> it doesn't seem well maintained and I had issues, use [fzf.fish](https://github.com/PatrickF1/fzf.fish)
+> **Note for fish shell**: I use Fish shell, and while `fzf` has a fish plugin,
+> but it doesn't seem well maintained and I had issues, use [fzf.fish](https://github.com/PatrickF1/fzf.fish)
 > instead, which actually has a lot of bonus features as well like finding
 > processes and variables.
 
 #### `tmux`: terminal manager
 
-- `tmux`: gigachad terminal multiplexer, in the future I will most likely have
-  a whole post dedicated to tmux and how I use it, but for now, just know that
-  it is a terminal multiplexer that allows you to split your terminal into multiple
-  panes, create sessions, and more.
+`tmux` is a terminal multiplexer, in the future I will most likely have a whole
+post dedicated to tmux and how I use it, but for now, just know that it is a
+terminal multiplexer that allows you to split your terminal into multiple panes,
+create sessions, and more. For now, let's just look at some basic commands.
 
-```
-tmux
+By default, `tmux` uses `Ctrl + b` as a "prefix" key, which means that you press
+`Ctrl + b` and then another key to execute a command. (You can change this to
+a more convenient keybinding, a common one is `Ctrl + a`; you can do this by
+adding `set -g prefix C-a` to your `~/.tmux.conf` file.)
 
-Terminal multiplexer.
-It allows multiple sessions with windows, panes, and more.
-See also: `zellij`, `screen`.
-More information: <https://github.com/tmux/tmux>.
+Here are some common `tmux` commands:
 
-- Start a new session:
-    tmux
+```bash
 
-- Start a new named session:
-    tmux new -s name
+# Create a new session:
+tmux new-session
 
-- List existing sessions:
-    tmux ls
+# Attach to a session:
+tmux attach-session -t session_name
 
-- Attach to the most recently used session:
-    tmux attach
+# Create a new window:
+Ctrl+b c
 
-- Detach from the current session (inside a tmux session):
-    <Ctrl>-B d
+# Split a pane horizontally:
+Ctrl+b %
 
-- Create a new window (inside a tmux session):
-    <Ctrl>-B c
-
-- Switch between sessions and windows (inside a tmux session):
-    <Ctrl>-B w
-
-- Kill a session by name:
-    tmux kill-session -t name
-
+# Split a pane vertically:
+Ctrl+b "
 ```
 
-#### `sed` / `grep`: text processing tools
+When you are in a `tmux` session, you can press `Ctrl + b` and then `?` to see
+a list of all the keybindings available to you.
 
-- `sed` and `awk`: text processing tools
+#### `sed` (Stream Editor)/ `grep`/ `awk`: text processing
 
-```
-sed
+`sed` and `awk` are text processing tools that allow you to manipulate text
+files in various ways. `grep` is a tool that allows you to search for specific
+lines in a file.
 
-Edit text in a scriptable manner.
-See also: `awk`, `ed`.
-More information: <https://keith.github.io/xcode-man-pages/sed.1.html>.
+Here are some examples:
 
-- Replace all `apple` (basic regex) occurrences with `mango` (basic regex) in all input lines and print the result to `stdout`:
-    command | sed 's/apple/mango/g'
+```bash
 
-- Execute a specific script [f]ile and print the result to `stdout`:
-    command | sed -f path/to/script_file.sed
+# Replace "old_text" with "new_text" in a file:
+sed 's/old_text/new_text/g' file.txt
 
-- Replace all `apple` (extended regex) occurrences with `APPLE` (extended regex) in all input lines and print the result to `stdout`:
-    command | sed -E 's/(apple)/\U\1/g'
+# Print lines containing "keyword" from a file:
+grep "keyword" file.txt
 
-- Print just a first line to `stdout`:
-    command | sed -n '1p'
-
-- Replace all `apple` (basic regex) occurrences with `mango` (basic regex) in a `file` and save a backup of the original to `file.bak`:
-    sed -i bak 's/apple/mango/g' path/to/file
-
-```
-
-```
-
-awk
-
-A versatile programming language for working on files.
-More information: <https://github.com/onetrueawk/awk>.
-
-- Print the fifth column (a.k.a. field) in a space-separated file:
-    awk '{print $5}' path/to/file
-
-- Print the second column of the lines containing "foo" in a space-separated file:
-    awk '/foo/ {print $2}' path/to/file
-
-- Print the last column of each line in a file, using a comma (instead of space) as a field separator:
-    awk -F ',' '{print $NF}' path/to/file
-
-- Sum the values in the first column of a file and print the total:
-    awk '{s+=$1} END {print s}' path/to/file
-
-- Print every third line starting from the first line:
-    awk 'NR%3==1' path/to/file
-
-- Print different values based on conditions:
-    awk '{if ($1 == "foo") print "Exact match foo"; else if ($1 ~ "bar") print "Partial match bar"; else print "Baz"}' path/to/file
-
-- Print all the lines which the 10th column value is between a min and a max:
-    awk '($10 >= min_value && $10 <= max_value)'
-
-- Print table of users with UID >=1000 with header and formatted output, using colon as separator (`%-20s` mean: 20 left-align string characters, `%6s` means: 6 right-align string characters):
-    awk 'BEGIN {FS=":";printf "%-20s %6s %25s\n", "Name", "UID", "Shell"} $4 >= 1000 {printf "%-20s %6d %25s\n", $1, $4, $7}' /etc/passwd
+# Extract the second column from a CSV file:
+awk -F',' '{print $2}' file.csv
 ```
 
 #### `htop`: system processes management
 
-- `htop`: system monitoring tools
+`htop` is an interactive process viewer that provides a more user-friendly
+interface than the traditional top command. It allows you to sort, filter,
+and kill processes easily.
 
-```
+Here are some examples:
+
+```bash
+
+# Start `htop`:
 htop
 
-Display dynamic real-time information about running processes. An enhanced version of `top`.
-More information: <https://htop.dev/>.
 
-- Start `htop`:
-    htop
-
-- Start `htop` displaying processes owned by a specific user:
-    htop --user username
-
-- Display processes hierarchically in a tree view to show the parent-child relationships:
-    htop --tree
-
-- Sort processes by a specified `sort_item` (use `htop --sort help` for available options):
-    htop --sort sort_item
-
-- Start `htop` with the specified delay between updates, in tenths of a second (i.e. 50 = 5 seconds):
-    htop --delay 50
-
-- See interactive commands while running htop:
-    ?
-
-- Switch to a different tab:
-    tab
-
-- Display help:
-    htop --help
+# Start `htop` displaying processes owned by a specific user:
+htop --user username
 ```
+
+I recommend checking out the `tldr` page for `htop` for more examples and
+exploring around in `htop` to see what it can do.
 
 #### `bat`: `cat`, but better
 
-- syntax highlighting and line numbers
+`bat` is a drop-in replacement for `cat` that adds syntax highlighting, line
+numbers, and Git integration.
 
-```
-bat
+Examples:
 
-Print and concatenate files.
-A `cat` clone with syntax highlighting and Git integration.
-More information: <https://github.com/sharkdp/bat>.
+```bash
 
-- Pretty print the contents of one or more files to `stdout`:
-    bat path/to/file1 path/to/file2 ...
+# print a file with syntax highlighting
+bat main.py
 
-- Concatenate several files into the target file:
-    bat path/to/file1 path/to/file2 ... > path/to/target_file
-
-- Remove decorations and disable paging (`--style plain` can be replaced with `-p`, or both options with `-pp`):
-    bat --style plain --pager never path/to/file
-
-- Highlight a specific line or a range of lines with a different background color:
-    bat -H|--highlight-line 10|5:10|:10|10:|10:+5 path/to/file
-
-- Show non-printable characters like space, tab or newline:
-    bat -A|--show-all path/to/file
-
-- Remove all decorations except line numbers in the output:
-    bat -n|--number path/to/file
-
-- Syntax highlight a JSON file by explicitly setting the language:
-    bat -l|--language json path/to/file.json
-
-- Display all supported languages:
-    bat -L|--list-languages
-
+# show all supported languages
+bat --list-languages
 ```
 
 #### `rg`: faster `grep`
 
-- `rg`: faster than `grep`, more powerful
+`rg` (ripgrep) a faster alternative to `grep`, which is optimized for searching
+large files and directories. It is a drop-in replacement for `grep` and is
+faster than both `grep` and `ag` (The Silver Searcher).
 
-```
-rg
+Examples:
 
-Ripgrep is a recursive line-oriented search tool.
-Aims to be a faster alternative to `grep`.
-More information: <https://github.com/BurntSushi/ripgrep>.
+```bash
 
-- Recursively search the current directory for a regular expression:
-    rg regular_expression
+# search for "main" in current directory
+rg main
 
-- Search for regular expressions recursively in the current directory, including hidden files and files listed in `.gitignore`:
-    rg --no-ignore --hidden regular_expression
+# search including hidden files
+rg --hidden main
 
-- Search for a regular expression only in a subset of directories:
-    rg regular_expression set_of_subdirs
-
-- Search for a regular expression in files matching a glob (e.g. `README.*`):
-    rg regular_expression --glob glob
-
-- Search for filenames that match a regular expression:
-    rg --files | rg regular_expression
-
-- Only list matched files (useful when piping to other commands):
-    rg --files-with-matches regular_expression
-
-- Show lines that do not match the given regular expression:
-    rg --invert-match regular_expression
-
-- Search a literal string pattern:
-    rg --fixed-strings -- string
-
+# limit search to certain file types
+rg main --glob '*.py'
 ```
 
 ### Practial Examples of Combining Unix-like Tools
@@ -537,7 +550,7 @@ alias nvim='nvim $(fzf -m --preview="bat --color=always {}")'
 #### ThePrimeagen's `tmux-sessionizer` Script
 
 Another great example of combining tools is this `tmux-sessionizer.sh` script
-that I adapted from [ThePrimeagen](change-me):
+that I adapted from [ThePrimeagen](https://www.youtube.com/c/theprimeagen):
 
 ```bash
 
@@ -593,6 +606,18 @@ else
 fi
 
 ```
+
+Add this script to your `$PATH` and create an alias in your shell configuration
+file (e.g. `.bashrc`, `.zshrc`) like:
+
+```bash
+alias tmux-sessionizer='tmux-sessionizer.sh'
+
+```
+
+Then you can simply run with `tmux-sessionizer`. You'll be prompted to select a
+directory with `fzf` and then a new `tmux` session will be created with that
+directory as the working directory.
 
 ---
 
@@ -754,13 +779,18 @@ have previews! Try them out yourself. `Alt + Tab` will iterate through the
 windows in order, and `Alt + Shift + Tab` will iterate through the windows in
 reverse order.
 
----
+## Putting It All Together
 
-## Putting It All Together: My Personal Workflow and Most Used Commands
+Through these examples, we have seen how we can use Bash scripts and Unix tools
+to automate our workflow and improve our productivity. We have also seen how we
+can use Hammerspoon to automate window management and other tasks on macOS. By
+building up a set of scripts and tools that work together, we can create a
+powerful and versatile toolset that can help us get more done in less time.
 
-Up to this point, I have shown you a lot of examples, but I'll use this section
-to walkthrough my personal workflow and how I leverage these tools to improve my
-productivity.
+If there's any tool or script that you found particularly useful or interesting,
+I recommend exploring it further and seeing how you can integrate it into your
+workflow. And if you have a favorite tool or script that I didn't cover here,
+feel free to share it in the comments!
 
 ## References and Resources
 
