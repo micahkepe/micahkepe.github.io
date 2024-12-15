@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["projects"]
 tags = ["godot", "game-dev", "rice"]
+
+[extra]
+toc = true
 +++
 
 As part of my design course requirements at Rice University, I will be creating
@@ -35,7 +38,7 @@ make progress, so stay tuned!
 
 ---
 
-# Progress Log 📓:
+# Progress Log
 
 <details open>
 <summary>Pre-Class Work</summary>

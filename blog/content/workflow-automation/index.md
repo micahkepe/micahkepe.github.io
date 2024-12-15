@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["productivity"]
 tags = ["unix", "tools", "cli", "bash"]
+
+[extra]
+toc = true
 +++
 
 With just a basic working knowledge of writing Bash scripts and understanding
@@ -75,6 +78,28 @@ files=$(ls) # syntax: $(command)
 echo "Hello, $name!" # prints "Hello, John!"
 ```
 
+### Supported Data Types in Bash
+
+Bash doesn't strongly differentiate data types the way higher-level languages do.
+All variables are essentially strings. For arithmetic operations, Bash evaluates
+the variable contents as integers if possible. Arrays in Bash are just lists of
+strings. There's no native support for complex data structures out of the box,
+but you can do a lot with what is provided.
+
+Examples:
+
+```bash
+
+name="Alice"    # string
+count=42        # integer stored as a string, but usable in arithmetic
+
+fruits=("apple" "banana" "cherry")
+echo ${fruits[0]}  # prints "apple"
+```
+
+There’s no separate syntax for declaring a variable as an integer vs. a string.
+It’s all context-based.
+
 ### Bash Loops and Comparisons
 
 #### Bash Loops
@@ -130,28 +155,6 @@ fi
 
 In Bash, `if` blocks always end with `fi`. Also notice we use `[` and `]`
 around the condition; this is part of Bash's test syntax.
-
-### Supported Data Types in Bash
-
-Bash doesn't strongly differentiate data types the way higher-level languages do.
-All variables are essentially strings. For arithmetic operations, Bash evaluates
-the variable contents as integers if possible. Arrays in Bash are just lists of
-strings. There's no native support for complex data structures out of the box,
-but you can do a lot with what is provided.
-
-Examples:
-
-```bash
-
-name="Alice"    # string
-count=42        # integer stored as a string, but usable in arithmetic
-
-fruits=("apple" "banana" "cherry")
-echo ${fruits[0]}  # prints "apple"
-```
-
-There’s no separate syntax for declaring a variable as an integer vs. a string.
-It’s all context-based.
 
 #### Bash Comparisons
 

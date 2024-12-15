@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["databases"]
 tags = ["databases", "sqlite", "query-optimizer"]
+
+[extra]
+toc = true
 +++
 
 I **love** databases, but they are still largely a magical black box to me, so

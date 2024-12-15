@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["tools"]
 tags = ["neovim", "lua", "vim", "productivity"]
+
+[extra]
+toc = true
 +++
 
 Over the summer, after finally getting around to learning Vim motions (see blog
@@ -40,38 +43,6 @@ NVIM_APPNAME=micahkepe/dotfiles/nvim nvim
 
 {{ gif(sources=["demos/nvdash.mp4"]
 width=80) }}
-
----
-
-{{ note(body="
-
-# **Table of Contents**
-
-1. [What is Neovim Anyway?](#what-is-neovim-anyway)
-2. [Getting Started with Neovim](#getting-started-with-neovim)
-3. [The Setup](#the-setup)
-   - [Changes to NVChad's Default Settings](#changes-to-nvchad-s-default-settings)
-     - [Diagnostics Menu](#diagnostics-menu)
-     - [Enable Hidden Files in `nvim-tree` Display](#enable-hidden-files-in-nvim-tree-display)
-4. [Plugins](#plugins)
-   - [NVChad Plugins](#nvchad-plugins)
-   - [Added Plugins &quot;Musts&quot;](#added-plugins-musts)
-     - [`gelguy/wilder.nvim`](#gelguy-wilder-nvim)
-     - [`3rd/image.nvim`](#3rd-image-nvim)
-     - [`rmagatti/autosession`](#rmagatti-autosession)
-     - [`christoomey/vim-tmux-navigator`](#christoomey-vim-tmux-navigator)
-     - [`pocco81/auto-save.nvim`](#pocco81-auto-save-nvim)
-     - [`stevearc/dressing.nvim`](#stevearc-dressing-nvim)
-5. [Key Mappings](#key-mappings)
-   - [Quality of Life Remaps](#quality-of-life-remaps)
-   - [&quot;Reveal in Finder&quot; Dupe](#reveal-in-finder-dupe)
-   - [Window Management](#window-management)
-   - [Visually Appealing Scrolling and Searching](#visually-appealing-scrolling-and-searching)
-   - [GitSigns Mappings](#gitsigns-mappings)
-6. [Options](#options)
-7. [Conclusion](#conclusion)
-8. [References](#references)
-   ")}}
 
 ---
 

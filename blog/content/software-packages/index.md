@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["programming"]
 tags = ["software packages", "package managers"]
+
+[extra]
+toc = true
 +++
 
 How do software packages work behind the scenes? How are they created,

@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["programming"]
 tags = ["productivity"]
+
+[extra]
+toc = true
 +++
 
 Nearly a year ago, I took an online course called
@@ -72,7 +75,7 @@ git merge feature-branch
 
 A diagram of the rebase process:
 
-# 1. Initial State
+1\. Initial State
 
 <pre>
 main:       A---B---C
@@ -83,7 +86,7 @@ feature-branch:   D---E
 As you can see, the feature branch has diverged from the main branch with
 commits `D` and `E`, which are behind commit `C` on the main branch.
 
-# 2. After running `git rebase main` on the feature branch
+2\. After running `git rebase main` on the feature branch
 
 <pre>
 main:       A---B---C
@@ -96,7 +99,7 @@ branch, which have new commit hashes from the original commits `D` and `E`.
 If there are any conflicts during the rebase process, you will need to resolve
 them before continuing.
 
-# 3. After running `git switch main` and `git merge feature-branch`
+3\. After running `git switch main` and `git merge feature-branch`
 
 <pre>
 main: A---B---C---D'---E'

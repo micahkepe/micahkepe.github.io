@@ -7,6 +7,9 @@ draft = false
 [taxonomies]
 categories = ["theory"]
 tags = ["data structures", "algorithms", "theory"]
+
+[extra]
+toc = true
 +++
 
 In the realm of computer science, efficiency is often the key to solving complex

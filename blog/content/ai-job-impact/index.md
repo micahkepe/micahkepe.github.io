@@ -6,6 +6,9 @@ draft = false
 [taxonomies]
 categories = ["opinion"]
 tags = ["opinion", "future", "technology"]
+
+[extra]
+toc = true
 +++
 
 No doubt you've heard it before: "AI will make programmers obsolete" or "AI
