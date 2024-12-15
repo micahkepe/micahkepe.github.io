@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,12 +149,141 @@
     Published: 2024-06-04
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>How do software packages work behind the scenes? How are they created,
+        
+            <p>How do software packages work behind the scenes? How are they created,
 distributed, and installed? In this post, we'll explore the lifecycle of
 software packages, from creation to installation, using the Node Package
 Manager (NPM) and the Autoprefixer package as real-world examples.</p>
-<span id="continue-reading"></span><h2 id="introduction">Introduction</h2>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#introduction">Introduction</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#what-are-software-packages">What Are Software Packages?</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#how-do-software-packages-work">How Do Software Packages Work?</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#creation-and-distribution">Creation and Distribution</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#installation-and-dependency-management">Installation and Dependency Management</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#dependency-resolution">Dependency Resolution</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#a-brief-overview-of-package-managers-and-npm">A Brief Overview of Package Managers and NPM</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#package-json">package.json</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#package-lock-json">package-lock.json</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#real-world-example-autoprefixer">Real-World Example: Autoprefixer</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#directory-structure">Directory Structure</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#files-and-their-purposes">Files and Their Purposes</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#package-json-1">package.json</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#creating-a-software-package-example-date-formatter">Creating a Software Package (Example: date-formatter)</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#step-1-setting-up-your-project">Step 1: Setting Up Your Project</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#step-2-preparing-for-distribution">Step 2: Preparing for Distribution</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/software-packages/#step-3-publishing-the-package">Step 3: Publishing the Package</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#conclusion">Conclusion</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/software-packages/#references">References</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span><h2 id="introduction">Introduction</h2>
 <h3 id="what-are-software-packages">What Are Software Packages?</h3>
 <p>Chances are, you've used a software package. Software packages are
 collections of code, resources, and metadata that provide specific
@@ -489,7 +618,11 @@ focus on what matters most: building great software.</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

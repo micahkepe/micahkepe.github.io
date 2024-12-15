@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -139,7 +139,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>21 minute read</span>
+    <span>20 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -149,13 +149,133 @@
     Published: 2024-10-13
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>Over the summer, after finally getting around to learning Vim motions (see blog
+        
+            <p>Over the summer, after finally getting around to learning Vim motions (see blog
 post <a href="https://micahkepe.com/blog/vimtutor-sequel">#9</a>), I quickly fell down the
 Neovim rabbithole and have been procrastinating work by tinkering away at my
 configurations ever since! This post will be sharing setup that I have currently
 landed at to turn my Neovim editor into a supercharged workhorse.</p>
-<span id="continue-reading"></span><h1 id="tl-dr"><strong>TL;DR</strong></h1>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/neovim-setup/#tl-dr">TL;DR</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/neovim-setup/#what-is-neovim-anyway">What is Neovim Anyway?</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/neovim-setup/#getting-started-with-neovim">Getting Started with Neovim</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/neovim-setup/#the-setup">The Setup</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/neovim-setup/#changes-to-nvchad-s-default-settings">Changes to NVChad&#x27;s Default Settings</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#diagnostics-menu">Diagnostics Menu</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#enable-hidden-files-in-nvim-tree-display">Enable Hidden Files in nvim-tree Display</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/neovim-setup/#plugins">Plugins</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#nvchad-plugins">NVChad Plugins</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#added-plugins-musts">Added Plugins &quot;Musts&quot;</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/neovim-setup/#key-mappings">Key Mappings</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#quality-of-life-remaps">Quality of Life Remaps</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#reveal-in-finder-dupe">&quot;Reveal in Finder&quot; Dupe</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#window-management">Window Management</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#visually-appealing-scrolling-and-searching">Visually Appealing Scrolling and Searching</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/neovim-setup/#gitsigns-mappings">GitSigns Mappings</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/neovim-setup/#options">Options</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/neovim-setup/#conclusion">Conclusion</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/neovim-setup/#references">References</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span><h1 id="tl-dr"><strong>TL;DR</strong></h1>
 <p>I think my setup is pretty sweet. If you want to try out my setup without having
 to do the configuration yourself, you can run these commands to add my setup as a
 &quot;profile&quot; that you can switch to in Neovim:</p>
@@ -181,58 +301,6 @@ to do the configuration yourself, you can run these commands to add my setup as 
     – sorry!
   </video>
 </div>
-<hr />
-<div class="note-container" style="border:  1px solid #e0e0e0">
-  
-    
-
-    <div class="note-content">
-      <h1 id="table-of-contents"><strong>Table of Contents</strong></h1>
-<ol>
-<li><a href="#what-is-neovim-anyway">What is Neovim Anyway?</a></li>
-<li><a href="#getting-started-with-neovim">Getting Started with Neovim</a></li>
-<li><a href="#the-setup">The Setup</a>
-<ul>
-<li><a href="#changes-to-nvchad-s-default-settings">Changes to NVChad's Default Settings</a>
-<ul>
-<li><a href="#diagnostics-menu">Diagnostics Menu</a></li>
-<li><a href="#enable-hidden-files-in-nvim-tree-display">Enable Hidden Files in <code>nvim-tree</code> Display</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#plugins">Plugins</a>
-<ul>
-<li><a href="#nvchad-plugins">NVChad Plugins</a></li>
-<li><a href="#added-plugins-musts">Added Plugins &quot;Musts&quot;</a>
-<ul>
-<li><a href="#gelguy-wilder-nvim"><code>gelguy/wilder.nvim</code></a></li>
-<li><a href="#3rd-image-nvim"><code>3rd/image.nvim</code></a></li>
-<li><a href="#rmagatti-autosession"><code>rmagatti/autosession</code></a></li>
-<li><a href="#christoomey-vim-tmux-navigator"><code>christoomey/vim-tmux-navigator</code></a></li>
-<li><a href="#pocco81-auto-save-nvim"><code>pocco81/auto-save.nvim</code></a></li>
-<li><a href="#stevearc-dressing-nvim"><code>stevearc/dressing.nvim</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#key-mappings">Key Mappings</a>
-<ul>
-<li><a href="#quality-of-life-remaps">Quality of Life Remaps</a></li>
-<li><a href="#reveal-in-finder-dupe">&quot;Reveal in Finder&quot; Dupe</a></li>
-<li><a href="#window-management">Window Management</a></li>
-<li><a href="#visually-appealing-scrolling-and-searching">Visually Appealing Scrolling and Searching</a></li>
-<li><a href="#gitsigns-mappings">GitSigns Mappings</a></li>
-</ul>
-</li>
-<li><a href="#options">Options</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#references">References</a></li>
-</ol>
-
-    </div>
-    
-  </div>
 <hr />
 <h1 id="what-is-neovim-anyway">What is Neovim Anyway?</h1>
 <p>Vim (short for Vi Improved) was created by Bram Moolenaar in 1991 as an enhanced
@@ -1008,7 +1076,11 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

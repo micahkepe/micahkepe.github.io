@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,15 +149,82 @@
     Published: 2024-05-05
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>Nearly a year ago, I took an online course called
+        
+            <p>Nearly a year ago, I took an online course called
 <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>. The
 course was created by a group of MIT students and covers a wide range of topics
 that are often overlooked in traditional computer science curriculums. The
 course is designed to help students become more productive and efficient
 programmers by teaching them essential skills that are not typically taught in
 school.</p>
-<span id="continue-reading"></span>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/missing-semester/#1-version-control-with-git">1. Version Control with Git</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/missing-semester/#1-1-using-switch-instead-of-checkout">1.1 Using switch instead of checkout</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/missing-semester/#1-2-learning-to-use-rebase">1.2 Learning to use rebase</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/missing-semester/#1-3-stashing-changes">1.3 Stashing changes</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/missing-semester/#2-hammerspoon">2. Hammerspoon</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/missing-semester/#3-dotfiles">3. Dotfiles</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/missing-semester/#3-1-helpful-aliases">3.1 Helpful aliases</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/missing-semester/#3-2-setting-up-a-dotfiles-repository">3.2 Setting up a dotfiles repository</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/missing-semester/#conclusion">Conclusion</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span>
 <p>Still to this day, I find myself using many of the tools and techniques that I
 learned in the course. In this post, I will share some of the biggest takeaways
 from The Missing Semester of Your CS Education and how they have helped me
@@ -200,7 +267,7 @@ for beginners. It is also more consistent with other Git commands, such as
 </span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> merge feature-branch
 </span></code></pre>
 <p>A diagram of the rebase process:</p>
-<h1 id="1-initial-state">1. Initial State</h1>
+<p>1. Initial State</p>
 <pre>
 main:       A---B---C
                  \
@@ -208,7 +275,7 @@ feature-branch:   D---E
 </pre>
 <p>As you can see, the feature branch has diverged from the main branch with
 commits <code>D</code> and <code>E</code>, which are behind commit <code>C</code> on the main branch.</p>
-<h1 id="2-after-running-git-rebase-main-on-the-feature-branch">2. After running <code>git rebase main</code> on the feature branch</h1>
+<p>2. After running <code>git rebase main</code> on the feature branch</p>
 <pre>
 main:       A---B---C
                      \
@@ -218,7 +285,7 @@ feature-branch:       D'---E'
 branch, which have new commit hashes from the original commits <code>D</code> and <code>E</code>.
 If there are any conflicts during the rebase process, you will need to resolve
 them before continuing.</p>
-<h1 id="3-after-running-git-switch-main-and-git-merge-feature-branch">3. After running <code>git switch main</code> and <code>git merge feature-branch</code></h1>
+<p>3. After running <code>git switch main</code> and <code>git merge feature-branch</code></p>
 <pre>
 main: A---B---C---D'---E'
 </pre>
@@ -395,7 +462,11 @@ the tools and techniques that I learned in my day-to-day work.</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,29 +149,109 @@
     Published: 2024-05-06
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>Algorithms are all around us. They are the invisible forces that power our
+        
+            <p>Algorithms are all around us. They are the invisible forces that power our
 modern world, from the search engines we use to find information to the social
 networks we use to connect with friends and family. In this post, I share some
 ingenious algorithms that I have learned about both in courses and through my
 own research.</p>
-<span id="continue-reading"></span><div class="note-container" style="border:  1px solid #e0e0e0">
-  
-    
 
-    <div class="note-content">
-      <h1 id="table-of-contents"><strong>Table of Contents</strong></h1>
-<ol>
-<li><a href="#1-pagerank">PageRank</a></li>
-<li><a href="#2-spell-checkers">Spell Checkers</a></li>
-<li><a href="#3-shazam">Shazam</a></li>
-</ol>
-
-    </div>
-    
-  </div>
-<hr />
-<h1 id="1-pagerank">1. PageRank</h1>
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#1-pagerank">1. PageRank</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#history-of-pagerank">History of PageRank</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#how-pagerank-works">How PageRank Works</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#fun-facts-about-pagerank">Fun Facts about PageRank</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#2-spell-checkers">2. Spell Checkers</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#history-of-spell-checkers">History of Spell Checkers</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#how-spell-checkers-work">How Spell Checkers Work</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#fun-facts-about-spell-checkers">Fun Facts about Spell Checkers</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#3-shazam">3. Shazam</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#history-of-shazam">History of Shazam</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#how-shazam-works">How Shazam Works</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#fun-facts-about-shazam">Fun Facts about Shazam</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#conclusion">Conclusion</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/ingenious-algorithms/#references">References</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span><h2 id="1-pagerank">1. PageRank</h2>
 <p>When Larry Page and Sergey Brin founded Google in 1998, they revolutionized the
 way we search for information on the internet. Their search engine, Google
 Search, used a clever algorithm called PageRank to rank web pages based on their
@@ -179,7 +259,7 @@ importance and relevance to a user's query. While Google has since developed
 more sophisticated algorithms, PageRank remains a fundamental part of their
 search engine and understanding how it works can help you better understand how
 search engines work.</p>
-<h2 id="history-of-pagerank">History of PageRank</h2>
+<h3 id="history-of-pagerank">History of PageRank</h3>
 <p>The idea for PageRank came to Larry Page in a dream in 1996 while he was a
 graduate student at Stanford University. Page was interested in the problem of
 ranking web pages based on their importance and relevance to a user's query. He
@@ -197,7 +277,7 @@ into a commercial search engine. They renamed the search engine Google (a play
 on the word &quot;googol&quot;, which means 1 followed by 100 zeros) and incorporated
 PageRank as a key part of their ranking algorithm. The rest, as they say, is
 history.</p>
-<h2 id="how-pagerank-works">How PageRank Works</h2>
+<h3 id="how-pagerank-works">How PageRank Works</h3>
 <p>PageRank is based on the idea that a web page's importance can be measured by
 the number and quality of other pages that link to it. In other words, if many
 important pages link to a particular page, then that page must also be
@@ -284,7 +364,7 @@ surfer landing on a particular page after clicking on links for a long time.
 This interpretation has led to some interesting applications of PageRank beyond
 web search, such as modeling the spread of disease or analyzing the structure of
 social networks.</p>
-<h2 id="fun-facts-about-pagerank">Fun Facts about PageRank</h2>
+<h3 id="fun-facts-about-pagerank">Fun Facts about PageRank</h3>
 <ul>
 <li>The original PageRank algorithm was inspired by the way academic papers are
 cited by other papers. Just as an academic paper's importance can be measured
@@ -299,11 +379,11 @@ algorithms that try to measure the importance and influence of individuals
 based on their social connections.</li>
 </ul>
 <hr />
-<h1 id="2-spell-checkers">2. Spell Checkers</h1>
+<h2 id="2-spell-checkers">2. Spell Checkers</h2>
 <p>Have you ever wondered how spell checkers work? How do they know when you've
 misspelled a word and suggest the correct spelling? The answer lies in a clever
 algorithm called the Levenshtein distance algorithm.</p>
-<h2 id="history-of-spell-checkers">History of Spell Checkers</h2>
+<h3 id="history-of-spell-checkers">History of Spell Checkers</h3>
 <p>The history of spell checkers dates back to the early days of computing. In
 1957, a team of researchers at Bell Labs developed a program called
 &quot;TypoCorrect&quot; that could detect and correct typing errors in text. However,
@@ -323,7 +403,7 @@ of word processing software.</p>
 clients to social media apps. Modern spell checkers use sophisticated algorithms
 and machine learning techniques to detect and correct spelling errors in
 real-time.</p>
-<h2 id="how-spell-checkers-work">How Spell Checkers Work</h2>
+<h3 id="how-spell-checkers-work">How Spell Checkers Work</h3>
 <p>At the core of most spell checkers is the Levenshtein distance algorithm, which
 measures the similarity between two strings. The Levenshtein distance between
 two strings is defined as the minimum number of single-character edits
@@ -373,7 +453,7 @@ corrections.</p>
 Damerau-Levenshtein distance, which allows for transpositions of adjacent
 characters in addition to insertions, deletions, and substitutions. This variant
 is useful for catching common typing errors like &quot;teh&quot; instead of &quot;the&quot;.</p>
-<h2 id="fun-facts-about-spell-checkers">Fun Facts about Spell Checkers</h2>
+<h3 id="fun-facts-about-spell-checkers">Fun Facts about Spell Checkers</h3>
 <ul>
 <li>The first spell checker was developed for the Unix operating system and was
 called &quot;spell&quot;. It used a simple algorithm that compared each word to a
@@ -391,11 +471,11 @@ for subtle changes in language use over time.</li>
 such as DNA sequence alignment and plagiarism detection.</li>
 </ul>
 <hr />
-<h1 id="3-shazam">3. Shazam</h1>
+<h2 id="3-shazam">3. Shazam</h2>
 <p>Have you ever heard a song playing and wondered what it was called or who sang
 it? Shazam is a popular app that can identify songs based on a short audio clip.
 The algorithm behind Shazam is ingenious in its simplicity and effectiveness.</p>
-<h2 id="history-of-shazam">History of Shazam</h2>
+<h3 id="history-of-shazam">History of Shazam</h3>
 <p>The idea for Shazam came to co-founder Chris Barton in 1999 when he was a
 student at the University of California, Berkeley. Barton was at a bar with
 friends and heard a song he liked but didn't know the name of. He thought it
@@ -417,7 +497,7 @@ growth.</p>
 <p>Today, Shazam is one of the most popular music recognition apps in the world,
 with over 1 billion downloads and 20 million song identifications per day. In
 2018, Shazam was acquired by Apple for a reported $400 million.</p>
-<h2 id="how-shazam-works">How Shazam Works</h2>
+<h3 id="how-shazam-works">How Shazam Works</h3>
 <p>At a high level, Shazam works by converting an audio clip into a &quot;fingerprint&quot;
 that can be compared to a database of known songs. The fingerprint is created
 using a clever algorithm called the spectrogram peak finding algorithm.</p>
@@ -484,7 +564,7 @@ millions of songs.</p>
   
 </div>
 <br>
-<h2 id="fun-facts-about-shazam">Fun Facts about Shazam</h2>
+<h3 id="fun-facts-about-shazam">Fun Facts about Shazam</h3>
 <ul>
 <li>Shazam's database contains over 11 million songs and is growing every day.</li>
 <li>Shazam has been used to identify over 50 billion songs since its launch
@@ -496,6 +576,7 @@ audio quality is poor or there is background noise.</li>
 <li>Shazam's co-founder Avery Wang is also an accomplished classical pianist and
 has performed at Carnegie Hall.</li>
 </ul>
+<hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>These are just a few examples of the many ingenious algorithms that power our
 modern world. From search engines to spell checkers to music recognition apps,
@@ -506,7 +587,6 @@ even more clever algorithms emerge to solve new problems and challenges.</p>
 mistake, or identify a song, take a moment to appreciate the algorithms that
 make it all possible. They may be invisible, but they are the unsung heroes of
 the digital age.</p>
-<hr />
 <h2 id="references">References</h2>
 <p>-
 <a href="https://www.youtube.com/watch?v=qFb2rvmrahc">Larry Page's University of Michigan commencement address</a>
@@ -533,7 +613,11 @@ the digital age.</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

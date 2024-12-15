@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,14 +149,134 @@
     Published: 2024-08-27
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>I <strong>love</strong> databases, but they are still largely a magical black box to me, so
+        
+            <p>I <strong>love</strong> databases, but they are still largely a magical black box to me, so
 in this post, I'm going to explore how SQLite's query optimizer works. We'll
 delve together into the process of how SQL queries are parsed, optimized, and
 executed, with a particular focus on the optimization phase. By the end of this
 post, you'll have a better understanding of how SQLite's query optimizer works
 and how it can help you write more efficient queries.</p>
-<span id="continue-reading"></span>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#what-actually-happens-when-you-run-a-query">What Actually Happens When You Run a Query?</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#sqlite-s-approach-to-query-optimization">SQLite&#x27;s Approach to Query Optimization</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#simple-example-query">Simple Example Query</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#analyzing-the-query-breaking-down-sqlite-s-execution-process">Analyzing the Query: Breaking Down SQLite&#x27;s Execution Process</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#1-parsing-the-query">1. Parsing the Query</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#2-generating-the-execution-plan">2. Generating the Execution Plan</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#3-full-table-scan-explained">3. Full Table Scan Explained</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#4-using-rowid-lookups-for-efficiency">4. Using Rowid Lookups for Efficiency</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#5-execution-returning-the-results">5. Execution: Returning the Results</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#6-optimizing-the-query-the-what-if-scenario">6. Optimizing the Query (The What-If Scenario)</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#takeaways-from-the-simple-query-example">Takeaways from the Simple Query Example</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#complex-query-example-getting-to-the-heart-of-the-optimizer">Complex Query Example: Getting to the Heart of the Optimizer</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#understanding-the-query-plan-what-happens-behind-the-scenes">Understanding the Query Plan: What Happens Behind the Scenes</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#1-scan-the-likes-table">1. Scan the LIKES Table</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#2-searching-the-drinker-and-beer-tables">2. Searching the DRINKER and BEER Tables</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#3-using-a-temporary-b-tree-for-sorting">3. Using a Temporary B-Tree for Sorting</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#optimizing-the-query-adding-a-multi-column-index">Optimizing the Query: Adding a Multi-Column Index</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#re-running-the-query-plan">Re-running the Query Plan</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#conclusion-tips-for-writing-efficient-queries">Conclusion: Tips for Writing Efficient Queries</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/sqlite-query-optimizer/#references">References</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span>
 <p>This past summer, I got a lot of practice learning the ins and outs of SQLite as
 part of a project that I have been contributing to, which we originally set up
 with a SQLite database. I've been working with SQLite for a while now, and I've
@@ -739,7 +859,11 @@ SQL queries, feel free to share them in the comments!</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

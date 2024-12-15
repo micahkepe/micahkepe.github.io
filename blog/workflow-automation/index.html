@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,15 +149,191 @@
     Published: 2024-12-13
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>With just a basic working knowledge of writing Bash scripts and understanding
+        
+            <p>With just a basic working knowledge of writing Bash scripts and understanding
 Unix tools and their design philosophy, you can easily create scripts to
 automate your workflow and improve your productivity. In this post, we'll get
 our feet wet in writing Bash scripts and combine them with some powerful Unix
 tools to create a powerful and versatile toolset. We'll also explore how you can
 use Hammerspoon, a macOS automation tool, to take your automation to the next
 level.</p>
-<span id="continue-reading"></span><h2 id="introduction">Introduction</h2>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#introduction">Introduction</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#your-20-minute-intro-to-bash">Your 20 Minute Intro to Bash</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#variables">Variables</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#supported-data-types-in-bash">Supported Data Types in Bash</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#bash-loops-and-comparisons">Bash Loops and Comparisons</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#bash-loops">Bash Loops</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#bash-comparisons">Bash Comparisons</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#reading-user-input-and-trapping">Reading User Input and Trapping</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#executing-bash-files">Executing Bash files</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#unix-tools-101">Unix Tools 101</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#unix-philosophy">Unix Philosophy</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#common-unix-like-tools">Common Unix-like Tools</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#tldr-simpler-man-pages">tldr: simpler man pages</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#fzf-powerful-fuzzy-finder">fzf: powerful fuzzy finder</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#tmux-terminal-manager">tmux: terminal manager</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#sed-stream-editor-grep-awk-text-processing">sed (Stream Editor)&#x2F; grep&#x2F; awk: text processing</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#htop-system-processes-management">htop: system processes management</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#bat-cat-but-better">bat: cat, but better</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#rg-faster-grep">rg: faster grep</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#practial-examples-of-combining-unix-like-tools">Practial Examples of Combining Unix-like Tools</a>
+                                            </li>
+                                            
+                                                <ul>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#finding-files-with-a-certain-keyword">Finding Files with a Certain Keyword</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#enhanced-nvim-command">Enhanced nvim Command</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://micahkepe.com/blog/workflow-automation/#theprimeagen-s-tmux-sessionizer-script">ThePrimeagen&#x27;s tmux-sessionizer Script</a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#extra-automating-with-hammerspoon-macos">EXTRA: Automating with Hammerspoon (MacOS)</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#getting-started-with-hammerspoon">Getting Started with Hammerspoon</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#installation-and-getting-started">Installation and Getting Started</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#window-sizing">Window Sizing</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/workflow-automation/#window-switching">Window Switching</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#bringing-it-all-together-crafting-a-powerful-personalized-workflow">Bringing It All Together: Crafting a Powerful, Personalized Workflow</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/workflow-automation/#references-and-resources">References and Resources</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span><h2 id="introduction">Introduction</h2>
 <p>As a college student, I find that most of my peers have little to no experience<br />
 with the command line interface (CLI) and Unix tools. This is unfortunate, as
 personally after discovering Vim, tmux, and other Unix tools, I have found that
@@ -200,6 +376,22 @@ a variable and then assign an integer to the same variable.</p>
 </span><span style="font-style:italic;color:#5f697a;"># Use the value of a variable in a command
 </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;Hello, $</span><span style="color:#eb6772;">name</span><span style="color:#9acc76;">!&quot; </span><span style="font-style:italic;color:#5f697a;"># prints &quot;Hello, John!&quot;
 </span></code></pre>
+<h3 id="supported-data-types-in-bash">Supported Data Types in Bash</h3>
+<p>Bash doesn't strongly differentiate data types the way higher-level languages do.
+All variables are essentially strings. For arithmetic operations, Bash evaluates
+the variable contents as integers if possible. Arrays in Bash are just lists of
+strings. There's no native support for complex data structures out of the box,
+but you can do a lot with what is provided.</p>
+<p>Examples:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">name</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot;Alice&quot;    </span><span style="font-style:italic;color:#5f697a;"># string
+</span><span style="color:#eb6772;">count</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">42        </span><span style="font-style:italic;color:#5f697a;"># integer stored as a string, but usable in arithmetic
+</span><span style="color:#abb2bf;">
+</span><span style="color:#eb6772;">fruits</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><span style="color:#abb2bf;">)
+</span><span style="color:#5ebfcc;">echo </span><span style="color:#abb2bf;">${</span><span style="color:#eb6772;">fruits[</span><span style="color:#db9d63;">0</span><span style="color:#eb6772;">]</span><span style="color:#abb2bf;">}  </span><span style="font-style:italic;color:#5f697a;"># prints &quot;apple&quot;
+</span></code></pre>
+<p>There’s no separate syntax for declaring a variable as an integer vs. a string.
+It’s all context-based.</p>
 <h3 id="bash-loops-and-comparisons">Bash Loops and Comparisons</h3>
 <h4 id="bash-loops">Bash Loops</h4>
 <p>Bash loops and conditionals have a somewhat unusual syntax when coming from
@@ -241,22 +433,6 @@ increments the value of the <code>count</code> variable by 1.</p>
 </span></code></pre>
 <p>In Bash, <code>if</code> blocks always end with <code>fi</code>. Also notice we use <code>[</code> and <code>]</code>
 around the condition; this is part of Bash's test syntax.</p>
-<h3 id="supported-data-types-in-bash">Supported Data Types in Bash</h3>
-<p>Bash doesn't strongly differentiate data types the way higher-level languages do.
-All variables are essentially strings. For arithmetic operations, Bash evaluates
-the variable contents as integers if possible. Arrays in Bash are just lists of
-strings. There's no native support for complex data structures out of the box,
-but you can do a lot with what is provided.</p>
-<p>Examples:</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
-</span><span style="color:#eb6772;">name</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot;Alice&quot;    </span><span style="font-style:italic;color:#5f697a;"># string
-</span><span style="color:#eb6772;">count</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">42        </span><span style="font-style:italic;color:#5f697a;"># integer stored as a string, but usable in arithmetic
-</span><span style="color:#abb2bf;">
-</span><span style="color:#eb6772;">fruits</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;apple&quot; &quot;banana&quot; &quot;cherry&quot;</span><span style="color:#abb2bf;">)
-</span><span style="color:#5ebfcc;">echo </span><span style="color:#abb2bf;">${</span><span style="color:#eb6772;">fruits[</span><span style="color:#db9d63;">0</span><span style="color:#eb6772;">]</span><span style="color:#abb2bf;">}  </span><span style="font-style:italic;color:#5f697a;"># prints &quot;apple&quot;
-</span></code></pre>
-<p>There’s no separate syntax for declaring a variable as an integer vs. a string.
-It’s all context-based.</p>
 <h4 id="bash-comparisons">Bash Comparisons</h4>
 <p>Bash has wonky syntax for comparisons that you just have to memorize
 unfortunately.</p>
@@ -825,7 +1001,11 @@ feel free to share it in the comments!</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>

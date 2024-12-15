@@ -81,8 +81,8 @@
         onclick="toggleTheme(); event.preventDefault();" 
         href="#"
       >
-        <img src=https://micahkepe.com/blog/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/feather/moon.svg id="moon-icon" alt="Dark mode" />
+        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
+        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
       </a>
       
 
@@ -149,14 +149,125 @@
     Published: 2024-05-25
 </span>
     </header>
+    
     <div itemprop="articleBody">
-      <p>In the realm of computer science, efficiency is often the key to solving complex
+        
+            <p>In the realm of computer science, efficiency is often the key to solving complex
 problems. One elegant solution that stands out for its efficiency is the Bloom
 filter. Despite being relatively lesser-known, Bloom filters offer a powerful
 method for determining set membership while using minimal space. This post
 explores what Bloom filters are, how they work, their applications in various
 fields, and compares them with other data structures.</p>
-<span id="continue-reading"></span><h2 id="what-is-a-bloom-filter">What is a Bloom Filter?</h2>
+
+            
+            
+                <details class="toc-container">
+                    <summary class="toc-title">Table of Contents</summary>
+                    <ul class="toc-list">
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#what-is-a-bloom-filter">What is a Bloom Filter?</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#how-bloom-filters-work">How Bloom Filters Work</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#insertion">Insertion</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#querying">Querying</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#false-positives">False Positives</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#mathematical-insight">Mathematical Insight</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#comparing-a-bloom-filter-with-a-hash-set-in-python">Comparing a Bloom Filter with a Hash Set in Python</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#mock-scenario-checking-malicious-urls">Mock Scenario: Checking Malicious URLs</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#setup-and-explanation">Setup and Explanation</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#bloom-filter">Bloom Filter</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#hash-set">Hash Set</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#pros-and-cons-of-bloom-filters">Pros and Cons of Bloom Filters</a>
+                                
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#pros">Pros</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#cons">Cons</a>
+                                            </li>
+                                            
+                                        
+                                            <li>
+                                                <a href="https://micahkepe.com/blog/bloom-filters/#real-world-case-studies">Real-World Case Studies</a>
+                                            </li>
+                                            
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#conclusion">Conclusion</a>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="https://micahkepe.com/blog/bloom-filters/#references">References</a>
+                                
+                            </li>
+                        
+                    </ul>
+                </details>
+            
+            
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span><h2 id="what-is-a-bloom-filter">What is a Bloom Filter?</h2>
 <p>A Bloom filter is a probabilistic data structure designed to efficiently test
 whether an element is a member of a set. It can tell you if an element is
 definitely not in the set or that it might be in the set. This probabilistic
@@ -429,7 +540,11 @@ systems and continue to be a valuable tool in a programmer's toolkit.</p>
   async
 ></script>
 
+
+
+        
     </div>
+
 
     
         <footer>
