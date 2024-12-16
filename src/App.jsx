@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Layout from "./components/views/Layout";
+import Layout from "./components/sections/Layout";
 import "./App.css";
 
 function App() {
@@ -11,13 +11,10 @@ function App() {
   useEffect(() => {
     const handlePointerMove = (event) => {
       const { clientX, clientY } = event;
-
       blobRef.current.style.left = `${clientX}px`;
       blobRef.current.style.top = `${clientY}px`;
     };
-
     window.addEventListener("pointermove", handlePointerMove);
-
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
     };
@@ -26,9 +23,9 @@ function App() {
   return (
     <div className="app">
       <div id="blob" ref={blobRef}></div>
-      <div className="app-content">
+      <main className="app-content">
         <Layout />
-      </div>
+      </main>
     </div>
   );
 }

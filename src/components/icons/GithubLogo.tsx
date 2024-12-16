@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/** Icon for GitHub **/
 const GithubLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="1em"

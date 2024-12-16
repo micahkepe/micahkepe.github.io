@@ -1,17 +1,16 @@
-import React from "react";
+import { FC } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import LinkedinLogo from "../icons/LinkedinLogo";
-import { ContactProps } from "../../types";
 
-const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
-  const paddingClass = windowWidth > 768 ? "pt-8" : "";
+/** View for the contact section */
+const Contact: FC = () => {
   return (
     <section id="contact">
-      <div
-        className={`contact-content text-base font-thin text-slate pr-8 pl-3 ${paddingClass}`}
+      <article
+        className="contact-content pt-0 sm:pt-8 text-base font-thin text-slate pr-8 pl-3"
       >
         <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
-          <div className="flex gap-x-4">
+          <p className="flex gap-x-4">
             <dt className="flex-none">
               <span className="sr-only">Email</span>
               <EnvelopeIcon
@@ -27,8 +26,8 @@ const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
                 micahkepe@gmail.com
               </a>
             </dd>
-          </div>
-          <div className="flex gap-x-4">
+          </p>
+          <p className="flex gap-x-4">
             <dt className="flex-none">
               <LinkedinLogo
                 fill="currentColor"
@@ -45,9 +44,9 @@ const Contact: React.FC<ContactProps> = ({ windowWidth }) => {
                 Connect with me on LinkedIn!
               </a>
             </dd>
-          </div>
+          </p>
         </dl>
-      </div>
+      </article>
     </section>
   );
 };

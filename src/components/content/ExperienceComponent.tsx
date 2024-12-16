@@ -1,16 +1,35 @@
 import React from "react";
 import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
-import { ExperienceComponentProps } from "../../types";
 
-const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
+/**
+ * Experience component that displays a job experience with a date, logo, title, 
+ * description, link, and skills.
+ * 
+ * @param {Object} props - The props object.
+ * @param {string} props.date - The date of the experience.
+ * @param {string} props.logo - The logo of the company.
+ * @param {string} props.title - The title of the experience.
+ * @param {string} props.description - The description of the experience.
+ * @param {string} props.link - The link to the experience.
+ * @param {string[]} props.skills - The skills used in the experience.
+ * @returns {React.JSX.Element} An experience component with the specified content.
+ */
+function ExperienceComponent({
   date,
   logo,
   title,
   description,
   link,
   skills,
-}) => {
+}: {
+  date: string;
+  logo: string;
+  title: string;
+  description: string;
+  link: string;
+  skills: string[];
+}): React.JSX.Element {
   const controls = useAnimation();
 
   return (

@@ -3,10 +3,15 @@ import GithubLogo from "../icons/GithubLogo";
 import LinkedinLogo from "../icons/LinkedinLogo";
 import InstagramLogo from "../icons/InstagramLogo";
 import DEVCommunityLogo from "../icons/DEVCommunityLogo";
-import { SocialLink } from "../../types";
+
+interface ISocialIcon {
+  icon: JSX.Element;
+  link: string;
+  name: string;
+}
 
 const Socials: React.FC = () => {
-  const socialsLinks: SocialLink[] = [
+  const socialsLinks: ISocialIcon[] = [
     {
       icon: <GithubLogo />,
       link: "https://github.com/micahkepe",
@@ -30,9 +35,9 @@ const Socials: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-start items-center space-x-10 mt-4 pl-3 pt-1">
+    <article className="flex justify-start items-center space-x-10 mt-4 pl-3 pt-1">
       {socialsLinks.map((socialLink, index) => (
-        <div key={index} className="inline-block">
+        <section key={index} className="inline-block">
           <a
             href={socialLink.link}
             target="_blank"
@@ -41,9 +46,9 @@ const Socials: React.FC = () => {
           >
             {socialLink.icon}
           </a>
-        </div>
+        </section>
       ))}
-    </div>
+    </article>
   );
 };
 

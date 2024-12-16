@@ -30,10 +30,10 @@ const QuickAbout = (): JSX.Element => {
 
   return (
     <section className="quick-about pt-5">
-      <div className="quick-about-content">
+      <article className="quick-about-content">
         <h1 className="font-sans font-bold text-5xl mb-5 flex items-center tracking-tighter">
           <span className="mr-2 flex-shrink-0">Micah Kepe</span>
-          <div className="text-3xl">🚀</div>
+          <p className="text-3xl">🚀</p>
         </h1>
         <p className="font-semibold text-lg mb-4">
           Computer Science Student at&nbsp;
@@ -45,6 +45,7 @@ const QuickAbout = (): JSX.Element => {
           >
             <a
               href="https://www.niche.com/colleges/rice-university/"
+              aria-label="Rice University"
               target="_blank"
               rel="noreferrer"
               className="no-underline hover:underline decoration-indigo-500 owl-cursor"
@@ -56,6 +57,7 @@ const QuickAbout = (): JSX.Element => {
               <img
                 src={owlSrc}
                 alt="Owl flying GIF image."
+                aria-hidden="true"
                 style={{
                   position: "absolute",
                   top: "-50px",
@@ -70,7 +72,7 @@ const QuickAbout = (): JSX.Element => {
         <p className="font-semibold mb-6 mt-2 text-slate">
           Dedicated to delivering high-quality solutions.
         </p>
-      </div>
+      </article>
     </section>
   );
 };

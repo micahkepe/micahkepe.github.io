@@ -1,11 +1,9 @@
-import React from "react";
-import ExperienceComponent from "../generic/ExperienceComponent";
+import { FC } from "react";
+import ExperienceComponent from "../content/ExperienceComponent";
 import { motion, useAnimation } from "framer-motion";
-import { ExperienceProps } from "../../types";
 
-const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
-  const paddingClass = windowWidth > 768 ? "pt-8" : "";
-
+/** View for the experience section */
+const Experience: FC = () => {
   const experiences = [
     {
       date: "Feb 2024 - Present",
@@ -46,12 +44,12 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
 
   return (
     <section id="experience">
-      <div className={`experience-content ${paddingClass}`}>
-        <div className="section-placeholder"></div>
+      <article className="experience-content pt-0 sm:pt-8">
+        <p className="section-placeholder"></p>
         {experiences.slice(0, 4).map(
           (
             experience,
-            index, // first 4 experiences
+            index,
           ) => (
             <ExperienceComponent key={index} {...experience} />
           ),
@@ -61,7 +59,7 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
           onMouseEnter={() => controls.start({ x: 1, y: 0 })}
           onMouseLeave={() => controls.start({ x: 0, y: 0 })}
         >
-          <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
+          <p className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
               <a
                 href="/assets/resume.pdf"
@@ -87,9 +85,9 @@ const Experience: React.FC<ExperienceProps> = ({ windowWidth }) => {
                 d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </motion.svg>
-          </div>
+          </p>
         </motion.div>
-      </div>
+      </article>
     </section>
   );
 };

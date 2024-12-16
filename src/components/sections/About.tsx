@@ -1,12 +1,11 @@
-import React, { FC } from "react";
-import { AboutProps } from "../../types";
+import { FC } from "react";
 
-const About: FC<AboutProps> = ({ windowWidth }) => {
-  const paddingClass = windowWidth > 768 ? "pt-8" : "";
+/** View for the about section of the website. */
+const About: FC = () => {
   return (
     <section id="about">
-      <div
-        className={`about-content text-base text-left font-thin text-slate pr-8 pl-3 ${paddingClass}`}
+      <article
+        className="about-content pt-0 sm:pt-8 text-base text-left font-thin text-slate ml-2 mr-2"
       >
         <br />
         <p className="indent-8">
@@ -67,7 +66,7 @@ const About: FC<AboutProps> = ({ windowWidth }) => {
           Please feel free to reach out to me via email or connect with me on
           LinkedIn. I welcome any opportunity to connect and collaborate.
         </p>
-      </div>
+      </article>
     </section>
   );
 };

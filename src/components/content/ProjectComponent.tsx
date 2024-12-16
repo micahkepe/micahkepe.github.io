@@ -1,9 +1,32 @@
 import React, { useEffect, useState } from "react";
 import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
-import { ProjectComponentProps } from "../../types";
 
-const ProjectComponent: React.FC<ProjectComponentProps> = ({
+export interface ProjectComponentProps {
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+  skills: string[];
+  showStars?: boolean;
+  githubOwnerRepo?: string;
+}
+
+/**
+ * Project component to display project details including image, title,
+ * description, link, skills, and GitHub stars.
+ *
+ * @param {Object} props - Props for the ProjectComponent.
+ * @param {string} props.image - Image URL for the project.
+ * @param {string} props.title - Title of the project.
+ * @param {string} props.description - Description of the project.
+ * @param {string} props.link - Link to the project.
+ * @param {string[]} props.skills - Skills used in the project.
+ * @param {boolean} [props.showStars] - Whether to show GitHub stars.
+ * @param {string} [props.githubOwnerRepo] - GitHub owner/repo for fetching stars.
+ * @returns {React.JSX.Element} A styled project component.
+ */
+function ProjectComponent({
   image,
   title,
   description,
@@ -11,7 +34,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
   skills,
   showStars = false,
   githubOwnerRepo,
-}) => {
+}: ProjectComponentProps): React.JSX.Element {
   const controls = useAnimation();
   const [stars, setStars] = useState<number | null>(null);
 
@@ -26,13 +49,13 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
   return (
     <BaseContentComponent
       leftSideContent={
-        <div className="w-40 h-20 overflow-hidden relative shadow-lg shadow-black sm:mr-10">
+        <section className="w-40 h-20 overflow-hidden relative shadow-lg shadow-black sm:mr-10">
           <img
             src={image}
             alt={title}
             className="absolute top-0 left-0 w-full h-full object-cover object-center rounded-sm"
           />
-        </div>
+        </section>
       }
     >
       <motion.div
@@ -72,7 +95,7 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
           rel="noreferrer noopener"
           target="_blank"
         >
-          <div className="flex items-center text-sm text-gray-300 mb-4 font-medium hover:text-green outline-green">
+          <p className="flex items-center text-sm text-gray-300 mb-4 font-medium hover:text-green outline-green">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -88,10 +111,10 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
               />
             </svg>
             {stars}
-          </div>
+          </p>
         </a>
       )}
-      <div>
+      <section>
         {skills.map((skill) => (
           <button
             key={skill}
@@ -100,9 +123,10 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
             {skill}
           </button>
         ))}
-      </div>
+      </section>
     </BaseContentComponent>
   );
-};
+}
 
 export default ProjectComponent;
+

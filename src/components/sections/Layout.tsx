@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import QuickAbout from "./QuickAbout";
 import Socials from "./Socials";
 import About from "./About";
@@ -9,7 +9,7 @@ import Contact from "./Contact";
 import ToggleSection from "./ToggleSection";
 import Footer from "./Footer";
 
-const Layout: React.FC = () => {
+const Layout: FC = () => {
   const sections: string[] = [
     "About",
     "Experience",
@@ -77,18 +77,21 @@ const Layout: React.FC = () => {
         {windowWidth <= 768 && (
           <h2 className="text-sm mt-7">{section.toUpperCase()}</h2>
         )}
-        {section === "About" && <About windowWidth={windowWidth} />}
-        {section === "Experience" && <Experience windowWidth={windowWidth} />}
-        {section === "Projects" && <Projects windowWidth={windowWidth} />}
-        {section === "Contact" && <Contact windowWidth={windowWidth} />}
-        {section === "Blog" && <Blog windowWidth={windowWidth} />}
+        {section === "About" && <About />}
+        {section === "Experience" && <Experience />}
+        {section === "Projects" && <Projects />}
+        {section === "Contact" && <Contact />}
+        {section === "Blog" && <Blog />}
       </div>
     ));
   };
 
   return (
-    <div className="h-full lg:flex lg:justify-between overflow-x-hidden">
-      <div className="lg:w-1/3 lg:h-screen overflow-y-hidden lg:fixed top-0 p-5 mt-8 ml-2">
+    <section className="h-full lg:flex lg:justify-between overflow-x-hidden">
+      <section
+        id="app-left-column"
+        className="lg:w-1/3 lg:h-screen overflow-y-hidden lg:fixed top-0 p-5 mt-8 ml-2"
+      >
         <QuickAbout />
         {windowWidth > 768 && (
           <ToggleSection
@@ -97,18 +100,19 @@ const Layout: React.FC = () => {
             onSectionClick={handleSectionClick}
           />
         )}
-        <div>
+        <section>
           <Socials />
-        </div>
-      </div>
-      <div
+        </section>
+      </section>
+      <section
+        id="app-right-column"
         className="flex flex-col overflow-y-auto lg:w-2/3 p-5 lg:ml-auto"
         ref={rightColumnRef}
       >
-        <div className="flex flex-col gap-5">{renderSections()}</div>
+        <section className="flex flex-col gap-5">{renderSections()}</section>
         <Footer />
-      </div>
-    </div>
+      </section>
+    </section >
   );
 };
 

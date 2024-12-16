@@ -1,12 +1,30 @@
 import React, { FC } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { BlogPost } from "../../types";
 
-const BlogPostComponent: FC<{ post: BlogPost }> = ({ post }) => {
+/** 
+ * Interface for blog post 
+ * @interface BlogPost 
+ * @property {string} title - Title of the blog post 
+ * @property {string} link - Link to the blog post 
+ * @property {string} pubDate - Date the blog post was published 
+ * @property {string} summary - Teaser summary of the blog post
+ */
+export interface IBlogPost {
+  title: string;
+  link: string;
+  pubDate: string;
+  summary: string;
+}
+
+/**
+ * Blog post component that displays a blog post with a title, publication date,
+ * and summary.
+ */
+const BlogPostComponent: FC<{ post: IBlogPost }> = ({ post }) => {
   const controls = useAnimation();
 
   return (
-    <div className="relative mb-5 border-solid border-2 border-slate p-4 rounded-lg hover:bg-white/5">
+    <article className="relative mb-5 border-solid border-2 border-slate p-4 rounded-lg hover:bg-white/5">
       <a
         href={post.link}
         className="flex items-center text-sm text-white font-semibold mb-2 hover:text-green"
@@ -14,7 +32,7 @@ const BlogPostComponent: FC<{ post: BlogPost }> = ({ post }) => {
         onMouseEnter={() => controls.start({ x: 1, y: -1 })}
         onMouseLeave={() => controls.start({ x: 0, y: 0 })}
       >
-        <span className="flex">{post.title}</span>
+        <p className="flex">{post.title}</p>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -53,11 +71,11 @@ const BlogPostComponent: FC<{ post: BlogPost }> = ({ post }) => {
           timeZone: "UTC",
         })}
       </p>
-      <div
+      <p
         className="mt-2 text-sm text-slate"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      ></div>
-    </div>
+        dangerouslySetInnerHTML={{ __html: post.summary }}
+      ></p>
+    </article>
   );
 };
 

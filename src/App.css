@@ -36,19 +36,10 @@ html {
 
 @media (max-width: 768px) {
   .app-content {
-    padding: 1rem;
+    padding: 0;
   }
 
   #blob {
     display: none;
-  }
-
-  .about-content,
-  .experience-content,
-  .projects-content,
-  .blog-content,
-  .contact-content {
-    padding-right: 1rem;
-    padding-left: 1rem;
   }
 }

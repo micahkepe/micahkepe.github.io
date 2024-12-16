@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/** Icon for DEV Community */
 const DEVCommunityLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     id="Layer_1"

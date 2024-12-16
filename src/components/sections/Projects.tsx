@@ -1,12 +1,31 @@
-import React from "react";
-import ProjectComponent from "../generic/ProjectComponent";
+import { FC } from "react";
+import ProjectComponent from "../content/ProjectComponent";
 import { motion, useAnimation } from "framer-motion";
-import { Project, ProjectsProps } from "../../types";
 
-const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
-  const paddingClass = windowWidth > 768 ? "pt-8" : "";
+/**
+ * Interface for a project component. Each project has a title, description,
+ * image, link, and skills.
+ * @interface Project
+ * @property {string} title - The title of the project.
+ * @property {string} description - The description of the project.
+ * @property {string} image - The image of the project.
+ * @property {string} link - The link to the project.
+ * @property {string[]} skills - The skills used in the project.
+ * @property {boolean} [showStars] - Whether to show the stars of the project.
+ * @property {string} [githubOwnerRepo] - The owner and repository of the project on GitHub.
+ */
+interface IProject {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  skills: string[];
+  showStars?: boolean;
+  githubOwnerRepo?: string;
+}
 
-  const projects: Project[] = [
+const Projects: FC = () => {
+  const projects: IProject[] = [
     {
       image: "/assets/vim.webp",
       title: "Vimtutor Sequel",
@@ -47,17 +66,17 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
 
   return (
     <section id="projects">
-      <div className={`projects-content ${paddingClass}`}>
-        <div className="">
-          {projects.map((project: Project, index: number) => (
+      <article className="project-content pt-0 sm:pt-8">
+        <section className="">
+          {projects.map((project: IProject, index: number) => (
             <ProjectComponent key={index} {...project} />
           ))}
-        </div>
+        </section>
         <motion.div
           onMouseEnter={() => controls.start({ x: 1, y: 0 })}
           onMouseLeave={() => controls.start({ x: 0, y: 0 })}
         >
-          <div className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
+          <p className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
             <span className="text-white font-semibold text-base">
               <a
                 href="https://github.com/micahkepe?tab=repositories"
@@ -83,9 +102,9 @@ const Projects: React.FC<ProjectsProps> = ({ windowWidth }) => {
                 d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </motion.svg>
-          </div>
+          </p>
         </motion.div>
-      </div>
+      </article>
     </section>
   );
 };
