@@ -4,9 +4,7 @@ import { FC } from "react";
 const About: FC = () => {
   return (
     <section id="about">
-      <article
-        className="about-content pt-0 sm:pt-8 text-base text-left font-thin text-slate ml-2 mr-2"
-      >
+      <article className="about-content pt-0 sm:pt-8 text-base text-left font-thin text-slate ml-2 mr-2">
         <br />
         <p className="indent-8">
           I am a computer science student at{" "}

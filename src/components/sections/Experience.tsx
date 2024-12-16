@@ -46,14 +46,9 @@ const Experience: FC = () => {
     <section id="experience">
       <article className="experience-content pt-0 sm:pt-8">
         <p className="section-placeholder"></p>
-        {experiences.slice(0, 4).map(
-          (
-            experience,
-            index,
-          ) => (
-            <ExperienceComponent key={index} {...experience} />
-          ),
-        )}
+        {experiences.slice(0, 4).map((experience, index) => (
+          <ExperienceComponent key={index} {...experience} />
+        ))}
 
         <motion.div
           onMouseEnter={() => controls.start({ x: 1, y: 0 })}

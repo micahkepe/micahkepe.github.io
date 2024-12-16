@@ -24,4 +24,3 @@ function BaseContentComponent({
 }
 
 export default BaseContentComponent;
-

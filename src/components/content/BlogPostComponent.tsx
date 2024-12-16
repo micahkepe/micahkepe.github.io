@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-/** 
- * Interface for blog post 
- * @interface BlogPost 
- * @property {string} title - Title of the blog post 
- * @property {string} link - Link to the blog post 
- * @property {string} pubDate - Date the blog post was published 
+/**
+ * Interface for blog post
+ * @interface BlogPost
+ * @property {string} title - Title of the blog post
+ * @property {string} link - Link to the blog post
+ * @property {string} pubDate - Date the blog post was published
  * @property {string} summary - Teaser summary of the blog post
  */
 export interface IBlogPost {

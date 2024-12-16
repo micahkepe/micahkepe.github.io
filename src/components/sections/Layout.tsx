@@ -112,7 +112,7 @@ const Layout: FC = () => {
         <section className="flex flex-col gap-5">{renderSections()}</section>
         <Footer />
       </section>
-    </section >
+    </section>
   );
 };
 

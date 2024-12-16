@@ -7,7 +7,11 @@ const Footer: React.FC = () => {
       <section>
         <p>
           Website created by{" "}
-          <a href="/blog" className="text-inherit hover:text-green" aria-label="Micah Kepe's Blog">
+          <a
+            href="/blog"
+            className="text-inherit hover:text-green"
+            aria-label="Micah Kepe's Blog"
+          >
             Micah Kepe
           </a>
           <br />

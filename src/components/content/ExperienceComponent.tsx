@@ -3,9 +3,9 @@ import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
 
 /**
- * Experience component that displays a job experience with a date, logo, title, 
+ * Experience component that displays a job experience with a date, logo, title,
  * description, link, and skills.
- * 
+ *
  * @param {Object} props - The props object.
  * @param {string} props.date - The date of the experience.
  * @param {string} props.logo - The logo of the company.
@@ -90,6 +90,6 @@ function ExperienceComponent({
       </div>
     </BaseContentComponent>
   );
-};
+}
 
 export default ExperienceComponent;

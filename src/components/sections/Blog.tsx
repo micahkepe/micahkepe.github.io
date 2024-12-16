@@ -16,8 +16,7 @@ const Blog: FC = () => {
         const xmlDoc = parser.parseFromString(xmlText, "text/xml");
         const entries = xmlDoc.getElementsByTagName("entry");
         const posts = Array.from(entries).map((entry) => ({
-          title: entry
-            .getElementsByTagName("title")[0].textContent,
+          title: entry.getElementsByTagName("title")[0].textContent,
           link: entry.getElementsByTagName("link")[0].getAttribute("href"),
           pubDate: entry.getElementsByTagName("published")[0].textContent,
           summary: entry.getElementsByTagName("summary")[0].textContent,
@@ -39,9 +38,7 @@ const Blog: FC = () => {
 
   return (
     <section id="blog">
-      <article
-        className="blog-content pt-0 sm:pt-8 text-base text-left font-thin text-slate pr-8 pl-3"
-      >
+      <article className="blog-content pt-0 sm:pt-8 text-base text-left font-thin text-slate pr-8 pl-3">
         <br />
         <p className="indent-8">
           My &quot;secret&quot; blog is a collection of my thoughts and
