@@ -19,11 +19,11 @@ const Layout: FC = () => {
   ];
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const rightColumnRef = useRef<HTMLDivElement>(null);
-  const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = {};
+  const rightColumnRef = useRef<HTMLElement>(null);
+  const sectionRefs: { [key: string]: React.RefObject<HTMLElement> } = {};
 
   sections.forEach((section) => {
-    sectionRefs[section] = useRef<HTMLDivElement>(null);
+    sectionRefs[section] = useRef<HTMLElement>(null);
   });
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const Layout: FC = () => {
 
   const renderSections = () => {
     return sections.map((section) => (
-      <div
+      <section
         key={section}
         className="font-bold text-lg flex flex-col gap-5 mb-9"
         ref={sectionRefs[section]}
@@ -82,7 +82,7 @@ const Layout: FC = () => {
         {section === "Projects" && <Projects />}
         {section === "Contact" && <Contact />}
         {section === "Blog" && <Blog />}
-      </div>
+      </section>
     ));
   };
 

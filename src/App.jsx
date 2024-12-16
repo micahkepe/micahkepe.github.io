@@ -21,12 +21,12 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <div id="blob" ref={blobRef}></div>
+    <section className="app">
+      <p id="blob" ref={blobRef}></p>
       <main className="app-content">
         <Layout />
       </main>
-    </div>
+    </section>
   );
 }
 
