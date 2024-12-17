@@ -7,13 +7,10 @@
 This is the repository for my personal website. The website is constantly undergoing
 updates and is being developed to showcase my portfolio and provide information about me.
 
-![Website Screenshot](/public/assets/personal-website.webp)
-
 ## Table of Contents
 
 - [Features](#features)
 - [Using Codebase As Template](#using-codebase-as-template)
-- [Development Workflow](#development-workflow)
 - [Deployment](#deployment)
 - [Usage and Attribution](#usage-and-attribution)
 - [Contributing](#contributing)
@@ -64,6 +61,8 @@ npm install
 ```bash
 npm start
 ```
+
+Of course make sure to change out info, work, etc.
 
 ## Deployment
 
