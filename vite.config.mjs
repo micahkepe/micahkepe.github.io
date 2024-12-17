@@ -7,15 +7,14 @@ import path from "path";
  * index.html file. This is necessary make Vite compatible with the Zola blog
  * posts, which are generated as directories with an index.html file inside.
  */
-const blogPlugin = {
-  name: "blog-plugin",
+const staticSitePlugin = {
+  name: "static-site-plugin",
   configureServer(server) {
     server.middlewares.use((req, _, next) => {
-      if (
-        req.url.startsWith("/blog/") &&
-        !req.url.endsWith(".html") &&
-        !path.extname(req.url)
-      ) {
+      const staticPaths = ["/blog/", "/radion/"];
+      const matchedPath = staticPaths.find((path) => req.url.startsWith(path));
+
+      if (matchedPath && !req.url.endsWith(".html") && !path.extname(req.url)) {
         req.url += "/index.html";
       }
       next();
@@ -25,7 +24,7 @@ const blogPlugin = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), blogPlugin],
+  plugins: [react(), staticSitePlugin],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

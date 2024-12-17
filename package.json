@@ -22,14 +22,16 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "npm run build:blog-dev && vite",
+    "start": "npm run build:blog-dev && npm run build:radion-dev && vite",
     "build": "vite build",
     "build:blog-dev": "rm -rf public/blog && cd blog && zola build --base-url http://localhost:3000/blog && cd .. && cp -r blog/public/ public/blog/",
     "build:blog": "rm -rf public/blog && cd blog && zola build && cd .. && cp -r blog/public/ public/blog/",
+    "build:radion-dev": "rm -rf public/radion && cd blog/themes/radion && zola build --base-url http://localhost:3000/radion && cd ../../.. && cp -r blog/themes/radion/public/ public/radion/",
+    "build:radion": "rm -rf public/radion && cd blog/themes/radion && zola build && cd ../../.. && cp -r blog/themes/radion/public/ public/radion/",
     "format": "prettier --write .",
     "test": "vite test",
     "clean": "rm -rf build/*",
-    "predeploy": "npm run clean && npm run build:blog && npm run build",
+    "predeploy": "npm run clean && npm run build:blog && npm run build:radion && npm run build",
     "deploy": "gh-pages -d build -m 'deploying to gh-pages'"
   },
   "eslintConfig": {
