@@ -455,7 +455,6 @@ Here are some examples:
 # Start `htop`:
 htop
 
-
 # Start `htop` displaying processes owned by a specific user:
 htop --user username
 ```
