@@ -21,8 +21,8 @@ has never made a game before.
 
 # Initial Project Proposal
 
-I don't want to give too much away, but our game is called **43 Monkeys** and
-draws a lot of inspiration from this news source:
+Not to give too much away yet, but our game is called **43 Monkeys** and draws
+a lot of inspiration from this news source:
 [What we know after 43 monkeys escaped a South Carolina research facility](https://www.cbsnews.com/news/south-carolina-escaped-monkeys-what-we-know/)
 
 <br>
@@ -40,11 +40,10 @@ make progress, so stay tuned!
 
 # Progress Log
 
-<details open>
+<details>
 <summary>Pre-Class Work</summary>
-<br>
 
-## Updates
+**Updates**
 
 Before the class officially starts, we are taking time to familiarize ourselves
 with the Godot engine and the basics of game development. My first thoughts on
@@ -58,16 +57,16 @@ are also working getting a basic scene set up in Godot to start testing out
 movement and interactions. Godot's [documentation](https://docs.godotengine.org/en/stable/index.html)
 is very good and has been a great resource for getting started.
 
-## Basic Movement
+**Basic Movement**
 
 {{ gif(
     sources=["videos/basic-movt.mp4"],
     width=40
 )}}
 
-## Helpful Tutorials
+**Helpful Tutorials**
 
-{{ youtube(id="LOhfqjmasi0", width=80)}}
+{{ youtube(id="LOhfqjmasi0", width=70)}}
 
 </details>
 
