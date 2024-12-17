@@ -27,10 +27,26 @@ interface IProject {
 const Projects: FC = () => {
   const projects: IProject[] = [
     {
+      image: "/assets/radion.png",
+      title: "radion Zola Theme",
+      description:
+        "A custom, minimalist theme for the Zola static site \
+        generator. The theme is designed to be lightweight, fast, and easy to \
+        use. It features a clean, modern design with a focus on typography \
+        and readability. Includes light/dark mode, enhanced code blocks,\
+        custom shortcodes, and more. ",
+      link: "https://github.com/micahkepe/radion",
+      skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
+    },
+    {
       image: "/assets/vim.webp",
       title: "Vimtutor Sequel",
       description:
-        "Vimtutor Sequel is designed to continue your Vim education from where the original vimtutor left off. The project is a series of lessons that cover more advanced topics in Vim, such as macros, registers, and plugins. The lessons are designed to be interactive and engaging, with exercises to reinforce learning.",
+        "Vimtutor Sequel is designed to continue your Vim education from where \
+        the original vimtutor left off.The project is a series of lessons \
+        that cover more advanced topics in Vim, such as macros, registers, \
+        and plugins.The lessons are designed to be interactive and engaging, \
+        with exercises to reinforce learning.",
       link: "https://formulae.brew.sh/formula/vimtutor-sequel",
       skills: ["Vim", "Shell Scripting", "Homebrew"],
       showStars: true,
@@ -40,7 +56,12 @@ const Projects: FC = () => {
       image: "/assets/new-york-map.webp",
       title: "NYC Car Crash Analysis Project",
       description:
-        "A collaborative project associated with STAT 405 (R for Data Science) at Rice University with the goal of analyzing car crash data in New York City. The project aims to create meaningful visualizations and models to understand the factors that contribute to car crashes in NYC. The project also contains an interactive Shiny app that allows users to explore the data.",
+        "A collaborative project associated with STAT 405 (R for Data Science\
+        ) at Rice University with the goal of analyzing car crash data in New \
+        York City. The project aims to create meaningful visualizations and \
+        models to understand the factors that contribute to car crashes in NYC\
+        . The project also contains an interactive Shiny app that allows \
+        users to explore the data.",
       link: "https://github.com/micahkepe/stat405project",
       skills: ["R", "Data Analysis", "Data Visualization"],
     },
@@ -51,14 +72,6 @@ const Projects: FC = () => {
         "A deep learning model that can generate music in the style of a given artist. The model is a Long Short-Term Memory (LSTM) neural network trained on MIDI files of Bach compositions as a proof-of-concept. The model is capable of generating music in the style of Bach, and the architecture can be extended to other artists.",
       link: "https://github.com/micahkepe/artist-emulator",
       skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
-    },
-    {
-      image: "/assets/personal-website.webp",
-      title: "Personal Website",
-      description:
-        "Designed and developed a personal website as a portfolio to showcase my projects and skills. The website is built using React and Tailwind CSS and is hosted on GitHub Pages. The website also serves as a reflection of my growth as a developer as I continue to add new projects and skills.",
-      link: "https://github.com/micahkepe/micahkepe.github.io",
-      skills: ["React", "Node", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
     },
   ];
 
