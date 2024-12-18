@@ -3,7 +3,7 @@ base_url = "https://micahkepe.com/blog"
 title = "Micah's Secret Blog"
 theme = "radion"
 description = "An assortment of my ramblings and random adventures."
-generate_feed = true
+generate_feeds = true
 
 taxonomies = [
     # You can enable/disable RSS
