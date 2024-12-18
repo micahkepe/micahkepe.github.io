@@ -62,7 +62,7 @@ const Blog: FC = () => {
       >
         <p className="flex items-center gap-2 mt-3 cursor-pointer hover:underline decoration-green">
           <span className="text-white font-semibold text-base">
-            <a href="/blog/" rel="noopener noreferrer">
+            <a href="https://micahkepe.com/blog/" rel="noopener noreferrer">
               Visit My Blog
             </a>
           </span>
