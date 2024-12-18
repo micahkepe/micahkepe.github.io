@@ -1,132 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <meta name="description" content="An assortment of my ramblings and random adventures." />
+     
 
-  
-  
-  <meta name="description" content="An assortment of my ramblings and random adventures." />
-  
-  
-
-  <title>
+    <title>
     
     How Do Software Packages Work?
     
 </title>
 
-  
-  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://micahkepe.com/blog/atom.xml">
-  
-
-  
-  <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
-  
-
-  
-  
-</head>
-
-<body class="hack dark main container">
-  
     
-        
-  
-  <header class="nav-header">
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
-      <div class="nav-links">
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/">
-          <span itemprop="name">Home</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/categories">
-          <span itemprop="name">Categories</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/tags">
-          <span itemprop="name">Tags</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/">
-          <span itemprop="name">Main Site</span></a>
-        
-      </div>
-    </nav>
-    <div class="user-actions-container">
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/blog/atom.xml"
+    />
+     
+    <link
+      rel="stylesheet"
+      href="https://micahkepe.com/blog/site.css"
+    />
       
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+  </head>
+
+  <body class="hack dark main container">
+    
+    
+         
+    <header class="nav-header">
+      <nav
+        itemscope
+        itemtype="http://schema.org/SiteNavigationElement"
+        class="navbar"
+      >
+        <div class="nav-links">
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/"
+          >
+            <span itemprop="name">Home</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/categories"
+          >
+            <span itemprop="name">Categories</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/tags"
+          >
+            <span itemprop="name">Tags</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/"
+          >
+            <span itemprop="name">Main Site</span></a
+          >
+          
+        </div>
+      </nav>
+      <div class="user-actions-container">
+        
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
         </svg>
-        <input type="text" id="search" placeholder="Search...">
+        <input type="text" id="search" placeholder="Search..." />
         <div class="search-results">
           <div class="search-results__items"></div>
         </div>
-      
-
-      
-      <a 
-        id="dark-mode-toggle" 
-        onclick="toggleTheme(); event.preventDefault();" 
-        href="#"
-      >
-        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
-      </a>
-      
-
-      
-      <a 
-        href="https://micahkepe.com/blog/atom.xml" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+         
+        <a
+          id="dark-mode-toggle"
+          onclick="toggleTheme(); event.preventDefault();"
+          href="#"
+        >
+          <img
+            src="https://micahkepe.com/blog/icons/sun.svg"
+            id="sun-icon"
+            style="filter: invert(1)"
+            alt="Light mode"
+          />
+          <img
+            src="https://micahkepe.com/blog/icons/moon.svg"
+            id="moon-icon"
+            alt="Dark mode"
+          />
+        </a>
+         
+        <a
+          href="https://micahkepe.com/blog/atom.xml"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/rss.svg"
             id="rss-icon"
             alt="RSS feed"
             class="social-icon"
-        />
-      </a>
-      
-
-      
-      <a 
-        href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+          />
+        </a>
+         
+        <a
+          href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/github.svg"
             id="github-icon"
             alt="GitHub"
             class="social-icon"
-        />
-      </a>
+          />
+        </a>
+        
+      </div>
+
       
-    </div>
-
-    
-    <!-- Set the correct theme in the script -->
-    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
-    
-        <script>setTheme(getSavedTheme());</script>
-    
-
-  </header>
-  
-  
+      <!-- Set the correct theme in the script -->
+      <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
+      
+      <script>
+        setTheme(getSavedTheme());
+      </script>
+      
+    </header>
+     
     
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
@@ -139,7 +166,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>8 minute read</span>
+    <span>7 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -568,13 +595,13 @@ others to use.</p>
 <ol>
   <li><strong>Create an NPM account:</strong>
 <p>If you don't already have one, create an account on <a href="https://www.npmjs.com/">NPM</a>.</p>
-</li>
-<li><strong>Login to NPM:</strong>
+  </li>
+  <li><strong>Login to NPM:</strong>
 <pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
 </span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> login
 </span></code></pre>
-</li>
-<li><strong>Publish the package:</strong>
+  </li>
+  <li><strong>Publish the package:</strong>
 <pre data-lang="bash" style="background-color:#2b303b;color:#6c7079;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">
 </span><span style="color:#eb6772;">npm</span><span style="color:#abb2bf;"> publish
 </span></code></pre>
@@ -588,7 +615,7 @@ specify which versions of a package they need, and NPM will resolve dependencies
 accordingly.</p>
 <p><strong>Congratulations!</strong> Your package is now available for others to
 install and use.</p>
-</li>
+  </li>
 </ol>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
@@ -603,9 +630,9 @@ application, software packages can help you save time, reduce errors, and
 focus on what matters most: building great software.</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://docs.npmjs.com/">NPM Documentation</a> </li>
-<li><a href="https://www.geeksforgeeks.org/what-is-software-package/">What is Software Package?</a> </li>
-<li><a href="https://en.wikipedia.org/wiki/Package_manager">Package Manager (Wikipedia)</a> </li>
+<li><a href="https://docs.npmjs.com/">NPM Documentation</a> \</li>
+<li><a href="https://www.geeksforgeeks.org/what-is-software-package/">What is Software Package?</a> \</li>
+<li><a href="https://en.wikipedia.org/wiki/Package_manager">Package Manager (Wikipedia)</a> \</li>
 <li><a href="https://docs.npmjs.com/creating-and-publishing-scoped-public-packages">Creating and publishing scoped public packages</a></li>
 </ul>
 <script
@@ -663,17 +690,12 @@ focus on what matters most: building great software.</p>
 
 
 
-  <!-- optional scripts -->
-  
-  
+    <!-- optional scripts -->
+     
     <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
-  
-
-  
+     
     <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
-  
-
-  
+     
 <!-- MathJax script for rendering LaTeX math equations -->
 <script>
   MathJax = {
@@ -691,13 +713,9 @@ focus on what matters most: building great software.</p>
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 
-
-  
+ 
 <script type="text/javascript" src="https://micahkepe.com/blog/elasticlunr.min.js"></script>
 <script type="text/javascript" src="https://micahkepe.com/blog/js/search.js"></script>
-
-
-  
-</body>
-
+ 
+  </body>
 </html>

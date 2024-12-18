@@ -1,132 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <meta name="description" content="An assortment of my ramblings and random adventures." />
+     
 
-  
-  
-  <meta name="description" content="An assortment of my ramblings and random adventures." />
-  
-  
-
-  <title>
+    <title>
     
     Setting Up a Supercharged Neovim Configuration
     
 </title>
 
-  
-  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://micahkepe.com/blog/atom.xml">
-  
-
-  
-  <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
-  
-
-  
-  
-</head>
-
-<body class="hack dark main container">
-  
     
-        
-  
-  <header class="nav-header">
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
-      <div class="nav-links">
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/">
-          <span itemprop="name">Home</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/categories">
-          <span itemprop="name">Categories</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/tags">
-          <span itemprop="name">Tags</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/">
-          <span itemprop="name">Main Site</span></a>
-        
-      </div>
-    </nav>
-    <div class="user-actions-container">
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/blog/atom.xml"
+    />
+     
+    <link
+      rel="stylesheet"
+      href="https://micahkepe.com/blog/site.css"
+    />
       
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+  </head>
+
+  <body class="hack dark main container">
+    
+    
+         
+    <header class="nav-header">
+      <nav
+        itemscope
+        itemtype="http://schema.org/SiteNavigationElement"
+        class="navbar"
+      >
+        <div class="nav-links">
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/"
+          >
+            <span itemprop="name">Home</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/categories"
+          >
+            <span itemprop="name">Categories</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/tags"
+          >
+            <span itemprop="name">Tags</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/"
+          >
+            <span itemprop="name">Main Site</span></a
+          >
+          
+        </div>
+      </nav>
+      <div class="user-actions-container">
+        
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
         </svg>
-        <input type="text" id="search" placeholder="Search...">
+        <input type="text" id="search" placeholder="Search..." />
         <div class="search-results">
           <div class="search-results__items"></div>
         </div>
-      
-
-      
-      <a 
-        id="dark-mode-toggle" 
-        onclick="toggleTheme(); event.preventDefault();" 
-        href="#"
-      >
-        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
-      </a>
-      
-
-      
-      <a 
-        href="https://micahkepe.com/blog/atom.xml" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+         
+        <a
+          id="dark-mode-toggle"
+          onclick="toggleTheme(); event.preventDefault();"
+          href="#"
+        >
+          <img
+            src="https://micahkepe.com/blog/icons/sun.svg"
+            id="sun-icon"
+            style="filter: invert(1)"
+            alt="Light mode"
+          />
+          <img
+            src="https://micahkepe.com/blog/icons/moon.svg"
+            id="moon-icon"
+            alt="Dark mode"
+          />
+        </a>
+         
+        <a
+          href="https://micahkepe.com/blog/atom.xml"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/rss.svg"
             id="rss-icon"
             alt="RSS feed"
             class="social-icon"
-        />
-      </a>
-      
-
-      
-      <a 
-        href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+          />
+        </a>
+         
+        <a
+          href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/github.svg"
             id="github-icon"
             alt="GitHub"
             class="social-icon"
-        />
-      </a>
+          />
+        </a>
+        
+      </div>
+
       
-    </div>
-
-    
-    <!-- Set the correct theme in the script -->
-    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
-    
-        <script>setTheme(getSavedTheme());</script>
-    
-
-  </header>
-  
-  
+      <!-- Set the correct theme in the script -->
+      <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
+      
+      <script>
+        setTheme(getSavedTheme());
+      </script>
+      
+    </header>
+     
     
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
@@ -139,7 +166,7 @@
         <circle cx="16" cy="16" r="14"/>
         <path d="M16 8 L16 16 20 20"/>
     </svg>
-    <span>20 minute read</span>
+    <span>12 minute read</span>
     <svg class="icon i-edit" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -278,7 +305,7 @@ landed at to turn my Neovim editor into a supercharged workhorse.</p>
             <span id="continue-reading"></span><h1 id="tl-dr"><strong>TL;DR</strong></h1>
 <p>I think my setup is pretty sweet. If you want to try out my setup without having
 to do the configuration yourself, you can run these commands to add my setup as a
-&quot;profile&quot; that you can switch to in Neovim:</p>
+"profile" that you can switch to in Neovim:</p>
 <ol>
 <li>Clone the repository and install plugins:</li>
 </ol>
@@ -397,7 +424,7 @@ difficult to read the entire message:</p>
   </div>
   
 </div>
-<p>To make the diagnostics more readable and &quot;Visual-Studio-Code-like&quot;, I changed
+<p>To make the diagnostics more readable and "Visual-Studio-Code-like", I changed
 the diagnostics to underline the offending line and display to a floating window
 at the offending line on a cursor hold:</p>
 <div
@@ -475,8 +502,8 @@ NvChad's defined plugins:</p>
 </span><span style="color:#abb2bf;">  { </span><span style="color:#9acc76;">import </span><span style="color:#abb2bf;">= </span><span style="color:#9acc76;">&quot;plugins&quot; </span><span style="color:#abb2bf;">},
 </span><span style="color:#abb2bf;">}, </span><span style="color:#eb6772;">lazy_config</span><span style="color:#abb2bf;">)
 </span></code></pre>
-<p>In the <code>nvim_tree_options.filters.custom</code> table above, I added <code>&quot;^\\.git$&quot;</code> and
-<code>&quot;DS_Store&quot;</code> regular expressions to not display files from the <code>.git/</code> folder,
+<p>In the <code>nvim_tree_options.filters.custom</code> table above, I added <code>"^\\.git$"</code> and
+<code>"DS_Store"</code> regular expressions to not display files from the <code>.git/</code> folder,
 and to ignore the <code>.DS_Store</code> files that macOS creates, respectively.</p>
 <hr />
 <h2 id="plugins">Plugins</h2>
@@ -547,7 +574,7 @@ to work well together, providing a smooth and cohesive editing experience.</p>
   </video>
 </div>
 <br>
-<h3 id="added-plugins-musts">Added Plugins &quot;Musts&quot;</h3>
+<h3 id="added-plugins-musts">Added Plugins "Musts"</h3>
 <p>In no particular order, here are the plugins that I have added to augment
 NVChad's base.</p>
 <h4 id="gelguy-wilder-nvim"><a href="https://github.com/gelguy/wilder.nvim"><code>gelguy/wilder.nvim</code></a></h4>
@@ -942,9 +969,9 @@ these by doing <code>&lt;leader&gt;ch</code> to pull up the mappings cheat sheet
 </span><span style="font-style:italic;color:#5f697a;">-- This is a common shortcut in many editors, bringing familiarity from other tools like VSCode.
 </span><span style="color:#eb6772;">map</span><span style="color:#abb2bf;">({ </span><span style="color:#9acc76;">&quot;n&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;i&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;v&quot; </span><span style="color:#abb2bf;">}, </span><span style="color:#9acc76;">&quot;&lt;C-s&gt;&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&quot;&lt;cmd&gt; w &lt;cr&gt;&quot;</span><span style="color:#abb2bf;">)
 </span></code></pre>
-<h3 id="reveal-in-finder-dupe">&quot;Reveal in Finder&quot; Dupe</h3>
+<h3 id="reveal-in-finder-dupe">"Reveal in Finder" Dupe</h3>
 <p>One of the things that I was missing coming from Visual Studio Code was the
-option in the file explorer to &quot;Reveal in Finder&quot; so I created a simple Vim user
+option in the file explorer to "Reveal in Finder" so I created a simple Vim user
 command that allows me to open a file under in my cursor in a Finder window
 either from the open file buffer or from the file explorer sidebar.</p>
 <div
@@ -991,7 +1018,7 @@ scrolling or jumping to search results.</p>
 </span></code></pre>
 <h3 id="gitsigns-mappings">GitSigns Mappings</h3>
 <p>These are the mappings I use for GitSigns, which I believe are fairly standard.
-<code>gitsigns</code> works in &quot;hunks&quot; of code, hence all of these mappings begin with an
+<code>gitsigns</code> works in "hunks" of code, hence all of these mappings begin with an
 <code>h</code> after the leader.</p>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
@@ -1065,7 +1092,7 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
 - <a href="https://www.josean.com/posts/how-to-setup-neovim-2024">How I Setup Neovim On My Mac To Make it AMAZING in 2024
 </a> <br />
 - <a href="https://nvchad.com/docs/quickstart/install">NVChad Documentation</a> <br />
-- <a href="https://seniormars.com/posts/neovim-workflow/">An Experienced (Neo)Vimmer's Workflow.</a> </p>
+- <a href="https://seniormars.com/posts/neovim-workflow/">An Experienced (Neo)Vimmer's Workflow.</a> \</p>
 <script
   src="https://utteranc.es/client.js"
   repo="micahkepe/micahkepe.github.io"
@@ -1139,17 +1166,12 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
 
 
 
-  <!-- optional scripts -->
-  
-  
+    <!-- optional scripts -->
+     
     <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
-  
-
-  
+     
     <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
-  
-
-  
+     
 <!-- MathJax script for rendering LaTeX math equations -->
 <script>
   MathJax = {
@@ -1167,13 +1189,9 @@ or just want to chat about Neovim, feel free to write in the comments below!</p>
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 
-
-  
+ 
 <script type="text/javascript" src="https://micahkepe.com/blog/elasticlunr.min.js"></script>
 <script type="text/javascript" src="https://micahkepe.com/blog/js/search.js"></script>
-
-
-  
-</body>
-
+ 
+  </body>
 </html>

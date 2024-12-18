@@ -1,132 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <meta name="description" content="An assortment of my ramblings and random adventures." />
+     
 
-  
-  
-  <meta name="description" content="An assortment of my ramblings and random adventures." />
-  
-  
-
-  <title>
+    <title>
     
     An Optimistic Take: AI&#x27;s Augmentation of Software Professionals
     
 </title>
 
-  
-  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://micahkepe.com/blog/atom.xml">
-  
-
-  
-  <link rel="stylesheet" href="https://micahkepe.com/blog/site.css">
-  
-
-  
-  
-</head>
-
-<body class="hack dark main container">
-  
     
-        
-  
-  <header class="nav-header">
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
-      <div class="nav-links">
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/">
-          <span itemprop="name">Home</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/categories">
-          <span itemprop="name">Categories</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/blog/tags">
-          <span itemprop="name">Tags</span></a>
-        
-        <a itemprop="url"
-          class=""
-          href="https://micahkepe.com/">
-          <span itemprop="name">Main Site</span></a>
-        
-      </div>
-    </nav>
-    <div class="user-actions-container">
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/blog/atom.xml"
+    />
+     
+    <link
+      rel="stylesheet"
+      href="https://micahkepe.com/blog/site.css"
+    />
       
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+  </head>
+
+  <body class="hack dark main container">
+    
+    
+         
+    <header class="nav-header">
+      <nav
+        itemscope
+        itemtype="http://schema.org/SiteNavigationElement"
+        class="navbar"
+      >
+        <div class="nav-links">
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/"
+          >
+            <span itemprop="name">Home</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/categories"
+          >
+            <span itemprop="name">Categories</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/blog/tags"
+          >
+            <span itemprop="name">Tags</span></a
+          >
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/"
+          >
+            <span itemprop="name">Main Site</span></a
+          >
+          
+        </div>
+      </nav>
+      <div class="user-actions-container">
+        
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
         </svg>
-        <input type="text" id="search" placeholder="Search...">
+        <input type="text" id="search" placeholder="Search..." />
         <div class="search-results">
           <div class="search-results__items"></div>
         </div>
-      
-
-      
-      <a 
-        id="dark-mode-toggle" 
-        onclick="toggleTheme(); event.preventDefault();" 
-        href="#"
-      >
-        <img src=https://micahkepe.com/blog/icons/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light mode" />
-        <img src=https://micahkepe.com/blog/icons/moon.svg id="moon-icon" alt="Dark mode" />
-      </a>
-      
-
-      
-      <a 
-        href="https://micahkepe.com/blog/atom.xml" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+         
+        <a
+          id="dark-mode-toggle"
+          onclick="toggleTheme(); event.preventDefault();"
+          href="#"
+        >
+          <img
+            src="https://micahkepe.com/blog/icons/sun.svg"
+            id="sun-icon"
+            style="filter: invert(1)"
+            alt="Light mode"
+          />
+          <img
+            src="https://micahkepe.com/blog/icons/moon.svg"
+            id="moon-icon"
+            alt="Dark mode"
+          />
+        </a>
+         
+        <a
+          href="https://micahkepe.com/blog/atom.xml"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/rss.svg"
             id="rss-icon"
             alt="RSS feed"
             class="social-icon"
-        />
-      </a>
-      
-
-      
-      <a 
-        href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe" 
-        class="feed-icon"
-        rel="noopener noreferrer"
-      >
-        <img
+          />
+        </a>
+         
+        <a
+          href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
             src="https://micahkepe.com/blog/icons/github.svg"
             id="github-icon"
             alt="GitHub"
             class="social-icon"
-        />
-      </a>
+          />
+        </a>
+        
+      </div>
+
       
-    </div>
-
-    
-    <!-- Set the correct theme in the script -->
-    <script src=https://micahkepe.com/blog/js/toggle-theme.js></script>
-    
-        <script>setTheme(getSavedTheme());</script>
-    
-
-  </header>
-  
-  
+      <!-- Set the correct theme in the script -->
+      <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
+      
+      <script>
+        setTheme(getSavedTheme());
+      </script>
+      
+    </header>
+     
     
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
@@ -152,8 +179,8 @@
     
     <div itemprop="articleBody">
         
-            <p>No doubt you've heard it before: &quot;AI will make programmers obsolete&quot; or &quot;AI
-will take your job.&quot; But is this narrative accurate? News stories like
+            <p>No doubt you've heard it before: "AI will make programmers obsolete" or "AI
+will take your job." But is this narrative accurate? News stories like
 Cognition AI's <a href="https://www.cognition.ai/blog/introducing-devin">Devin</a>,
 albeit found to be <a href="https://www.youtube.com/watch?v=tNmgmwEtoWE&amp;t=611s">categorically a
 hoax</a>, have nonetheless
@@ -201,18 +228,18 @@ suggests a more nuanced and hopeful future.</p>
 <p>The narrative that AI will replace programmers is not new. This idea has
 pervaded movies, books, and news stories for decades dating back to the
 beginnings of the first wave of AI research in the 1950s following the
-Dartmouth Conference in 1956 (the event where the term &quot;artificial
-intelligence&quot; was first coined). In 1984, the Australian newspaper The Age
-published an article entitled <a href="https://books.google.com/books?id=eTRVAAAAIBAJ&amp;pg=PA38&amp;dq=artificial+intelligence+jobs&amp;article_id=6556,2471720&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwit047aoLSHAxV-JkQIHSGAAHUQ6AF6BAgIEAI#v=onepage&amp;q=artificial%20intelligence%20jobs&amp;f=false">&quot;Researchers coming with some provocative
-hi-tech findings&quot;</a>, in which the author details the opinions of two Stanford University professors, Henry Levin and Russell Rumberger, who studied employment statistics and concluded that &quot;high technology is no panacea for unemployment... high technology will reduce the skills required by workers in the next decade because <strong>machines will do the work</strong>. Creativity and innovation by many individual workers will suffer.&quot; The article goes on to quote another Stanford computer science professor, <a href="https://en.wikipedia.org/wiki/Edward_Feigenbaum">Edward Feigenbaum</a>, a prominent artificial intelligence researcher who at the time said:</p>
+Dartmouth Conference in 1956 (the event where the term "artificial
+intelligence" was first coined). In 1984, the Australian newspaper The Age
+published an article entitled <a href="https://books.google.com/books?id=eTRVAAAAIBAJ&amp;pg=PA38&amp;dq=artificial+intelligence+jobs&amp;article_id=6556,2471720&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwit047aoLSHAxV-JkQIHSGAAHUQ6AF6BAgIEAI#v=onepage&amp;q=artificial%20intelligence%20jobs&amp;f=false">"Researchers coming with some provocative
+hi-tech findings"</a>, in which the author details the opinions of two Stanford University professors, Henry Levin and Russell Rumberger, who studied employment statistics and concluded that "high technology is no panacea for unemployment... high technology will reduce the skills required by workers in the next decade because <strong>machines will do the work</strong>. Creativity and innovation by many individual workers will suffer." The article goes on to quote another Stanford computer science professor, <a href="https://en.wikipedia.org/wiki/Edward_Feigenbaum">Edward Feigenbaum</a>, a prominent artificial intelligence researcher who at the time said:</p>
 <div class="note-container" style="border:  1px solid #e0e0e0">
   
     
 
     <div class="note-content">
-      <p>&quot;One of the worst pieces of advice you can give youngsters today is to
+      <p>"One of the worst pieces of advice you can give youngsters today is to
 become a computer programmer. Automation of software development will
-take place in this decade and the 1990s.&quot;</p>
+take place in this decade and the 1990s."</p>
 
     </div>
     
@@ -237,9 +264,9 @@ been repeated and amplified.</p>
 <p>The proliferation of this narrative has led to widespread fear and
 uncertainty among software professionals. In 2019, Forbes published an
 <a href="https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/">article</a>
-that cites a ZipRecruiter survey finding that &quot;One in five job seekers (one
+that cites a ZipRecruiter survey finding that "One in five job seekers (one
 in three for those between the ages of 18 and 22) fear they will one day lose
-their job to AI.&quot; Fast forward to 2023, and a representative Gallup web poll
+their job to AI." Fast forward to 2023, and a representative Gallup web poll
 of over 5,400 Americans found that 75% of respondents believe AI will reduce
 the total number of jobs in the United States in the next 10 years.</p>
 <div
@@ -277,12 +304,12 @@ report:</p>
   </div>
   
 </div>
-<p>&quot;AI has been shown to enable workers to complete tasks more quickly and
+<p>"AI has been shown to enable workers to complete tasks more quickly and
 <strong>produce higher quality work</strong>. A meta-review by Microsoft, which
 aggregated studies comparing the performance of workers using Microsoft
 Copilot or GitHub’s Copilot LLM-based productivity-enhancing tools with those
 who did not, found that Copilot users completed tasks in <strong>26% to 73% less
-time</strong> than their counterparts without AI access&quot; (AI Index, 2024, p. 272)</p>
+time</strong> than their counterparts without AI access" (AI Index, 2024, p. 272)</p>
 <ul>
 <li><strong>AI is creating new jobs.</strong></li>
 </ul>
@@ -296,14 +323,14 @@ time</strong> than their counterparts without AI access&quot; (AI Index, 2024, p
   </div>
   
 </div>
-<p>&quot;The United States once again led the world in terms of total AI private
+<p>"The United States once again led the world in terms of total AI private
 investment. In 2023, the <strong>$67.2 billion invested</strong> in the United States was
 roughly 8.7 times greater than the amount invested in the next highest country,
 China (\$7.8 billion), and 17.8 times the amount invested in the United Kingdom
-(\$3.8 billion)&quot; (AI Index, 2024, p. 247)</p>
-<p>&quot;Consistent with trends in private investment, the United States leads all
+(\$3.8 billion)" (AI Index, 2024, p. 247)</p>
+<p>"Consistent with trends in private investment, the United States leads all
 regions with <strong>897 new AI companies</strong>, followed by China with 122, and the
-United Kingdom with 104.&quot; (AI Index, 2024, p. 251)</p>
+United Kingdom with 104." (AI Index, 2024, p. 251)</p>
 <p>A great recent blog post from Builder.io, a company that builds AI-powered
 tools for developers, also provides a <a href="https://www.builder.io/blog/ai-jobs-truth">comprehensive look</a>
 at the current state of AI in the software industry and also seeks to dispel
@@ -325,14 +352,14 @@ it's about orchestrating it to build amazing things.</p>
   </div>
 <p>The U.S. Bureau of Labor Statistics also provides a <a href="https://www.bls.gov/ooh/computer-and-information-technology/home.htm">positive
 outlook</a>
-for the future of software development jobs, stating, &quot;Overall employment in
+for the future of software development jobs, stating, "Overall employment in
 computer and information technology occupations is projected to grow much
 faster than the average for all occupations from 2022 to 2032. About
 <strong>377,500 openings are projected each year</strong>, on average, in these
 occupations due to employment growth and the need to replace workers who
-leave the occupations permanently.&quot;</p>
-<p>The U.S. Bureau of Labor Statistics data for employees in &quot;custom computer
-programming services&quot; from the Current Employment Statistics survey also
+leave the occupations permanently."</p>
+<p>The U.S. Bureau of Labor Statistics data for employees in "custom computer
+programming services" from the Current Employment Statistics survey also
 shows a steady increase in employment over the past 10 years:</p>
 <div
   style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
@@ -403,11 +430,11 @@ request to merge the code into your project.</li>
 <p>The implications of this project are vast in my mind. Using this tool
 drastically lowers the barrier to entry for new developers-- you don't even
 need to use an IDE as GitHub already has a web-based code editor. As the
-article states, &quot;With Copilot Workspace we will empower more experienced
+article states, "With Copilot Workspace we will empower more experienced
 developers to operate as systems thinkers, and materially lower the barrier
 of entry for who can build software... we are accelerating to <strong>a near future
 where one billion people on GitHub will control a machine just as easily as
-they ride a bicycle.</strong>&quot; If writing code becomes as easy as writing a natural
+they ride a bicycle.</strong>" If writing code becomes as easy as writing a natural
 language description of the task, the possibilities for what can be built are
 endless. In the same vein as VisiCalc and the rise of spreadsheets, imagine
 the lucrative new job roles that could emerge as programming's skill focus
@@ -419,14 +446,14 @@ augmentation of our jobs as software professionals to greater creative
 freedom and productivity.</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://books.google.com/books?id=eTRVAAAAIBAJ&amp;pg=PA38&amp;dq=artificial+intelligence+jobs&amp;article_id=6556,2471720&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwit047">1984 The Age Article on Artificial Intelligence</a> </li>
-<li><a href="https://www.mckinsey.com/featured-insights/future-of-work/ai-automation-and-the-future-of-work-ten-things-to-solve-for#part2">McKinsey &amp; Company 2018 AI Automation Post</a> </li>
-<li><a href="https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/">Forbes 2019 AI Job Impact Article</a> </li>
-<li><a href="https://news.gallup.com/opinion/gallup/510635/three-four-americans-believe-reduce-jobs.aspx">2023 Gallup Poll on AI Job Impact</a> </li>
-<li><a href="https://aiindex.stanford.edu/report/">Stanford HAI's 2024 AI Index Report</a> </li>
-<li><a href="https://github.blog/2024-04-29-github-copilot-workspace/">GitHub Copilot Workspace Announcement</a> </li>
-<li><a href="https://www.builder.io/blog/ai-jobs-truth">Builder.io Blog Post on AI Job Impact</a> </li>
-<li><a href="https://www.bls.gov/ooh/computer-and-information-technology/home.htm">U.S. Bureau of Labor Statistics</a> </li>
+<li><a href="https://books.google.com/books?id=eTRVAAAAIBAJ&amp;pg=PA38&amp;dq=artificial+intelligence+jobs&amp;article_id=6556,2471720&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwit047">1984 The Age Article on Artificial Intelligence</a> \</li>
+<li><a href="https://www.mckinsey.com/featured-insights/future-of-work/ai-automation-and-the-future-of-work-ten-things-to-solve-for#part2">McKinsey &amp; Company 2018 AI Automation Post</a> \</li>
+<li><a href="https://www.forbes.com/sites/gilpress/2019/07/15/is-ai-going-to-be-a-jobs-killer-new-reports-about-the-future-of-work/">Forbes 2019 AI Job Impact Article</a> \</li>
+<li><a href="https://news.gallup.com/opinion/gallup/510635/three-four-americans-believe-reduce-jobs.aspx">2023 Gallup Poll on AI Job Impact</a> \</li>
+<li><a href="https://aiindex.stanford.edu/report/">Stanford HAI's 2024 AI Index Report</a> \</li>
+<li><a href="https://github.blog/2024-04-29-github-copilot-workspace/">GitHub Copilot Workspace Announcement</a> \</li>
+<li><a href="https://www.builder.io/blog/ai-jobs-truth">Builder.io Blog Post on AI Job Impact</a> \</li>
+<li><a href="https://www.bls.gov/ooh/computer-and-information-technology/home.htm">U.S. Bureau of Labor Statistics</a> \</li>
 <li><a href="https://www.google.com/books/edition/Leading_Projects_with_Data/VQKeEAAAQBAJ?hl=en&amp;gbpv=1&amp;dq=visicalc+accountants+jobs+obsolete&amp;pg=PA138&amp;printsec=frontcover">Leading Projects with Data</a></li>
 </ul>
 <script
@@ -493,17 +520,12 @@ freedom and productivity.</p>
 
 
 
-  <!-- optional scripts -->
-  
-  
+    <!-- optional scripts -->
+     
     <script src="https://micahkepe.com/blog/js/codeblock.js"></script>
-  
-
-  
+     
     <script src="https://micahkepe.com/blog/js/toggle-theme.js"></script>
-  
-
-  
+     
 <!-- MathJax script for rendering LaTeX math equations -->
 <script>
   MathJax = {
@@ -521,13 +543,9 @@ freedom and productivity.</p>
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 
-
-  
+ 
 <script type="text/javascript" src="https://micahkepe.com/blog/elasticlunr.min.js"></script>
 <script type="text/javascript" src="https://micahkepe.com/blog/js/search.js"></script>
-
-
-  
-</body>
-
+ 
+  </body>
 </html>
