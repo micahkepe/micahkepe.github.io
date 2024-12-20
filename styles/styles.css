@@ -1,0 +1,130 @@
+/* Global styles */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/JetBrainsMono/JetBrainsMono-Regular.ttf"),
+    local("ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/JetBrainsMono/JetBrainsMono-Bold.ttf"), local("ttf");
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  color: #fff;
+  flex-direction: column;
+}
+
+h1 {
+  text-decoration: underline #d64a48;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  iconify-icon {
+    display: block;
+  }
+
+  iconify-icon:hover {
+    color: #fff !important;
+    transition: color 0.2s ease;
+  }
+}
+
+h2 {
+  color: #ccc;
+}
+
+#terminal-container {
+  align-content: center;
+  margin: 0.75rem 0;
+}
+
+footer {
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #socials-container {
+    a {
+      text-decoration: none;
+    }
+
+    iconify-icon:hover {
+      color: #fff !important;
+      transition: color 0.2s ease;
+    }
+  }
+
+  #blog-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ccc;
+
+    iconify-icon {
+      display: block;
+    }
+  }
+
+  #blog-link:hover {
+    color: #fff !important;
+    text-decoration: underline #d64a48;
+    transition: color 0.2s ease;
+
+    iconify-icon {
+      color: #fff !important;
+      transition: transform 0.2s ease;
+      transform: translateX(0.2rem);
+    }
+  }
+
+  #time-travel {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    img {
+      width: 7rem;
+    }
+
+    img:hover {
+      transition: transform 0.2s ease;
+      transform: scale(1.1);
+    }
+  }
+}

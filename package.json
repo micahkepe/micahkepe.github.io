@@ -6,7 +6,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "format": "prettier --write index.html html/ src/ styles/",
+    "format": "prettier --write index.html src/ styles/",
     "check": "tsc",
     "doc": "typedoc --entryPointStrategy expand src/ types/",
     "test": "cypress run -b chrome",
@@ -19,6 +19,7 @@
   "license": "MIT",
   "browserslist": "defaults",
   "devDependencies": {
+    "@xterm/addon-fit": "^0.10.0",
     "@xterm/xterm": "^5.5.0",
     "gh-pages": "^6.1.1",
     "json-schema-to-ts": "^3.1.1",

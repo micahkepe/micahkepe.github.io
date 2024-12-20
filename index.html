@@ -20,27 +20,90 @@
       content="_1M86tU5dtd1DAqe4ZUa98DgjxjDsetRfTXGsi8dVm0"
     />
 
-    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
-    <script src="node_modules/@xterm/xterm/lib/xterm.js" defer></script>
-
-    <!-- Links and Icons -->
+    <link rel="stylesheet" href="styles/styles.css" />
     <link rel="canonical" href="https://micahkepe.com/" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <script defer type="module" src="/src/main.ts"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.6/iconify-icon.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.js"></script>
   </head>
 
   <body>
+    <header>
+      <h1>
+        Micah Kepe
+        <iconify-icon
+          icon="mynaui:terminal-solid"
+          width="24"
+          height="24"
+          style="color: #ccc"
+        ></iconify-icon>
+      </h1>
+      <h2>yup, i made my website just a terminal</h2>
+    </header>
     <main>
-      <header>
-        <h1>Micah Kepe</h1>
-        <h2>yup, i made my website just a terminal</h2>
-      </header>
-      <terminal></terminal>
+      <section id="terminal-container"></section>
     </main>
 
-    <script defer type="module" src="/src/main.ts"></script>
+    <footer>
+      <a href="https://micahkepe.com/blog" id="blog-link">
+        <p>blog</p>
+        <iconify-icon
+          icon="material-symbols:chevron-right-rounded"
+          width="24"
+          height="24"
+          style="color: #ccc"
+        ></iconify-icon>
+      </a>
+      <section id="socials-container">
+        <a href="https://github.com/micahkepe" target="_blank" rel="noopener">
+          <iconify-icon
+            icon="mdi:github"
+            width="24"
+            height="24"
+            style="color: #ccc"
+          ></iconify-icon>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/micah-kepe/"
+          target="_blank"
+          rel="noopener"
+        >
+          <iconify-icon
+            icon="mdi:linkedin"
+            width="24"
+            height="24"
+            style="color: #ccc"
+          ></iconify-icon>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/micah-kepe/"
+          target="_blank"
+          rel="noopener"
+        >
+          <iconify-icon
+            icon="mdi:instagram"
+            width="24"
+            height="24"
+            style="color: #ccc"
+          ></iconify-icon>
+        </a>
+      </section>
+      <section id="time-travel" class="hidden">
+        <a href="https://v1.micahkepe.com/" target="_blank" rel="noopener">
+          <img src="./assets/images/time-travel.png" alt="time travel" />
+        </a>
+      </section>
+    </footer>
   </body>
 </html>

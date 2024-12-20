@@ -3,24 +3,25 @@
 Soon to be v2 of my personal website! The goals of this version
 are:
 
-- Minimal dependencies: xterm.js, vite, gh-pages, typescript. That's it.
-- Scrap React: we going old school baby, vanilla Typescript
-- Simple: simple, clean design
+- Limited dependencies: xterm.js, vite, gh-pages, typescript. That's it.
+- No frameworks: vanilla TypeScript
+- Minimal: simple, clean, and hopefully elegant design
 
 ## Motivation
 
-- a course I took at Rice made me realize how overkill my v1 website with React, tons of
-external dependencies, etc., especially for a simple single page static website 
-- want to spice things up i'm bored with my current website 
+- a course I took at Rice made me realize how overkill my v1 website with React,
+  tons of external dependencies, etc., especially for a simple single page static
+  website
+- I want to spice things up, I'm bored with my current website
 
-## The Plan 
+## The Plan
 
 - Use xterm.js as a client-side browser terminal frontend emulation
-- Parse user commands for filetree navigation, help page, etc. 
+- Parse user commands for filetree navigation, help page, etc.
 - Stateless filetree that doesn't persistent across client sessions
-- in the future possibly set up a Node.js server sandbox through Render or other service 
-to run an actual shell that I can connect hook up to xterm with a WebSocket for 
-full functionality   
+- **In the future:** possibly set up a Node.js server sandbox through Render
+  or other service to run an actual shell that I can connect hook up to xterm
+  with a WebSocket for full functionality
 
 ## Usage and Attribution
 
