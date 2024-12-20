@@ -56,15 +56,28 @@
     </main>
 
     <footer>
-      <a href="https://micahkepe.com/blog" id="blog-link">
-        <p>blog</p>
-        <iconify-icon
-          icon="material-symbols:chevron-right-rounded"
-          width="24"
-          height="24"
-          style="color: #ccc"
-        ></iconify-icon>
-      </a>
+      <section id="misc-links">
+        <a href="https://v1.micahkepe.com/" class="external-link">
+          <p>v1 site</p>
+          <iconify-icon
+            icon="material-symbols:chevron-right-rounded"
+            width="24"
+            height="24"
+            style="color: #ccc"
+          ></iconify-icon>
+        </a>
+
+        <a href="https://micahkepe.com/blog" class="external-link">
+          <p>blog</p>
+          <iconify-icon
+            icon="material-symbols:chevron-right-rounded"
+            width="24"
+            height="24"
+            style="color: #ccc"
+          ></iconify-icon>
+        </a>
+      </section>
+
       <section id="socials-container">
         <a href="https://github.com/micahkepe" target="_blank" rel="noopener">
           <iconify-icon
@@ -99,10 +112,13 @@
           ></iconify-icon>
         </a>
       </section>
+      <!-- TODO: I like the Back to the Future art a lot maybe make it a transition 
+      overlay element when you click the `v1 site`link? -->
       <section id="time-travel" class="hidden">
-        <a href="https://v1.micahkepe.com/" target="_blank" rel="noopener">
+        <a href="https://v1.micahkepe.com/" rel="noopener">
           <img src="./assets/images/time-travel.png" alt="time travel" />
         </a>
+        <p class="hidden">miss the old site?</p>
       </section>
     </footer>
   </body>

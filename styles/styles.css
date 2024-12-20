@@ -86,7 +86,14 @@ footer {
     }
   }
 
-  #blog-link {
+  #misc-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .external-link {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -94,10 +101,11 @@ footer {
 
     iconify-icon {
       display: block;
+      transition: transform 0.2s ease-in-out;
     }
   }
 
-  #blog-link:hover {
+  .external-link:hover {
     color: #fff !important;
     text-decoration: underline #d64a48;
     transition: color 0.2s ease;
@@ -119,12 +127,13 @@ footer {
     flex-direction: column;
 
     img {
-      width: 7rem;
+      width: 6rem;
+      transition: transform 0.2s ease-in-out;
     }
 
     img:hover {
       transition: transform 0.2s ease;
-      transform: scale(1.1);
+      transform: scale(1.5) translate(-0.5rem, -0.5rem);
     }
   }
 }
