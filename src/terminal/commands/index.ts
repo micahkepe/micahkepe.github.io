@@ -1,10 +1,9 @@
 import { Terminal } from "@xterm/xterm";
-import { FileSystem, Directory } from "../file-system";
+import { Directory } from "../file-system";
 import { lsCommand } from "./ls";
 
 export function registerCommands(
   terminal: Terminal,
-  fileSystem: FileSystem,
   getPwd: () => Directory,
   promptCallback: () => void,
 ): void {

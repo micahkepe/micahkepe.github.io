@@ -1,27 +1,41 @@
-import { Terminal } from "@xterm/xterm";
+import { ITheme, Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
 import { registerCommands } from "./commands";
 import { initFileSystem, Directory } from "./file-system";
 import { CatpuccinMochaTheme } from "./themes";
+import { TermThemes } from "./themes";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
  * user. The terminal is initialized with a welcome message and a set of
- * commands that the user can execute.
+ * commands that the user can execute. To instantiate a terminal, pass the ID of
+ * the container element that will host the terminal. The constructor is
+ * non-default as the xterm.js terminal requires a container element to be
+ * initialized.
  */
 export class TerminalComponent {
   private terminal: Terminal;
   private fitAddon: FitAddon;
   private pwd: Directory;
 
-  constructor(private containerId: string) {
+  // NOTE: the constructor is non-default but the initialization of the xterm
+  // terminal requires a container element to be passed in and this must be done
+  // before any other methods can be called on the instantiated terminal.
+  // More:
+  //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
+  constructor(
+    private containerId: string,
+    theme?: ITheme,
+  ) {
     this.terminal = new Terminal({
       cursorBlink: true,
       cursorStyle: "bar",
-      theme: CatpuccinMochaTheme,
+      theme: theme || CatpuccinMochaTheme,
       fontFamily: "JetBrains Mono",
     });
 
+    // Addon to let the terminal fit the parennt container element from
+    // `Terminal.open`
     this.fitAddon = new FitAddon();
     this.terminal.loadAddon(this.fitAddon);
 
@@ -36,7 +50,7 @@ export class TerminalComponent {
     this.fitAddon.fit();
 
     this.writeWelcomeMessage();
-    this.registerCommands(fileSystem);
+    this.registerCommands();
   }
 
   /**
@@ -76,16 +90,44 @@ export class TerminalComponent {
    * @private
    * @returns {void}
    */
-  private registerCommands(fileSystem: { root: Directory }): void {
+  private registerCommands(): void {
     registerCommands(
       this.terminal,
-      fileSystem,
       () => this.getPwd(),
       () => this.prompt(),
     );
   }
 
+  /**
+   * Writes a prompt to the terminal to indicate that the terminal is ready to
+   * accept user input.
+   * @private
+   * @returns {void}
+   */
   private prompt(): void {
     this.terminal.write("\x1B[1;32m$ \x1B[0m");
+  }
+
+  /**
+   * Changes the theme of the terminal emulator.
+   * @param {string} theme The name of the theme to change to.
+   * @returns {void}
+   */
+  changeTheme(theme: string): void {
+    // kill the current terminal
+    this.terminal.dispose();
+
+    // get the theme object from the available themes
+    // or use the default theme
+    const themeObject = TermThemes.get(theme) || CatpuccinMochaTheme;
+
+    // create a new terminal with the new theme and set the current working
+    // directory
+    this.terminal = new Terminal({
+      cursorBlink: true,
+      cursorStyle: "bar",
+      theme: themeObject,
+      fontFamily: "JetBrains Mono",
+    });
   }
 }

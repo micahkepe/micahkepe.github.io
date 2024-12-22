@@ -28,8 +28,8 @@
 
 body {
   font-family: "JetBrains Mono", monospace;
+  overflow: auto;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   display: flex;
@@ -114,26 +114,6 @@ footer {
       color: #fff !important;
       transition: transform 0.2s ease;
       transform: translateX(0.2rem);
-    }
-  }
-
-  #time-travel {
-    position: absolute;
-    bottom: 1%;
-    right: 1%;
-    display: flex;
-    justify-items: center;
-    align-content: center;
-    flex-direction: column;
-
-    img {
-      width: 6rem;
-      transition: transform 0.2s ease-in-out;
-    }
-
-    img:hover {
-      transition: transform 0.2s ease;
-      transform: scale(1.5) translate(-0.5rem, -0.5rem);
     }
   }
 }

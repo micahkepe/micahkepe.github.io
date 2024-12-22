@@ -7,11 +7,6 @@
 import { ITheme } from "@xterm/xterm";
 
 /**
- * The available themes for the terminal emulator.
- */
-export type AvailableThemes = "CatpuccinMochaTheme";
-
-/**
  * A copy of the Catpuccin Mocha palette. Some colors are not perfect 1-1
  * matches, but I have put the closest palette colors for those and have
  * commented the Catpuccin color chosen.
@@ -36,3 +31,10 @@ export const CatpuccinMochaTheme: ITheme = {
   brightYellow: "#f5e0dc", // 'Rosewater'
   selectionBackground: "#6c7086", // 'Overlay 0'
 };
+
+/**
+ * The available themes for the terminal emulator.
+ */
+export const TermThemes: Map<string, ITheme> = new Map([
+  ["Catpuccin Mocha", CatpuccinMochaTheme],
+]);

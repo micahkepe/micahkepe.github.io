@@ -1,5 +1,15 @@
 import { TerminalComponent } from "./terminal/terminal";
 
+export type ChangeTermThemeEvent = {
+  theme: string;
+};
+
+declare global {
+  interface DocumentEventMap {
+    changeTermThemeEvent: CustomEvent<ChangeTermThemeEvent>;
+  }
+}
+
 export class View {
   private terminal: TerminalComponent;
 
@@ -25,5 +35,13 @@ export class View {
     }
   }
 
-  // TODO: add ability to toggle theme
+  /**
+   * Changes the theme of the terminal emulator.
+   * @param {string} theme The name of the theme to change to.
+   * @memberof View
+   * @returns {void}
+   */
+  changeTerminalTheme(theme: string): void {
+    this.terminal.changeTheme(theme);
+  }
 }
