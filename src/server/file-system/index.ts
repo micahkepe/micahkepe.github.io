@@ -52,6 +52,12 @@ export function initFileSystem(): FileSystem {
   };
 }
 
+/**
+ * Utility function to find a file in a directory.
+ * @param currentDir The directory to search in.
+ * @param fileName The name of the file to find.
+ * @returns The file if found, otherwise null.
+ */
 export function findDirectory(
   currentDir: Directory,
   path: string,

@@ -1,12 +1,17 @@
-import { TerminalComponent } from "./terminal/terminal";
+import { TerminalComponent } from "./client/terminal/terminal";
 
 export type ChangeTermThemeEvent = {
   theme: string;
 };
 
+export type TerminalInputEvent = {
+  input: string;
+};
+
 declare global {
   interface DocumentEventMap {
     changeTermThemeEvent: CustomEvent<ChangeTermThemeEvent>;
+    terminalInputEvent: CustomEvent<TerminalInputEvent>;
   }
 }
 
@@ -43,5 +48,9 @@ export class View {
    */
   changeTerminalTheme(theme: string): void {
     this.terminal.changeTheme(theme);
+  }
+
+  updateTerminal(output: string): void {
+    this.terminal.writeOutput(output);
   }
 }

@@ -1,7 +1,5 @@
 import { ITheme, Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
-import { registerCommands } from "./commands";
-import { initFileSystem, Directory } from "./file-system";
 import { CatpuccinMochaTheme } from "./themes";
 import { TermThemes } from "./themes";
 
@@ -16,7 +14,6 @@ import { TermThemes } from "./themes";
 export class TerminalComponent {
   private terminal: Terminal;
   private fitAddon: FitAddon;
-  private pwd: Directory;
 
   // NOTE: the constructor is non-default but the initialization of the xterm
   // terminal requires a container element to be passed in and this must be done
@@ -43,31 +40,39 @@ export class TerminalComponent {
     if (!container)
       throw new Error(`Container with ID ${this.containerId} not found`);
 
-    const fileSystem = initFileSystem();
-    this.pwd = fileSystem.root;
-
     this.terminal.open(container);
     this.fitAddon.fit();
 
+    this.setupInputListener();
     this.writeWelcomeMessage();
-    this.registerCommands();
   }
 
-  /**
-   * Returns the current working directory of the terminal.
-   * @returns {Directory} The current working directory.
-   */
-  getPwd(): Directory {
-    return this.pwd;
-  }
+  private setupInputListener(): void {
+    let input = "";
+    this.terminal.onKey(({ key, domEvent }) => {
+      if (domEvent.key === "Enter") {
+        this.terminal.write("\r\n");
 
-  /**
-   * Sets the current working directory of the terminal.
-   * @param {Directory} dir The directory to set as the current working directory.
-   * @returns {void}
-   */
-  setPwd(dir: Directory): void {
-    this.pwd = dir;
+        if (input.trim() === "") {
+          this.prompt();
+          return;
+        }
+
+        const event = new CustomEvent("terminalInputEvent", {
+          detail: { input: input.trim() },
+        });
+        document.dispatchEvent(event);
+        input = "";
+      } else if (domEvent.key === "Backspace") {
+        if (input.length > 0) {
+          input = input.slice(0, -1);
+          this.terminal.write("\b \b");
+        }
+      } else {
+        input += key;
+        this.terminal.write(key);
+      }
+    });
   }
 
   /**
@@ -84,28 +89,22 @@ export class TerminalComponent {
   }
 
   /**
-   * Instantiates a fresh file system and registers the defined user commands
-   * with the terminal. After registering the commands, the terminal is prompted
-   * for input.
-   * @private
+   * Writes a prompt to the terminal to indicate that the terminal is ready to
+   * accept user input.
    * @returns {void}
    */
-  private registerCommands(): void {
-    registerCommands(
-      this.terminal,
-      () => this.getPwd(),
-      () => this.prompt(),
-    );
+  prompt(): void {
+    this.terminal.write("\x1B[1;32m$ \x1B[0m");
   }
 
   /**
-   * Writes a prompt to the terminal to indicate that the terminal is ready to
-   * accept user input.
-   * @private
+   * Writes the output of a command to the terminal.
+   * @param {string} output The output of the command to write to the terminal.
    * @returns {void}
    */
-  private prompt(): void {
-    this.terminal.write("\x1B[1;32m$ \x1B[0m");
+  writeOutput(output: string): void {
+    this.terminal.writeln(output);
+    this.prompt();
   }
 
   /**
@@ -114,20 +113,12 @@ export class TerminalComponent {
    * @returns {void}
    */
   changeTheme(theme: string): void {
-    // kill the current terminal
-    this.terminal.dispose();
-
     // get the theme object from the available themes
     // or use the default theme
     const themeObject = TermThemes.get(theme) || CatpuccinMochaTheme;
 
     // create a new terminal with the new theme and set the current working
     // directory
-    this.terminal = new Terminal({
-      cursorBlink: true,
-      cursorStyle: "bar",
-      theme: themeObject,
-      fontFamily: "JetBrains Mono",
-    });
+    this.terminal.options.theme = themeObject;
   }
 }
