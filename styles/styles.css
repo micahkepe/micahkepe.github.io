@@ -63,11 +63,6 @@ h2 {
   color: #ccc;
 }
 
-#terminal-container {
-  align-content: center;
-  margin: 0.75rem 0;
-}
-
 footer {
   color: #ccc;
   display: flex;

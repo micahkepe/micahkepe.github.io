@@ -30,12 +30,6 @@
 
     <script defer type="module" src="/src/main.ts"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.6/iconify-icon.min.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.js"></script>
   </head>
 
   <body>
@@ -52,7 +46,7 @@
       <h2>yup, i made my website just a terminal</h2>
     </header>
     <main>
-      <section id="terminal-container"></section>
+      <terminal-component></terminal-component>
     </main>
 
     <footer>
@@ -113,5 +107,16 @@
         </a>
       </section>
     </footer>
+
+    <!-- Templates -->
+    <template id="terminal-component-template">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/xterm@4.19.0/css/xterm.css"
+      />
+      <link rel="stylesheet" href="styles/terminal.css" />
+      <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.js"></script>
+      <section class="terminal-container"></section>
+    </template>
   </body>
 </html>

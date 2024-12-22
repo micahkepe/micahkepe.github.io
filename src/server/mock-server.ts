@@ -17,6 +17,10 @@ export interface IServer {
   processCommand(command: string): Promise<string>;
 }
 
+/**
+ * A mock server that processes commands from the terminal client. It emulates
+ * an actual terminal backend.
+ */
 export class MockServer implements IServer {
   private fileSystem = initFileSystem();
   private currentDir: Directory = this.fileSystem.root;

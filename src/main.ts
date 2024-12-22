@@ -1,5 +1,6 @@
 import { View } from "./view";
 import { MockServer } from "./server/mock-server";
+import "./client/terminal/terminal.ts";
 
 /**
  * Initial entry point to the application.
@@ -7,13 +8,6 @@ import { MockServer } from "./server/mock-server";
 function main(): void {
   const view = new View();
   const server = new MockServer();
-
-  document.addEventListener(
-    "changeTermThemeEvent",
-    function (event: CustomEvent) {
-      view.changeTerminalTheme(event.detail.theme);
-    },
-  );
 
   document.addEventListener(
     "terminalInputEvent",

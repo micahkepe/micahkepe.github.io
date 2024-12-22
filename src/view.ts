@@ -1,26 +1,34 @@
 import { TerminalComponent } from "./client/terminal/terminal";
 
-export type ChangeTermThemeEvent = {
-  theme: string;
-};
-
+/**
+ * When a user hits Enter in the terminal, this event is fired with the input
+ * from the terminal.
+ */
 export type TerminalInputEvent = {
   input: string;
 };
 
+/**
+ * Custom event mappings.
+ */
 declare global {
   interface DocumentEventMap {
-    changeTermThemeEvent: CustomEvent<ChangeTermThemeEvent>;
     terminalInputEvent: CustomEvent<TerminalInputEvent>;
   }
 }
 
+/**
+ * The view class is responsible for managing the state of the client UI
+ * components.
+ */
 export class View {
   private terminal: TerminalComponent;
 
   constructor() {
-    this.terminal = new TerminalComponent("terminal-container");
     this.updateFooterDate();
+    this.terminal = document.querySelector(
+      "terminal-component",
+    ) as TerminalComponent;
   }
 
   /**
@@ -41,15 +49,10 @@ export class View {
   }
 
   /**
-   * Changes the theme of the terminal emulator.
-   * @param {string} theme The name of the theme to change to.
-   * @memberof View
+   * Updates the terminal with the output of a command.
+   * @param {string} output The output of the command to write to the terminal.
    * @returns {void}
    */
-  changeTerminalTheme(theme: string): void {
-    this.terminal.changeTheme(theme);
-  }
-
   updateTerminal(output: string): void {
     this.terminal.writeOutput(output);
   }

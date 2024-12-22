@@ -1,7 +1,8 @@
-import { ITheme, Terminal } from "@xterm/xterm";
+import { Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
 import { CatpuccinMochaTheme } from "./themes";
 import { TermThemes } from "./themes";
+import { getTemplate } from "../../utils";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
@@ -11,45 +12,65 @@ import { TermThemes } from "./themes";
  * non-default as the xterm.js terminal requires a container element to be
  * initialized.
  */
-export class TerminalComponent {
-  private terminal: Terminal;
-  private fitAddon: FitAddon;
+export class TerminalComponent extends HTMLElement {
+  private terminal: Terminal | null = null;
+  private fitAddon: FitAddon | null = null;
+  private controller: AbortController | null = null;
+  private shadow: ShadowRoot;
+  private static template: HTMLTemplateElement;
 
-  // NOTE: the constructor is non-default but the initialization of the xterm
-  // terminal requires a container element to be passed in and this must be done
-  // before any other methods can be called on the instantiated terminal.
-  // More:
-  //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
-  constructor(
-    private containerId: string,
-    theme?: ITheme,
-  ) {
-    this.terminal = new Terminal({
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({ mode: "open" });
+
+    if (!TerminalComponent.template) {
+      TerminalComponent.template = getTemplate("#terminal-component-template");
+    }
+
+    this.shadow.appendChild(TerminalComponent.template.content.cloneNode(true));
+  }
+
+  connectedCallback() {
+    try {
+      this.terminal = this.initializeTerminal();
+      this.setupKeyboardHandling();
+      this.writeWelcomeMessage();
+    } catch (error) {
+      console.error("Failed to initialize terminal:", error);
+    }
+  }
+
+  private initializeTerminal(): Terminal {
+    if (this.terminal) return this.terminal;
+
+    const terminal = new Terminal({
       cursorBlink: true,
       cursorStyle: "bar",
-      theme: theme || CatpuccinMochaTheme,
+      theme: CatpuccinMochaTheme,
       fontFamily: "JetBrains Mono",
     });
 
-    // Addon to let the terminal fit the parennt container element from
-    // `Terminal.open`
     this.fitAddon = new FitAddon();
-    this.terminal.loadAddon(this.fitAddon);
+    terminal.loadAddon(this.fitAddon);
 
-    const container = document.getElementById(this.containerId);
-    if (!container)
-      throw new Error(`Container with ID ${this.containerId} not found`);
+    const container = this.shadow.querySelector(
+      ".terminal-container",
+    ) as HTMLElement;
+    if (!container) throw new Error("Terminal container not found");
 
-    this.terminal.open(container);
+    terminal.open(container);
     this.fitAddon.fit();
 
-    this.setupInputListener();
-    this.writeWelcomeMessage();
+    return terminal;
   }
 
-  private setupInputListener(): void {
+  private setupKeyboardHandling(): void {
+    if (!this.terminal) return;
+
     let input = "";
     this.terminal.onKey(({ key, domEvent }) => {
+      if (!this.terminal) return;
+
       if (domEvent.key === "Enter") {
         this.terminal.write("\r\n");
 
@@ -75,6 +96,11 @@ export class TerminalComponent {
     });
   }
 
+  disconnectedCallback() {
+    this.controller?.abort();
+    this.terminal?.dispose();
+  }
+
   /**
    * Prints the default message that greets the user when they first launch the
    * terminal.
@@ -82,6 +108,8 @@ export class TerminalComponent {
    * @returns {void}
    */
   private writeWelcomeMessage(): void {
+    if (!this.terminal) return;
+
     this.terminal.writeln(`${Date().toLocaleString()}`);
     this.terminal.writeln("Welcome to Micah Kepe's terminal, the nerd shell.");
     this.terminal.writeln("Type `help` for a list of commands.");
@@ -94,6 +122,7 @@ export class TerminalComponent {
    * @returns {void}
    */
   prompt(): void {
+    if (!this.terminal) return;
     this.terminal.write("\x1B[1;32m$ \x1B[0m");
   }
 
@@ -103,6 +132,7 @@ export class TerminalComponent {
    * @returns {void}
    */
   writeOutput(output: string): void {
+    if (!this.terminal) return;
     this.terminal.writeln(output);
     this.prompt();
   }
@@ -113,6 +143,8 @@ export class TerminalComponent {
    * @returns {void}
    */
   changeTheme(theme: string): void {
+    if (!this.terminal) return;
+
     // get the theme object from the available themes
     // or use the default theme
     const themeObject = TermThemes.get(theme) || CatpuccinMochaTheme;
@@ -122,3 +154,5 @@ export class TerminalComponent {
     this.terminal.options.theme = themeObject;
   }
 }
+
+customElements.define("terminal-component", TerminalComponent);
