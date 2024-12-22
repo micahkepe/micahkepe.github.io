@@ -2,6 +2,7 @@ import { Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
 import { registerCommands } from "./commands";
 import { initFileSystem, Directory } from "./file-system";
+import { CatpuccinMochaTheme } from "./themes";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
@@ -17,7 +18,10 @@ export class TerminalComponent {
     this.terminal = new Terminal({
       cursorBlink: true,
       cursorStyle: "bar",
+      theme: CatpuccinMochaTheme,
+      fontFamily: "JetBrains Mono",
     });
+
     this.fitAddon = new FitAddon();
     this.terminal.loadAddon(this.fitAddon);
 
@@ -72,7 +76,6 @@ export class TerminalComponent {
    * @private
    * @returns {void}
    */
-
   private registerCommands(fileSystem: { root: Directory }): void {
     registerCommands(
       this.terminal,

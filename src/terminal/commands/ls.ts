@@ -8,4 +8,9 @@ export function lsCommand(
 ): void {
   const items = pwd.children.map((child) => child.name).join("\t");
   terminal.writeln(items || "No files or directories.");
+
+  // prevent tsc error for now
+  if (args) {
+    return;
+  }
 }

@@ -24,4 +24,6 @@ export class View {
       );
     }
   }
+
+  // TODO: add ability to toggle theme
 }
