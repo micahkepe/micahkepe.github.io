@@ -34,6 +34,7 @@ export interface Directory {
  */
 export interface LocalFileSystem {
   root: Directory;
+  currentPath: string;
 }
 
 /**
@@ -84,36 +85,36 @@ export function initFileSystem(): Promise<LocalFileSystem> {
   });
 
   return Promise.all(filePromises)
-    .then(() => ({ root: rootDirectory }))
+    .then(() => ({ root: rootDirectory, currentPath: "/" }))
     .catch((error) => {
       console.error("Failed to initialize file system:", error);
-      return { root: { name: "/", children: [] } };
+      return { root: { name: "/", children: [] }, currentPath: "/" };
     });
 }
 
 /**
- * Utility function to find a file in a directory.
- * @param currentDir The directory to search in.
- * @param fileName The name of the file to find.
- * @returns The file if found, otherwise null.
+ * Performs a search for a directory in the filesystem given a path. Returns the
+ * directory if found, otherwise returns null.
+ * @param root The root directory of the filesystem.
+ * @param path The path to the directory to find.
+ * @returns The directory if found, otherwise null.
  */
-export function findDirectory(
-  currentDir: Directory,
-  path: string,
-): Directory | null {
-  if (path === "/") return currentDir;
-  const parts = path.split("/").filter(Boolean);
-  let dir: Directory | null = currentDir;
+export function findDirectory(root: Directory, path: string): Directory | null {
+  if (path === "/") return root;
+
+  const parts = path.split("/").filter(Boolean); // Split and remove empty parts
+  let dir: Directory | null = root;
 
   for (const part of parts) {
-    const found = dir?.children.find(
-      (child) => child.name === part && !(child as File).content,
+    if (!dir) return null;
+    const child = dir.children.find(
+      (child) => child.name === part && "children" in child,
     ) as Directory;
-    if (found) {
-      dir = found;
-    } else {
-      return null;
+
+    if (!child) {
+      return null; // Directory not found
     }
+    dir = child;
   }
   return dir;
 }

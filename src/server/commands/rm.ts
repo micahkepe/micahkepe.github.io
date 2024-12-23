@@ -1,19 +1,27 @@
 import { Command } from "../mock-server";
-import { Directory } from "../file-system";
+import { LocalFileSystem, findDirectory } from "../file-system";
 
 export const rmCommand: Command = {
   command: "rm",
   args: ["<file|directory>"],
   description: "Remove a file or directory",
-  execute: (currentDir?: Directory, args?: string[]): string | null => {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): string | null => {
+    if (!fileSystem || !fileSystem.currentPath) {
+      return "File system not initialized.";
+    }
+
     if (!args || args.length === 0) {
       return "Usage: rm [-r] <file|directory>";
     }
 
-    // get target name based on whether flags passed
-    const targetName = args[0].startsWith("-") ? args[1] : args && args[0];
+    const currentDir = findDirectory(fileSystem.root, fileSystem.currentPath);
 
-    if (!currentDir) return "Current directory not found.";
+    if (!currentDir) {
+      return `Current directory not found: ${fileSystem.currentPath}`;
+    }
+
+    // Determine the target name, handling flags
+    const targetName = args[0].startsWith("-") ? args[1] : args[0];
 
     const targetIndex = currentDir.children.findIndex(
       (child) => child.name === targetName,
@@ -23,23 +31,16 @@ export const rmCommand: Command = {
       return `rm: ${targetName}: no such file or directory`;
     }
 
-    // Check if target is a directory
-    if (
-      "children" in currentDir.children[targetIndex] &&
-      currentDir.children[targetIndex].children
-    ) {
-      // Check if directory is empty
-      // If not, return error message
-      // If empty, remove directory
-      if (currentDir.children[targetIndex].children.length > 0) {
-        if (args[0] !== "-r") {
-          return `rm: Directory not empty: ${targetName}, use -r to remove`;
-        }
-      } else {
-        currentDir.children.splice(targetIndex, 1);
-        return null;
+    const target = currentDir.children[targetIndex];
+
+    // Handle directories
+    if ("children" in target && target.children) {
+      if (target.children.length > 0 && args[0] !== "-r") {
+        return `rm: Directory not empty: ${targetName}, use -r to remove`;
       }
     }
+
+    // Remove the file or directory
     currentDir.children.splice(targetIndex, 1);
     return null;
   },

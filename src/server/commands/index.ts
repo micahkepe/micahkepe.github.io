@@ -8,6 +8,13 @@ import { pwdCommand } from "./pwd";
 import { rmCommand } from "./rm";
 import { cdCommand } from "./cd";
 
+/**
+ * List of all available commands. This list is used to generate the help command.
+ * The order of the commands in this list determines the order in which they are
+ * displayed in the help command.
+ * @see {@link helpCommand}
+ * @see {@link Command}
+ */
 export const commands: Command[] = [
   lsCommand,
   catCommand,

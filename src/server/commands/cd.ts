@@ -1,41 +1,52 @@
 import { Command } from "../mock-server";
-import { Directory, findDirectory } from "../file-system";
+import { findDirectory, LocalFileSystem } from "../file-system";
 
+/**
+ * A minimal implementation of the "cd" command. Changes the current directory.
+ * Supported usage is `cd [directory]`, where `directory` is the target directory
+ * and can be a relative or absolute path.
+ * @param args The command arguments
+ * @param fileSystem The file system
+ * @returns The output of the command
+ * @see {@link Command}
+ * @see {@link LocalFileSystem}
+ * @see {@link findDirectory}
+ */
 export const cdCommand: Command = {
   command: "cd",
-  args: ["<directory>"],
+  args: ["[directory]"],
   description: "Change the current directory",
-  execute: (
-    currentDir?: Directory,
-    args?: string[],
-    fileSystem?: { root: Directory },
-  ): string | null => {
-    if (!args || args.length === 0) {
-      return "Usage: cd <directory>";
-    }
-
-    const targetPath = args[0].trim();
-    if (!currentDir || !fileSystem) {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): string | null => {
+    if (!fileSystem) {
       return "File system not initialized.";
     }
 
-    const resolvePath = (path: string): Directory | null => {
-      if (path === ".") return currentDir; // Stay in the current directory
+    // If no arguments, go to root
+    if (!args || args.length === 0) {
+      fileSystem.currentPath = "/";
+      return null;
+    }
+
+    const targetPath = args[0].trim();
+
+    // Resolve path
+    const resolvePath = (path: string): string => {
+      if (path === ".") return fileSystem.currentPath;
       if (path === "..") {
-        const parts = currentDir.name.split("/").filter(Boolean);
-        if (parts.length === 0) return fileSystem.root; // Already at root
-        const parentPath = "/" + parts.slice(0, -1).join("/");
-        return findDirectory(fileSystem.root, parentPath);
+        const parts = fileSystem.currentPath.split("/").filter(Boolean);
+        if (parts.length === 0) return "/"; // Already at root
+        parts.pop(); // Go one level up
+        return "/" + parts.join("/");
       }
-      if (path.startsWith("/")) {
-        // Absolute path
-        return findDirectory(fileSystem.root, path);
-      }
-      // Relative path
-      return findDirectory(currentDir, path);
+      if (path.startsWith("/")) return path; // Absolute path
+      return fileSystem.currentPath === "/"
+        ? `/${path}`
+        : `${fileSystem.currentPath}/${path}`;
     };
 
-    const targetDir = resolvePath(targetPath);
+    const resolvedPath = resolvePath(targetPath);
+    const targetDir = findDirectory(fileSystem.root, resolvedPath);
+
     if (!targetDir) {
       return `Directory not found: ${targetPath}`;
     }
@@ -44,9 +55,8 @@ export const cdCommand: Command = {
       return `${targetPath} is not a directory.`;
     }
 
-    // Update the current directory's name
-    currentDir.name = targetDir.name;
-    currentDir.children = targetDir.children;
-    return null; // No output, handled on client
+    // Update the current path
+    fileSystem.currentPath = resolvedPath;
+    return null;
   },
 };

@@ -7,7 +7,7 @@ export const helpCommand: Command = {
   command: "help",
   args: [],
   description: "List all available commands",
-  execute: (_, __, ___): string => {
+  execute: (): string => {
     const commandDescriptions = commands
       .map(
         (cmd) =>

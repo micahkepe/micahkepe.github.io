@@ -37,7 +37,6 @@ export class View {
   /**
    * Updates the current year in the footer text.
    * @private
-   * @memberof View
    * @returns {void}
    */
   private updateFooterDate(): void {

@@ -10,10 +10,10 @@ Soon to be v2 of my personal website! The goals of this version are:
 
 - [ ] Arrow navigation (command history, input, etc.)
 - [x] Most common Unix commands (ls, cat, etc.)
-- [ ] File navigation with `cd` and viewing with `open`
+- [x] File navigation with `cd`
 - [ ] Syntax highlighting/ Markdown rendering
-- [ ] Vim/Neovim backend would be sick to let users create their own files and
-      directories
+- [ ] Handle TABs (autocomplete, cycle through files, etc.)
+- [ ] Show current path in terminal prompt
 - [ ] Fix xterm.js resizing
 - [ ] Mobile view styling (take a look at the xterm.js website repo for ref
       https://github.com/xtermjs/xtermjs.org/tree/master)

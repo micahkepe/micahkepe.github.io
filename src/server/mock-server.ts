@@ -18,7 +18,6 @@ export type Command = {
   command: string;
   args: string[];
   execute: (
-    currentDir?: Directory,
     args?: string[],
     fileSystem?: LocalFileSystem,
   ) => string | Promise<string | null> | null;
@@ -78,7 +77,7 @@ export class MockServer implements IServer {
       );
     }
 
-    const result = commandObj.execute(this.currentDir, args, this.fileSystem);
+    const result = commandObj.execute(args, this.fileSystem);
 
     if (result === null) {
       return Promise.resolve(""); // Return an empty string for commands like `clear`
