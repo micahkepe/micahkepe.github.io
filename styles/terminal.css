@@ -2,3 +2,16 @@
   align-content: center;
   margin: 0.75rem 0;
 }
+
+.xterm *::-webkit-scrollbar {
+  display: none;
+  position: relative;
+}
+
+#term {
+  padding: 4px;
+}
+
+.xterm * {
+  scrollbar-width: none;
+}

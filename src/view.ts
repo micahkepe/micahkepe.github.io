@@ -8,12 +8,15 @@ export type TerminalInputEvent = {
   input: string;
 };
 
+export type ClearTerminalEvent = {};
+
 /**
  * Custom event mappings.
  */
 declare global {
   interface DocumentEventMap {
     terminalInputEvent: CustomEvent<TerminalInputEvent>;
+    clearTerminalEvent: CustomEvent<ClearTerminalEvent>;
   }
 }
 
@@ -55,5 +58,13 @@ export class View {
    */
   updateTerminal(output: string): void {
     this.terminal.writeOutput(output);
+  }
+
+  /**
+   * Clears the terminal screen.
+   * @returns {void}
+   */
+  clearTerminalBuffer(): void {
+    this.terminal.clearBuffer();
   }
 }

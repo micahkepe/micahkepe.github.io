@@ -3,6 +3,8 @@ import { FitAddon } from "@xterm/addon-fit";
 import { CatpuccinMochaTheme } from "./themes";
 import { TermThemes } from "./themes";
 import { getTemplate } from "../../utils";
+import { WebLinksAddon } from "@xterm/addon-web-links";
+import { SearchAddon } from "@xterm/addon-search";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
@@ -15,6 +17,7 @@ import { getTemplate } from "../../utils";
 export class TerminalComponent extends HTMLElement {
   private terminal: Terminal | null = null;
   private fitAddon: FitAddon | null = null;
+  private searchAddon: SearchAddon | null = null;
   private controller: AbortController | null = null;
   private shadow: ShadowRoot;
   private static template: HTMLTemplateElement;
@@ -40,6 +43,11 @@ export class TerminalComponent extends HTMLElement {
     }
   }
 
+  /**
+   * Initializes the terminal emulator with the necessary addons and settings.
+   * @private
+   * @returns {Terminal} The initialized terminal emulator.
+   */
   private initializeTerminal(): Terminal {
     if (this.terminal) return this.terminal;
 
@@ -48,10 +56,14 @@ export class TerminalComponent extends HTMLElement {
       cursorStyle: "bar",
       theme: CatpuccinMochaTheme,
       fontFamily: "JetBrains Mono",
+      cols: 80,
     });
 
     this.fitAddon = new FitAddon();
+    this.searchAddon = new SearchAddon();
     terminal.loadAddon(this.fitAddon);
+    terminal.loadAddon(new WebLinksAddon());
+    terminal.loadAddon(this.searchAddon);
 
     const container = this.shadow.querySelector(
       ".terminal-container",
@@ -123,7 +135,7 @@ export class TerminalComponent extends HTMLElement {
    */
   prompt(): void {
     if (!this.terminal) return;
-    this.terminal.write("\x1B[1;32m$ \x1B[0m");
+    this.terminal.write("\x1B[1;32manon@micahkepe.com:$ \x1B[0m");
   }
 
   /**
@@ -132,8 +144,15 @@ export class TerminalComponent extends HTMLElement {
    * @returns {void}
    */
   writeOutput(output: string): void {
-    if (!this.terminal) return;
-    this.terminal.writeln(output);
+    if (output.trim() === "") {
+      this.prompt();
+      return;
+    }
+
+    const lines = output.split("\n"); // Split content by newlines
+    lines.forEach((line) => {
+      this.terminal?.writeln(line.trimEnd()); // Trim excess spaces and write each line
+    });
     this.prompt();
   }
 
@@ -152,6 +171,15 @@ export class TerminalComponent extends HTMLElement {
     // create a new terminal with the new theme and set the current working
     // directory
     this.terminal.options.theme = themeObject;
+  }
+
+  /**
+   * Clears the terminal screen, leaving the current prompt line as the first
+   * line in the buffer.
+   * @returns {void}
+   */
+  clearBuffer(): void {
+    this.terminal?.clear();
   }
 }
 

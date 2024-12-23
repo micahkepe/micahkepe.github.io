@@ -4,8 +4,25 @@
  * like in this tutorial:
  *   https://www.eddymens.com/blog/creating-a-browser-based-interactive-terminal-using-xtermjs-and-nodejs.html#how-it-works
  */
-import { initFileSystem, Directory } from "./file-system";
-import { lsCommand } from "./commands/ls";
+import { initFileSystem, Directory, LocalFileSystem } from "./file-system";
+import { commands } from "./commands";
+
+/**
+ * A command object that defines a command, its arguments, and the function to
+ * execute when the command is called.
+ * The `execute` function takes the current directory, arguments, and file system
+ * as parameters and returns the output of the command.
+ */
+export type Command = {
+  command: string;
+  args: string[];
+  execute: (
+    currentDir?: Directory,
+    args?: string[],
+    fileSystem?: LocalFileSystem,
+  ) => string | Promise<string | null> | null;
+  description?: string;
+};
 
 /**
  * Interface for the server.
@@ -14,7 +31,7 @@ import { lsCommand } from "./commands/ls";
  * that resolves to the output of the command.
  */
 export interface IServer {
-  processCommand(command: string): Promise<string>;
+  executeCommand(command: string): Promise<string>;
 }
 
 /**
@@ -22,16 +39,48 @@ export interface IServer {
  * an actual terminal backend.
  */
 export class MockServer implements IServer {
-  private fileSystem = initFileSystem();
-  private currentDir: Directory = this.fileSystem.root;
+  private fileSystem: LocalFileSystem | null = null;
+  private currentDir: Directory | null = null;
+  private cmdRegistry: Map<string, Command> = new Map();
 
-  async processCommand(command: string): Promise<string> {
-    const [cmd, ...args] = command.split(" ");
-    switch (cmd) {
-      case "ls":
-        return lsCommand(this.currentDir, args);
-      default:
-        return `Command not found: ${cmd}`;
+  constructor() {
+    initFileSystem()
+      .then((fs) => {
+        this.fileSystem = fs;
+        this.currentDir = fs.root;
+
+        // Populate the command registry
+        for (const cmd of commands) {
+          this.cmdRegistry.set(cmd.command, cmd);
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to initialize file system:", error);
+      });
+  }
+
+  /**
+   * Processes a command string and returns the output of the command.
+   * @param command The command string to process.
+   * @returns A Promise that resolves to the output of the command.
+   */
+  executeCommand(command: string): Promise<string> {
+    if (!this.fileSystem || !this.currentDir) {
+      return Promise.resolve("Failed to initialize file system.");
     }
+
+    const [cmd, ...args] = command.split(" ");
+    const commandObj = this.cmdRegistry.get(cmd);
+    if (!commandObj) {
+      return Promise.resolve(`Command not found: ${cmd}`);
+    }
+
+    const result = commandObj.execute(this.currentDir, args, this.fileSystem);
+
+    if (result === null) {
+      return Promise.resolve(""); // Return an empty string for commands like `clear`
+    }
+
+    return Promise.resolve(result).then((output) => output || "");
   }
 }
