@@ -25,13 +25,13 @@ export type Command = {
 };
 
 /**
- * Interface for the server.
- * The server processes commands from the terminal client.
- * The `processCommand` method takes a command string and returns a Promise
- * that resolves to the output of the command.
+ * Interface for the server processing commands from the terminal client.
+ * The `executeCommand` method takes a command string and returns a Promise
+ * that resolves to the output of the command, which may either be the string
+ * output or null for commands like `clear` that don't need return values.
  */
 export interface IServer {
-  executeCommand(command: string): Promise<string>;
+  executeCommand(command: string): Promise<string | void>;
 }
 
 /**
@@ -78,7 +78,6 @@ export class MockServer implements IServer {
     }
 
     const result = commandObj.execute(args, this.fileSystem);
-
     if (result === null) {
       return Promise.resolve(""); // Return an empty string for commands like `clear`
     }

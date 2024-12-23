@@ -23,7 +23,11 @@ export const cdCommand: Command = {
 
     // If no arguments, go to root
     if (!args || args.length === 0) {
-      fileSystem.currentPath = "/";
+      fileSystem.currentPath = fileSystem.root.name;
+      const changeDirectoryEvent = new CustomEvent("changeDirectoryEvent", {
+        detail: { newPwd: "~" },
+      });
+      document.dispatchEvent(changeDirectoryEvent);
       return null;
     }
 
@@ -34,12 +38,17 @@ export const cdCommand: Command = {
       if (path === ".") return fileSystem.currentPath;
       if (path === "..") {
         const parts = fileSystem.currentPath.split("/").filter(Boolean);
-        if (parts.length === 0) return "/"; // Already at root
+        if (parts.length === 0) return fileSystem.root.name; // Already at root
         parts.pop(); // Go one level up
         return "/" + parts.join("/");
       }
+
+      if (path === "~") {
+        return fileSystem.root.name;
+      }
+
       if (path.startsWith("/")) return path; // Absolute path
-      return fileSystem.currentPath === "/"
+      return fileSystem.currentPath === fileSystem.root.name
         ? `/${path}`
         : `${fileSystem.currentPath}/${path}`;
     };
@@ -57,6 +66,16 @@ export const cdCommand: Command = {
 
     // Update the current path
     fileSystem.currentPath = resolvedPath;
+
+    // dispatch a custom event so the terminal client can update the path for the
+    // user
+    const newPwd = resolvedPath === "/" ? "~" : resolvedPath;
+    const changeDirectoryEvent = new CustomEvent("changeDirectoryEvent", {
+      detail: { newPwd },
+    });
+
+    document.dispatchEvent(changeDirectoryEvent);
+
     return null;
   },
 };

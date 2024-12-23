@@ -8,7 +8,19 @@ export type TerminalInputEvent = {
   input: string;
 };
 
+/**
+ * When the user types "clear" in the terminal or "Ctrl+L" to cleear the
+ * terminal buffer
+ */
 export type ClearTerminalEvent = {};
+
+/**
+ * When the user changes directories, this event is fired with the new path.
+ * This is used to update the prompt in the terminal.
+ */
+export type ChangeDirectoryEvent = {
+  newPwd: string;
+};
 
 /**
  * Custom event mappings.
@@ -17,6 +29,7 @@ declare global {
   interface DocumentEventMap {
     terminalInputEvent: CustomEvent<TerminalInputEvent>;
     clearTerminalEvent: CustomEvent<ClearTerminalEvent>;
+    changeDirectoryEvent: CustomEvent<ChangeDirectoryEvent>;
   }
 }
 
@@ -51,12 +64,29 @@ export class View {
   }
 
   /**
+   * Refits the terminal to the size of the parent containing element.
+   * @returns {void}
+   */
+  refitTerminal(): void {
+    this.terminal.refit();
+  }
+
+  /**
    * Updates the terminal with the output of a command.
    * @param {string} output The output of the command to write to the terminal.
    * @returns {void}
    */
-  updateTerminal(output: string): void {
+  displayTerminalCmdOutput(output: string): void {
     this.terminal.writeOutput(output);
+  }
+
+  /**
+   * Sets the current working directory for the terminal.
+   * @param {string} pwd The new current working directory.
+   * @returns {void}
+   */
+  setTerminalPwd(pwd: string): void {
+    this.terminal.setPwd(pwd);
   }
 
   /**

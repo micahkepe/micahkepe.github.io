@@ -1,4 +1,4 @@
-import { View } from "./view";
+import { ChangeDirectoryEvent, View } from "./view";
 import { MockServer } from "./server/mock-server";
 import "./client/terminal/terminal.ts";
 
@@ -19,15 +19,26 @@ function main(): void {
       return server
         .executeCommand(event.detail.input)
         .then((response: string) => {
-          view.updateTerminal(response);
+          view.displayTerminalCmdOutput(response);
         })
-        .catch((error: string) => view.updateTerminal(error));
+        .catch((error: string) => view.displayTerminalCmdOutput(error));
     },
   );
 
   document.addEventListener("clearTerminalEvent", function (): void {
     view.clearTerminalBuffer();
   });
+
+  document.addEventListener("resize", () => {
+    view.refitTerminal();
+  });
+
+  document.addEventListener(
+    "changeDirectoryEvent",
+    function (event: CustomEvent<ChangeDirectoryEvent>): void {
+      view.setTerminalPwd(event.detail.newPwd);
+    },
+  );
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -13,7 +13,4 @@ export default defineConfig({
     port: 3000,
     publicDir: "public",
   },
-  build: {
-    outDir: "build",
-  },
 });

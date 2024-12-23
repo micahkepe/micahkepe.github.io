@@ -13,10 +13,14 @@ Soon to be v2 of my personal website! The goals of this version are:
 - [x] File navigation with `cd`
 - [ ] Syntax highlighting/ Markdown rendering
 - [ ] Handle TABs (autocomplete, cycle through files, etc.)
-- [ ] Show current path in terminal prompt
-- [ ] Fix xterm.js resizing
+- [x] Show current path in terminal prompt
+- [x] Fix xterm.js resizing
+- [ ] Add latest blog posts dynamically from the RSS feed to populate the `blog/`
+      folder in the filetree
+- [x] Bobby Russell-style prompt
 - [ ] Mobile view styling (take a look at the xterm.js website repo for ref
       https://github.com/xtermjs/xtermjs.org/tree/master)
+- [ ] more terminal themes (Dracula, Solarized, etc.)
 
 ## Motivation
 

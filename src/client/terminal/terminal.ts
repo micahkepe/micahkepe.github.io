@@ -22,6 +22,7 @@ export class TerminalComponent extends HTMLElement {
   private controller: AbortController | null = null;
   private shadow: ShadowRoot;
   private static template: HTMLTemplateElement;
+  private pwd: string = "~";
 
   constructor() {
     super();
@@ -74,13 +75,28 @@ export class TerminalComponent extends HTMLElement {
     terminal.open(container);
     this.fitAddon.fit();
 
+    // start sessionStorage to track commands
+    //sessionStorage.setItem("cmdHistory", "");
+
     return terminal;
   }
 
+  /**
+   * Handles user input on the prompt line. On hitting "Enter", if the input is
+   * non-empty, a custom event is dispatched for handling server-side. Currently
+   * does not support command history navigation or Tab completion.
+   * @private
+   * @returns {void}
+   */
   private setupKeyboardHandling(): void {
     if (!this.terminal) return;
 
     let input = "";
+
+    // TODO: command history, arrow navigation, Tab completions
+    //let cursorPosition = 0;
+    //let cmdHistory = sessionStorage.getItem("cmdHistory");
+
     this.terminal.onKey(({ key, domEvent }) => {
       if (!this.terminal) return;
 
@@ -112,6 +128,23 @@ export class TerminalComponent extends HTMLElement {
         // process to terminate it over the network
         input = "";
         this.writeOutput("\n^C");
+      } else if (domEvent.ctrlKey && domEvent.key === "u") {
+        // Clear the current line
+        input = "";
+        this.terminal.write("\x1b[2K\r"); // Clear line
+        this.prompt();
+      } else if (domEvent.ctrlKey && domEvent.key === "w") {
+        // delete the last word
+        const words = input.trim().split(" ");
+
+        if (words.length > 0) {
+          input = words.slice(0, -1).join(" ");
+        }
+
+        this.terminal.write("\x1b[1K"); // Clear line from cursor
+        this.terminal.write("\r"); // Move cursor to start of line
+        this.prompt();
+        this.terminal.write(input);
       } else if (domEvent.key === "ArrowDown") {
         return;
       } else if (domEvent.key === "ArrowUp") {
@@ -146,19 +179,81 @@ export class TerminalComponent extends HTMLElement {
     this.terminal.writeln(`${Date().toLocaleString()}`);
     this.terminal.writeln("Welcome to Micah Kepe's terminal, the nerd shell.");
     this.terminal.writeln(
-      `Type '${AnsiCodes.Cyan}help${AnsiCodes.Reset}' for a list of commands.`,
+      `Type \`${AnsiCodes.Cyan}help${AnsiCodes.Reset}\` for a list of commands.`,
     );
     this.prompt();
   }
 
   /**
-   * Writes a prompt to the terminal to indicate that the terminal is ready to
-   * accept user input.
+   * Refits the terminal to the parent container.
    * @returns {void}
    */
-  prompt(): void {
+  refit(): void {
+    this.fitAddon?.fit();
+  }
+
+  /**
+   * Writes a prompt to the terminal to indicate that the terminal is ready to
+   * accept user input.
+   * @private
+   * @returns {void}
+   */
+  private prompt(pwd = this.pwd, succeeded = true): void {
     if (!this.terminal) return;
-    this.terminal.write("\x1B[1;32manon@micahkepe.com:$ \x1B[0m");
+
+    let prepend: string;
+
+    if (succeeded) {
+      prepend = `${AnsiCodes.BoldGreen}→${AnsiCodes.Reset}`;
+    } else {
+      prepend = `${AnsiCodes.BoldRed}→${AnsiCodes.Reset}`;
+    }
+
+    // Update the current working directory if it has changed
+    if (pwd !== this.pwd) {
+      this.pwd = pwd;
+    }
+
+    // A dupe of the `bobbyrussell` Oh-my-zsh theme
+    this.terminal.write(
+      `${prepend}  ${AnsiCodes.BoldCyan}${this.pwd} ${AnsiCodes.Reset}${AnsiCodes.BoldPurple}git:(${AnsiCodes.Reset}${AnsiCodes.BoldRed}main${AnsiCodes.BoldPurple})${AnsiCodes.BoldHighIntensityYellow} ✘${AnsiCodes.Reset} `,
+    );
+  }
+
+  /**
+   * Formats the path to always show ~ for home directory and its subdirectories
+   * @param {string} path The path to format
+   * @returns {string} The formatted path
+   */
+  private formatPath(path: string): string {
+    // If we're at root level of home directory
+    if (path === "/" || path === "~" || path === "") {
+      return "~";
+    }
+
+    // If it's a subdirectory path
+    if (path.startsWith("/")) {
+      // Remove the leading slash and replace with ~/
+      return `~${path}`;
+    }
+
+    // If it's already a relative path with ~, return as is
+    if (path.startsWith("~")) {
+      return path;
+    }
+
+    // For any other paths, prefix with ~/
+    return `~/${path}`;
+  }
+
+  /**
+   * Sets the current working directory for the terminal. This should be called
+   * when the user changes directories to properly update the terminal view.
+   * @param {string} pwd The new current working directory.
+   * @returns {void}
+   */
+  setPwd(pwd: string): void {
+    this.pwd = this.formatPath(pwd);
   }
 
   /**
