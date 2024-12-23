@@ -120,6 +120,8 @@ export class TerminalComponent extends HTMLElement {
         return;
       } else if (domEvent.key === "ArrowRight") {
         return;
+      } else if (domEvent.key === "Tab") {
+        return;
       } else {
         input += key;
         this.terminal.write(key);
