@@ -6,6 +6,7 @@
  */
 import { initFileSystem, Directory, LocalFileSystem } from "./file-system";
 import { commands } from "./commands";
+import { AnsiCodes } from "../ansi-codes";
 
 /**
  * A command object that defines a command, its arguments, and the function to
@@ -72,7 +73,9 @@ export class MockServer implements IServer {
     const [cmd, ...args] = command.split(" ");
     const commandObj = this.cmdRegistry.get(cmd);
     if (!commandObj) {
-      return Promise.resolve(`Command not found: ${cmd}`);
+      return Promise.resolve(
+        `${AnsiCodes.Red}Command not found:${AnsiCodes.Reset} ${cmd}`,
+      );
     }
 
     const result = commandObj.execute(this.currentDir, args, this.fileSystem);

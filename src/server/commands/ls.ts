@@ -1,5 +1,6 @@
 import { Command } from "../mock-server";
 import { Directory } from "../file-system";
+import { AnsiCodes } from "../../ansi-codes";
 
 export const lsCommand: Command = {
   command: "ls",
@@ -32,7 +33,9 @@ export const lsCommand: Command = {
     return (
       currentDir.children
         .map((child) =>
-          "children" in child ? `${child.name}/` : `${child.name}`,
+          "children" in child
+            ? `${AnsiCodes.Cyan}${child.name}/${AnsiCodes.Reset}`
+            : `${child.name}`,
         )
         .join("\t") || "Empty directory."
     );

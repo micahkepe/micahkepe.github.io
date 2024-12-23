@@ -13,3 +13,13 @@ export function getTemplate(id: string): HTMLTemplateElement {
   }
   return template;
 }
+
+/**
+ * Utility function to create a spacing string of a specified length.
+ * @param spacing The number of spaces to generate.
+ * @param spacer The character to use for spacing. DFaults to a space character.
+ * @returns A string of spaces.
+ */
+export function generateSpacerString(spacing: number, spacer = " "): string {
+  return spacer.repeat(spacing);
+}

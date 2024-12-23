@@ -1,6 +1,10 @@
 .terminal-container {
-  align-content: center;
-  margin: 0.75rem 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .xterm *::-webkit-scrollbar {
@@ -8,8 +12,8 @@
   position: relative;
 }
 
-#term {
-  padding: 4px;
+.xterm {
+  padding: 8px;
 }
 
 .xterm * {

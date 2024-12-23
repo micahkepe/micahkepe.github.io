@@ -5,6 +5,7 @@ import { TermThemes } from "./themes";
 import { getTemplate } from "../../utils";
 import { WebLinksAddon } from "@xterm/addon-web-links";
 import { SearchAddon } from "@xterm/addon-search";
+import { AnsiCodes } from "../../ansi-codes";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
@@ -101,6 +102,24 @@ export class TerminalComponent extends HTMLElement {
           input = input.slice(0, -1);
           this.terminal.write("\b \b");
         }
+      } else if (domEvent.ctrlKey && domEvent.key === "l") {
+        // Clear the terminal buffer on Ctrl + L
+        const event = new CustomEvent("clearTerminalEvent");
+        document.dispatchEvent(event);
+      } else if (domEvent.ctrlKey && domEvent.key === "c") {
+        // Pseudo SIGINT signal
+        // NOTE: in a real terminal, this would send a signal to the running
+        // process to terminate it over the network
+        input = "";
+        this.writeOutput("\n^C");
+      } else if (domEvent.key === "ArrowDown") {
+        return;
+      } else if (domEvent.key === "ArrowUp") {
+        return;
+      } else if (domEvent.key === "ArrowLeft") {
+        return;
+      } else if (domEvent.key === "ArrowRight") {
+        return;
       } else {
         input += key;
         this.terminal.write(key);
@@ -124,7 +143,9 @@ export class TerminalComponent extends HTMLElement {
 
     this.terminal.writeln(`${Date().toLocaleString()}`);
     this.terminal.writeln("Welcome to Micah Kepe's terminal, the nerd shell.");
-    this.terminal.writeln("Type `help` for a list of commands.");
+    this.terminal.writeln(
+      `Type '${AnsiCodes.Cyan}help${AnsiCodes.Reset}' for a list of commands.`,
+    );
     this.prompt();
   }
 
