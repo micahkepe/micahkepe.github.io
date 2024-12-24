@@ -26,10 +26,11 @@
   display: none !important;
 }
 
-body {
+body,
+html {
   font-family: "JetBrains Mono", monospace;
   overflow: auto;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -38,6 +39,11 @@ body {
   background-color: #1e1e1e;
   color: #fff;
   flex-direction: column;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
 h1 {

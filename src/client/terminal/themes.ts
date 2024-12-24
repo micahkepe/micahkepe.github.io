@@ -33,8 +33,57 @@ export const CatpuccinMochaTheme: ITheme = {
 };
 
 /**
+ * The Dracula theme for the terminal emulator.
+ * Colors taken partly from:
+ * https://en.wikipedia.org/wiki/Dracula_(color_scheme)
+ */
+export const DraculaTheme: ITheme = {
+  background: "#282a36",
+  black: "#44475a",
+  blue: "#6272a4",
+  brightBlack: "#6272a4",
+  brightBlue: "#bd93f9",
+  brightCyan: "#8be9fd",
+  cyan: "#8be9fd",
+  green: "#50fa7b",
+  red: "#ff5555",
+  brightRed: "#ff5555",
+  magenta: "#ff79c6",
+  brightMagenta: "#ff79c6",
+  yellow: "#f1fa8c",
+  brightYellow: "#f1fa8c",
+  selectionBackground: "#44475a",
+};
+
+/**
+ * The Solarized Dark theme for the terminal emulator.
+ *
+ * Colors taken from:
+ * https://ethanschoonover.com/solarized/
+ */
+export const SolarizedDark: ITheme = {
+  background: "#002b36",
+  black: "#073642",
+  blue: "#268bd2",
+  brightBlack: "#586e75",
+  brightBlue: "#839496",
+  brightCyan: "#93a1a1",
+  cyan: "#2aa198",
+  green: "#859900",
+  red: "#dc322f",
+  brightRed: "#cb4b16",
+  magenta: "#d33682",
+  brightMagenta: "#6c71c4",
+  yellow: "#b58900",
+  brightYellow: "#657b83",
+  selectionBackground: "#073642",
+};
+
+/**
  * The available themes for the terminal emulator.
  */
 export const TermThemes: Map<string, ITheme> = new Map([
   ["Catpuccin Mocha", CatpuccinMochaTheme],
+  ["Dracula", DraculaTheme],
+  ["Solarized Dark", SolarizedDark],
 ]);

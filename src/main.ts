@@ -32,10 +32,6 @@ function main(): void {
     view.clearTerminalBuffer();
   });
 
-  document.addEventListener("resize", () => {
-    view.refitTerminal();
-  });
-
   document.addEventListener(
     "changeDirectoryEvent",
     function (event: CustomEvent<ChangeDirectoryEvent>): void {

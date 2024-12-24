@@ -1,6 +1,5 @@
 import { Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
-import { CatpuccinMochaTheme } from "./themes";
 import { TermThemes } from "./themes";
 import { getTemplate } from "../../utils";
 import { WebLinksAddon } from "@xterm/addon-web-links";
@@ -11,10 +10,9 @@ import { AnsiCodes } from "../../ansi-codes";
 /**
  * Represents a terminal emulator that provides a command-line interface to the
  * user. The terminal is initialized with a welcome message and a set of
- * commands that the user can execute. To instantiate a terminal, pass the ID of
- * the container element that will host the terminal. The constructor is
- * non-default as the xterm.js terminal requires a container element to be
- * initialized.
+ * commands that the user can execute. The terminal supports basic keyboard
+ * input handling, command history, and command execution. The terminal can be
+ * themed with a set of predefined themes.
  */
 export class TerminalComponent extends HTMLElement {
   private terminal: Terminal | null = null;
@@ -38,13 +36,19 @@ export class TerminalComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    try {
-      this.terminal = this.initializeTerminal();
-      this.setupKeyboardHandling();
-      this.writeWelcomeMessage();
-    } catch (error) {
-      console.error("Failed to initialize terminal:", error);
-    }
+    this.initializeTerminal()
+      .then((terminal) => {
+        this.terminal = terminal;
+        this.writeWelcomeMessage();
+        this.setupKeyboardHandling();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    document.addEventListener("resize", () => {
+      this.fitAddon?.fit();
+    });
   }
 
   /**
@@ -52,13 +56,11 @@ export class TerminalComponent extends HTMLElement {
    * @private
    * @returns {Terminal} The initialized terminal emulator.
    */
-  private initializeTerminal(): Terminal {
-    if (this.terminal) return this.terminal;
-
+  private initializeTerminal(): Promise<Terminal> {
     const terminal = new Terminal({
       cursorBlink: true,
       cursorStyle: "bar",
-      theme: CatpuccinMochaTheme,
+      theme: TermThemes.get("Dracula"),
       fontFamily: "JetBrains Mono",
       cols: 80,
       allowProposedApi: true,
@@ -87,7 +89,7 @@ export class TerminalComponent extends HTMLElement {
     // start sessionStorage to track commands
     //sessionStorage.setItem("cmdHistory", "");
 
-    return terminal;
+    return Promise.resolve(terminal);
   }
 
   /**
@@ -202,14 +204,6 @@ export class TerminalComponent extends HTMLElement {
   }
 
   /**
-   * Refits the terminal to the parent container.
-   * @returns {void}
-   */
-  refit(): void {
-    this.fitAddon?.fit();
-  }
-
-  /**
    * Writes a prompt to the terminal to indicate that the terminal is ready to
    * accept user input.
    * @private
@@ -294,9 +288,13 @@ export class TerminalComponent extends HTMLElement {
   changeTheme(theme: string): void {
     if (!this.terminal) return;
 
+    if (!TermThemes.has(theme)) {
+      console.error(`Theme ${theme} not found. Using default theme.`);
+    }
+
     // get the theme object from the available themes
     // or use the default theme
-    const themeObject = TermThemes.get(theme) || CatpuccinMochaTheme;
+    const themeObject = TermThemes.get(theme) || TermThemes.get("Dracula");
 
     // create a new terminal with the new theme and set the current working
     // directory

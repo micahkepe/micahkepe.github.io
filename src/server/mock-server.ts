@@ -6,7 +6,6 @@
  */
 import { initFileSystem, Directory, LocalFileSystem } from "./file-system";
 import { commands } from "./commands";
-import { AnsiCodes } from "../ansi-codes";
 
 /**
  * Represents the result of running a command. Commands can either return null
@@ -28,6 +27,7 @@ export type CommandResult = {
 export type Command = {
   command: string;
   args: string[];
+  opts?: string[];
   execute: (args?: string[], fileSystem?: LocalFileSystem) => CommandResult;
   description?: string;
 };
@@ -84,7 +84,7 @@ export class MockServer implements IServer {
     const commandObj = this.cmdRegistry.get(cmd);
     if (!commandObj) {
       return Promise.resolve({
-        output: `${AnsiCodes.Red}Command not found:${AnsiCodes.Reset} ${cmd}`,
+        output: `${cmd}: command not found`,
         failed: true,
       });
     }

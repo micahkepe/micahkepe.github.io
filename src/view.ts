@@ -64,14 +64,6 @@ export class View {
   }
 
   /**
-   * Refits the terminal to the size of the parent containing element.
-   * @returns {void}
-   */
-  refitTerminal(): void {
-    this.terminal.refit();
-  }
-
-  /**
    * Updates the terminal with the output of a command.
    * @param {string} output The output of the command to write to the terminal.
    * @returns {void}

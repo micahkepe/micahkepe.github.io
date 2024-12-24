@@ -5,6 +5,9 @@ import { findDirectory, LocalFileSystem } from "../file-system";
  * A minimal implementation of the "cd" command. Changes the current directory.
  * Supported usage is `cd [directory]`, where `directory` is the target directory
  * and can be a relative or absolute path.
+ *
+ * TODO: support `-` argument to navigate to last directory
+ *
  * @param args The command arguments
  * @param fileSystem The file system
  * @returns The output of the command
