@@ -1,4 +1,4 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 import { findDirectory, LocalFileSystem } from "../file-system";
 
 /**
@@ -16,9 +16,9 @@ export const cdCommand: Command = {
   command: "cd",
   args: ["[directory]"],
   description: "Change the current directory",
-  execute: (args?: string[], fileSystem?: LocalFileSystem): string | null => {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): CommandResult => {
     if (!fileSystem) {
-      return "File system not initialized.";
+      return { output: "cd: file system not initialized.", failed: true };
     }
 
     // If no arguments, go to root
@@ -28,7 +28,7 @@ export const cdCommand: Command = {
         detail: { newPwd: "~" },
       });
       document.dispatchEvent(changeDirectoryEvent);
-      return null;
+      return { output: null };
     }
 
     const targetPath = args[0].trim();
@@ -57,11 +57,11 @@ export const cdCommand: Command = {
     const targetDir = findDirectory(fileSystem.root, resolvedPath);
 
     if (!targetDir) {
-      return `Directory not found: ${targetPath}`;
+      return { output: `Directory not found: ${targetPath}`, failed: true };
     }
 
     if (!Array.isArray(targetDir.children)) {
-      return `${targetPath} is not a directory.`;
+      return { output: `${targetPath} is not a directory.`, failed: true };
     }
 
     // Update the current path
@@ -76,6 +76,6 @@ export const cdCommand: Command = {
 
     document.dispatchEvent(changeDirectoryEvent);
 
-    return null;
+    return { output: null };
   },
 };

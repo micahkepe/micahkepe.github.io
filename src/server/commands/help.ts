@@ -1,4 +1,4 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 import { commands } from "./index";
 import { generateSpacerString } from "../../utils";
 import { AnsiCodes } from "../../ansi-codes";
@@ -7,7 +7,7 @@ export const helpCommand: Command = {
   command: "help",
   args: [],
   description: "List all available commands",
-  execute: (): string => {
+  execute: (): CommandResult => {
     const commandDescriptions = commands
       .map(
         (cmd) =>
@@ -17,6 +17,6 @@ export const helpCommand: Command = {
       )
       .join("\n");
 
-    return `Available commands:\n\n${commandDescriptions}\n`;
+    return { output: `Available commands:\n\n${commandDescriptions}\n` };
   },
 };

@@ -1,4 +1,4 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 
 /**
  * Command to clear the terminal screen. This command does not take any arguments.
@@ -10,9 +10,9 @@ export const clearCommand: Command = {
   command: "clear",
   args: [],
   description: "Clear the terminal screen",
-  execute: (): null => {
+  execute: (): CommandResult => {
     const event = new CustomEvent("clearTerminalEvent");
     document.dispatchEvent(event); // Notify the client to clear the terminal
-    return null;
+    return { output: null };
   },
 };

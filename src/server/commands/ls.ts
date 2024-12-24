@@ -1,4 +1,4 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 import { LocalFileSystem, findDirectory } from "../file-system";
 import { AnsiCodes } from "../../ansi-codes";
 
@@ -37,31 +37,35 @@ export const lsCommand: Command = {
   command: "ls",
   args: ["[directory]"],
   description: "List directory contents",
-  execute: (args?: string[], fileSystem?: LocalFileSystem): string => {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): CommandResult => {
     if (!fileSystem || !fileSystem.currentPath) {
-      return "File system not initialized.";
+      return { output: "ls: File system not initialized.", failed: true };
     }
 
     const targetPath = resolvePath(fileSystem.currentPath, args?.[0]);
     const resolvedDir = findDirectory(fileSystem.root, targetPath);
 
     if (!resolvedDir) {
-      return `Directory not found: ${args?.[0] || targetPath}`;
+      return {
+        output: `Directory not found: ${args?.[0] || targetPath}`,
+        failed: true,
+      };
     }
 
     if (!Array.isArray(resolvedDir.children)) {
-      return `${targetPath} is not a directory.`;
+      return { output: `${targetPath} is not a directory.`, failed: true };
     }
 
     // List the directory contents
-    return (
-      resolvedDir.children
-        .map((child) =>
-          "children" in child
-            ? `${AnsiCodes.Cyan}${child.name}/${AnsiCodes.Reset}`
-            : `${child.name}`,
-        )
-        .join("\t") || "Empty directory."
-    );
+    return {
+      output:
+        resolvedDir.children
+          .map((child) =>
+            "children" in child
+              ? `${AnsiCodes.Cyan}${child.name}/${AnsiCodes.Reset}`
+              : `${child.name}`,
+          )
+          .join("\t") || "",
+    };
   },
 };

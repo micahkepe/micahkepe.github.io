@@ -9,6 +9,17 @@ import { commands } from "./commands";
 import { AnsiCodes } from "../ansi-codes";
 
 /**
+ * Represents the result of running a command. Commands can either return null
+ * values, such as in the case of `clear`, or an output string. Commands can
+ * send an optional `failed` flag for whether the operation failed, otherwise
+ * it is presumed that the operation succeeded.
+ */
+export type CommandResult = {
+  output: string | null;
+  failed?: boolean;
+};
+
+/**
  * A command object that defines a command, its arguments, and the function to
  * execute when the command is called.
  * The `execute` function takes the current directory, arguments, and file system
@@ -17,10 +28,7 @@ import { AnsiCodes } from "../ansi-codes";
 export type Command = {
   command: string;
   args: string[];
-  execute: (
-    args?: string[],
-    fileSystem?: LocalFileSystem,
-  ) => string | Promise<string | null> | null;
+  execute: (args?: string[], fileSystem?: LocalFileSystem) => CommandResult;
   description?: string;
 };
 
@@ -31,7 +39,7 @@ export type Command = {
  * output or null for commands like `clear` that don't need return values.
  */
 export interface IServer {
-  executeCommand(command: string): Promise<string | void>;
+  executeCommand(command: string): Promise<CommandResult>;
 }
 
 /**
@@ -64,24 +72,23 @@ export class MockServer implements IServer {
    * @param command The command string to process.
    * @returns A Promise that resolves to the output of the command.
    */
-  executeCommand(command: string): Promise<string> {
+  executeCommand(command: string): Promise<CommandResult> {
     if (!this.fileSystem || !this.currentDir) {
-      return Promise.resolve("Failed to initialize file system.");
+      return Promise.resolve({
+        output: "Failed to initialize file system.",
+        failed: true,
+      });
     }
 
     const [cmd, ...args] = command.split(" ");
     const commandObj = this.cmdRegistry.get(cmd);
     if (!commandObj) {
-      return Promise.resolve(
-        `${AnsiCodes.Red}Command not found:${AnsiCodes.Reset} ${cmd}`,
-      );
+      return Promise.resolve({
+        output: `${AnsiCodes.Red}Command not found:${AnsiCodes.Reset} ${cmd}`,
+        failed: true,
+      });
     }
 
-    const result = commandObj.execute(args, this.fileSystem);
-    if (result === null) {
-      return Promise.resolve(""); // Return an empty string for commands like `clear`
-    }
-
-    return Promise.resolve(result).then((output) => output || "");
+    return Promise.resolve(commandObj.execute(args, this.fileSystem));
   }
 }

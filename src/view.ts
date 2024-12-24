@@ -76,8 +76,8 @@ export class View {
    * @param {string} output The output of the command to write to the terminal.
    * @returns {void}
    */
-  displayTerminalCmdOutput(output: string): void {
-    this.terminal.writeOutput(output);
+  displayTerminalCmdOutput(output: string, failed = false): void {
+    this.terminal.writeOutput(output, failed);
   }
 
   /**

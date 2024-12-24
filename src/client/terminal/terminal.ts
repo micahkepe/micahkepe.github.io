@@ -5,6 +5,7 @@ import { TermThemes } from "./themes";
 import { getTemplate } from "../../utils";
 import { WebLinksAddon } from "@xterm/addon-web-links";
 import { SearchAddon } from "@xterm/addon-search";
+import { LigaturesAddon } from "@xterm/addon-ligatures";
 import { AnsiCodes } from "../../ansi-codes";
 
 /**
@@ -19,6 +20,7 @@ export class TerminalComponent extends HTMLElement {
   private terminal: Terminal | null = null;
   private fitAddon: FitAddon | null = null;
   private searchAddon: SearchAddon | null = null;
+  private ligaturesAddon: LigaturesAddon | null = null;
   private controller: AbortController | null = null;
   private shadow: ShadowRoot;
   private static template: HTMLTemplateElement;
@@ -59,10 +61,15 @@ export class TerminalComponent extends HTMLElement {
       theme: CatpuccinMochaTheme,
       fontFamily: "JetBrains Mono",
       cols: 80,
+      allowProposedApi: true,
     });
 
+    // xterm addons
+    // See: https://github.com/xtermjs/xterm.js/tree/master/addons
     this.fitAddon = new FitAddon();
     this.searchAddon = new SearchAddon();
+    this.ligaturesAddon = new LigaturesAddon();
+
     terminal.loadAddon(this.fitAddon);
     terminal.loadAddon(new WebLinksAddon());
     terminal.loadAddon(this.searchAddon);
@@ -73,7 +80,9 @@ export class TerminalComponent extends HTMLElement {
     if (!container) throw new Error("Terminal container not found");
 
     terminal.open(container);
+
     this.fitAddon.fit();
+    terminal.loadAddon(this.ligaturesAddon);
 
     // start sessionStorage to track commands
     //sessionStorage.setItem("cmdHistory", "");
@@ -123,11 +132,19 @@ export class TerminalComponent extends HTMLElement {
         const event = new CustomEvent("clearTerminalEvent");
         document.dispatchEvent(event);
       } else if (domEvent.ctrlKey && domEvent.key === "c") {
-        // Pseudo SIGINT signal
+        // Pseudo-SIGINT signal
         // NOTE: in a real terminal, this would send a signal to the running
         // process to terminate it over the network
+        if (input === "") {
+          return;
+        }
+        // Append ^C to end of line with background and go to next line if
+        // input is non-empty
+        this.terminal.write(
+          `${AnsiCodes.BackgroundBlue}^C${AnsiCodes.Reset}\r\n`,
+        );
         input = "";
-        this.writeOutput("\n^C");
+        this.prompt();
       } else if (domEvent.ctrlKey && domEvent.key === "u") {
         // Clear the current line
         input = "";
@@ -198,20 +215,15 @@ export class TerminalComponent extends HTMLElement {
    * @private
    * @returns {void}
    */
-  private prompt(pwd = this.pwd, succeeded = true): void {
+  private prompt(prevCmdFailed = false): void {
     if (!this.terminal) return;
 
     let prepend: string;
 
-    if (succeeded) {
-      prepend = `${AnsiCodes.BoldGreen}→${AnsiCodes.Reset}`;
-    } else {
+    if (prevCmdFailed) {
       prepend = `${AnsiCodes.BoldRed}→${AnsiCodes.Reset}`;
-    }
-
-    // Update the current working directory if it has changed
-    if (pwd !== this.pwd) {
-      this.pwd = pwd;
+    } else {
+      prepend = `${AnsiCodes.BoldGreen}→${AnsiCodes.Reset}`;
     }
 
     // A dupe of the `bobbyrussell` Oh-my-zsh theme
@@ -261,9 +273,9 @@ export class TerminalComponent extends HTMLElement {
    * @param {string} output The output of the command to write to the terminal.
    * @returns {void}
    */
-  writeOutput(output: string): void {
+  writeOutput(output: string, prevCmdFailed = false): void {
     if (output.trim() === "") {
-      this.prompt();
+      this.prompt(prevCmdFailed);
       return;
     }
 
@@ -271,7 +283,7 @@ export class TerminalComponent extends HTMLElement {
     lines.forEach((line) => {
       this.terminal?.writeln(line.trimEnd()); // Trim excess spaces and write each line
     });
-    this.prompt();
+    this.prompt(prevCmdFailed);
   }
 
   /**

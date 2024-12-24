@@ -1,23 +1,26 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 import { LocalFileSystem, findDirectory } from "../file-system";
 
 export const rmCommand: Command = {
   command: "rm",
   args: ["<file|directory>"],
   description: "Remove a file or directory",
-  execute: (args?: string[], fileSystem?: LocalFileSystem): string | null => {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): CommandResult => {
     if (!fileSystem || !fileSystem.currentPath) {
-      return "File system not initialized.";
+      return { output: "rm: file system not initialized.", failed: true };
     }
 
     if (!args || args.length === 0) {
-      return "Usage: rm [-r] <file|directory>";
+      return { output: "Usage: rm [-r] <file|directory>", failed: true };
     }
 
     const currentDir = findDirectory(fileSystem.root, fileSystem.currentPath);
 
     if (!currentDir) {
-      return `Current directory not found: ${fileSystem.currentPath}`;
+      return {
+        output: `Current directory not found: ${fileSystem.currentPath}`,
+        failed: true,
+      };
     }
 
     // Determine the target name, handling flags
@@ -28,7 +31,10 @@ export const rmCommand: Command = {
     );
 
     if (targetIndex === -1) {
-      return `rm: ${targetName}: no such file or directory`;
+      return {
+        output: `rm: ${targetName}: no such file or directory`,
+        failed: true,
+      };
     }
 
     const target = currentDir.children[targetIndex];
@@ -36,12 +42,15 @@ export const rmCommand: Command = {
     // Handle directories
     if ("children" in target && target.children) {
       if (target.children.length > 0 && args[0] !== "-r") {
-        return `rm: Directory not empty: ${targetName}, use -r to remove`;
+        return {
+          output: `rm: Directory not empty: ${targetName}, use -r to remove`,
+          failed: true,
+        };
       }
     }
 
     // Remove the file or directory
     currentDir.children.splice(targetIndex, 1);
-    return null;
+    return { output: null };
   },
 };

@@ -10,7 +10,7 @@ export const AnsiCodes = {
   Black: "\x1B[0;30m",
   Red: "\x1B[0;31m",
   Green: "\x1B[0;32m",
-  Yellow: "\x1B[0;33m",
+  Yellow: "\x1B[0;93m",
   Blue: "\x1B[0;34m",
   Purple: "\x1B[0;35m",
   Cyan: "\x1B[0;36m",

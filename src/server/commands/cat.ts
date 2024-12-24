@@ -1,4 +1,4 @@
-import { Command } from "../mock-server";
+import { Command, CommandResult } from "../mock-server";
 import { File, LocalFileSystem, findDirectory } from "../file-system";
 
 /**
@@ -18,13 +18,13 @@ export const catCommand: Command = {
   command: "cat",
   args: ["<file>"],
   description: "Display the contents of a file",
-  execute: (args?: string[], fileSystem?: LocalFileSystem): string => {
+  execute: (args?: string[], fileSystem?: LocalFileSystem): CommandResult => {
     if (!fileSystem || !fileSystem.currentPath) {
-      return "File system not initialized.";
+      return { output: "cat: file system not initialized.", failed: true };
     }
 
     if (!args || args.length === 0) {
-      return "Usage: cat <file>";
+      return { output: "Usage: cat <file>", failed: true };
     }
 
     const targetPath = args[0];
@@ -46,7 +46,7 @@ export const catCommand: Command = {
     const parentDir = findDirectory(fileSystem.root, parentDirPath);
 
     if (!parentDir) {
-      return `Directory not found: ${parentDirPath}`;
+      return { output: `Directory not found: ${parentDirPath}`, failed: true };
     }
 
     // Find the file in the resolved directory
@@ -56,10 +56,10 @@ export const catCommand: Command = {
     );
 
     if (!targetFile) {
-      return `File not found: ${targetPath}`;
+      return { output: `File not found: ${targetPath}`, failed: true };
     }
 
     // Ensure the content is displayed cleanly without extra spacing
-    return targetFile.content.trim();
+    return { output: targetFile.content.trim() };
   },
 };

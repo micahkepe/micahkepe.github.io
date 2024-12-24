@@ -1,5 +1,5 @@
 import { ChangeDirectoryEvent, View } from "./view";
-import { MockServer } from "./server/mock-server";
+import { MockServer, CommandResult } from "./server/mock-server";
 import "./client/terminal/terminal.ts";
 
 /**
@@ -18,10 +18,13 @@ function main(): void {
     function (event: CustomEvent): Promise<void> {
       return server
         .executeCommand(event.detail.input)
-        .then((response: string) => {
-          view.displayTerminalCmdOutput(response);
+        .then((result: CommandResult) => {
+          view.displayTerminalCmdOutput(
+            result.output ? result.output : "",
+            result.failed,
+          );
         })
-        .catch((error: string) => view.displayTerminalCmdOutput(error));
+        .catch((error: string) => view.displayTerminalCmdOutput(error, true));
     },
   );
 
