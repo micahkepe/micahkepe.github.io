@@ -6,6 +6,7 @@ import { WebLinksAddon } from "@xterm/addon-web-links";
 import { SearchAddon } from "@xterm/addon-search";
 import { LigaturesAddon } from "@xterm/addon-ligatures";
 import { AnsiCodes } from "../../ansi-codes";
+import config from "../../../config.json";
 
 /**
  * Represents a terminal emulator that provides a command-line interface to the
@@ -36,6 +37,9 @@ export class TerminalComponent extends HTMLElement {
   }
 
   connectedCallback() {
+    this.controller = new AbortController();
+    const options = { signal: this.controller.signal };
+
     this.initializeTerminal()
       .then((terminal) => {
         this.terminal = terminal;
@@ -46,9 +50,13 @@ export class TerminalComponent extends HTMLElement {
         console.error(error);
       });
 
-    document.addEventListener("resize", () => {
-      this.fitAddon?.fit();
-    });
+    document.addEventListener(
+      "resize",
+      () => {
+        this.fitAddon?.fit();
+      },
+      options,
+    );
   }
 
   /**
@@ -60,7 +68,7 @@ export class TerminalComponent extends HTMLElement {
     const terminal = new Terminal({
       cursorBlink: true,
       cursorStyle: "bar",
-      theme: TermThemes.get("Dracula"),
+      theme: TermThemes.get(config.default_theme) || TermThemes.get("Dracula"),
       fontFamily: "JetBrains Mono",
       cols: 80,
       allowProposedApi: true,
@@ -95,7 +103,8 @@ export class TerminalComponent extends HTMLElement {
   /**
    * Handles user input on the prompt line. On hitting "Enter", if the input is
    * non-empty, a custom event is dispatched for handling server-side. Currently
-   * does not support command history navigation or Tab completion.
+   * does not support command history navigation or Tab completion. Commands are
+   * handled "blindly"- all commands are dispatched with custom events.
    * @private
    * @returns {void}
    */
@@ -183,6 +192,8 @@ export class TerminalComponent extends HTMLElement {
 
   disconnectedCallback() {
     this.controller?.abort();
+    this.controller = null;
+
     this.terminal?.dispose();
   }
 

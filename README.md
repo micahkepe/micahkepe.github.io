@@ -14,7 +14,7 @@ interested in v1? live site [here](https://v1.micahkepe.com/), repo
 - [ ] Arrow navigation (command history, input, etc.)
 - [x] Most common Unix commands (ls, cat, etc.)
 - [x] File navigation with `cd`
-- [ ] `theme` command to change theme
+- [x] `theme` command to change theme
 - [ ] Syntax highlighting/ Markdown rendering (no more external libs!)
 - [ ] Handle TABs (autocomplete, cycle through files, etc.)
 - [x] Show current path in terminal prompt

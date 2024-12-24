@@ -83,7 +83,7 @@ export const SolarizedDark: ITheme = {
  * The available themes for the terminal emulator.
  */
 export const TermThemes: Map<string, ITheme> = new Map([
-  ["Catpuccin Mocha", CatpuccinMochaTheme],
+  ["CatpuccinMocha", CatpuccinMochaTheme],
   ["Dracula", DraculaTheme],
-  ["Solarized Dark", SolarizedDark],
+  ["SolarizedDark", SolarizedDark],
 ]);

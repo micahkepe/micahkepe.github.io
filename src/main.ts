@@ -1,4 +1,4 @@
-import { ChangeDirectoryEvent, View } from "./view";
+import { ChangeTerminalThemeEvent, ChangeDirectoryEvent, View } from "./view";
 import { MockServer, CommandResult } from "./server/mock-server";
 import "./client/terminal/terminal.ts";
 
@@ -36,6 +36,14 @@ function main(): void {
     "changeDirectoryEvent",
     function (event: CustomEvent<ChangeDirectoryEvent>): void {
       view.setTerminalPwd(event.detail.newPwd);
+    },
+  );
+
+  document.addEventListener(
+    "changeTerminalThemeEvent",
+    function (event: CustomEvent<ChangeTerminalThemeEvent>): void {
+      const theme = event.detail.theme;
+      view.changeTerminalTheme(theme);
     },
   );
 }

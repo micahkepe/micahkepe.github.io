@@ -7,6 +7,7 @@ import { whoamiCommand } from "./whoami";
 import { pwdCommand } from "./pwd";
 import { rmCommand } from "./rm";
 import { cdCommand } from "./cd";
+import { themeCommand } from "./theme";
 
 /**
  * List of all available commands. This list is used to generate the help command.
@@ -24,4 +25,5 @@ export const commands: Command[] = [
   pwdCommand,
   rmCommand,
   cdCommand,
+  themeCommand,
 ];

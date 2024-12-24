@@ -13,7 +13,7 @@ export const helpCommand: Command = {
         (cmd) =>
           `\t${AnsiCodes.BoldCyan}${cmd.command}${AnsiCodes.Reset}${generateSpacerString(
             10 - cmd.command.length,
-          )}- ${cmd.description || "No description available"}`,
+          )}- ${cmd.description || "No description available"} ${cmd.opts?.length ? `(Opts: ${cmd.opts.join(", ")})` : ""}`,
       )
       .join("\n");
 

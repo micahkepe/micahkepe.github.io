@@ -23,6 +23,13 @@ export type ChangeDirectoryEvent = {
 };
 
 /**
+ * When the user executes the `theme` command in the terminal
+ */
+export type ChangeTerminalThemeEvent = {
+  theme: string;
+};
+
+/**
  * Custom event mappings.
  */
 declare global {
@@ -30,6 +37,7 @@ declare global {
     terminalInputEvent: CustomEvent<TerminalInputEvent>;
     clearTerminalEvent: CustomEvent<ClearTerminalEvent>;
     changeDirectoryEvent: CustomEvent<ChangeDirectoryEvent>;
+    changeTerminalThemeEvent: CustomEvent<ChangeTerminalThemeEvent>;
   }
 }
 
@@ -87,5 +95,9 @@ export class View {
    */
   clearTerminalBuffer(): void {
     this.terminal.clearBuffer();
+  }
+
+  changeTerminalTheme(theme: string): void {
+    this.terminal.changeTheme(theme);
   }
 }
