@@ -1,6 +1,7 @@
 import { FC } from "react";
 import ProjectComponent from "../content/ProjectComponent";
 import { motion, useAnimation } from "framer-motion";
+import { render } from "@testing-library/react";
 
 /**
  * Interface for a project component. Each project has a title, description,
@@ -27,6 +28,18 @@ interface IProject {
 const Projects: FC = () => {
   const projects: IProject[] = [
     {
+      image: "/assets/term-website.png",
+      title: "Terminal Website",
+      description:
+        "A configurable, minimalist, and stateless terminal website \
+      with backend shell mocking, custom theming, and more. The terminal \
+      component can be extended to include custom commands, scripts, or be \
+      reused as a standalone component that can be embedded in any website, be \
+      connected to a backend, or be used as a standalone terminal.",
+      link: "https://github.com/micahkepe/term-website",
+      skills: ["TypeScript", "Xterm.js", "Open Source"],
+    },
+    {
       image: "/assets/radion.png",
       title: "radion Zola Theme",
       description:
@@ -52,27 +65,6 @@ const Projects: FC = () => {
       showStars: true,
       githubOwnerRepo: "micahkepe/vimtutor-sequel",
     },
-    {
-      image: "/assets/new-york-map.webp",
-      title: "NYC Car Crash Analysis Project",
-      description:
-        "A collaborative project associated with STAT 405 (R for Data Science\
-        ) at Rice University with the goal of analyzing car crash data in New \
-        York City. The project aims to create meaningful visualizations and \
-        models to understand the factors that contribute to car crashes in NYC\
-        . The project also contains an interactive Shiny app that allows \
-        users to explore the data.",
-      link: "https://github.com/micahkepe/stat405project",
-      skills: ["R", "Data Analysis", "Data Visualization"],
-    },
-    {
-      image: "/assets/artist-emulator-teaser.webp",
-      title: "Artist Emulator LSTM",
-      description:
-        "A deep learning model that can generate music in the style of a given artist. The model is a Long Short-Term Memory (LSTM) neural network trained on MIDI files of Bach compositions as a proof-of-concept. The model is capable of generating music in the style of Bach, and the architecture can be extended to other artists.",
-      link: "https://github.com/micahkepe/artist-emulator",
-      skills: ["Python", "TensorFlow", "Keras", "Music21", "MIDI"],
-    },
   ];
 
   const controls = useAnimation();
@@ -81,8 +73,8 @@ const Projects: FC = () => {
     <section id="projects">
       <article className="project-content pt-0 sm:pt-8">
         <section className="">
-          {projects.map((project: IProject, index: number) => (
-            <ProjectComponent key={index} {...project} />
+          {projects.map((project: IProject) => (
+            <ProjectComponent {...project} />
           ))}
         </section>
         <motion.div

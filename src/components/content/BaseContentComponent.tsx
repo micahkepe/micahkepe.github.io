@@ -11,14 +11,14 @@ function BaseContentComponent({
   children,
 }: {
   leftSideContent: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <article className="flex flex-col sm:flex-row rounded-md p-3 mb-6 hover:bg-white/5 hover:shadow-md transition-colors">
       <section className="flex-shrink-0 font-semibold text-slate text-xs uppercase mb-4 sm:mb-0 sm:mr-4">
         {leftSideContent}
       </section>
-      <section>{children}</section>
+      <section>{children || "No content"}</section>
     </article>
   );
 }
