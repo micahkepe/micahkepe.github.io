@@ -12,7 +12,6 @@ updates and is being developed to showcase my portfolio and provide information 
 - [Features](#features)
 - [Using Codebase As Template](#using-codebase-as-template)
 - [Deployment](#deployment)
-- [Usage and Attribution](#usage-and-attribution)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -43,66 +42,40 @@ git clone https://github.com/micahkepe/micahkepe.github.io.git
 cd micahkepe.github.io
 ```
 
-3. Initialize and update the submodules (for the Zola theme):
-
-```bash
-git submodule init
-git submodule update
-```
-
-4. Install the dependencies:
+3. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-5. Start the development server:
+4. Start the development server:
 
 ```bash
 npm start
 ```
 
-Of course make sure to change out info, work, etc.
+Make sure to update the content in the `src/components/views` directory with your
+information, projects, etc.
 
 ## Deployment
 
 To deploy this website to GitHub Pages, follow these steps:
 
-1. Update the `homepage` field in the `package.json` file with your GitHub Pages URL:
-
-```json
-"homepage": "https://<your-username>.github.io/micahkepe.github.io"
-```
-
-2. Build the project:
-
-```bash
-npm run build
-```
-
-3. Deploy the project to GitHub Pages:
+1. Deploy the project to GitHub Pages:
 
 ```bash
 npm run deploy
 ```
 
-Part of the deployment script is building the Zola blog. If you don't want to
-build the blog, you can remove the ` && npm run build:blog` command from end of
-the `deploy` script in the `package.json` file.
+This command will clean the current build, build the project, and deploy the
+website to the `gh-pages` branch using the `gh-pages` package.
 
-4. Visit your GitHub Pages URL to view your deployed website.
-
-Make sure to update the content in the `src/components/views` directory with your
-information, projects, and blog posts. Additionally, remove or replace the content
-in the `blog/content` directory with your own blog posts. You can also update the
-theme using a different Zola theme or create your own.
-
-## Usage and Attribution
-
-If you decide to use my website code, please give me credit by linking back to
-this repository or mentioning my name. It's important to respect the effort and
-'work of developers. Any use of this code without proper attribution is not
-endorsed.
+2. Visit your GitHub Pages URL to view your deployed website. You can also
+   configure a custom domain for your website. If you visit the "Actions" tab
+   in your repository, you can see the deployment logs and status. The current
+   deployment workflow is set up to check that the ode is formatted, linted, and
+   can be built before deploying, and can be manually triggered via running
+   the `deploy` workflow.
 
 ## Contributing
 
@@ -115,8 +88,3 @@ If you are interested in contributing to the Zola blog theme, see the repository
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-Thank you for visiting my personal website repository! Feel free to explore the
-code and check back later for updates.
