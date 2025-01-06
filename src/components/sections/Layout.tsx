@@ -11,11 +11,11 @@ import Footer from "./Footer";
 
 /**
  * Layout component that displays the main sections of the website.
-  * The layout is split into two columns: a left column with a quick about,
-  * socials, and a toggle section, and a right column with the main sections.
-  * The right column is scrollable on smaller screens.
-  * The layout also highlights the active section based on the scroll position.
-  */
+ * The layout is split into two columns: a left column with a quick about,
+ * socials, and a toggle section, and a right column with the main sections.
+ * The right column is scrollable on smaller screens.
+ * The layout also highlights the active section based on the scroll position.
+ */
 const Layout: FC = () => {
   const sections: string[] = [
     "About",

@@ -26,8 +26,8 @@ interface IProject {
 }
 
 /**
-* Projects component that displays a list of projects with optional fields.
-*/
+ * Projects component that displays a list of projects with optional fields.
+ */
 const Projects: FC = () => {
   const projects: IProject[] = [
     {
