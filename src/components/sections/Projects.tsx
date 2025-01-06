@@ -1,7 +1,6 @@
 import { FC } from "react";
 import ProjectComponent from "../content/ProjectComponent";
 import { motion, useAnimation } from "framer-motion";
-import { render } from "@testing-library/react";
 
 /**
  * Interface for a project component. Each project has a title, description,
@@ -22,9 +21,13 @@ interface IProject {
   link: string;
   skills: string[];
   showStars?: boolean;
+  showForks?: boolean;
   githubOwnerRepo?: string;
 }
 
+/**
+* Projects component that displays a list of projects with optional fields.
+*/
 const Projects: FC = () => {
   const projects: IProject[] = [
     {
@@ -37,6 +40,9 @@ const Projects: FC = () => {
       reused as a standalone component that can be embedded in any website, be \
       connected to a backend, or be used as a standalone terminal.",
       link: "https://github.com/micahkepe/term-website",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/term-website",
       skills: ["TypeScript", "Xterm.js", "Open Source"],
     },
     {
@@ -48,6 +54,9 @@ const Projects: FC = () => {
         use. It features a clean, modern design with a focus on typography \
         and readability. Includes light/dark mode, enhanced code blocks,\
         custom shortcodes, and more. ",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/radion",
       link: "https://github.com/micahkepe/radion",
       skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
     },
@@ -63,6 +72,7 @@ const Projects: FC = () => {
       link: "https://formulae.brew.sh/formula/vimtutor-sequel",
       skills: ["Vim", "Shell Scripting", "Homebrew"],
       showStars: true,
+      showForks: true,
       githubOwnerRepo: "micahkepe/vimtutor-sequel",
     },
   ];
