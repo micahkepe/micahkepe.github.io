@@ -31,6 +31,21 @@ interface IProject {
 const Projects: FC = () => {
   const projects: IProject[] = [
     {
+      image: "/assets/vim.webp",
+      title: "Vimtutor Sequel",
+      description:
+        "Vimtutor Sequel is designed to continue your Vim education from where \
+        the original vimtutor left off.The project is a series of lessons \
+        that cover more advanced topics in Vim, such as macros, registers, \
+        and plugins.The lessons are designed to be interactive and engaging, \
+        with exercises to reinforce learning.",
+      link: "https://formulae.brew.sh/formula/vimtutor-sequel",
+      skills: ["Vim", "Shell Scripting", "Homebrew"],
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/vimtutor-sequel",
+    },
+    {
       image: "/assets/term-website.png",
       title: "Terminal Website",
       description:
@@ -54,26 +69,8 @@ const Projects: FC = () => {
         use. It features a clean, modern design with a focus on typography \
         and readability. Includes light/dark mode, enhanced code blocks,\
         custom shortcodes, and more. ",
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/radion",
       link: "https://github.com/micahkepe/radion",
       skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
-    },
-    {
-      image: "/assets/vim.webp",
-      title: "Vimtutor Sequel",
-      description:
-        "Vimtutor Sequel is designed to continue your Vim education from where \
-        the original vimtutor left off.The project is a series of lessons \
-        that cover more advanced topics in Vim, such as macros, registers, \
-        and plugins.The lessons are designed to be interactive and engaging, \
-        with exercises to reinforce learning.",
-      link: "https://formulae.brew.sh/formula/vimtutor-sequel",
-      skills: ["Vim", "Shell Scripting", "Homebrew"],
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/vimtutor-sequel",
     },
   ];
 
