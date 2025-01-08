@@ -23,9 +23,10 @@ function ToggleSection({
   };
 
   return (
-    <nav className="flex flex-col">
+    <nav className="flex flex-col" aria-label="Sections">
       {sections.map((section) => (
-        <article
+        <button
+          aria-label={section}
           key={section}
           className="flex items-center mb-3 cursor-pointer text-sm font-semibold"
           onClick={() => onSectionClick(section)}
@@ -38,8 +39,10 @@ function ToggleSection({
                 ? "w-12"
                 : "w-8"
             }`}
+            aira-hidden="true"
           ></p>
           <span
+            aria-hidden="true"
             className={`${
               activeSection === section || hoveredSection === section
                 ? "text-white"
@@ -48,7 +51,7 @@ function ToggleSection({
           >
             ⸻ {section.toUpperCase()}
           </span>
-        </article>
+        </button>
       ))}
     </nav>
   );
