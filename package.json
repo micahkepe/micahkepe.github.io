@@ -56,7 +56,7 @@
     "@svgr/cli": "^8.0.1",
     "@tailwindcss/typography": "^0.5.16",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
-    "@typescript-eslint/parser": "^8.19.0",
+    "@typescript-eslint/parser": "^8.22.0",
     "@xterm/xterm": "^5.5.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.0.0",
