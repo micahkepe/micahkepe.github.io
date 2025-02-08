@@ -9,6 +9,22 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/browserconfig.xml">
 
+
+  <!-- Content Security Policy (CSP) -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' https://trusted.cdn.com https://www.googletagmanager.com;
+             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+             font-src 'self' https://fonts.gstatic.com;
+             img-src 'self' data:;
+             object-src 'none';
+             connect-src 'self' https://api.github.com https://micahkepe.com;
+             frame-src 'self';
+             media-src 'self';">
+
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <!-- SEO Meta Tags -->
   <title>Micah Kepe</title>
   <meta name="description"

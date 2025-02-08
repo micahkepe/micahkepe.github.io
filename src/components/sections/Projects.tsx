@@ -81,7 +81,17 @@ const Projects: FC = () => {
       <article className="project-content pt-0 sm:pt-8">
         <section className="">
           {projects.map((project: IProject) => (
-            <ProjectComponent {...project} />
+            <ProjectComponent
+              key={project.title}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+              skills={project.skills}
+              showStars={project.showStars}
+              showForks={project.showForks}
+              githubOwnerRepo={project.githubOwnerRepo}
+            />
           ))}
         </section>
         <motion.div

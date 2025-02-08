@@ -7,6 +7,7 @@ import { motion, useAnimation } from "framer-motion";
  * description, link, skills, and optional fields for showing stars and forks.
  */
 export interface ProjectComponentProps {
+  key: string;
   image: string;
   title: string;
   description: string;
@@ -48,16 +49,28 @@ function ProjectComponent({
   react.useEffect(() => {
     if (showStars && githubOwnerRepo) {
       fetch(`https://api.github.com/repos/${githubOwnerRepo}`)
-        .then((response) => response.json())
-        .then((data) => setStars(data.stargazers_count));
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`GitHub API responded with ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => setStars(data.stargazers_count))
+        .catch((error) => console.error("GitHub API Error:", error));
     }
   }, [showStars, githubOwnerRepo]);
 
   react.useEffect(() => {
     if (showForks && githubOwnerRepo) {
       fetch(`https://api.github.com/repos/${githubOwnerRepo}`)
-        .then((response) => response.json())
-        .then((data) => setForks(data.forks_count));
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`GitHub API responded with ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => setForks(data.forks_count))
+        .catch((error) => console.error("GitHub API Error:", error));
     }
   }, [showForks, githubOwnerRepo]);
 
