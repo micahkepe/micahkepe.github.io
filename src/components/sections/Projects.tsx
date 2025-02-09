@@ -70,6 +70,9 @@ const Projects: FC = () => {
         and readability. Includes light/dark mode, enhanced code blocks,\
         custom shortcodes, and more. ",
       link: "https://github.com/micahkepe/radion",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/radion",
       skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
     },
   ];
