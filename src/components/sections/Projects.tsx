@@ -63,16 +63,17 @@ const Projects: FC = () => {
     {
       image: "/assets/quantum-computing-handbook.png",
       title: "Quantum Computing Algorithms Handbook",
-      description: "Structured and comprehensive LaTeX notes covering the \
-      material from the Rice University course \"COMP 458/558: Quantum  \
-      Computing Algorithms.\" A free and open resource for anyone looking to  \
+      description:
+        'Structured and comprehensive LaTeX notes covering the \
+      material from the Rice University course "COMP 458/558: Quantum  \
+      Computing Algorithms." A free and open resource for anyone looking to  \
       learn about quantum computing algorithms.Includes exercises, complete  \
-      proofs, and coding snippets in Cirq and TensorFlow Quantum.",
+      proofs, and coding snippets in Cirq and TensorFlow Quantum.',
       link: "https://micahkepe.com/comp458-notes/",
       showStars: true,
       showForks: true,
       githubOwnerRepo: "micahkepe/comp458-notes",
-      skills: ["LaTeX", "Quantum Computing", "Circ", "TensorFlow Quantum"]
+      skills: ["LaTeX", "Quantum Computing", "Cirq", "TensorFlow Quantum"],
     },
     {
       image: "/assets/radion.png",
