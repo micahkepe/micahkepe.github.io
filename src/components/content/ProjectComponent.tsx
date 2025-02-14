@@ -145,7 +145,7 @@ function ProjectComponent({
         )}
         {showForks && forks !== null && (
           <a
-            href={"https://github.com/" + githubOwnerRepo}
+            href={"https://github.com/" + githubOwnerRepo + "/forks"}
             rel="noreferrer noopener"
             target="_blank"
           >
