@@ -54,7 +54,7 @@ const Projects: FC = () => {
       component can be extended to include custom commands, scripts, or be \
       reused as a standalone component that can be embedded in any website, be \
       connected to a backend, or be used as a standalone terminal.",
-      link: "https://github.com/micahkepe/term-website",
+      link: "https://term.micahkepe.com/",
       showStars: true,
       showForks: true,
       githubOwnerRepo: "micahkepe/term-website",
@@ -84,7 +84,7 @@ const Projects: FC = () => {
         use. It features a clean, modern design with a focus on typography \
         and readability. Includes light/dark mode, enhanced code blocks,\
         custom shortcodes, and more. ",
-      link: "https://github.com/micahkepe/radion",
+      link: "https://www.getzola.org/themes/radion/",
       showStars: true,
       showForks: true,
       githubOwnerRepo: "micahkepe/radion",
