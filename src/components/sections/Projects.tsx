@@ -46,21 +46,6 @@ const Projects: FC = () => {
       githubOwnerRepo: "micahkepe/vimtutor-sequel",
     },
     {
-      image: "/assets/term-website.png",
-      title: "Terminal Website",
-      description:
-        "A configurable, minimalist, and stateless terminal website \
-      with backend shell mocking, custom theming, and more. The terminal \
-      component can be extended to include custom commands, scripts, or be \
-      reused as a standalone component that can be embedded in any website, be \
-      connected to a backend, or be used as a standalone terminal.",
-      link: "https://term.micahkepe.com/",
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/term-website",
-      skills: ["TypeScript", "Xterm.js", "Open Source"],
-    },
-    {
       image: "/assets/quantum-computing-handbook.png",
       title: "Quantum Computing Algorithms Handbook",
       description:
@@ -89,6 +74,21 @@ const Projects: FC = () => {
       showForks: true,
       githubOwnerRepo: "micahkepe/radion",
       skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
+    },
+    {
+      image: "/assets/term-website.png",
+      title: "Terminal Website",
+      description:
+        "A configurable, minimalist, and stateless terminal website \
+      with backend shell mocking, custom theming, and more. The terminal \
+      component can be extended to include custom commands, scripts, or be \
+      reused as a standalone component that can be embedded in any website, be \
+      connected to a backend, or be used as a standalone terminal.",
+      link: "https://github.com/micahkepe/term-website",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/term-website",
+      skills: ["TypeScript", "Xterm.js", "Open Source"],
     },
   ];
 
