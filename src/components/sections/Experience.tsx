@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 const Experience: FC = () => {
   const experiences = [
     {
-      date: "Feb 2024 - Present",
+      date: "Feb 2024 - Aug 2024",
       logo: "/assets/vislang-logo.webp",
       title: "Machine Learning Researcher | Vislang Lab @ Rice University",
       description:
