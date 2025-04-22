@@ -61,19 +61,18 @@ const Projects: FC = () => {
       skills: ["LaTeX", "Quantum Computing", "Cirq", "TensorFlow Quantum"],
     },
     {
-      image: "/assets/radion.png",
-      title: "radion Zola Theme",
+      image: "/assets/43-monkeys.png",
+      title: "43 Monkeys Game",
       description:
-        "A custom, minimalist theme for the Zola static site \
-        generator. The theme is designed to be lightweight, fast, and easy to \
-        use. It features a clean, modern design with a focus on typography \
-        and readability. Includes light/dark mode, enhanced code blocks,\
-        custom shortcodes, and more. ",
-      link: "https://www.getzola.org/themes/radion/",
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/radion",
-      skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
+        "43 Monkeys is a 2D pixel art rogue-like that blends bullet hell combat, swarm-based squad control, and permanent death into a high-stakes sci-fi escape scenario. You start as a lone monkey with a mission: break out of a top-secret biotech facility and free your fellow experiments before it’s too late.",
+      link: "https://alpha-prime-studios.itch.io/43-monkeys",
+      skills: [
+        "Godot",
+        "Game Development",
+        "GDScript",
+        "Shaders",
+        "Artificial Life Simulations",
+      ],
     },
     {
       image: "/assets/term-website.png",
@@ -89,6 +88,21 @@ const Projects: FC = () => {
       showForks: true,
       githubOwnerRepo: "micahkepe/term-website",
       skills: ["TypeScript", "Xterm.js", "Open Source"],
+    },
+    {
+      image: "/assets/radion.png",
+      title: "radion Zola Theme",
+      description:
+        "A custom, minimalist theme for the Zola static site \
+        generator. The theme is designed to be lightweight, fast, and easy to \
+        use. It features a clean, modern design with a focus on typography \
+        and readability. Includes light/dark mode, enhanced code blocks,\
+        custom shortcodes, and more. ",
+      link: "https://www.getzola.org/themes/radion/",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/radion",
+      skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
     },
   ];
 
