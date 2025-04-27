@@ -66,6 +66,8 @@ const Projects: FC = () => {
       description:
         "43 Monkeys is a 2D pixel art rogue-like that blends bullet hell combat, swarm-based squad control, and permanent death into a high-stakes sci-fi escape scenario. You start as a lone monkey with a mission: break out of a top-secret biotech facility and free your fellow experiments before it’s too late.",
       link: "https://alpha-prime-studios.itch.io/43-monkeys",
+      showStars: true,
+      githubOwnerRepo: "micahkepe/43-monkeys",
       skills: [
         "Godot",
         "Game Development",
