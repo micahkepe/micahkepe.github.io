@@ -12,11 +12,7 @@ const Experience: FC = () => {
       description:
         "Implementing high-performance streaming algorithms and domain-specific languange design for querying semi-structured data formats.",
       link: "https://kmamouras.github.io/",
-      skills: [
-        "Rust",
-        "Algorithm Design",
-        "Data Streaming"
-      ],
+      skills: ["Rust", "Algorithm Design", "Data Streaming"],
     },
     {
       date: "Feb 2024 - Aug 2024",
