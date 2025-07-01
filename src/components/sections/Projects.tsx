@@ -46,6 +46,19 @@ const Projects: FC = () => {
       githubOwnerRepo: "micahkepe/vimtutor-sequel",
     },
     {
+      image: "/assets/monkey-rs.png",
+      title: "monkey-rs",
+      description:
+        "A Rust implementation of an interpreter and REPL for the Monkey programming\
+        language. Supports a multitude of features including, but not limited to: \
+        conditionals, implicit and explicit returns, recursive functions, and closures.",
+      link: "https://github.com/micahkepe/monkey-rs",
+      skills: ["Rust", "Parsing", "Tokenization", "Language Design"],
+      showStars: false,
+      showForks: false,
+      githubOwnerRepo: "micahkepe/monkey-rs",
+    },
+    {
       image: "/assets/quantum-computing-handbook.png",
       title: "Quantum Computing Algorithms Handbook",
       description:
@@ -59,6 +72,21 @@ const Projects: FC = () => {
       showForks: true,
       githubOwnerRepo: "micahkepe/comp458-notes",
       skills: ["LaTeX", "Quantum Computing", "Cirq", "TensorFlow Quantum"],
+    },
+    {
+      image: "/assets/radion.png",
+      title: "radion Zola Theme",
+      description:
+        "A custom, minimalist theme for the Zola static site \
+        generator. The theme is designed to be lightweight, fast, and easy to \
+        use. It features a clean, modern design with a focus on typography \
+        and readability. Includes light/dark mode, enhanced code blocks,\
+        custom shortcodes, and more. ",
+      link: "https://www.getzola.org/themes/radion/",
+      showStars: true,
+      showForks: true,
+      githubOwnerRepo: "micahkepe/radion",
+      skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
     },
     {
       image: "/assets/43-monkeys.png",
@@ -75,36 +103,6 @@ const Projects: FC = () => {
         "Shaders",
         "Artificial Life Simulations",
       ],
-    },
-    {
-      image: "/assets/term-website.png",
-      title: "Terminal Website",
-      description:
-        "A configurable, minimalist, and stateless terminal website \
-      with backend shell mocking, custom theming, and more. The terminal \
-      component can be extended to include custom commands, scripts, or be \
-      reused as a standalone component that can be embedded in any website, be \
-      connected to a backend, or be used as a standalone terminal.",
-      link: "https://github.com/micahkepe/term-website",
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/term-website",
-      skills: ["TypeScript", "Xterm.js", "Open Source"],
-    },
-    {
-      image: "/assets/radion.png",
-      title: "radion Zola Theme",
-      description:
-        "A custom, minimalist theme for the Zola static site \
-        generator. The theme is designed to be lightweight, fast, and easy to \
-        use. It features a clean, modern design with a focus on typography \
-        and readability. Includes light/dark mode, enhanced code blocks,\
-        custom shortcodes, and more. ",
-      link: "https://www.getzola.org/themes/radion/",
-      showStars: true,
-      showForks: true,
-      githubOwnerRepo: "micahkepe/radion",
-      skills: ["SCSS", "Zola/Tera", "CSS", "Open Source"],
     },
   ];
 

@@ -6,6 +6,19 @@ import { motion, useAnimation } from "framer-motion";
 const Experience: FC = () => {
   const experiences = [
     {
+      date: "May 2025 - Present",
+      logo: "/assets/rice-logo-white-square.png",
+      title: "Research Assistant Intern | Rice University",
+      description:
+        "Implementing high-performance streaming algorithms and domain-specific languange design for querying semi-structured data formats.",
+      link: "https://kmamouras.github.io/",
+      skills: [
+        "Rust",
+        "Algorithm Design",
+        "Data Streaming"
+      ],
+    },
+    {
       date: "Feb 2024 - Aug 2024",
       logo: "/assets/vislang-logo.webp",
       title: "Machine Learning Research Intern | Vislang Lab @ Rice University",
