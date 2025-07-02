@@ -38,7 +38,7 @@ const Blog: FC = () => {
 
   return (
     <section id="blog">
-      <article className="blog-content pt-0 sm:pt-8 text-base text-left font-thin text-slate pr-8 pl-3">
+      <article className="blog-content pt-0 sm:pt-8 text-base text-left font-normal text-slate pr-8 pl-3">
         <br />
         <p className="indent-8">
           My &quot;secret&quot; blog is a collection of my thoughts and

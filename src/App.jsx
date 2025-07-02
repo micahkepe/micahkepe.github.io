@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Layout from "./components/sections/Layout";
 import "./App.css";
+import "./fonts.css";
 
 function App() {
   const blobRef = useRef();

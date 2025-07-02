@@ -77,7 +77,7 @@ function ExperienceComponent({
           </motion.svg>
         </a>
       </motion.div>
-      <p className="font-thin text-sm text-slate mt-4 mb-4">{description}</p>
+      <p className="font-normal text-sm text-slate mt-4 mb-4">{description}</p>
       <div>
         {skills.map((skill) => (
           <button

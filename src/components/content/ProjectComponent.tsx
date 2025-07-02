@@ -116,7 +116,7 @@ function ProjectComponent({
           </motion.svg>
         </a>
       </motion.div>
-      <p className="font-thin text-sm text-slate mt-4 mb-3">{description}</p>
+      <p className="font-normal text-sm text-slate mt-4 mb-3">{description}</p>
       <section className="flex justify-start gap-3 text-slate">
         {showStars && stars !== null && (
           <a

@@ -1,10 +1,11 @@
+/* Global CSS Styles */
 body,
 html {
   height: 100%;
   margin: 0;
   background-color: rgb(16, 23, 42);
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Helvetica, sans-serif;
   overflow: hidden;
 }
 
@@ -29,7 +30,7 @@ html {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: linear-gradient(to right, aquamarine, mediumpurple);
-  opacity: 0.1;
+  opacity: 0.01;
   filter: blur(12vmax);
   pointer-events: none;
 }
