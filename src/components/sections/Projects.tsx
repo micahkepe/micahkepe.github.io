@@ -37,8 +37,8 @@ const Projects: FC = () => {
         "Vimtutor Sequel is designed to continue your Vim education from where \
         the original vimtutor left off.The project is a series of lessons \
         that cover more advanced topics in Vim, such as macros, registers, \
-        and plugins.The lessons are designed to be interactive and engaging, \
-        with exercises to reinforce learning.",
+        and plugins. The lessons are designed to be interactive and engaging, \
+        with exercises to reinforce learning. Now in Homebrew! 🥳",
       link: "https://formulae.brew.sh/formula/vimtutor-sequel",
       skills: ["Vim", "Shell Scripting", "Homebrew"],
       showStars: true,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const QuickAbout = (): JSX.Element => {
+const QuickAbout = (): React.JSX.Element => {
   const [showOwl, setShowOwl] = useState<boolean>(false);
   const [owlSrc, setOwlSrc] = useState<string>("/assets/owlSprite.gif");
   const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth > 768);

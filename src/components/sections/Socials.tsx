@@ -5,7 +5,7 @@ import InstagramLogo from "../icons/InstagramLogo";
 import DEVCommunityLogo from "../icons/DEVCommunityLogo";
 
 interface ISocialIcon {
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   link: string;
   name: string;
 }
