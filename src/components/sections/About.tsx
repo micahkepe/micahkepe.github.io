@@ -16,7 +16,7 @@ const About: FC = () => {
           >
             Rice University
           </a>
-          , where I am dedicated to obtaining a Bachelor&apos;s in{" "}
+          , where I am dedicated to obtaining a Bachelor of Science in{" "}
           <a
             href="https://csweb.rice.edu/"
             target="_blank"
@@ -25,19 +25,9 @@ const About: FC = () => {
           >
             Computer Science
           </a>
-          . Additionally, I have chosen to pursue a Minor in{" "}
-          <a
-            href="https://ga.rice.edu/programs-study/departments-programs/engineering/data-science/data-science-minor/"
-            target="_blank"
-            rel="noreferrer"
-            className=" text-white hover:text-green"
-          >
-            Data Science{" "}
-          </a>
-          to complement my studies. Since I was a child, I have been captivated
-          by puzzles and solving problems, and the world of computer science
-          offers a vast amount of novel solutions for the problems of today and
-          the future.
+          . Since I was a child, I have been captivated by puzzles and solving
+          problems, and the world of computer science offers a vast amount of
+          novel solutions for the problems of today and the future.
         </p>
         <br />
         <p className="indent-8">
