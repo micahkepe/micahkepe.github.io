@@ -36,7 +36,6 @@ const QuickAbout = (): React.JSX.Element => {
           <p className="text-3xl">🚀</p>
         </h1>
         <p className="font-semibold text-lg mb-4">
-          Computer Science Student at&nbsp;
           <span
             className="relative"
             onMouseEnter={isDesktop ? handleMouseEnter : undefined}
@@ -67,6 +66,7 @@ const QuickAbout = (): React.JSX.Element => {
                 }}
               />
             )}
+            &nbsp;Computer Science Graduate
           </span>
         </p>
         <p className="font-semibold mb-6 mt-2 text-slate">

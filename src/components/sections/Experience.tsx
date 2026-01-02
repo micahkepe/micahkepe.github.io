@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 const Experience: FC = () => {
   const experiences = [
     {
-      date: "May 2025 - Aug 2025",
+      date: "May 2025 - Dec 2025",
       logo: "/assets/rice-logo-white-square.png",
       title: "Research Assistant Intern | Rice University",
       description:
