@@ -72,7 +72,8 @@ const BlogPostComponent: FC<{ post: IBlogPost }> = ({ post }) => {
         })}
       </p>
       <p className="mt-2 text-sm text-slate">
-        {post.summary.replace(/<[^>]*>/g, "")}
+        {new DOMParser().parseFromString(post.summary, "text/html").body
+          .textContent ?? ""}
       </p>
     </article>
   );
