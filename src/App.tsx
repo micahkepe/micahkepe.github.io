@@ -1,19 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Layout from "./components/sections/Layout";
 import "./App.css";
 import "./fonts.css";
 
 function App() {
-  const blobRef = useRef();
+  const blobRef = useRef<HTMLParagraphElement>(null);
 
-  /**
-   * This effect will move the blob to the pointer's position
-   */
   useEffect(() => {
-    const handlePointerMove = (event) => {
+    const handlePointerMove = (event: PointerEvent) => {
       const { clientX, clientY } = event;
-      blobRef.current.style.left = `${clientX}px`;
-      blobRef.current.style.top = `${clientY}px`;
+      if (blobRef.current) {
+        blobRef.current.style.left = `${clientX}px`;
+        blobRef.current.style.top = `${clientY}px`;
+      }
     };
     window.addEventListener("pointermove", handlePointerMove);
     return () => {
