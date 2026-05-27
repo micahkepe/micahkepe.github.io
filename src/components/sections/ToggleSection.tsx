@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 /**
  * Component that toggles between sections of the website.
@@ -26,6 +26,7 @@ function ToggleSection({
     <nav className="flex flex-col" aria-label="Sections">
       {sections.map((section) => (
         <button
+          type="button"
           aria-label={section}
           key={section}
           className="flex items-center mb-3 cursor-pointer text-sm font-semibold"

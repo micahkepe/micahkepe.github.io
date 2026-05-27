@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 /** Icon for Linkedin **/
 const LinkedinLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -6,6 +6,7 @@ const LinkedinLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 455 455"
     className="fill-current w-6 h-6 text-customgray transition-colors duration-300 hover:text-white"
+    aria-hidden="true"
     {...props}
   >
     <path

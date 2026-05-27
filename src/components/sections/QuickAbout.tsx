@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 const QuickAbout = (): React.JSX.Element => {
   const [showOwl, setShowOwl] = useState<boolean>(false);
@@ -36,12 +37,7 @@ const QuickAbout = (): React.JSX.Element => {
           <p className="text-3xl">🚀</p>
         </h1>
         <p className="font-semibold text-lg mb-4">
-          <span
-            className="relative"
-            onMouseEnter={isDesktop ? handleMouseEnter : undefined}
-            onMouseLeave={isDesktop ? handleMouseLeave : undefined}
-            style={{ display: "inline-block" }}
-          >
+          <span className="relative" style={{ display: "inline-block" }}>
             <a
               href="https://www.niche.com/colleges/rice-university/"
               aria-label="Rice University"
@@ -49,6 +45,8 @@ const QuickAbout = (): React.JSX.Element => {
               rel="noreferrer"
               className="no-underline hover:underline decoration-indigo-500 owl-cursor"
               style={{ display: "inline-block" }}
+              onMouseEnter={isDesktop ? handleMouseEnter : undefined}
+              onMouseLeave={isDesktop ? handleMouseLeave : undefined}
             >
               Rice University
             </a>

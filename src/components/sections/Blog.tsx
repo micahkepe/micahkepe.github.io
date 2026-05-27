@@ -1,6 +1,8 @@
-import React, { FC, useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import BlogPostComponent, { IBlogPost } from "../content/BlogPostComponent";
+import { type FC, useEffect, useState } from "react";
+import BlogPostComponent, {
+  type IBlogPost,
+} from "../content/BlogPostComponent";
 
 /** View for the blog section of the website. */
 const Blog: FC = () => {
@@ -28,8 +30,7 @@ const Blog: FC = () => {
         // Only show the latest 3 blog posts
         posts.splice(3);
         setBlogPosts(posts);
-      } catch (e) {
-        console.error("Failed to fetch blog posts: ", e);
+      } catch (_e) {
         return [];
       }
     };

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 /** View for the about section of the website. */
 const About: FC = () => {

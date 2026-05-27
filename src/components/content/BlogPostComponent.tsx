@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { motion, useAnimation } from "framer-motion";
+import type { FC } from "react";
 
 /**
  * Interface for blog post
@@ -71,10 +71,9 @@ const BlogPostComponent: FC<{ post: IBlogPost }> = ({ post }) => {
           timeZone: "UTC",
         })}
       </p>
-      <p
-        className="mt-2 text-sm text-slate"
-        dangerouslySetInnerHTML={{ __html: post.summary }}
-      ></p>
+      <p className="mt-2 text-sm text-slate">
+        {post.summary.replace(/<[^>]*>/g, "")}
+      </p>
     </article>
   );
 };

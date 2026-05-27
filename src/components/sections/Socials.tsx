@@ -1,8 +1,8 @@
-import React from "react";
-import GithubLogo from "../icons/GithubLogo";
-import LinkedinLogo from "../icons/LinkedinLogo";
-import InstagramLogo from "../icons/InstagramLogo";
+import type React from "react";
 import DEVCommunityLogo from "../icons/DEVCommunityLogo";
+import GithubLogo from "../icons/GithubLogo";
+import InstagramLogo from "../icons/InstagramLogo";
+import LinkedinLogo from "../icons/LinkedinLogo";
 
 interface ISocialIcon {
   icon: React.JSX.Element;
@@ -36,8 +36,8 @@ const Socials: React.FC = () => {
 
   return (
     <article className="flex justify-start items-center space-x-10 mt-4 pl-3 pt-1">
-      {socialsLinks.map((socialLink, index) => (
-        <section key={index} className="inline-block">
+      {socialsLinks.map((socialLink) => (
+        <section key={socialLink.name} className="inline-block">
           <a
             href={socialLink.link}
             target="_blank"

@@ -1,6 +1,6 @@
-import { FC } from "react";
-import ExperienceComponent from "../content/ExperienceComponent";
 import { motion, useAnimation } from "framer-motion";
+import type { FC } from "react";
+import ExperienceComponent from "../content/ExperienceComponent";
 
 /** View for the experience section */
 const Experience: FC = () => {
@@ -55,8 +55,8 @@ const Experience: FC = () => {
     <section id="experience">
       <article className="experience-content pt-0 sm:pt-8">
         <p className="section-placeholder"></p>
-        {experiences.slice(0, 4).map((experience, index) => (
-          <ExperienceComponent key={index} {...experience} />
+        {experiences.slice(0, 4).map((experience) => (
+          <ExperienceComponent key={experience.title} {...experience} />
         ))}
 
         <motion.div

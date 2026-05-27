@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 
 /** Icon for DEV Community */
 const DEVCommunityLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -8,6 +8,7 @@ const DEVCommunityLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 122.88 98.3"
     className="fill-current w-6 h-6 text-customgray transition-colors duration-300 hover:text-lightslate"
+    aria-hidden="true"
     {...props}
   >
     <defs>

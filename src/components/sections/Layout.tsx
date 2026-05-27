@@ -1,37 +1,43 @@
-import { FC, useState, useEffect, useRef } from "react";
-import QuickAbout from "./QuickAbout";
-import Socials from "./Socials";
+import {
+  type FC,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import About from "./About";
-import Experience from "./Experience";
-import Projects from "./Projects";
 import Blog from "./Blog";
 import Contact from "./Contact";
-import ToggleSection from "./ToggleSection";
+import Experience from "./Experience";
 import Footer from "./Footer";
+import Projects from "./Projects";
+import QuickAbout from "./QuickAbout";
+import Socials from "./Socials";
+import ToggleSection from "./ToggleSection";
 
-/**
- * Layout component that displays the main sections of the website.
- * The layout is split into two columns: a left column with a quick about,
- * socials, and a toggle section, and a right column with the main sections.
- * The right column is scrollable on smaller screens.
- * The layout also highlights the active section based on the scroll position.
- */
+const SECTIONS = ["About", "Experience", "Projects", "Blog", "Contact"];
+
 const Layout: FC = () => {
-  const sections: string[] = [
-    "About",
-    "Experience",
-    "Projects",
-    "Blog",
-    "Contact",
-  ];
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const rightColumnRef = useRef<HTMLElement>(null);
-  const sectionRefs: { [key: string]: React.RefObject<HTMLElement> } = {};
+  const aboutRef = useRef<HTMLElement>(null);
+  const experienceRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  const blogRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
 
-  sections.forEach((section) => {
-    sectionRefs[section] = useRef<HTMLElement>(null);
-  });
+  const sectionRefs = useMemo<Record<string, React.RefObject<HTMLElement>>>(
+    () => ({
+      About: aboutRef,
+      Experience: experienceRef,
+      Projects: projectsRef,
+      Blog: blogRef,
+      Contact: contactRef,
+    }),
+    [],
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,38 +50,38 @@ const Layout: FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
 
-      sections.forEach((section) => {
-        const sectionElement = sectionRefs[section].current;
-        if (sectionElement) {
-          const sectionTop = sectionElement.offsetTop;
-          const sectionHeight = sectionElement.clientHeight;
+    for (const section of SECTIONS) {
+      const sectionElement = sectionRefs[section].current;
+      if (sectionElement) {
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.clientHeight;
 
-          if (
-            scrollPosition >= sectionTop &&
-            scrollPosition < sectionTop + sectionHeight
-          ) {
-            setActiveSection(section);
-          }
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          setActiveSection(section);
         }
-      });
-    };
+      }
+    }
+  }, [sectionRefs]);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [sections, sectionRefs]);
+  }, [handleScroll]);
 
   const handleSectionClick = (section: string) => {
     sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const renderSections = () => {
-    return sections.map((section) => (
+    return SECTIONS.map((section) => (
       <section
         key={section}
         className="font-bold text-lg flex flex-col gap-5 mb-9"
@@ -102,7 +108,7 @@ const Layout: FC = () => {
         <QuickAbout />
         {windowWidth > 768 && (
           <ToggleSection
-            sections={sections}
+            sections={SECTIONS}
             activeSection={activeSection}
             onSectionClick={handleSectionClick}
           />

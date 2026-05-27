@@ -1,6 +1,7 @@
-import React, * as react from "react";
-import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
+import type React from "react";
+import * as react from "react";
+import BaseContentComponent from "./BaseContentComponent";
 
 /**
  * Interface for the project component. Each project has an image, title,
@@ -56,7 +57,7 @@ function ProjectComponent({
           return response.json();
         })
         .then((data) => setStars(data.stargazers_count))
-        .catch((error) => console.error("GitHub API Error:", error));
+        .catch((_error) => {});
     }
   }, [showStars, githubOwnerRepo]);
 
@@ -70,7 +71,7 @@ function ProjectComponent({
           return response.json();
         })
         .then((data) => setForks(data.forks_count))
-        .catch((error) => console.error("GitHub API Error:", error));
+        .catch((_error) => {});
     }
   }, [showForks, githubOwnerRepo]);
 
@@ -120,7 +121,7 @@ function ProjectComponent({
       <section className="flex justify-start gap-3 text-slate">
         {showStars && stars !== null && (
           <a
-            href={"https://github.com/" + githubOwnerRepo}
+            href={`https://github.com/${githubOwnerRepo}`}
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -132,6 +133,7 @@ function ProjectComponent({
                 strokeWidth={1.5}
                 stroke="currentColor"
                 className="w-3 h-3 mr-1"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -145,7 +147,7 @@ function ProjectComponent({
         )}
         {showForks && forks !== null && (
           <a
-            href={"https://github.com/" + githubOwnerRepo + "/forks"}
+            href={`https://github.com/${githubOwnerRepo}/forks`}
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -159,6 +161,7 @@ function ProjectComponent({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="w-5 h-5"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -175,6 +178,7 @@ function ProjectComponent({
       <section>
         {skills.map((skill) => (
           <button
+            type="button"
             key={skill}
             className="bg-teal-800 rounded px-2 py-1 text-sm font-semibold mr-2 mb-2 shadow-md shadow-black"
           >

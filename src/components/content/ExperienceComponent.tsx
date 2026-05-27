@@ -1,6 +1,6 @@
-import React from "react";
-import BaseContentComponent from "./BaseContentComponent";
 import { motion, useAnimation } from "framer-motion";
+import type React from "react";
+import BaseContentComponent from "./BaseContentComponent";
 
 /**
  * Experience component that displays a job experience with a date, logo, title,
@@ -81,6 +81,7 @@ function ExperienceComponent({
       <div>
         {skills.map((skill) => (
           <button
+            type="button"
             key={skill}
             className="bg-teal-800 rounded px-2 py-1 text-sm font-semibold mr-2 mb-2 shadow-md shadow-black"
           >

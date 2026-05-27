@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 /** View component that displays the footer of the website. */
 const Footer: React.FC = () => {

@@ -1,6 +1,6 @@
-import { FC } from "react";
-import ProjectComponent from "../content/ProjectComponent";
 import { motion, useAnimation } from "framer-motion";
+import type { FC } from "react";
+import ProjectComponent from "../content/ProjectComponent";
 
 /**
  * Interface for a project component. Each project has a title, description,

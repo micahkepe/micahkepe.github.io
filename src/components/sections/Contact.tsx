@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import type { FC } from "react";
 import LinkedinLogo from "../icons/LinkedinLogo";
 
 /** View for the contact section */
